@@ -1,8 +1,6 @@
 using Test, TestSetExtensions
-using ModelingToolkit, HomotopyContinuation
+using ModelingToolkit, SIAN, HomotopyContinuation
 using ParameterEstimation, Oscar
-
-
 include("SPE.jl")
 @testset "Run larger, slower parameter recovery tests on known ODEs" begin
 	using ParameterEstimation
@@ -527,7 +525,7 @@ include("SPE.jl")
 		#"FHD8" => ParameterEstimation.fhdn(8),
 		#"Fourier" => ParameterEstimation.FourierInterp,
 		#)
-		datasize = 11 #TODO(Orebas) magic number
+		datasize = 21 #TODO(Orebas) magic number
 
 		#stepsize = max(1, datasize ÷ 8)
 		#for i in range(1, (datasize - 2), step = stepsize)
@@ -576,26 +574,26 @@ include("SPE.jl")
 	#end
 
 	function varied_estimation_main()
-		datasize = 9
+		datasize = 21
 		solver = Vern9()
 		#solver = Rodas4P()
 		time_interval = [-0.5, 0.5]
 		for PEP in [
-			#simple(datasize, time_interval, solver),  #works
+			simple(datasize, time_interval, solver),  #works
 			lotka_volterra(datasize, time_interval, solver),  #works
-			#vanderpol(datasize, time_interval, solver),  #works
+			vanderpol(datasize, time_interval, solver),  #works
 			#biohydrogenation(datasize, time_interval, solver),  #works, but one param unidentifiable
 			#daisy_ex3(datasize, time_interval, solver),
-			#daisy_mamil3(datasize, time_interval, solver),
-			#daisy_mamil4(datasize, time_interval, solver),
+			daisy_mamil3(datasize, time_interval, solver),
+			daisy_mamil4(datasize, time_interval, solver),
 			#fitzhugh_nagumo(datasize, time_interval, solver),
 			#hiv_local(datasize, time_interval, solver),
-			#hiv(datasize, time_interval, solver),
-			#seir(datasize, time_interval, solver),
+			hiv(datasize, time_interval, solver),
+			seir(datasize, time_interval, solver),
 			#sirsforced(datasize, time_interval, Rodas5P()),
-			#slowfast(datasize, time_interval, solver),
+			slowfast(datasize, time_interval, solver),
 			#treatment(datasize, time_interval, Rodas5P()),
-			#crauste(datasize, time_interval, solver),
+			crauste(datasize, time_interval, solver),
 		]
 			analyze_parameter_estimation_problem(PEP, test_mode = true)
 		end

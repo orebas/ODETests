@@ -19,9 +19,9 @@ function SimpleParameterEstimation(model::ODESystem, measured_quantities, data_s
 	#eqns[i,3] is the additional equations we get from taking first derivatives of the measured quantities, and assuming they are
 	#equal to derivatives estimated numerically via the given interpolator.  
 	t = ModelingToolkit.get_iv(model)
-	model_eq = equations(model)
-	model_states = states(model)
-	model_ps = parameters(model)
+	model_eq = ModelingToolkit.equations(model)
+	model_states = ModelingToolkit.states(model)
+	model_ps = ModelingToolkit.parameters(model)
 
 
 	t_vector = pop!(data_sample, "t") #TODO(orebas) make it use the independent variable name
@@ -152,17 +152,17 @@ function SimpleParameterEstimation(model::ODESystem, measured_quantities, data_s
 		#println(measured_quantities)
 		#println(data_sample)
 		push!(eqns, equations_time_slice_full)
-		println("HERE")
-		println(equations_time_slice_full)
+		#println("HERE")
+		#println(equations_time_slice_full)
 
 	end
-	for i in eachindex(eqns)
-		for j in eachindex(eqns[i])
-			println()
-			println("$i, $j")
-			println(eqns[i][j])
-		end
-	end
+	#for i in eachindex(eqns)
+	#	for j in eachindex(eqns[i])
+	#		println()
+	#		println("$i, $j")
+	#		println(eqns[i][j])
+	#	end
+	#end
 	loss = typeof(eqns[1][1][1])(0)
 
 	for i in eachindex(eqns)
@@ -173,11 +173,13 @@ function SimpleParameterEstimation(model::ODESystem, measured_quantities, data_s
 			end
 		end
 	end
-	println("Loss function:", loss)
 
 	lossvars = get_variables(loss)
+	for i in eachindex(model_ps)
+		loss += model_ps[i]  * model_ps[i]* 1e-5
+	end
 
-
+	println("Loss function:", loss)
 
 	println(lossvars)
 
@@ -188,11 +190,11 @@ function SimpleParameterEstimation(model::ODESystem, measured_quantities, data_s
 	u0map = ones((length(lossvars)))
 	g = OptimizationFunction(f_expr2, AutoForwardDiff())  #or AutoZygote
 	prob = OptimizationProblem(g, u0map)
-	sol = solve(prob, Newton())  #newton was slower
+	sol = Optimization.solve(prob, LBFGS())  #newton was slower
 	println("First Version solution:")
-	println(sol)
-	println(sol.original)
-	println(sol.retcode)
+	#println(sol)
+	#println(sol.original)
+	#println(sol.retcode)
 	#########################################3
 
 	@named sys = OptimizationSystem(loss, lossvars, [])
@@ -204,12 +206,12 @@ function SimpleParameterEstimation(model::ODESystem, measured_quantities, data_s
 
 	pnull = Dict()
 	prob2 = OptimizationProblem(sys, u0dict, pnull, grad = true, hess = true)
-	@time sol2 = solve(prob2, Newton())
+	#@time sol2 = Optimization.solve(prob2, Newton())
 
-	println("Second Version solution:")
-	println(sol2)
-	println(sol2.original)
-	println(sol2.retcode)
+	#println("Second Version solution:")
+	#println(sol2)
+	#println(sol2.original)
+	#println(sol2.retcode)
 	solution_dict = Dict()
 
 	for i in eachindex(model_ps)
