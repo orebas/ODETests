@@ -1,0 +1,120 @@
+[ Info: Preproccessing `ModelingToolkit.ODESystem` object
+[ Info: Solving the problem
+[ Info: Constructing the maximal system
+[ Info: Truncating
+[ Info: Assessing local identifiability
+[ Info: Found Pivots: []
+[ Info: Locally identifiable parameters: [lm, d, beta, a, k, u, c, q, b, h, x, y, v, w, z]
+[ Info: Not identifiable parameters:     []
+[ Info: Randomizing
+[ Info: Gröbner basis computation
+[ Info: Remainder computation
+[ Info: === Summary ===
+[ Info: Globally identifiable parameters:                 [u, beta, k, lm, c, w, q, d, h, v, z, a, x, y, b]
+[ Info: Locally but not globally identifiable parameters: []
+[ Info: Not identifiable parameters:                      []
+[ Info: ===============
+[ Info: Estimating via the interpolators: ["FHD3", "AAA", "FHD8"]
+Progress:  67%|█████████████████████████████████████████████████████████████████████████████████████████▍                                            |  ETA: 0:00:12[KProgress: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| Time: 0:00:26[K
+[ Info: Preproccessing `ModelingToolkit.ODESystem` object
+[ Info: Solving the problem
+[ Info: Constructing the maximal system
+[ Info: Truncating
+[ Info: Assessing local identifiability
+[ Info: Found Pivots: []
+[ Info: Locally identifiable parameters: [a, b, x2, x1]
+[ Info: Not identifiable parameters:     []
+[ Info: Randomizing
+[ Info: Gröbner basis computation
+[ Info: Remainder computation
+[ Info: === Summary ===
+[ Info: Globally identifiable parameters:                 [b, x2, x1, a]
+[ Info: Locally but not globally identifiable parameters: []
+[ Info: Not identifiable parameters:                      []
+[ Info: ===============
+[ Info: Estimating via the interpolators: ["FHD3", "AAA", "FHD8"]
+Progress:  67%|█████████████████████████████████████████████████████████████████████████████████████████▍                                            |  ETA: 0:00:02[KProgress: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| Time: 0:00:04[K
+[ Info: Preproccessing `ModelingToolkit.ODESystem` object
+[ Info: Solving the problem
+[ Info: Constructing the maximal system
+[ Info: Truncating
+[ Info: Assessing local identifiability
+[ Info: Found Pivots: []
+[ Info: Locally identifiable parameters: [k1, k2, k3, w, r]
+[ Info: Not identifiable parameters:     []
+[ Info: Randomizing
+[ Info: Gröbner basis computation
+[ Info: Remainder computation
+[ Info: === Summary ===
+[ Info: Globally identifiable parameters:                 [k3, w, r, k1, k2]
+[ Info: Locally but not globally identifiable parameters: []
+[ Info: Not identifiable parameters:                      []
+[ Info: ===============
+[ Info: Estimating via the interpolators: ["FHD3", "AAA", "FHD8"]
+┌ Warning: Interrupted. Larger maxiters is needed. If you are using an integrator for non-stiff ODEs or an automatic switching algorithm (the default), you may want to consider using a method for stiff equations. See the solver pages for more details (e.g. https://docs.sciml.ai/DiffEqDocs/stable/solvers/ode_solve/#Stiff-Problems).
+└ @ SciMLBase ~/.julia/packages/SciMLBase/aft1j/src/integrator_interface.jl:585
+┌ Warning: Interrupted. Larger maxiters is needed. If you are using an integrator for non-stiff ODEs or an automatic switching algorithm (the default), you may want to consider using a method for stiff equations. See the solver pages for more details (e.g. https://docs.sciml.ai/DiffEqDocs/stable/solvers/ode_solve/#Stiff-Problems).
+└ @ SciMLBase ~/.julia/packages/SciMLBase/aft1j/src/integrator_interface.jl:585
+Progress:  67%|█████████████████████████████████████████████████████████████████████████████████████████▍                                            |  ETA: 0:00:03[K┌ Warning: Interrupted. Larger maxiters is needed. If you are using an integrator for non-stiff ODEs or an automatic switching algorithm (the default), you may want to consider using a method for stiff equations. See the solver pages for more details (e.g. https://docs.sciml.ai/DiffEqDocs/stable/solvers/ode_solve/#Stiff-Problems).
+└ @ SciMLBase ~/.julia/packages/SciMLBase/aft1j/src/integrator_interface.jl:585
+Progress: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| Time: 0:00:06[K
+[ Info: Preproccessing `ModelingToolkit.ODESystem` object
+[ Info: Solving the problem
+[ Info: Constructing the maximal system
+[ Info: Truncating
+[ Info: Assessing local identifiability
+[ Info: Found Pivots: []
+[ Info: Locally identifiable parameters: [a, b, x2, x1]
+[ Info: Not identifiable parameters:     []
+[ Info: Randomizing
+[ Info: Gröbner basis computation
+[ Info: Remainder computation
+[ Info: === Summary ===
+[ Info: Globally identifiable parameters:                 [b, x2, x1, a]
+[ Info: Locally but not globally identifiable parameters: []
+[ Info: Not identifiable parameters:                      []
+[ Info: ===============
+[ Info: Estimating via the interpolators: ["FHD3", "AAA", "FHD8"]
+Progress:  67%|█████████████████████████████████████████████████████████████████████████████████████████▍                                            |  ETA: 0:00:03[KProgress: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| Time: 0:00:06[K
+[ Info: Preproccessing `ModelingToolkit.ODESystem` object
+[ Info: Solving the problem
+[ Info: Constructing the maximal system
+[ Info: Truncating
+[ Info: Assessing local identifiability
+[ Info: Found Pivots: []
+[ Info: Locally identifiable parameters: [a12, a13, a21, a31, a01, x2, x3, x1]
+[ Info: Not identifiable parameters:     []
+[ Info: Randomizing
+[ Info: Gröbner basis computation
+[ Info: Remainder computation
+[ Info: === Summary ===
+[ Info: Globally identifiable parameters:                 [a01, a13, x2, x3, a31, a12, x1, a21]
+[ Info: Locally but not globally identifiable parameters: []
+[ Info: Not identifiable parameters:                      []
+[ Info: ===============
+[ Info: Estimating via the interpolators: ["FHD3", "AAA", "FHD8"]
+Progress:  67%|█████████████████████████████████████████████████████████████████████████████████████████▍                                            |  ETA: 0:00:04[KProgress: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| Time: 0:00:07[K
+[ Info: Preproccessing `ModelingToolkit.ODESystem` object
+[ Info: Solving the problem
+[ Info: Constructing the maximal system
+[ Info: Truncating
+[ Info: Assessing local identifiability
+[ Info: Found Pivots: []
+[ Info: Locally identifiable parameters: [k01, k12, k13, k14, k21, k31, k41, x3, x1, x2, x4]
+[ Info: Not identifiable parameters:     []
+[ Info: Randomizing
+[ Info: Gröbner basis computation
+[ Info: Remainder computation
+[ Info: === Summary ===
+[ Info: Globally identifiable parameters:                 [k12, k21, x1, k01, x2]
+[ Info: Locally but not globally identifiable parameters: [x4, k13, x3, k41, k14, k31]
+[ Info: Not identifiable parameters:                      []
+[ Info: ===============
+[ Info: Estimating via the interpolators: ["FHD3", "AAA", "FHD8"]
+Computing mixed cells... 11    Time: 0:00:00[K
+  mixed_volume:  15[K[A
+[K[AComputing mixed cells... 31    Time: 0:00:00[K
+  mixed_volume:  50[K
+┌ Warning: Instability detected. Aborting
+└ @ SciMLBase ~/.julia/packages/SciMLBase/aft1j/src/integrator_interface.jl:611
+Progress:  67%|█████████████████████████████████████████████████████████████████████████████████████████▍                                            |  ETA: 0:00:16[K

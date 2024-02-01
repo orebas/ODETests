@@ -1,0 +1,341 @@
+[ Info: Preproccessing `ModelingToolkit.ODESystem` object
+[ Info: Solving the problem
+[ Info: Constructing the maximal system
+[ Info: Truncating
+[ Info: Assessing local identifiability
+[ Info: Found Pivots: []
+[ Info: Locally identifiable parameters: [lm, d, beta, a, k, u, c, q, b, h, x, y, v, w, z]
+[ Info: Not identifiable parameters:     []
+[ Info: Randomizing
+[ Info: Gröbner basis computation
+[ Info: Remainder computation
+[ Info: === Summary ===
+[ Info: Globally identifiable parameters:                 [u, beta, k, lm, c, w, q, d, h, v, z, a, x, y, b]
+[ Info: Locally but not globally identifiable parameters: []
+[ Info: Not identifiable parameters:                      []
+[ Info: ===============
+[ Info: Estimating via the interpolators: ["FHD3", "AAA", "FHD8"]
+Progress:  67%|█████████████████████████████████████████████████████████████████████████████████████████▍                                            |  ETA: 0:00:16[KProgress: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| Time: 0:00:32[K
+[ Info: Preproccessing `ModelingToolkit.ODESystem` object
+[ Info: Solving the problem
+[ Info: Constructing the maximal system
+[ Info: Truncating
+[ Info: Assessing local identifiability
+[ Info: Found Pivots: []
+[ Info: Locally identifiable parameters: [a, b, x2, x1]
+[ Info: Not identifiable parameters:     []
+[ Info: Randomizing
+[ Info: Gröbner basis computation
+[ Info: Remainder computation
+[ Info: === Summary ===
+[ Info: Globally identifiable parameters:                 [b, x2, x1, a]
+[ Info: Locally but not globally identifiable parameters: []
+[ Info: Not identifiable parameters:                      []
+[ Info: ===============
+[ Info: Estimating via the interpolators: ["FHD3", "AAA", "FHD8"]
+Progress:  67%|█████████████████████████████████████████████████████████████████████████████████████████▍                                            |  ETA: 0:00:03[KProgress: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| Time: 0:00:06[K
+[ Info: Preproccessing `ModelingToolkit.ODESystem` object
+[ Info: Solving the problem
+[ Info: Constructing the maximal system
+[ Info: Truncating
+[ Info: Assessing local identifiability
+[ Info: Found Pivots: []
+[ Info: Locally identifiable parameters: [k1, k2, k3, w, r]
+[ Info: Not identifiable parameters:     []
+[ Info: Randomizing
+[ Info: Gröbner basis computation
+[ Info: Remainder computation
+[ Info: === Summary ===
+[ Info: Globally identifiable parameters:                 [k3, w, r, k1, k2]
+[ Info: Locally but not globally identifiable parameters: []
+[ Info: Not identifiable parameters:                      []
+[ Info: ===============
+[ Info: Estimating via the interpolators: ["FHD3", "AAA", "FHD8"]
+Progress:  67%|█████████████████████████████████████████████████████████████████████████████████████████▍                                            |  ETA: 0:00:03[KProgress: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| Time: 0:00:07[K
+[ Info: Preproccessing `ModelingToolkit.ODESystem` object
+[ Info: Solving the problem
+[ Info: Constructing the maximal system
+[ Info: Truncating
+[ Info: Assessing local identifiability
+[ Info: Found Pivots: []
+[ Info: Locally identifiable parameters: [a, b, x2, x1]
+[ Info: Not identifiable parameters:     []
+[ Info: Randomizing
+[ Info: Gröbner basis computation
+[ Info: Remainder computation
+[ Info: === Summary ===
+[ Info: Globally identifiable parameters:                 [b, x2, x1, a]
+[ Info: Locally but not globally identifiable parameters: []
+[ Info: Not identifiable parameters:                      []
+[ Info: ===============
+[ Info: Estimating via the interpolators: ["FHD3", "AAA", "FHD8"]
+Progress:  67%|█████████████████████████████████████████████████████████████████████████████████████████▍                                            |  ETA: 0:00:03[KProgress: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| Time: 0:00:06[K
+[ Info: Preproccessing `ModelingToolkit.ODESystem` object
+[ Info: Solving the problem
+[ Info: Constructing the maximal system
+[ Info: Truncating
+[ Info: Assessing local identifiability
+[ Info: Found Pivots: []
+[ Info: Locally identifiable parameters: [a12, a13, a21, a31, a01, x2, x3, x1]
+[ Info: Not identifiable parameters:     []
+[ Info: Randomizing
+[ Info: Gröbner basis computation
+[ Info: Remainder computation
+[ Info: === Summary ===
+[ Info: Globally identifiable parameters:                 [a01, a13, x2, x3, a31, a12, x1, a21]
+[ Info: Locally but not globally identifiable parameters: []
+[ Info: Not identifiable parameters:                      []
+[ Info: ===============
+[ Info: Estimating via the interpolators: ["FHD3", "AAA", "FHD8"]
+Progress:  67%|█████████████████████████████████████████████████████████████████████████████████████████▍                                            |  ETA: 0:00:04[KProgress: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| Time: 0:00:07[K
+[ Info: Preproccessing `ModelingToolkit.ODESystem` object
+[ Info: Solving the problem
+[ Info: Constructing the maximal system
+[ Info: Truncating
+[ Info: Assessing local identifiability
+[ Info: Found Pivots: []
+[ Info: Locally identifiable parameters: [k01, k12, k13, k14, k21, k31, k41, x3, x1, x2, x4]
+[ Info: Not identifiable parameters:     []
+[ Info: Randomizing
+[ Info: Gröbner basis computation
+[ Info: Remainder computation
+[ Info: === Summary ===
+[ Info: Globally identifiable parameters:                 [k12, k21, x1, k01, x2]
+[ Info: Locally but not globally identifiable parameters: [x4, k13, x3, k41, k14, k31]
+[ Info: Not identifiable parameters:                      []
+[ Info: ===============
+[ Info: Estimating via the interpolators: ["FHD3", "AAA", "FHD8"]
+Progress:  67%|█████████████████████████████████████████████████████████████████████████████████████████▍                                            |  ETA: 0:00:10[KFinal Results:
+Parameter(s)        :	 lm = 0.091,   d = 0.181, beta = 0.273,   a = 0.364,   k = 0.455,   u = 0.545,   c = 0.636,   q = 0.727,   b = 0.818,   h = 0.909
+Initial Condition(s):	x(t) = 0.167, y(t) = 0.333, v(t) = 0.500, w(t) = 0.667, z(t) = 0.833, where t = -0.500
+Error: 3.9855e-03
+
+Parameter(s)        :	 lm = 0.097,   d = 0.204, beta = 0.205,   a = 0.441,   k = -0.290,   u = 0.238,   c = 7.554,   q = 0.293,   b = 0.846,   h = 0.955
+Initial Condition(s):	x(t) = 0.167, y(t) = 0.095, v(t) = 0.738, w(t) = 0.667, z(t) = 0.833, where t = -0.500
+Error: 3.9878e-03
+
+Parameter(s)        :	 lm = 0.305,   d = 0.721, beta = -2.306,   a = 0.416,   k = -0.295,   u = 1.310,   c = 0.175,   q = 0.727,   b = 0.818,   h = 0.909
+Initial Condition(s):	x(t) = 0.167, y(t) = 1.213, v(t) = -0.380, w(t) = 0.667, z(t) = 0.833, where t = -0.500
+Error: 3.9882e-03
+
+Parameter(s)        :	 lm = 0.130,   d = -0.293, beta = -0.828,   a = 0.250,   k = 0.208,   u = -0.277,   c = 0.389,   q = 0.293,   b = 0.846,   h = 0.955
+Initial Condition(s):	x(t) = 0.167, y(t) = 1.855, v(t) = -1.022, w(t) = 0.667, z(t) = 0.833, where t = -0.500
+Error: 3.9884e-03
+
+Parameter(s)        :	 lm = 0.100,   d = 0.219, beta = 0.187,   a = 0.325,   k = -0.132,   u = 0.293,   c = -5.901,   q = 0.520,   b = 0.952,   h = 0.768
+Initial Condition(s):	x(t) = 0.167, y(t) = 0.007, v(t) = 0.826, w(t) = 0.667, z(t) = 0.833, where t = -0.500
+Error: 3.9897e-03
+
+Parameter(s)        :	 lm = 0.097,   d = 0.201, beta = 0.204,   a = 0.483,   k = -0.460,   u = 0.215,   c = 25.119,   q = 0.085,   b = 1.125,   h = 0.942
+Initial Condition(s):	x(t) = 0.167, y(t) = 0.091, v(t) = 0.742, w(t) = 0.667, z(t) = 0.833, where t = -0.500
+Error: 3.9909e-03
+
+Parameter(s)        :	 lm = 0.252,   d = -0.234, beta = -1.252,   a = 0.328,   k = 0.628,   u = -0.898,   c = 1.120,   q = 0.085,   b = 1.125,   h = 0.942
+Initial Condition(s):	x(t) = 0.167, y(t) = 2.045, v(t) = -1.212, w(t) = 0.667, z(t) = 0.833, where t = -0.500
+Error: 3.9990e-03
+
+Parameter(s)        :	 lm = 2.659,   d = 22.585, beta = -6.548,   a = 1.729,   k = 0.827,   u = -0.673,   c = 0.187,   q = 0.520,   b = 0.952,   h = 0.768
+Initial Condition(s):	x(t) = 0.166, y(t) = -0.217, v(t) = 1.054, w(t) = 0.667, z(t) = 0.833, where t = -0.500
+Error: 4.1272e-03
+
+Final Results:
+Parameter(s)        :	  a = 0.400,   b = 0.800
+Initial Condition(s):	x1(t) = 0.333, x2(t) = 0.667, where t = -0.500
+Error: 4.6991e-03
+
+  7.350838 seconds (3.59 M allocations: 242.865 MiB, 97.04% compilation time: 15% of which was recompilation)
+For model simple: The best max abs rel. err: 4.2868486538338857e-13
+Starting
+Loss function:1.0e-5(a^2) + 1.0e-5(b^2) + (0.333 - x1_1)^2 + (0.04357587730387171 - x1_10)^2 + (0.008045522146051089 - x1_11)^2 + (0.3055100745928545 - x1_2)^2 + (0.276493235185996 - x1_3)^2 + (0.24609450553478499 - x1_4)^2 + (0.21446581596734507 - x1_5)^2 + (0.1817652440493907 - x1_6)^2 + (0.1481562245256761 - x1_7)^2 + (0.11380673248669063 - x1_8)^2 + (0.07888844384312148 - x1_9)^2 + (-0.2668000000009969 - x1ˍt_1)^2 + (-0.35450995960441684 - x1ˍt_10)^2 + (-0.3558010325811004 - x1ˍt_11)^2 + (-0.2827694063385706 - x1ˍt_2)^2 + (-0.2973255546504731 - x1ˍt_3)^2 + (-0.3103956945139277 - x1ˍt_4)^2 + (-0.3219145024548249 - x1ˍt_5)^2 + (-0.33182440842683636 - x1ˍt_6)^2 + (-0.34007588354240276 - x1ˍt_7)^2 + (-0.3466276876136441 - x1ˍt_8)^2 + (-0.3514470752673317 - x1ˍt_9)^2 + (-0.1664999999445526 - x1ˍtt_1)^2 + (-0.02178793865713692 - x1ˍtt_10)^2 + (-0.004022761004373826 - x1ˍtt_11)^2 + (-0.1527550373003662 - x1ˍtt_2)^2 + (-0.13824661759233914 - x1ˍtt_3)^2 + (-0.12304725276747576 - x1ˍtt_4)^2 + (-0.1072329079837384 - x1ˍtt_5)^2 + (-0.0908826220243061 - x1ˍtt_6)^2 + (-0.0740781122635431 - x1ˍtt_7)^2 + (-0.05690336624304667 - x1ˍtt_8)^2 + (-0.039444221920777206 - x1ˍtt_9)^2 + (0.667 - x2_1)^2 + (0.8862748990105969 - x2_10)^2 + (0.8895025814559883 - x2_11)^2 + (0.706923515846721 - x2_2)^2 + (0.7433138866260955 - x2_3)^2 + (0.7759892362848647 - x2_4)^2 + (0.8047862561370349 - x2_5)^2 + (0.8295610210671392 - x2_6)^2 + (0.8501897088560174 - x2_7)^2 + (0.866569219034 - x2_8)^2 + (0.878617688168485 - x2_9)^2 + (0.41625000000152595 - x2ˍt_1)^2 + (x2ˍt_1 + (-x1_1) / b)^2 + (x2ˍt_10 + (-x1_10) / b)^2 + (0.05446984662986445 - x2ˍt_10)^2 + (x2ˍt_11 + (-x1_11) / b)^2 + (0.010056902682571875 - x2ˍt_11)^2 + (x2ˍt_2 + (-x1_2) / b)^2 + (0.38188759324090493 - x2ˍt_2)^2 + (0.3456165439825368 - x2ˍt_3)^2 + (x2ˍt_3 + (-x1_3) / b)^2 + (x2ˍt_4 + (-x1_4) / b)^2 + (0.30761813191846066 - x2ˍt_4)^2 + (0.2680822699591901 - x2ˍt_5)^2 + (x2ˍt_5 + (-x1_5) / b)^2 + (x2ˍt_6 + (-x1_6) / b)^2 + (0.22720655506172668 - x2ˍt_6)^2 + (x2ˍt_7 + (-x1_7) / b)^2 + (0.1851952806570924 - x2ˍt_7)^2 + (0.14225841560838193 - x2ˍt_8)^2 + (x2ˍt_8 + (-x1_8) / b)^2 + (0.09861055480388596 - x2ˍt_9)^2 + (x2ˍt_9 + (-x1_9) / b)^2 + (x2ˍtt_1 + (-x1ˍt_1) / b)^2 + (-0.3335000000870796 - x2ˍtt_1)^2 + (x2ˍtt_10 + (-x1ˍt_10) / b)^2 + (-0.44313744950514444 - x2ˍtt_10)^2 + (-0.44475129072384756 - x2ˍtt_11)^2 + (x2ˍtt_11 + (-x1ˍt_11) / b)^2 + (x2ˍtt_2 + (-x1ˍt_2) / b)^2 + (-0.3534617579177187 - x2ˍtt_2)^2 + (x2ˍtt_3 + (-x1ˍt_3) / b)^2 + (-0.37165694331382576 - x2ˍtt_3)^2 + (-0.387994618142314 - x2ˍtt_4)^2 + (x2ˍtt_4 + (-x1ˍt_4) / b)^2 + (x2ˍtt_5 + (-x1ˍt_5) / b)^2 + (-0.4023931280684762 - x2ˍtt_5)^2 + (-0.41478051053375675 - x2ˍtt_6)^2 + (x2ˍtt_6 + (-x1ˍt_6) / b)^2 + (-0.4250948544276312 - x2ˍtt_7)^2 + (x2ˍtt_7 + (-x1ˍt_7) / b)^2 + (x2ˍtt_8 + (-x1ˍt_8) / b)^2 + (-0.43328460951724385 - x2ˍtt_8)^2 + (-0.43930884408420984 - x2ˍtt_9)^2 + (x2ˍtt_9 + (-x1ˍt_9) / b)^2 + (x1ˍt_1 + a*x2_1)^2 + (x1ˍt_10 + a*x2_10)^2 + (x1ˍt_11 + a*x2_11)^2 + (x1ˍt_2 + a*x2_2)^2 + (x1ˍt_3 + a*x2_3)^2 + (x1ˍt_4 + a*x2_4)^2 + (x1ˍt_5 + a*x2_5)^2 + (x1ˍt_6 + a*x2_6)^2 + (x1ˍt_7 + a*x2_7)^2 + (x1ˍt_8 + a*x2_8)^2 + (x1ˍt_9 + a*x2_9)^2 + (x1ˍtt_1 + a*x2ˍt_1)^2 + (x1ˍtt_10 + a*x2ˍt_10)^2 + (x1ˍtt_11 + a*x2ˍt_11)^2 + (x1ˍtt_2 + a*x2ˍt_2)^2 + (x1ˍtt_3 + a*x2ˍt_3)^2 + (x1ˍtt_4 + a*x2ˍt_4)^2 + (x1ˍtt_5 + a*x2ˍt_5)^2 + (x1ˍtt_6 + a*x2ˍt_6)^2 + (x1ˍtt_7 + a*x2ˍt_7)^2 + (x1ˍtt_8 + a*x2ˍt_8)^2 + (x1ˍtt_9 + a*x2ˍt_9)^2
+Any[x1_1, x1_10, x1_11, x1_2, x1_3, x1_4, x1_5, x1_6, x1_7, x1_8, x1_9, x1ˍt_1, x1ˍt_10, x1ˍt_11, x1ˍt_2, x1ˍt_3, x1ˍt_4, x1ˍt_5, x1ˍt_6, x1ˍt_7, x1ˍt_8, x1ˍt_9, x1ˍtt_1, x1ˍtt_10, x1ˍtt_11, x1ˍtt_2, x1ˍtt_3, x1ˍtt_4, x1ˍtt_5, x1ˍtt_6, x1ˍtt_7, x1ˍtt_8, x1ˍtt_9, x2_1, x2_10, x2_11, x2_2, x2_3, x2_4, x2_5, x2_6, x2_7, x2_8, x2_9, x2ˍt_1, b, x2ˍt_10, x2ˍt_11, x2ˍt_2, x2ˍt_3, x2ˍt_4, x2ˍt_5, x2ˍt_6, x2ˍt_7, x2ˍt_8, x2ˍt_9, x2ˍtt_1, x2ˍtt_10, x2ˍtt_11, x2ˍtt_2, x2ˍtt_3, x2ˍtt_4, x2ˍtt_5, x2ˍtt_6, x2ˍtt_7, x2ˍtt_8, x2ˍtt_9, a]
+First Version solution:
+ a : 0.3999974295598096 
+ b : 0.7999920633168772 
+ x1(t) : 0.33299859145910116 
+ x2(t) : 0.6670001283326492 
+Dict{Any, Any}(a => 0.3999974295598096, x1(t) => 0.33299859145910116, b => 0.7999920633168772, x2(t) => 0.6670001283326492)
+Parameter(s)        :	  a = 1000000000000000019884624838656.000,   b = 1000000000000000019884624838656.000
+Initial Condition(s):	x1(t) = 1000000000000000019884624838656.000, x2(t) = 1000000000000000019884624838656.000, where t = -0.500
+Error: 4.6991e-03
+
+Dict{Any, Any}(a => 0.3999974295598096, x1(t) => 0.33299859145910116, b => 0.7999920633168772, x2(t) => 0.6670001283326492)
+Parameter(s)        :	  a = 0.400,   b = 0.800
+Initial Condition(s):	x1(t) = 0.333, x2(t) = 0.667, where t = -0.500
+Error: 4.6991e-03
+
+For model simple: The SPE  max abs rel. err: 9.920853903527815e-6
+Final Results:
+Parameter(s)        :	 k1 = 0.250,  k2 = 0.500,  k3 = 0.750
+Initial Condition(s):	r(t) = 0.333, w(t) = 0.667, where t = -0.500
+Error: 6.3646e-04
+
+Parameter(s)        :	 k1 = 0.246,  k2 = 0.555,  k3 = 0.778
+Initial Condition(s):	r(t) = 0.333, w(t) = 0.593, where t = -0.500
+Error: 6.3689e-04
+
+Parameter(s)        :	 k1 = -0.043,  k2 = 6878.346,  k3 = 2242.212
+Initial Condition(s):	r(t) = 0.331, w(t) = -0.000, where t = -0.500
+Error: 7.3259e-04
+
+Parameter(s)        :	 k1 = -0.043,  k2 = 6875.956,  k3 = 2241.428
+Initial Condition(s):	r(t) = 0.331, w(t) = -0.000, where t = -0.500
+Error: 7.3266e-04
+
+  7.083067 seconds (4.34 M allocations: 275.725 MiB, 1.59% gc time, 93.49% compilation time: <1% of which was recompilation)
+For model Lotka_Volterra: The best max abs rel. err: 1.5355886562318233e-9
+Starting
+Loss function:1.0e-5(k1^2) + 1.0e-5(k2^2) + 1.0e-5(k3^2) + (0.3330000000000001 - r_1)^2 + (0.3302494611495119 - r_10)^2 + (0.3321973482405285 - r_11)^2 + (0.3305465578744952 - r_2)^2 + (0.3287154095609884 - r_3)^2 + (0.32746303158906426 - r_4)^2 + (0.32675112633768283 - r_5)^2 + (0.32654597377701194 - r_6)^2 + (0.3268178725963697 - r_7)^2 + (0.32754065773132834 - r_8)^2 + (0.3286912832421346 - r_9)^2 + (-0.027805499999864005 - rˍt_1)^2 + (0.017558168662933048 - rˍt_10)^2 + (0.021373495037625197 - rˍt_11)^2 + (-0.021345700796329487 - rˍt_2)^2 + (-0.015349679532711876 - rˍt_3)^2 + (-0.009761601592816414 - rˍt_4)^2 + (-0.004532610647112861 - rˍt_5)^2 + (0.0003801373994617278 - rˍt_6)^2 + (0.005014299844558516 - rˍt_7)^2 + (0.009403052959726124 - rˍt_8)^2 + (0.013575695995598188 - rˍt_9)^2 + (0.06712264349189904 - rˍtt_1)^2 + (0.03895285129899489 - rˍtt_10)^2 + (0.03738777129796177 - rˍtt_11)^2 + (0.06217969391654211 - rˍtt_2)^2 + (0.057833601208832665 - rˍtt_3)^2 + (0.05400922437570967 - rˍtt_4)^2 + (0.05064186428777806 - rˍtt_5)^2 + (0.047675741602516634 - rˍtt_6)^2 + (0.04506270077930696 - rˍtt_7)^2 + (0.04276110766864359 - rˍtt_8)^2 + (0.04073491217623348 - rˍtt_9)^2 + (rˍt_1 - k1*r_1 + k2*r_1*w_1)^2 + (wˍt_1 + k3*w_1 - k2*r_1*w_1)^2 + (rˍtt_1 - k1*rˍt_1 + k2*r_1*wˍt_1 + k2*rˍt_1*w_1)^2 + (wˍtt_1 + k3*wˍt_1 - k2*r_1*wˍt_1 - k2*rˍt_1*w_1)^2 + (rˍt_10 - k1*r_10 + k2*r_10*w_10)^2 + (wˍt_10 + k3*w_10 - k2*r_10*w_10)^2 + (wˍtt_10 + k3*wˍt_10 - k2*r_10*wˍt_10 - k2*rˍt_10*w_10)^2 + (rˍtt_10 - k1*rˍt_10 + k2*r_10*wˍt_10 + k2*rˍt_10*w_10)^2 + (rˍt_11 - k1*r_11 + k2*r_11*w_11)^2 + (wˍt_11 + k3*w_11 - k2*r_11*w_11)^2 + (rˍtt_11 - k1*rˍt_11 + k2*r_11*wˍt_11 + k2*rˍt_11*w_11)^2 + (wˍtt_11 + k3*wˍt_11 - k2*r_11*wˍt_11 - k2*rˍt_11*w_11)^2 + (wˍt_2 + k3*w_2 - k2*r_2*w_2)^2 + (rˍt_2 - k1*r_2 + k2*r_2*w_2)^2 + (wˍtt_2 + k3*wˍt_2 - k2*r_2*wˍt_2 - k2*rˍt_2*w_2)^2 + (rˍtt_2 - k1*rˍt_2 + k2*r_2*wˍt_2 + k2*rˍt_2*w_2)^2 + (rˍt_3 - k1*r_3 + k2*r_3*w_3)^2 + (wˍt_3 + k3*w_3 - k2*r_3*w_3)^2 + (wˍtt_3 + k3*wˍt_3 - k2*r_3*wˍt_3 - k2*rˍt_3*w_3)^2 + (rˍtt_3 - k1*rˍt_3 + k2*r_3*wˍt_3 + k2*rˍt_3*w_3)^2 + (wˍt_4 + k3*w_4 - k2*r_4*w_4)^2 + (rˍt_4 - k1*r_4 + k2*r_4*w_4)^2 + (rˍtt_4 - k1*rˍt_4 + k2*r_4*wˍt_4 + k2*rˍt_4*w_4)^2 + (wˍtt_4 + k3*wˍt_4 - k2*r_4*wˍt_4 - k2*rˍt_4*w_4)^2 + (wˍt_5 + k3*w_5 - k2*r_5*w_5)^2 + (rˍt_5 - k1*r_5 + k2*r_5*w_5)^2 + (rˍtt_5 - k1*rˍt_5 + k2*r_5*wˍt_5 + k2*rˍt_5*w_5)^2 + (wˍtt_5 + k3*wˍt_5 - k2*r_5*wˍt_5 - k2*rˍt_5*w_5)^2 + (wˍt_6 + k3*w_6 - k2*r_6*w_6)^2 + (rˍt_6 - k1*r_6 + k2*r_6*w_6)^2 + (rˍtt_6 - k1*rˍt_6 + k2*r_6*wˍt_6 + k2*rˍt_6*w_6)^2 + (wˍtt_6 + k3*wˍt_6 - k2*r_6*wˍt_6 - k2*rˍt_6*w_6)^2 + (rˍt_7 - k1*r_7 + k2*r_7*w_7)^2 + (wˍt_7 + k3*w_7 - k2*r_7*w_7)^2 + (wˍtt_7 + k3*wˍt_7 - k2*r_7*wˍt_7 - k2*rˍt_7*w_7)^2 + (rˍtt_7 - k1*rˍt_7 + k2*r_7*wˍt_7 + k2*rˍt_7*w_7)^2 + (wˍt_8 + k3*w_8 - k2*r_8*w_8)^2 + (rˍt_8 - k1*r_8 + k2*r_8*w_8)^2 + (wˍtt_8 + k3*wˍt_8 - k2*r_8*wˍt_8 - k2*rˍt_8*w_8)^2 + (rˍtt_8 - k1*rˍt_8 + k2*r_8*wˍt_8 + k2*rˍt_8*w_8)^2 + (wˍt_9 + k3*w_9 - k2*r_9*w_9)^2 + (rˍt_9 - k1*r_9 + k2*r_9*w_9)^2 + (wˍtt_9 + k3*wˍt_9 - k2*r_9*wˍt_9 - k2*rˍt_9*w_9)^2 + (rˍtt_9 - k1*rˍt_9 + k2*r_9*wˍt_9 + k2*rˍt_9*w_9)^2
+Any[r_1, r_10, r_11, r_2, r_3, r_4, r_5, r_6, r_7, r_8, r_9, rˍt_1, rˍt_10, rˍt_11, rˍt_2, rˍt_3, rˍt_4, rˍt_5, rˍt_6, rˍt_7, rˍt_8, rˍt_9, rˍtt_1, rˍtt_10, rˍtt_11, rˍtt_2, rˍtt_3, rˍtt_4, rˍtt_5, rˍtt_6, rˍtt_7, rˍtt_8, rˍtt_9, k1, k2, w_1, wˍt_1, k3, wˍtt_1, w_10, wˍt_10, wˍtt_10, w_11, wˍt_11, wˍtt_11, wˍt_2, w_2, wˍtt_2, w_3, wˍt_3, wˍtt_3, wˍt_4, w_4, wˍtt_4, wˍt_5, w_5, wˍtt_5, wˍt_6, w_6, wˍtt_6, w_7, wˍt_7, wˍtt_7, wˍt_8, w_8, wˍtt_8, wˍt_9, w_9, wˍtt_9]
+First Version solution:
+ k1 : -3.1357315189375092 
+ k2 : -2.7476558249952885 
+ k3 : -0.9513614430390954 
+ r(t) : 0.3255204734542745 
+ w(t) : 1.109828608344669 
+Dict{Any, Any}(k2 => -2.7476558249952885, w(t) => 1.109828608344669, r(t) => 0.3255204734542745, k1 => -3.1357315189375092, k3 => -0.9513614430390954)
+Parameter(s)        :	 k1 = 1000000000000000019884624838656.000,  k2 = 1000000000000000019884624838656.000,  k3 = 1000000000000000019884624838656.000
+Initial Condition(s):	r(t) = 1000000000000000019884624838656.000, w(t) = 1000000000000000019884624838656.000, where t = -0.500
+Error: 6.3646e-04
+
+Dict{Any, Any}(k2 => -2.7476558249952885, w(t) => 1.109828608344669, r(t) => 0.3255204734542745, k1 => -3.1357315189375092, k3 => -0.9513614430390954)
+Parameter(s)        :	 k1 = -3.136,  k2 = -2.748,  k3 = -0.951
+Initial Condition(s):	r(t) = 0.326, w(t) = 1.110, where t = -0.500
+Error: 6.3646e-04
+
+For model Lotka_Volterra: The SPE  max abs rel. err: 13.542926075750037
+Final Results:
+Parameter(s)        :	  a = 0.333,   b = 0.667
+Initial Condition(s):	x1(t) = 0.333, x2(t) = 0.667, where t = -0.500
+Error: 3.9421e-03
+
+  6.592379 seconds (3.07 M allocations: 204.593 MiB, 96.38% compilation time)
+For model vanderpol: The best max abs rel. err: 1.1276685584982348e-5
+Starting
+Loss function:1.0e-5(a^2) + 1.0e-5(b^2) + (0.333 - x1_1)^2 + (0.5292123445873911 - x1_10)^2 + (0.5486381438697124 - x1_11)^2 + (0.35530101333453945 - x1_2)^2 + (0.3777223332435865 - x1_3)^2 + (0.4001690258829653 - x1_4)^2 + (0.42253885632102994 - x1_5)^2 + (0.44472271274891684 - x1_6)^2 + (0.4666051879784206 - x1_7)^2 + (0.48806531739776104 - x1_8)^2 + (0.5089774654084539 - x1_9)^2 + (0.22211100000631018 - x1ˍt_1)^2 + (0.19852458704444564 - x1ˍt_10)^2 + (0.1897693086432883 - x1ˍt_11)^2 + (0.2237636444262995 - x1ˍt_2)^2 + (0.22450448555483987 - x1ˍt_3)^2 + (0.22425890511023058 - x1ˍt_4)^2 + (0.22295575370420223 - x1ˍt_5)^2 + (0.22052890635990385 - x1ˍt_6)^2 + (0.21691884242998843 - x1ˍt_7)^2 + (0.21207418286646926 - x1ˍt_8)^2 + (0.20595310952992968 - x1ˍt_9)^2 + (0.02083104903043459 - x1ˍtt_1)^2 + (-0.08089696350724196 - x1ˍtt_10)^2 + (-0.09422027094010926 - x1ˍtt_11)^2 + (0.012093926722284546 - x1ˍtt_2)^2 + (0.0025982851517387974 - x1ˍtt_3)^2 + (-0.0076287369488845305 - x1ˍtt_4)^2 + (-0.018544764393815492 - x1ˍtt_5)^2 + (-0.03009164159219704 - x1ˍtt_6)^2 + (-0.04219550721758585 - x1ˍtt_7)^2 + (-0.05476758648798622 - x1ˍtt_8)^2 + (-0.06770576524471492 - x1ˍtt_9)^2 + (0.667 - x2_1)^2 + (0.5961699310613355 - x2_10)^2 + (0.5698778037597853 - x2_11)^2 + (0.6719628961790809 - x2_2)^2 + (0.674187644307596 - x2_3)^2 + (0.6734501654962245 - x2_4)^2 + (0.669536797910827 - x2_5)^2 + (0.6622489680477043 - x2_6)^2 + (0.6514079352251698 - x2_7)^2 + (0.6368594080068525 - x2_8)^2 + (0.618477806396989 - x2_9)^2 + (0.0625557036447545 - x2ˍt_1)^2 + (-0.24293382444056869 - x2ˍt_10)^2 + (-0.28294375516263837 - x2ˍt_11)^2 + (0.036318098202251 - x2ˍt_2)^2 + (0.007802658103807632 - x2ˍt_3)^2 + (-0.022909119951175408 - x2ˍt_4)^2 + (-0.055689983170825526 - x2ˍt_5)^2 + (-0.09036529006562939 - x2ˍt_6)^2 + (-0.12671323489180328 - x2ˍt_7)^2 + (-0.1644672266897595 - x2ˍt_8)^2 + (-0.20332061633628384 - x2ˍt_9)^2 + (-0.2508237661739683 - x2ˍtt_1)^2 + (-0.39873504155207684 - x2ˍtt_10)^2 + (-0.40083605769061625 - x2ˍtt_11)^2 + (-0.2738642768995737 - x2ˍtt_2)^2 + (-0.29630922791753683 - x2ˍtt_3)^2 + (-0.3177145260640739 - x2ˍtt_4)^2 + (-0.33761163901920055 - x2ˍtt_5)^2 + (-0.3555244308850439 - x2ˍtt_6)^2 + (-0.37098936090030893 - x2ˍtt_7)^2 + (-0.3835782025196554 - x2ˍtt_8)^2 + (-0.39292204874181696 - x2ˍtt_9)^2 + (x1ˍt_1 - a*x2_1)^2 + (x1ˍt_10 - a*x2_10)^2 + (x1ˍt_11 - a*x2_11)^2 + (x1ˍt_2 - a*x2_2)^2 + (x1ˍt_3 - a*x2_3)^2 + (x1ˍt_4 - a*x2_4)^2 + (x1ˍt_5 - a*x2_5)^2 + (x1ˍt_6 - a*x2_6)^2 + (x1ˍt_7 - a*x2_7)^2 + (x1ˍt_8 - a*x2_8)^2 + (x1ˍt_9 - a*x2_9)^2 + (x1ˍtt_1 - a*x2ˍt_1)^2 + (x1ˍtt_10 - a*x2ˍt_10)^2 + (x1ˍtt_11 - a*x2ˍt_11)^2 + (x1ˍtt_2 - a*x2ˍt_2)^2 + (x1ˍtt_3 - a*x2ˍt_3)^2 + (x1ˍtt_4 - a*x2ˍt_4)^2 + (x1ˍtt_5 - a*x2ˍt_5)^2 + (x1ˍtt_6 - a*x2ˍt_6)^2 + (x1ˍtt_7 - a*x2ˍt_7)^2 + (x1ˍtt_8 - a*x2ˍt_8)^2 + (x1ˍtt_9 - a*x2ˍt_9)^2 + (x1_1 + x2ˍt_1 + b*(-1 + x1_1^2)*x2_1)^2 + (x1ˍt_1 + x2ˍtt_1 + b*(-1 + x1_1^2)*x2ˍt_1 + 2b*x1_1*x1ˍt_1*x2_1)^2 + (x1_10 + x2ˍt_10 + b*(-1 + x1_10^2)*x2_10)^2 + (x1ˍt_10 + x2ˍtt_10 + b*(-1 + x1_10^2)*x2ˍt_10 + 2b*x1_10*x1ˍt_10*x2_10)^2 + (x1_11 + x2ˍt_11 + b*(-1 + x1_11^2)*x2_11)^2 + (x1ˍt_11 + x2ˍtt_11 + b*(-1 + x1_11^2)*x2ˍt_11 + 2b*x1_11*x1ˍt_11*x2_11)^2 + (x1_2 + x2ˍt_2 + b*(-1 + x1_2^2)*x2_2)^2 + (x1ˍt_2 + x2ˍtt_2 + b*(-1 + x1_2^2)*x2ˍt_2 + 2b*x1_2*x1ˍt_2*x2_2)^2 + (x1_3 + x2ˍt_3 + b*(-1 + x1_3^2)*x2_3)^2 + (x1ˍt_3 + x2ˍtt_3 + b*(-1 + x1_3^2)*x2ˍt_3 + 2b*x1_3*x1ˍt_3*x2_3)^2 + (x1_4 + x2ˍt_4 + b*(-1 + x1_4^2)*x2_4)^2 + (x1ˍt_4 + x2ˍtt_4 + b*(-1 + x1_4^2)*x2ˍt_4 + 2b*x1_4*x1ˍt_4*x2_4)^2 + (x1_5 + x2ˍt_5 + b*(-1 + x1_5^2)*x2_5)^2 + (x1ˍt_5 + x2ˍtt_5 + b*(-1 + x1_5^2)*x2ˍt_5 + 2b*x1_5*x1ˍt_5*x2_5)^2 + (x1_6 + x2ˍt_6 + b*(-1 + x1_6^2)*x2_6)^2 + (x1ˍt_6 + x2ˍtt_6 + b*(-1 + x1_6^2)*x2ˍt_6 + 2b*x1_6*x1ˍt_6*x2_6)^2 + (x1_7 + x2ˍt_7 + b*(-1 + x1_7^2)*x2_7)^2 + (x1ˍt_7 + x2ˍtt_7 + b*(-1 + x1_7^2)*x2ˍt_7 + 2b*x1_7*x1ˍt_7*x2_7)^2 + (x1_8 + x2ˍt_8 + b*(-1 + x1_8^2)*x2_8)^2 + (x1ˍt_8 + x2ˍtt_8 + b*(-1 + x1_8^2)*x2ˍt_8 + 2b*x1_8*x1ˍt_8*x2_8)^2 + (x1_9 + x2ˍt_9 + b*(-1 + x1_9^2)*x2_9)^2 + (x1ˍt_9 + x2ˍtt_9 + b*(-1 + x1_9^2)*x2ˍt_9 + 2b*x1_9*x1ˍt_9*x2_9)^2
+Any[x1_1, x1_10, x1_11, x1_2, x1_3, x1_4, x1_5, x1_6, x1_7, x1_8, x1_9, x1ˍt_1, x1ˍt_10, x1ˍt_11, x1ˍt_2, x1ˍt_3, x1ˍt_4, x1ˍt_5, x1ˍt_6, x1ˍt_7, x1ˍt_8, x1ˍt_9, x1ˍtt_1, x1ˍtt_10, x1ˍtt_11, x1ˍtt_2, x1ˍtt_3, x1ˍtt_4, x1ˍtt_5, x1ˍtt_6, x1ˍtt_7, x1ˍtt_8, x1ˍtt_9, x2_1, x2_10, x2_11, x2_2, x2_3, x2_4, x2_5, x2_6, x2_7, x2_8, x2_9, x2ˍt_1, x2ˍt_10, x2ˍt_11, x2ˍt_2, x2ˍt_3, x2ˍt_4, x2ˍt_5, x2ˍt_6, x2ˍt_7, x2ˍt_8, x2ˍt_9, x2ˍtt_1, x2ˍtt_10, x2ˍtt_11, x2ˍtt_2, x2ˍtt_3, x2ˍtt_4, x2ˍtt_5, x2ˍtt_6, x2ˍtt_7, x2ˍtt_8, x2ˍtt_9, a, b]
+First Version solution:
+ a : 0.3329990554619645 
+ b : 0.666991849236773 
+ x1(t) : 0.3329984563929054 
+ x2(t) : 0.6670007918242107 
+Dict{Any, Any}(a => 0.3329990554619645, x1(t) => 0.3329984563929054, b => 0.666991849236773, x2(t) => 0.6670007918242107)
+Parameter(s)        :	  a = 1000000000000000019884624838656.000,   b = 1000000000000000019884624838656.000
+Initial Condition(s):	x1(t) = 1000000000000000019884624838656.000, x2(t) = 1000000000000000019884624838656.000, where t = -0.500
+Error: 3.9421e-03
+
+Dict{Any, Any}(a => 0.3329990554619645, x1(t) => 0.3329984563929054, b => 0.666991849236773, x2(t) => 0.6670007918242107)
+Parameter(s)        :	  a = 0.333,   b = 0.667
+Initial Condition(s):	x1(t) = 0.333, x2(t) = 0.667, where t = -0.500
+Error: 3.9421e-03
+
+For model vanderpol: The SPE  max abs rel. err: 1.2220034823120966e-5
+Final Results:
+Parameter(s)        :	a12 = 0.167, a13 = 0.333, a21 = 0.500, a31 = 0.667, a01 = 0.833
+Initial Condition(s):	x1(t) = 0.250, x2(t) = 0.500, x3(t) = 0.750, where t = -0.500
+Error: 1.1209e-03
+
+Parameter(s)        :	a12 = 0.167, a13 = -1.270, a21 = 0.500, a31 = 2.786, a01 = -0.163
+Initial Condition(s):	x1(t) = 0.250, x2(t) = 0.500, x3(t) = -0.417, where t = -0.500
+Error: 1.1284e-03
+
+  7.862757 seconds (4.84 M allocations: 317.531 MiB, 1.25% gc time, 88.70% compilation time)
+For model DAISY_mamil3: The best max abs rel. err: 4.719089252702702e-8
+Starting
+Loss function:1.0e-5(a01^2) + 1.0e-5(a12^2) + 1.0e-5(a13^2) + 1.0e-5(a21^2) + 1.0e-5(a31^2) + (0.25 - x1_1)^2 + (0.17337341223458083 - x1_10)^2 + (0.16949318066491428 - x1_11)^2 + (0.23478330828401506 - x1_2)^2 + (0.22210302662464315 - x1_3)^2 + (0.2114728500202147 - x1_4)^2 + (0.20250092346750043 - x1_5)^2 + (0.19487147279733447 - x1_6)^2 + (0.18833000862751015 - x1_7)^2 + (0.1826714083863696 - x1_8)^2 + (0.17773031656209734 - x1_9)^2 + (-0.16675000001181833 - x1ˍt_1)^2 + (-0.04102530726711273 - x1ˍt_10)^2 + (-0.03672319756326883 - x1ˍt_11)^2 + (-0.1385850806267924 - x1ˍt_2)^2 + (-0.1158272853413571 - x1ˍt_3)^2 + (-0.09742629727770626 - x1ˍt_4)^2 + (-0.08253607447090107 - x1ˍt_5)^2 + (-0.07047511479953028 - x1ˍt_6)^2 + (-0.060694450244658325 - x1ˍt_7)^2 + (-0.05275186693422486 - x1ˍt_8)^2 + (-0.046291139928214244 - x1ˍt_9)^2 + (0.31279150073878637 - x1ˍtt_1)^2 + (0.04749510810474885 - x1ˍtt_10)^2 + (0.03885602645292807 - x1ˍtt_11)^2 + (0.25266995253948865 - x1ˍtt_2)^2 + (0.2042283141818173 - x1ˍtt_3)^2 + (0.1651949386246205 - x1ˍtt_4)^2 + (0.13374005561014563 - x1ˍtt_5)^2 + (0.10838981646676149 - x1ˍtt_6)^2 + (0.08795705992708361 - x1ˍtt_7)^2 + (0.07148554541878523 - x1ˍtt_8)^2 + (0.058205034183787065 - x1ˍtt_9)^2 + (0.5 - x2_1)^2 + (0.514570987250493 - x2_10)^2 + (0.5145474524993557 - x2_11)^2 + (0.5037256028916719 - x2_2)^2 + (0.5067002791315943 - x2_3)^2 + (0.5090497086231746 - x2_4)^2 + (0.5108758089973726 - x2_5)^2 + (0.5122613393448265 - x2_6)^2 + (0.5132736088962975 - x2_7)^2 + (0.5139674647464665 - x2_8)^2 + (0.5143876988511463 - x2_9)^2 + (0.04149999999656797 - x2ˍt_1)^2 + (0.0007533512465446717 - x2ˍt_10)^2 + (-0.001182834235630051 - x2ˍt_11)^2 + (0.03326947845937372 - x2ˍt_2)^2 + (0.026432566697296787 - x2ˍt_3)^2 + (0.020725123670050312 - x2ˍt_4)^2 + (0.015934201631182414 - x2ˍt_5)^2 + (0.01188809272808691 - x2ˍt_6)^2 + (0.008448311628068209 - x2ˍt_7)^2 + (0.005503137580535126 - x2ˍt_8)^2 + (0.002962412572882478 - x2ˍt_9)^2 + (-0.09030549978402548 - x2ˍtt_1)^2 + (-0.0206384632890379 - x2ˍtt_10)^2 + (-0.018164065501825324 - x2ˍtt_11)^2 + (-0.07484854322790098 - x2ˍtt_2)^2 + (-0.062327881307574974 - x2ˍtt_3)^2 + (-0.05217424429210645 - x2ˍtt_4)^2 + (-0.04392904890768945 - x2ˍtt_5)^2 + (-0.03722286888540045 - x2ˍtt_6)^2 + (-0.03175809316418334 - x2ˍtt_7)^2 + (-0.027294957443011133 - x2ˍtt_8)^2 + (-0.023640292864251802 - x2ˍtt_9)^2 + (x1ˍt_1 - (-a01 - a21 - a31)*x1_1 - a12*x2_1 - a13*x3_1)^2 + (x1ˍt_10 - (-a01 - a21 - a31)*x1_10 - a12*x2_10 - a13*x3_10)^2 + (x1ˍt_11 - (-a01 - a21 - a31)*x1_11 - a12*x2_11 - a13*x3_11)^2 + (x1ˍt_2 - (-a01 - a21 - a31)*x1_2 - a12*x2_2 - a13*x3_2)^2 + (x1ˍt_3 - (-a01 - a21 - a31)*x1_3 - a12*x2_3 - a13*x3_3)^2 + (x1ˍt_4 - (-a01 - a21 - a31)*x1_4 - a12*x2_4 - a13*x3_4)^2 + (x1ˍt_5 - (-a01 - a21 - a31)*x1_5 - a12*x2_5 - a13*x3_5)^2 + (x1ˍt_6 - (-a01 - a21 - a31)*x1_6 - a12*x2_6 - a13*x3_6)^2 + (x1ˍt_7 - (-a01 - a21 - a31)*x1_7 - a12*x2_7 - a13*x3_7)^2 + (x1ˍt_8 - (-a01 - a21 - a31)*x1_8 - a12*x2_8 - a13*x3_8)^2 + (x1ˍt_9 - (-a01 - a21 - a31)*x1_9 - a12*x2_9 - a13*x3_9)^2 + (x1ˍtt_1 - (-a01 - a21 - a31)*x1ˍt_1 - a12*x2ˍt_1 - a13*x3ˍt_1)^2 + (x1ˍtt_10 - (-a01 - a21 - a31)*x1ˍt_10 - a12*x2ˍt_10 - a13*x3ˍt_10)^2 + (x1ˍtt_11 - (-a01 - a21 - a31)*x1ˍt_11 - a12*x2ˍt_11 - a13*x3ˍt_11)^2 + (x1ˍtt_2 - (-a01 - a21 - a31)*x1ˍt_2 - a12*x2ˍt_2 - a13*x3ˍt_2)^2 + (x1ˍtt_3 - (-a01 - a21 - a31)*x1ˍt_3 - a12*x2ˍt_3 - a13*x3ˍt_3)^2 + (x1ˍtt_4 - (-a01 - a21 - a31)*x1ˍt_4 - a12*x2ˍt_4 - a13*x3ˍt_4)^2 + (x1ˍtt_5 - (-a01 - a21 - a31)*x1ˍt_5 - a12*x2ˍt_5 - a13*x3ˍt_5)^2 + (x1ˍtt_6 - (-a01 - a21 - a31)*x1ˍt_6 - a12*x2ˍt_6 - a13*x3ˍt_6)^2 + (x1ˍtt_7 - (-a01 - a21 - a31)*x1ˍt_7 - a12*x2ˍt_7 - a13*x3ˍt_7)^2 + (x1ˍtt_8 - (-a01 - a21 - a31)*x1ˍt_8 - a12*x2ˍt_8 - a13*x3ˍt_8)^2 + (x1ˍtt_9 - (-a01 - a21 - a31)*x1ˍt_9 - a12*x2ˍt_9 - a13*x3ˍt_9)^2 + (x2ˍt_1 + a12*x2_1 - a21*x1_1)^2 + (x2ˍt_10 + a12*x2_10 - a21*x1_10)^2 + (x2ˍt_11 + a12*x2_11 - a21*x1_11)^2 + (x2ˍt_2 + a12*x2_2 - a21*x1_2)^2 + (x2ˍt_3 + a12*x2_3 - a21*x1_3)^2 + (x2ˍt_4 + a12*x2_4 - a21*x1_4)^2 + (x2ˍt_5 + a12*x2_5 - a21*x1_5)^2 + (x2ˍt_6 + a12*x2_6 - a21*x1_6)^2 + (x2ˍt_7 + a12*x2_7 - a21*x1_7)^2 + (x2ˍt_8 + a12*x2_8 - a21*x1_8)^2 + (x2ˍt_9 + a12*x2_9 - a21*x1_9)^2 + (x2ˍtt_1 + a12*x2ˍt_1 - a21*x1ˍt_1)^2 + (x2ˍtt_10 + a12*x2ˍt_10 - a21*x1ˍt_10)^2 + (x2ˍtt_11 + a12*x2ˍt_11 - a21*x1ˍt_11)^2 + (x2ˍtt_2 + a12*x2ˍt_2 - a21*x1ˍt_2)^2 + (x2ˍtt_3 + a12*x2ˍt_3 - a21*x1ˍt_3)^2 + (x2ˍtt_4 + a12*x2ˍt_4 - a21*x1ˍt_4)^2 + (x2ˍtt_5 + a12*x2ˍt_5 - a21*x1ˍt_5)^2 + (x2ˍtt_6 + a12*x2ˍt_6 - a21*x1ˍt_6)^2 + (x2ˍtt_7 + a12*x2ˍt_7 - a21*x1ˍt_7)^2 + (x2ˍtt_8 + a12*x2ˍt_8 - a21*x1ˍt_8)^2 + (x2ˍtt_9 + a12*x2ˍt_9 - a21*x1ˍt_9)^2 + (x3ˍt_1 + a13*x3_1 - a31*x1_1)^2 + (x3ˍt_10 + a13*x3_10 - a31*x1_10)^2 + (x3ˍt_11 + a13*x3_11 - a31*x1_11)^2 + (x3ˍt_2 + a13*x3_2 - a31*x1_2)^2 + (x3ˍt_3 + a13*x3_3 - a31*x1_3)^2 + (x3ˍt_4 + a13*x3_4 - a31*x1_4)^2 + (x3ˍt_5 + a13*x3_5 - a31*x1_5)^2 + (x3ˍt_6 + a13*x3_6 - a31*x1_6)^2 + (x3ˍt_7 + a13*x3_7 - a31*x1_7)^2 + (x3ˍt_8 + a13*x3_8 - a31*x1_8)^2 + (x3ˍt_9 + a13*x3_9 - a31*x1_9)^2 + (x3ˍtt_1 + a13*x3ˍt_1 - a31*x1ˍt_1)^2 + (x3ˍtt_10 + a13*x3ˍt_10 - a31*x1ˍt_10)^2 + (x3ˍtt_11 + a13*x3ˍt_11 - a31*x1ˍt_11)^2 + (x3ˍtt_2 + a13*x3ˍt_2 - a31*x1ˍt_2)^2 + (x3ˍtt_3 + a13*x3ˍt_3 - a31*x1ˍt_3)^2 + (x3ˍtt_4 + a13*x3ˍt_4 - a31*x1ˍt_4)^2 + (x3ˍtt_5 + a13*x3ˍt_5 - a31*x1ˍt_5)^2 + (x3ˍtt_6 + a13*x3ˍt_6 - a31*x1ˍt_6)^2 + (x3ˍtt_7 + a13*x3ˍt_7 - a31*x1ˍt_7)^2 + (x3ˍtt_8 + a13*x3ˍt_8 - a31*x1ˍt_8)^2 + (x3ˍtt_9 + a13*x3ˍt_9 - a31*x1ˍt_9)^2
+Any[x1_1, x1_10, x1_11, x1_2, x1_3, x1_4, x1_5, x1_6, x1_7, x1_8, x1_9, x1ˍt_1, x1ˍt_10, x1ˍt_11, x1ˍt_2, x1ˍt_3, x1ˍt_4, x1ˍt_5, x1ˍt_6, x1ˍt_7, x1ˍt_8, x1ˍt_9, x1ˍtt_1, x1ˍtt_10, x1ˍtt_11, x1ˍtt_2, x1ˍtt_3, x1ˍtt_4, x1ˍtt_5, x1ˍtt_6, x1ˍtt_7, x1ˍtt_8, x1ˍtt_9, x2_1, x2_10, x2_11, x2_2, x2_3, x2_4, x2_5, x2_6, x2_7, x2_8, x2_9, x2ˍt_1, x2ˍt_10, x2ˍt_11, x2ˍt_2, x2ˍt_3, x2ˍt_4, x2ˍt_5, x2ˍt_6, x2ˍt_7, x2ˍt_8, x2ˍt_9, x2ˍtt_1, x2ˍtt_10, x2ˍtt_11, x2ˍtt_2, x2ˍtt_3, x2ˍtt_4, x2ˍtt_5, x2ˍtt_6, x2ˍtt_7, x2ˍtt_8, x2ˍtt_9, a01, a21, a31, a12, a13, x3_1, x3_10, x3_11, x3_2, x3_3, x3_4, x3_5, x3_6, x3_7, x3_8, x3_9, x3ˍt_1, x3ˍt_10, x3ˍt_11, x3ˍt_2, x3ˍt_3, x3ˍt_4, x3ˍt_5, x3ˍt_6, x3ˍt_7, x3ˍt_8, x3ˍt_9, x3ˍtt_1, x3ˍtt_10, x3ˍtt_11, x3ˍtt_2, x3ˍtt_3, x3ˍtt_4, x3ˍtt_5, x3ˍtt_6, x3ˍtt_7, x3ˍtt_8, x3ˍtt_9]
+First Version solution:
+ a12 : -16.89428071582806 
+ a13 : -0.1835533857509406 
+ a21 : -44.36233970932427 
+ a31 : -8.010588817564443 
+ a01 : 0.6959262121010626 
+ x1(t) : 0.2090963600222811 
+ x2(t) : 0.5501315567563183 
+ x3(t) : 8.196639515907341 
+Dict{Any, Any}(a13 => -0.1835533857509406, a31 => -8.010588817564443, x1(t) => 0.2090963600222811, x3(t) => 8.196639515907341, a21 => -44.36233970932427, a12 => -16.89428071582806, a01 => 0.6959262121010626, x2(t) => 0.5501315567563183)
+Parameter(s)        :	a12 = 1000000000000000019884624838656.000, a13 = 1000000000000000019884624838656.000, a21 = 1000000000000000019884624838656.000, a31 = 1000000000000000019884624838656.000, a01 = 1000000000000000019884624838656.000
+Initial Condition(s):	x1(t) = 1000000000000000019884624838656.000, x2(t) = 1000000000000000019884624838656.000, x3(t) = 1000000000000000019884624838656.000, where t = -0.500
+Error: 1.1209e-03
+
+Dict{Any, Any}(a13 => -0.1835533857509406, a31 => -8.010588817564443, x1(t) => 0.2090963600222811, x3(t) => 8.196639515907341, a21 => -44.36233970932427, a12 => -16.89428071582806, a01 => 0.6959262121010626, x2(t) => 0.5501315567563183)
+Parameter(s)        :	a12 = -16.894, a13 = -0.184, a21 = -44.362, a31 = -8.011, a01 = 0.696
+Initial Condition(s):	x1(t) = 0.209, x2(t) = 0.550, x3(t) = 8.197, where t = -0.500
+Error: 1.1209e-03
+
+For model DAISY_mamil3: The SPE  max abs rel. err: 102.16335757980875
+Run larger, slower parameter recovery tests on known ODEs: Error During Test at /home/orebas/learning/ODETests/varied_estimation.jl:7
+  Got exception outside of a @test
+  MethodError: no method matching Union{Float64, ComplexF64}(::Int64)
+  
+  Closest candidates are:
+    (::Type{T})(::T) where T<:Number
+     @ Core boot.jl:792
+    (::Type{T})(!Matched::Polymake.LibPolymake.Integer) where T<:Number
+     @ Polymake ~/.julia/packages/Polymake/DbLWv/src/integers.jl:49
+    (::Type{T})(!Matched::Polymake.LibPolymake.Rational) where T<:Number
+     @ Polymake ~/.julia/packages/Polymake/DbLWv/src/rationals.jl:63
+    ...
+  
+  Stacktrace:
+    [1] convert(::Type{Union{Float64, ComplexF64}}, x::Int64)
+      @ Base ./number.jl:7
+    [2] one(::Type{Union{Float64, ComplexF64}})
+      @ Base ./number.jl:347
+    [3] recursive_unitless_eltype(a::Type{Union{Float64, ComplexF64}})
+      @ RecursiveArrayTools ~/.julia/packages/RecursiveArrayTools/xpcge/src/utils.jl:284
+    [4] recursive_unitless_eltype(a::Vector{Union{Float64, ComplexF64}})
+      @ RecursiveArrayTools ~/.julia/packages/RecursiveArrayTools/xpcge/src/utils.jl:274
+    [5] promote_f(f::ODEFunction{true, SciMLBase.AutoSpecialize, ModelingToolkit.var"#g#502"{RuntimeGeneratedFunctions.RuntimeGeneratedFunction{(:ˍ₋arg1, :ˍ₋arg2, :ˍ₋arg3, :t), ModelingToolkit.var"#_RGF_ModTag", ModelingToolkit.var"#_RGF_ModTag", (0x5245b972, 0x2a744039, 0xb060a711, 0x7efcfca7, 0xe66c61b9), Nothing}, RuntimeGeneratedFunctions.RuntimeGeneratedFunction{(:ˍ₋out, :ˍ₋arg1, :ˍ₋arg2, :ˍ₋arg3, :t), ModelingToolkit.var"#_RGF_ModTag", ModelingToolkit.var"#_RGF_ModTag", (0x698cc322, 0x0ee35b8f, 0x0fc9d88a, 0x934f1862, 0xa24f217a), Nothing}}, LinearAlgebra.UniformScaling{Bool}, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, ModelingToolkit.var"#679#generated_observed#513"{Bool, ODESystem, Dict{Any, Any}, Tuple{Vector{SymbolicUtils.BasicSymbolic{Real}}, Vector{SymbolicUtils.BasicSymbolic{Real}}}}, Nothing, ODESystem}, ::Val{SciMLBase.AutoSpecialize}, u0::Vector{Union{Float64, ComplexF64}}, p::Vector{Number}, t::Float64)
+      @ DiffEqBase ~/.julia/packages/DiffEqBase/eLhx9/src/solve.jl:1221
+    [6] get_concrete_problem(prob::ODEProblem{Vector{Union{Float64, ComplexF64}}, Tuple{Float64, Float64}, true, Tuple{Vector{Float64}, Vector{ComplexF64}}, ODEFunction{true, SciMLBase.AutoSpecialize, ModelingToolkit.var"#g#502"{RuntimeGeneratedFunctions.RuntimeGeneratedFunction{(:ˍ₋arg1, :ˍ₋arg2, :ˍ₋arg3, :t), ModelingToolkit.var"#_RGF_ModTag", ModelingToolkit.var"#_RGF_ModTag", (0x5245b972, 0x2a744039, 0xb060a711, 0x7efcfca7, 0xe66c61b9), Nothing}, RuntimeGeneratedFunctions.RuntimeGeneratedFunction{(:ˍ₋out, :ˍ₋arg1, :ˍ₋arg2, :ˍ₋arg3, :t), ModelingToolkit.var"#_RGF_ModTag", ModelingToolkit.var"#_RGF_ModTag", (0x698cc322, 0x0ee35b8f, 0x0fc9d88a, 0x934f1862, 0xa24f217a), Nothing}}, LinearAlgebra.UniformScaling{Bool}, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, ModelingToolkit.var"#679#generated_observed#513"{Bool, ODESystem, Dict{Any, Any}, Tuple{Vector{SymbolicUtils.BasicSymbolic{Real}}, Vector{SymbolicUtils.BasicSymbolic{Real}}}}, Nothing, ODESystem}, @Kwargs{}, SciMLBase.StandardODEProblem}, isadapt::Bool; kwargs::@Kwargs{u0::Vector{Union{Float64, ComplexF64}}, p::Vector{Number}, saveat::StepRangeLen{Float64, Base.TwicePrecision{Float64}, Base.TwicePrecision{Float64}, Int64}, abstol::Float64, reltol::Float64})
+      @ DiffEqBase ~/.julia/packages/DiffEqBase/eLhx9/src/solve.jl:1151
+    [7] solve_up(prob::ODEProblem{Vector{Union{Float64, ComplexF64}}, Tuple{Float64, Float64}, true, Tuple{Vector{Float64}, Vector{ComplexF64}}, ODEFunction{true, SciMLBase.AutoSpecialize, ModelingToolkit.var"#g#502"{RuntimeGeneratedFunctions.RuntimeGeneratedFunction{(:ˍ₋arg1, :ˍ₋arg2, :ˍ₋arg3, :t), ModelingToolkit.var"#_RGF_ModTag", ModelingToolkit.var"#_RGF_ModTag", (0x5245b972, 0x2a744039, 0xb060a711, 0x7efcfca7, 0xe66c61b9), Nothing}, RuntimeGeneratedFunctions.RuntimeGeneratedFunction{(:ˍ₋out, :ˍ₋arg1, :ˍ₋arg2, :ˍ₋arg3, :t), ModelingToolkit.var"#_RGF_ModTag", ModelingToolkit.var"#_RGF_ModTag", (0x698cc322, 0x0ee35b8f, 0x0fc9d88a, 0x934f1862, 0xa24f217a), Nothing}}, LinearAlgebra.UniformScaling{Bool}, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, ModelingToolkit.var"#679#generated_observed#513"{Bool, ODESystem, Dict{Any, Any}, Tuple{Vector{SymbolicUtils.BasicSymbolic{Real}}, Vector{SymbolicUtils.BasicSymbolic{Real}}}}, Nothing, ODESystem}, @Kwargs{}, SciMLBase.StandardODEProblem}, sensealg::Nothing, u0::Vector{Union{Float64, ComplexF64}}, p::Vector{Number}, args::Vern9{typeof(OrdinaryDiffEq.trivial_limiter!), typeof(OrdinaryDiffEq.trivial_limiter!), Static.False}; kwargs::@Kwargs{saveat::StepRangeLen{Float64, Base.TwicePrecision{Float64}, Base.TwicePrecision{Float64}, Int64}, abstol::Float64, reltol::Float64})
+      @ DiffEqBase ~/.julia/packages/DiffEqBase/eLhx9/src/solve.jl:1052
+ERROR: LoadError: Some tests did not pass: 4 passed, 0 failed, 1 errored, 0 broken.
+in expression starting at /home/orebas/learning/ODETests/varied_estimation.jl:7
+    [8] solve(prob::ODEProblem{Vector{Union{Float64, ComplexF64}}, Tuple{Float64, Float64}, true, Tuple{Vector{Float64}, Vector{ComplexF64}}, ODEFunction{true, SciMLBase.AutoSpecialize, ModelingToolkit.var"#g#502"{RuntimeGeneratedFunctions.RuntimeGeneratedFunction{(:ˍ₋arg1, :ˍ₋arg2, :ˍ₋arg3, :t), ModelingToolkit.var"#_RGF_ModTag", ModelingToolkit.var"#_RGF_ModTag", (0x5245b972, 0x2a744039, 0xb060a711, 0x7efcfca7, 0xe66c61b9), Nothing}, RuntimeGeneratedFunctions.RuntimeGeneratedFunction{(:ˍ₋out, :ˍ₋arg1, :ˍ₋arg2, :ˍ₋arg3, :t), ModelingToolkit.var"#_RGF_ModTag", ModelingToolkit.var"#_RGF_ModTag", (0x698cc322, 0x0ee35b8f, 0x0fc9d88a, 0x934f1862, 0xa24f217a), Nothing}}, LinearAlgebra.UniformScaling{Bool}, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, ModelingToolkit.var"#679#generated_observed#513"{Bool, ODESystem, Dict{Any, Any}, Tuple{Vector{SymbolicUtils.BasicSymbolic{Real}}, Vector{SymbolicUtils.BasicSymbolic{Real}}}}, Nothing, ODESystem}, @Kwargs{}, SciMLBase.StandardODEProblem}, args::Vern9{typeof(OrdinaryDiffEq.trivial_limiter!), typeof(OrdinaryDiffEq.trivial_limiter!), Static.False}; sensealg::Nothing, u0::Nothing, p::Vector{Number}, wrap::Val{true}, kwargs::@Kwargs{saveat::StepRangeLen{Float64, Base.TwicePrecision{Float64}, Base.TwicePrecision{Float64}, Int64}, abstol::Float64, reltol::Float64})
+      @ DiffEqBase ~/.julia/packages/DiffEqBase/eLhx9/src/solve.jl:981
+    [9] backsolve_initial_conditions(model::ODESystem, E::ParameterEstimation.EstimationResult, report_time::Float64, inputs::Vector{Equation}, data_sample::OrderedDict{Any, Vector{Float64}}; solver::Vern9{typeof(OrdinaryDiffEq.trivial_limiter!), typeof(OrdinaryDiffEq.trivial_limiter!), Static.False}, abstol::Float64, reltol::Float64)
+      @ ParameterEstimation ~/.julia/packages/ParameterEstimation/sTkaI/src/estimation/fixed_degree.jl:26
+   [10] backsolve_initial_conditions
+      @ ParameterEstimation ~/.julia/packages/ParameterEstimation/sTkaI/src/estimation/fixed_degree.jl:11 [inlined]
+   [11] #134
+      @ ParameterEstimation ./none:0 [inlined]
+   [12] iterate
+      @ Base ./generator.jl:47 [inlined]
+   [13] collect(itr::Base.Generator{Vector{ParameterEstimation.EstimationResult}, ParameterEstimation.var"#134#136"{Float64, ODESystem, Vector{Equation}, OrderedDict{Any, Vector{Float64}}}})
+      @ Base ./array.jl:834
+   [14] estimate_single_interpolator(model::ODESystem, measured_quantities::Vector{Equation}, inputs::Vector{Equation}, data_sample::OrderedDict{Any, Vector{Float64}}; identifiability_result::ParameterEstimation.IdentifiabilityData, interpolator::Pair{String, Function}, at_time::Float64, report_time::Float64, method::Symbol, real_tol::Float64)
+      @ ParameterEstimation ~/.julia/packages/ParameterEstimation/sTkaI/src/estimation/fixed_degree.jl:126
+   [15] estimate_single_interpolator
+      @ ~/.julia/packages/ParameterEstimation/sTkaI/src/estimation/fixed_degree.jl:81 [inlined]
+   [16] macro expansion
+      @ ~/.julia/packages/ParameterEstimation/sTkaI/src/estimation/serial.jl:23 [inlined]
+   [17] macro expansion
+      @ ~/.julia/packages/ProgressMeter/vnCY0/src/ProgressMeter.jl:957 [inlined]
+   [18] estimate_serial(model::ODESystem, measured_quantities::Vector{Equation}, inputs::Vector{Equation}, data_sample::OrderedDict{Any, Vector{Float64}}; at_time::Float64, solver::Vern9{typeof(OrdinaryDiffEq.trivial_limiter!), typeof(OrdinaryDiffEq.trivial_limiter!), Static.False}, interpolators::Nothing, report_time::Float64, method::Symbol, real_tol::Float64, filtermode::Symbol, parameter_constraints::Nothing, ic_constraints::Nothing)
+      @ ParameterEstimation ~/.julia/packages/ParameterEstimation/sTkaI/src/estimation/serial.jl:22
+   [19] estimate_serial
+      @ ~/.julia/packages/ParameterEstimation/sTkaI/src/estimation/serial.jl:1 [inlined]
+   [20] estimate(model::ODESystem, measured_quantities::Vector{Equation}, data_sample::OrderedDict{Any, Vector{Float64}}; inputs::Vector{Equation}, at_time::Float64, method::Symbol, solver::Vern9{typeof(OrdinaryDiffEq.trivial_limiter!), typeof(OrdinaryDiffEq.trivial_limiter!), Static.False}, report_time::Float64, interpolators::Nothing, real_tol::Float64, threaded::Bool, filtermode::Symbol, parameter_constraints::Nothing, ic_constraints::Nothing)
+      @ ParameterEstimation ~/.julia/packages/ParameterEstimation/sTkaI/src/estimation/estimate.jl:49
+   [21] macro expansion
+      @ ./timing.jl:279 [inlined]
+   [22] (::var"#analyze_parameter_estimation_problem#18"{var"#analyze_parameter_estimation_problem#2#19"})(PEP::ParameterEstimationProblem; test_mode::Bool)
+      @ Main ~/learning/ODETests/varied_estimation.jl:537
+   [23] (::var"#varied_estimation_main#20")()
+      @ Main ~/learning/ODETests/varied_estimation.jl:600
+   [24] macro expansion
+      @ ~/learning/ODETests/varied_estimation.jl:604 [inlined]
+   [25] macro expansion
+      @ ~/.julia/juliaup/julia-1.10.0+0.x64.linux.gnu/share/julia/stdlib/v1.10/Test/src/Test.jl:1577 [inlined]
+   [26] top-level scope
+      @ ~/learning/ODETests/varied_estimation.jl:8
+   [27] include(mod::Module, _path::String)
+      @ Base ./Base.jl:495
+   [28] exec_options(opts::Base.JLOptions)
+      @ Base ./client.jl:318
+   [29] _start()
+      @ Base ./client.jl:552
+Test Summary:                                             | Pass  Error  Total     Time
+Run larger, slower parameter recovery tests on known ODEs |    4      1      5  3m47.6s

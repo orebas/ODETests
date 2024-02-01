@@ -582,18 +582,22 @@ include("SPE.jl")
 			simple(datasize, time_interval, solver),  #works
 			lotka_volterra(datasize, time_interval, solver),  #works
 			vanderpol(datasize, time_interval, solver),  #works
-			#biohydrogenation(datasize, time_interval, solver),  #works, but one param unidentifiable
-			#daisy_ex3(datasize, time_interval, solver),
 			daisy_mamil3(datasize, time_interval, solver),
 			daisy_mamil4(datasize, time_interval, solver),
-			#fitzhugh_nagumo(datasize, time_interval, solver),
-			#hiv_local(datasize, time_interval, solver),
 			hiv(datasize, time_interval, solver),
 			seir(datasize, time_interval, solver),
-			#sirsforced(datasize, time_interval, Rodas5P()),
 			slowfast(datasize, time_interval, solver),
-			#treatment(datasize, time_interval, Rodas5P()),
 			crauste(datasize, time_interval, solver),
+			#biohydrogenation(datasize, time_interval, solver),  #works, but one param unidentifiable
+			#daisy_ex3(datasize, time_interval, solver),
+			#fitzhugh_nagumo(datasize, time_interval, solver),
+			#hiv_local(datasize, time_interval, solver),
+			#sirsforced(datasize, time_interval, Rodas5P()),
+			#treatment(datasize, time_interval, Rodas5P()),
+
+
+
+
 		]
 			analyze_parameter_estimation_problem(PEP, test_mode = true)
 		end

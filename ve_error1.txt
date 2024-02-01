@@ -1,0 +1,114 @@
+[ Info: Preproccessing `ModelingToolkit.ODESystem` object
+[ Info: Solving the problem
+[ Info: Constructing the maximal system
+[ Info: Truncating
+[ Info: Assessing local identifiability
+[ Info: Found Pivots: []
+[ Info: Locally identifiable parameters: [a, b, x2, x1]
+[ Info: Not identifiable parameters:     []
+[ Info: Randomizing
+[ Info: Gröbner basis computation
+[ Info: Remainder computation
+[ Info: === Summary ===
+[ Info: Globally identifiable parameters:                 [b, x2, x1, a]
+[ Info: Locally but not globally identifiable parameters: []
+[ Info: Not identifiable parameters:                      []
+[ Info: ===============
+[ Info: Estimating via the interpolators: ["FHD3", "AAA", "FHD8"]
+Progress:  67%|█████████████████████████████████████████████████████████████████████████████████████████▍                                            |  ETA: 0:00:13[KProgress: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| Time: 0:00:26[K
+[ Info: Preproccessing `ModelingToolkit.ODESystem` object
+[ Info: Solving the problem
+[ Info: Constructing the maximal system
+[ Info: Truncating
+[ Info: Assessing local identifiability
+[ Info: Found Pivots: []
+[ Info: Locally identifiable parameters: [k1, k2, k3, w, r]
+[ Info: Not identifiable parameters:     []
+[ Info: Randomizing
+[ Info: Gröbner basis computation
+[ Info: Remainder computation
+[ Info: === Summary ===
+[ Info: Globally identifiable parameters:                 [k3, w, r, k1, k2]
+[ Info: Locally but not globally identifiable parameters: []
+[ Info: Not identifiable parameters:                      []
+[ Info: ===============
+[ Info: Estimating via the interpolators: ["FHD3", "AAA", "FHD8"]
+┌ Warning: Interrupted. Larger maxiters is needed. If you are using an integrator for non-stiff ODEs or an automatic switching algorithm (the default), you may want to consider using a method for stiff equations. See the solver pages for more details (e.g. https://docs.sciml.ai/DiffEqDocs/stable/solvers/ode_solve/#Stiff-Problems).
+└ @ SciMLBase ~/.julia/packages/SciMLBase/XxTxA/src/integrator_interface.jl:585
+┌ Warning: Interrupted. Larger maxiters is needed. If you are using an integrator for non-stiff ODEs or an automatic switching algorithm (the default), you may want to consider using a method for stiff equations. See the solver pages for more details (e.g. https://docs.sciml.ai/DiffEqDocs/stable/solvers/ode_solve/#Stiff-Problems).
+└ @ SciMLBase ~/.julia/packages/SciMLBase/XxTxA/src/integrator_interface.jl:585
+Progress:  67%|█████████████████████████████████████████████████████████████████████████████████████████▍                                            |  ETA: 0:00:06[K┌ Warning: Interrupted. Larger maxiters is needed. If you are using an integrator for non-stiff ODEs or an automatic switching algorithm (the default), you may want to consider using a method for stiff equations. See the solver pages for more details (e.g. https://docs.sciml.ai/DiffEqDocs/stable/solvers/ode_solve/#Stiff-Problems).
+└ @ SciMLBase ~/.julia/packages/SciMLBase/XxTxA/src/integrator_interface.jl:585
+Progress: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| Time: 0:00:12[K
+[ Info: Preproccessing `ModelingToolkit.ODESystem` object
+[ Info: Solving the problem
+[ Info: Constructing the maximal system
+[ Info: Truncating
+[ Info: Assessing local identifiability
+[ Info: Found Pivots: []
+[ Info: Locally identifiable parameters: [a, b, x2, x1]
+[ Info: Not identifiable parameters:     []
+[ Info: Randomizing
+[ Info: Gröbner basis computation
+[ Info: Remainder computation
+[ Info: === Summary ===
+[ Info: Globally identifiable parameters:                 [b, x2, x1, a]
+[ Info: Locally but not globally identifiable parameters: []
+[ Info: Not identifiable parameters:                      []
+[ Info: ===============
+[ Info: Estimating via the interpolators: ["FHD3", "AAA", "FHD8"]
+Progress:  67%|█████████████████████████████████████████████████████████████████████████████████████████▍                                            |  ETA: 0:00:04[KProgress: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| Time: 0:00:08[K
+Final Results:
+Parameter(s)        :	  a = 0.400,   b = 0.800
+Initial Condition(s):	x1(t) = 0.333, x2(t) = 0.667, where t = -0.500
+Error: 4.0604e-03
+
+ 32.298809 seconds (11.98 M allocations: 813.126 MiB, 1.67% gc time, 98.80% compilation time: 9% of which was recompilation)
+For model simple: The best max abs rel. err: 9.672818102046676e-14
+Starting
+Optimizer solution:
+Dict{Any, Any}(a => 4.1625694792842844e-10, x1(t) => 0.33300000000020785, b => 0.7999999999998769, x2(t) => 0.6670000000000001)
+Dict{Any, Any}(a => 4.1625694792842844e-10, x1(t) => 0.33300000000020785, b => 0.7999999999998769, x2(t) => 0.6670000000000001)
+Parameter(s)        :	  a = 0.000,   b = 0.800
+Initial Condition(s):	x1(t) = 0.333, x2(t) = 0.667, where t = -0.500
+Error: 7.3272e-02
+
+For model simple: The SPE  max abs rel. err: 0.9999999989593575
+Final Results:
+Parameter(s)        :	 k1 = 0.250,  k2 = 0.500,  k3 = 0.750
+Initial Condition(s):	r(t) = 0.333, w(t) = 0.667, where t = -0.500
+Error: 5.4874e-04
+
+Parameter(s)        :	 k1 = 0.252,  k2 = 0.482,  k3 = 0.739
+Initial Condition(s):	r(t) = 0.333, w(t) = 0.696, where t = -0.500
+Error: 5.4902e-04
+
+ 12.803101 seconds (6.52 M allocations: 427.419 MiB, 0.72% gc time, 82.05% compilation time: 3% of which was recompilation)
+For model Lotka_Volterra: The best max abs rel. err: 8.208941372732942e-8
+Starting
+Optimizer solution:
+Dict{Any, Any}(k2 => 1.910251952918975, w(t) => 4.8836682756736325, r(t) => 0.33299999993942525, k1 => 9.329036860870746, k3 => 0.05050460166828284)
+Dict{Any, Any}(k2 => 1.910251952918975, w(t) => 4.8836682756736325, r(t) => 0.33299999993942525, k1 => 9.329036860870746, k3 => 0.05050460166828284)
+Parameter(s)        :	 k1 = 9.329,  k2 = 1.910,  k3 = 0.051
+Initial Condition(s):	r(t) = 0.333, w(t) = 4.884, where t = -0.500
+Error: 8.1005e-02
+
+For model Lotka_Volterra: The SPE  max abs rel. err: 36.31614744348298
+Final Results:
+Parameter(s)        :	  a = 0.333,   b = 0.667
+Initial Condition(s):	x1(t) = 0.333, x2(t) = 0.667, where t = -0.500
+Error: 3.4165e-03
+
+  8.695716 seconds (3.20 M allocations: 213.934 MiB, 1.46% gc time, 95.98% compilation time)
+For model vanderpol: The best max abs rel. err: 1.6126572883218865e-12
+Starting
+Optimizer solution:
+Dict{Any, Any}(a => 0.33300000001822616, x1(t) => 0.3717074566550541, b => 0.8757458807512871, x2(t) => 0.6475287935659548)
+Dict{Any, Any}(a => 0.33300000001822616, x1(t) => 0.3717074566550541, b => 0.8757458807512871, x2(t) => 0.6475287935659548)
+Parameter(s)        :	  a = 0.333,   b = 0.876
+Initial Condition(s):	x1(t) = 0.372, x2(t) = 0.648, where t = -0.500
+Error: 2.1935e-02
+
+For model vanderpol: The SPE  max abs rel. err: 0.3129623399569521
+Test Summary:                                             | Pass  Total     Time
+Run larger, slower parameter recovery tests on known ODEs |    3      3  4m34.9s

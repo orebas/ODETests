@@ -5,13 +5,15 @@ using ForwardDiff
 
 using BaryRational
 import HomotopyContinuation as HC
-using Optimization
-using OptimizationOptimJL
-using Zygote
+#using Optimization
+#using OptimizationOptimJL
+#using Zygote
 using OrderedCollections
 
-function SimpleParameterEstimation(model::ODESystem, measured_quantities, data_sample, solver)
+using NonlinearSolve
+function SimpleParameterEstimation(model::ODESystem, measured_quantities, data_sample, solver, depth = 3, showlossfunction = false)
 	println("Starting")
+
 	#build the equation array.  
 	#eqns[i,*] relates to the time index i, i.e. 1 is the first time and sample_count is the last time
 	#eqns[i,1] is the equations coming from the model, enforced with respect to time index i
@@ -65,13 +67,16 @@ function SimpleParameterEstimation(model::ODESystem, measured_quantities, data_s
 			d[ddvar] = ddvname3[1]
 
 		end
-		equations_time_slice_from_ODE_only = []# assemple the ODE equations
-		equations_time_slice_from_ODE_1st_deriv = []# assemple the ODE equations
+		equations_time_slice_from_ODE_only = []
+		equations_time_slice_from_ODE_1st_deriv = []
 
 		equations_time_slice_from_measured_quantities_0th_deriv = []
 		equations_time_slice_from_measured_quantities_1st_deriv = []
 		equations_time_slice_from_measured_quantities_2nd_deriv = []
 
+
+		equations_time_slice_from_measured_quantities_derivatives = []
+		equations_time_slice_from_ODE_derivatives = []
 		for j in eachindex(model_eq)
 			lhs1 = expand_derivatives(model_eq[j].lhs)
 			rhs1 = expand_derivatives(model_eq[j].rhs)
@@ -93,45 +98,40 @@ function SimpleParameterEstimation(model::ODESystem, measured_quantities, data_s
 			push!(equations_time_slice_from_measured_quantities_0th_deriv, eq)
 		end
 
-		for j in measured_quantities
-			r = j.rhs
-			dr = D(r)
-			dr1 = ModelingToolkit.diff2term(expand_derivatives(dr))
-			dr2 = substitute(dr1, d)
-			#yval = ForwardDiff.derivative(interpolants[r], t_vector[i])
-			yval = ParameterEstimation.nth_deriv_at(interpolants[r], 1, t_vector[i])
-			#eq = yval ~ dr2
-			eq = yval - dr2
-			push!(equations_time_slice_from_measured_quantities_1st_deriv, eq)
+		for depth_i in 1:depth
+			for j in measured_quantities
+				r = j.rhs
+				dr = r
+				for deriv_i in 1:depth_i
+					dr = D(dr)
+				end
+				dr1 = ModelingToolkit.diff2term(expand_derivatives(dr))
+				dr2 = substitute(dr1, d)
+				#yval = ForwardDiff.derivative(interpolants[r], t_vector[i])
+				yval = ParameterEstimation.nth_deriv_at(interpolants[r], depth_i, t_vector[i])
+				#eq = yval ~ dr2
+				eq = yval - dr2
+				push!(equations_time_slice_from_measured_quantities_2nd_deriv, eq)
+			end
 		end
-
-
-		for j in measured_quantities
-			r = j.rhs
-			dr = D(D(r))
-			dr1 = ModelingToolkit.diff2term(expand_derivatives(dr))
-			dr2 = substitute(dr1, d)
-			#yval = ForwardDiff.derivative(interpolants[r], t_vector[i])
-			yval = ParameterEstimation.nth_deriv_at(interpolants[r], 2, t_vector[i])
-			#eq = yval ~ dr2
-			eq = yval - dr2
-			push!(equations_time_slice_from_measured_quantities_2nd_deriv, eq)
+		for depth_i in 1:(depth-1)
+			for j in eachindex(model_eq)
+				nlhs0 = model_eq[j].lhs
+				nrhs0 = model_eq[j].rhs
+				for deriv_i in 1:depth_i
+					nlhs0 = D(nlhs0)
+					nrhs0 = D(nlhs0)
+				end
+				nlhs1 = expand_derivatives(nlhs0)
+				nrhs1 = expand_derivatives(nrhs0)
+				nlhs2 = ModelingToolkit.diff2term(nlhs1)
+				nrhs2 = ModelingToolkit.diff2term(nrhs1)
+				nlhs3 = substitute(nlhs2, d)
+				nrhs3 = substitute(nrhs2, d)
+				#push!(equations_time_slice_from_ODE_1st_deriv, lhs3 ~ rhs3)
+				push!(equations_time_slice_from_ODE_1st_deriv, nlhs3 - nrhs3)
+			end
 		end
-
-
-		for j in eachindex(model_eq)
-			nlhs0 = D(model_eq[j].lhs)
-			nrhs0 = D(model_eq[j].rhs)
-			nlhs1 = expand_derivatives(nlhs0)
-			nrhs1 = expand_derivatives(nrhs0)
-			nlhs2 = ModelingToolkit.diff2term(nlhs1)
-			nrhs2 = ModelingToolkit.diff2term(nrhs1)
-			nlhs3 = substitute(nlhs2, d)
-			nrhs3 = substitute(nrhs2, d)
-			#push!(equations_time_slice_from_ODE_1st_deriv, lhs3 ~ rhs3)
-			push!(equations_time_slice_from_ODE_1st_deriv, nlhs3 - nrhs3)
-		end
-
 
 
 		#println("ODE ONLY")
@@ -164,48 +164,110 @@ function SimpleParameterEstimation(model::ODESystem, measured_quantities, data_s
 	#	end
 	#end
 	loss = typeof(eqns[1][1][1])(0)
-
+	resid_counter = 0
 	for i in eachindex(eqns)
 
 		for j in eachindex(eqns[i])
 			for k in eachindex(eqns[i][j])
 				loss += (eqns[i][j][k])^2
+				resid_counter += 1
 			end
 		end
 	end
 
 	lossvars = get_variables(loss)
-	for i in eachindex(model_ps)
-		loss += model_ps[i]  * model_ps[i]* 1e-5
+	#for i in eachindex(model_ps)
+	#	loss += model_ps[i] * model_ps[i] * 1e-5
+	#end
+
+	if (showlossfunction)
+		println("Loss function:", loss)
+
+		println(lossvars)
 	end
 
-	println("Loss function:", loss)
-
-	println(lossvars)
 
 
+
+	resid_vec = zeros(Float64, resid_counter)
+	function f_nlls!(du, u, p)
+		r_i = 1
+		for i in eachindex(eqns)
+			for j in eachindex(eqns[i])
+				for k in eachindex(eqns[i][j])
+					du[r_i] = (eqns[i][j][k])
+					r_i += 1
+				end
+			end
+		end
+	end
+
+	loss_eqn_vec = Vector{typeof(loss)}()
+	for i in eachindex(eqns)
+		for j in eachindex(eqns[i])
+			for k in eachindex(eqns[i][j])
+				push!(loss_eqn_vec, eqns[i][j][k])
+			end
+		end
+	end
+
+	nl_expr = build_function(loss_eqn_vec, lossvars, expression = Val{false})
+	#println(typeof(nl_expr))
+	#println(typeof(nl_expr[1]))
+	#println(typeof(nl_expr[2]))
+	#println(typeof(nl_expr[3]))
 	#################################  THIS WORKS
 	f_expr = build_function(loss, lossvars, expression = Val{false})
 	f_expr2(u, p) = f_expr(u)
-	u0map = ones((length(lossvars)))
-	g = OptimizationFunction(f_expr2, AutoForwardDiff())  #or AutoZygote
-	prob = OptimizationProblem(g, u0map)
-	sol = Optimization.solve(prob, LBFGS())  #newton was slower
-	println("First Version solution:")
+	function f_expr3!(du, u, p)
+		du[1] = f_expr(u)
+	end
+
+	u0map = ones(Float64, (length(lossvars)))
+	for ti in eachindex(u0map)
+		u0map[ti] = rand()
+	end
+	#println(u0map)
+	lb = zeros(Float64, (length(lossvars))) .+ 0.0
+	ub = lb .+ 10.0
+	#g = 	OptimizationFunction(f_expr2, AutoForwardDiff())  #or AutoZygote
+	#prob = OptimizationProblem(g, u0map, lb = lb, ub = ub)
+	#sol = Optimization.solve(prob, LBFGS())  #newton was slower
+	println("Optimizer solution:")
 	#println(sol)
 	#println(sol.original)
 	#println(sol.retcode)
 	#########################################3
+	#println(f_expr2(u0map,zeros(Float64, 0)))
+	#println("test1")
+	#prob4 = NonlinearProblem(NonlinearFunction(f_expr3!),
+	#	u0map, zeros(Float64, 0))
 
-	@named sys = OptimizationSystem(loss, lossvars, [])
+	#solnl = NonlinearSolve.solve(prob4,maxiters = 100000)
+	#println(solnl.retcode)
+	#println(solnl)
+	#############################3
+	#println(nl_expr[1](u0map))
 
-	u0dict = Dict()
+	nl_expr_p(out, u , p) = nl_expr[2](out,u)
+	prob5 = NonlinearLeastSquaresProblem(NonlinearFunction(nl_expr_p, resid_prototype = resid_vec), u0map)
+	solnlls = NonlinearSolve.solve(prob5)
+	println(solnlls.retcode)
+	#println(solnlls)
+
+
+	#@named sys = OptimizationSystem(loss, lossvars, [])
+
+	u0dict = OrderedDict()
 	for i in lossvars
 		u0dict[i] = rand()
 	end
 
+	#### Trying non linear solver #################################
+
+
 	pnull = Dict()
-	prob2 = OptimizationProblem(sys, u0dict, pnull, grad = true, hess = true)
+	#prob2 = OptimizationProblem(sys, u0dict, pnull, grad = true, hess = true)
 	#@time sol2 = Optimization.solve(prob2, Newton())
 
 	#println("Second Version solution:")
@@ -224,8 +286,8 @@ function SimpleParameterEstimation(model::ODESystem, measured_quantities, data_s
 		end
 		j = findfirst(temp)
 		if (!isnothing(j))
-			solution_dict[model_ps[i]] = (sol.u)[j]
-			println(" $(model_ps[i]) : $((sol.u)[j]) ")
+			solution_dict[model_ps[i]] = (solnlls.u)[j]
+			#println(" $(model_ps[i]) : $((sol.u)[j]) ")
 			#			println(" $(model_ps[i]) : $((sol2.u)[j]) ")
 		end
 	end
@@ -242,8 +304,8 @@ function SimpleParameterEstimation(model::ODESystem, measured_quantities, data_s
 		end
 		j = findfirst(temp)
 		if (!isnothing(j))
-			solution_dict[model_states[i]] = (sol.u)[j]
-			println(" $(model_states[i]) : $((sol.u)[j]) ")
+			solution_dict[model_states[i]] = (solnlls.u)[j]
+			#println(" $(model_states[i]) : $((sol.u)[j]) ")
 			#			println(" $(model_ps[i]) : $((sol2.u)[j]) ")
 		end
 	end
@@ -255,26 +317,36 @@ function SimpleParameterEstimation(model::ODESystem, measured_quantities, data_s
 	#	prob = OptimizationProblem(f, u0map, grad = false, hess = false)
 	#	solve(prob, NelderMead())
 	println(solution_dict)
+	push!(data_sample, ("t" => t_vector)) #TODO(orebas) maybe don't pop this in the first place
+
 	return solution_dict
 end
 
 function SPEWrapper(model::ODESystem, measured_quantities, data_sample, solver, oldres)
-	newres = oldres
+
+	newres = Vector{ParameterEstimation.EstimationResult}()
+	push!(newres, oldres)
+
 	sres = SimpleParameterEstimation(model, measured_quantities, data_sample, solver)
-	for (key, value) in newres.parameters
-		newres.parameters[key] = 1e30
+	for (key, value) in newres[1].parameters
+		newres[1].parameters[key] = 1e30
 	end
-	for (key, value) in newres.states
-		newres.states[key] = 1e30
+	for (key, value) in newres[1].states
+		newres[1].states[key] = 1e30
 	end
-	println(newres)
-	for (key, value) in newres.parameters
-		newres.parameters[key] = sres[key]
+	#println(newres)
+	for (key, value) in newres[1].parameters
+		newres[1].parameters[key] = sres[key]
 	end
-	for (key, value) in newres.states
-		newres.states[key] = sres[key]
+	for (key, value) in newres[1].states
+		newres[1].states[key] = sres[key]
 	end
+	fake_inputs = Vector{Equation}()
+	#println("Data Sample: ", data_sample)
+	ParameterEstimation.solve_ode!(model, newres, fake_inputs, data_sample, solver = solver, abstol = 1e-12, reltol = 1e-12)
+
+
 	println(sres)
-	println(newres)
-	return newres
+	println(newres[1])
+	return newres[1]
 end
