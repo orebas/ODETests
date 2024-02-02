@@ -54,7 +54,9 @@ function main()
 	#temp3 = Dict()
 	#temp3[temp1] = temp2
 
-	sres = SimpleParameterEstimation(model, measured_quantities, data_sample, solver)
+	#sres = SimpleParameterEstimation(model, measured_quantities, data_sample, solver)
+	sres2 = SCIML_PE(model, measured_quantities, data_sample, solver)
+
 	println(sres)
 end
 

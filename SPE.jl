@@ -5,13 +5,13 @@ using ForwardDiff
 
 using BaryRational
 import HomotopyContinuation as HC
-#using Optimization
-#using OptimizationOptimJL
+using Optimization
+using OptimizationOptimJL
 #using Zygote
 using OrderedCollections
 
 using NonlinearSolve
-
+using DiffEqParamEstim
 
 
 function SCIML_PE(model::ODESystem, measured_quantities, data_sample, solver)
@@ -20,23 +20,52 @@ function SCIML_PE(model::ODESystem, measured_quantities, data_sample, solver)
 	model_states = ModelingToolkit.states(model)
 	model_ps = ModelingToolkit.parameters(model)
 
+	t_vector = pop!(data_sample, "t") #TODO(orebas) make it use the independent variable name
+	time_interval = (minimum(t_vector), maximum(t_vector))
 	initial_conditions = [rand(Float64) for s in ModelingToolkit.states(model)]
 	parameter_values = [rand(Float64) for p in ModelingToolkit.parameters(model)]
 
-	ic_count = len(initial_conditions)
-	p_count = len(parameter_values)
-
+	ic_count = length(initial_conditions)
+	p_count = length(parameter_values)
+	lossret = 0
 	u0 = [parameter_values; initial_conditions]
-
-	function loss(u, p)
+	null_p = []
+	prob = ODEProblem(model, u0, time_interval)
+	rprob = remake(prob, u = u0)
+	data_sample_loss = data_sample
+	function loss_function(x, p_discarded)
+		rprob = remake(rprob, u = x)
+		solution_true = ModelingToolkit.solve(rprob, solver, p_discarded, saveat = t_vector, abstol = 1e-13, reltol = 1e-13)
+		lossret = 0
+		data_sample_loss = OrderedDict{Any, Vector{T}}(Num(v.rhs) => solution_true[Num(v.rhs)] for v in measured_data)
+		for v in measured_data
+			lossret += sum(abs2, data_sample_loss[v.rhs] - data_sample[v.rhs])
+		end
+		return lossret, solution_true
 	end
-	t_vector = pop!(data_sample, "t") #TODO(orebas) make it use the independent variable name
-	sample_count = length(t_vector)
-	D = Differential(t)
 
+
+
+	adtype = Optimization.AutoZygote()
+	optf = Optimization.OptimizationFunction((x, p) -> loss_function(x, p_discarded), adtype)
+	optprob = Optimization.OptimizationProblem(optf, p)
+
+	result_ode = Optimization.solve(optprob, PolyOpt(), maxiters = 100)
+
+	push!(data_sample, ("t" => t_vector)) #TODO(orebas) maybe don't pop this in the first place
+
+	return result_ode
 end
 
-function SimpleParameterEstimation(model::ODESystem, measured_quantities, data_sample, solver, depth = 5, showlossfunction = false)
+
+#optprob = Optimization.OptimizationProblem(cost_function, u0)
+#result_bfgs = solve(optprob, BFGS())
+
+#sample_count = length(t_vector)
+#D = Differential(t)
+
+
+function SimpleParameterEstimation(model::ODESystem, measured_quantities, data_sample, solver, depth = 3, showlossfunction = false)
 	println("Starting")
 
 	#build the equation array.  
@@ -190,7 +219,7 @@ function SimpleParameterEstimation(model::ODESystem, measured_quantities, data_s
 	#end
 	loss = typeof(eqns[1][1][1])(0)
 	resid_counter = 0
-	indexset = [1, 41, 51, 61]
+	indexset = [1, 8, 11, 14]
 	for i in indexset
 		for j in eachindex(eqns[i])
 			for k in eachindex(eqns[i][j])
