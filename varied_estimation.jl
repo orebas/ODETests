@@ -1,5 +1,5 @@
 using Test, TestSetExtensions
-using ModelingToolkit, SIAN, HomotopyContinuation
+using ModelingToolkit, HomotopyContinuation
 using ParameterEstimation, Oscar
 include("SPE.jl")
 @testset "Run larger, slower parameter recovery tests on known ODEs" begin
@@ -574,20 +574,20 @@ include("SPE.jl")
 	#end
 
 	function varied_estimation_main()
-		datasize = 21
+		datasize = 91
 		solver = Vern9()
 		#solver = Rodas4P()
 		time_interval = [-0.5, 0.5]
 		for PEP in [
-			simple(datasize, time_interval, solver),  #works
+			#simple(datasize, time_interval, solver),  #works
 			lotka_volterra(datasize, time_interval, solver),  #works
-			vanderpol(datasize, time_interval, solver),  #works
-			daisy_mamil3(datasize, time_interval, solver),
-			daisy_mamil4(datasize, time_interval, solver),
-			hiv(datasize, time_interval, solver),
-			seir(datasize, time_interval, solver),
-			slowfast(datasize, time_interval, solver),
-			crauste(datasize, time_interval, solver),
+			#vanderpol(datasize, time_interval, solver),  #works
+			#daisy_mamil3(datasize, time_interval, solver),
+			#daisy_mamil4(datasize, time_interval, solver),
+			#hiv(datasize, time_interval, solver),
+			#seir(datasize, time_interval, solver),
+			#slowfast(datasize, time_interval, solver),
+			#crauste(datasize, time_interval, solver),
 			#biohydrogenation(datasize, time_interval, solver),  #works, but one param unidentifiable
 			#daisy_ex3(datasize, time_interval, solver),
 			#fitzhugh_nagumo(datasize, time_interval, solver),

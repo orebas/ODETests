@@ -24,7 +24,7 @@ function main()
 	ic = [0.11, 0.20, 0.34, 0.56]
 	p_true = [2.0, 3.0, 4.0, 5.0]
 	time_interval = [-1.0, 1.0]
-	datasize = 9
+	datasize = 21
 	data_sample = ParameterEstimation.sample_data(model, measured_quantities, time_interval,
 		p_true, ic, datasize; solver = solver)
 	res = ParameterEstimation.estimate(model, measured_quantities, data_sample)

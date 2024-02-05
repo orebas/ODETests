@@ -11,7 +11,32 @@ import HomotopyContinuation as HC
 using OrderedCollections
 
 using NonlinearSolve
-function SimpleParameterEstimation(model::ODESystem, measured_quantities, data_sample, solver, depth = 3, showlossfunction = false)
+
+
+
+function SCIML_PE(model::ODESystem, measured_quantities, data_sample, solver)
+	t = ModelingToolkit.get_iv(model)
+	model_eq = ModelingToolkit.equations(model)
+	model_states = ModelingToolkit.states(model)
+	model_ps = ModelingToolkit.parameters(model)
+
+	initial_conditions = [rand(Float64) for s in ModelingToolkit.states(model)]
+	parameter_values = [rand(Float64) for p in ModelingToolkit.parameters(model)]
+
+	ic_count = len(initial_conditions)
+	p_count = len(parameter_values)
+
+	u0 = [parameter_values; initial_conditions]
+
+	function loss(u, p)
+	end
+	t_vector = pop!(data_sample, "t") #TODO(orebas) make it use the independent variable name
+	sample_count = length(t_vector)
+	D = Differential(t)
+
+end
+
+function SimpleParameterEstimation(model::ODESystem, measured_quantities, data_sample, solver, depth = 5, showlossfunction = false)
 	println("Starting")
 
 	#build the equation array.  
@@ -165,8 +190,8 @@ function SimpleParameterEstimation(model::ODESystem, measured_quantities, data_s
 	#end
 	loss = typeof(eqns[1][1][1])(0)
 	resid_counter = 0
-	for i in eachindex(eqns)
-
+	indexset = [1, 41, 51, 61]
+	for i in indexset
 		for j in eachindex(eqns[i])
 			for k in eachindex(eqns[i][j])
 				loss += (eqns[i][j][k])^2
@@ -189,7 +214,6 @@ function SimpleParameterEstimation(model::ODESystem, measured_quantities, data_s
 
 
 
-	resid_vec = zeros(Float64, resid_counter)
 	function f_nlls!(du, u, p)
 		r_i = 1
 		for i in eachindex(eqns)
@@ -203,15 +227,18 @@ function SimpleParameterEstimation(model::ODESystem, measured_quantities, data_s
 	end
 
 	loss_eqn_vec = Vector{typeof(loss)}()
-	for i in eachindex(eqns)
+	for i in indexset
 		for j in eachindex(eqns[i])
 			for k in eachindex(eqns[i][j])
-				push!(loss_eqn_vec, eqns[i][j][k])
+				if (i == 1)
+					push!(loss_eqn_vec, 0.01 * eqns[i][j][k])
+				else
+					push!(loss_eqn_vec, 0.01 * eqns[i][j][k])
+				end
 			end
 		end
 	end
 
-	nl_expr = build_function(loss_eqn_vec, lossvars, expression = Val{false})
 	#println(typeof(nl_expr))
 	#println(typeof(nl_expr[1]))
 	#println(typeof(nl_expr[2]))
@@ -225,7 +252,7 @@ function SimpleParameterEstimation(model::ODESystem, measured_quantities, data_s
 
 	u0map = ones(Float64, (length(lossvars)))
 	for ti in eachindex(u0map)
-		u0map[ti] = rand()
+		u0map[ti] = rand() * 1
 	end
 	#println(u0map)
 	lb = zeros(Float64, (length(lossvars))) .+ 0.0
@@ -249,13 +276,21 @@ function SimpleParameterEstimation(model::ODESystem, measured_quantities, data_s
 	#############################3
 	#println(nl_expr[1](u0map))
 
-	nl_expr_p(out, u , p) = nl_expr[2](out,u)
+	for i in eachindex(model_ps)
+		p = model_ps[i]
+		eqpen = max(0, -p) * max(0, -p) * 1e6
+		push!(loss_eqn_vec, eqpen)
+		resid_counter += 1
+	end
+
+	nl_expr = build_function(loss_eqn_vec, lossvars, expression = Val{false})
+	resid_vec = zeros(Float64, resid_counter)
+
+	nl_expr_p(out, u, p) = nl_expr[2](out, u)
 	prob5 = NonlinearLeastSquaresProblem(NonlinearFunction(nl_expr_p, resid_prototype = resid_vec), u0map)
-	solnlls = NonlinearSolve.solve(prob5)
+	solnlls = NonlinearSolve.solve(prob5, maxiters = 64000)
 	println(solnlls.retcode)
-	#println(solnlls)
-
-
+	println(solnlls)
 	#@named sys = OptimizationSystem(loss, lossvars, [])
 
 	u0dict = OrderedDict()
