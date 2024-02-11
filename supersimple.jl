@@ -54,10 +54,15 @@ function main()
 	#temp3 = Dict()
 	#temp3[temp1] = temp2
 
+
 	#sres = SimpleParameterEstimation(model, measured_quantities, data_sample, solver)
+	#println(MTK_MWE_V5(model))
+
+	#MTK_MWE_Local(model)
 	sres2 = SCIML_PE(model, measured_quantities, data_sample, solver)
 
-	println(sres)
+
+	println(sres2)
 end
 
 main()

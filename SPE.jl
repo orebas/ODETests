@@ -1,7 +1,7 @@
 using ParameterEstimation
 using ModelingToolkit, DifferentialEquations
 using ForwardDiff
-
+using Optimization, OptimizationPolyalgorithms, SciMLSensitivity
 
 using BaryRational
 import HomotopyContinuation as HC
@@ -12,6 +12,55 @@ using OrderedCollections
 
 using NonlinearSolve
 using DiffEqParamEstim
+
+
+
+function MTK_MWE_V5(model::ODESystem)
+	model_states = ModelingToolkit.states(model)
+	model_ps = ModelingToolkit.parameters(model)
+	time_interval = (0.0, 1.0)
+	initial_conditions = [(1.0) for s in ModelingToolkit.states(model)]
+	parameter_values = [(1.0) for p in ModelingToolkit.parameters(model)]
+	prob = ODEProblem(model, initial_conditions, parameter_values, time_interval)
+end
+
+
+function MTK_MWE_Local(model::ODESystem)
+	t = ModelingToolkit.get_iv(model)
+	model_eq = ModelingToolkit.equations(model)
+	model_states = ModelingToolkit.states(model)
+	model_ps = ModelingToolkit.parameters(model)
+
+	time_interval = (0.0, 1.0)
+	initial_conditions = [s => (1.0) for s in ModelingToolkit.states(model)]
+	parameter_values = [p => (1.0) for p in ModelingToolkit.parameters(model)]
+
+	println(parameter_values)
+
+	u0 = [parameter_values; initial_conditions]
+	prob = ODEProblem(model, initial_conditions, parameter_values, time_interval)
+	#	rprob = remake(prob, u = u0)
+end
+
+
+
+function MTK_MWE_V3(model::ODESystem)
+	t = ModelingToolkit.get_iv(model)
+	model_eq = ModelingToolkit.equations(model)
+	model_states = ModelingToolkit.states(model)
+	model_ps = ModelingToolkit.parameters(model)
+
+	time_interval = (0.0, 1.0)
+	initial_conditions = [(1.0) for s in ModelingToolkit.states(model)]
+	parameter_values = [(1.0) for p in ModelingToolkit.parameters(model)]
+
+	println(parameter_values)
+
+	prob = ODEProblem(model, initial_conditions, parameter_values, time_interval)
+end
+
+
+
 
 
 function SCIML_PE(model::ODESystem, measured_quantities, data_sample, solver)
@@ -25,32 +74,46 @@ function SCIML_PE(model::ODESystem, measured_quantities, data_sample, solver)
 	initial_conditions = [rand(Float64) for s in ModelingToolkit.states(model)]
 	parameter_values = [rand(Float64) for p in ModelingToolkit.parameters(model)]
 
+
 	ic_count = length(initial_conditions)
 	p_count = length(parameter_values)
 	lossret = 0
-	u0 = [parameter_values; initial_conditions]
-	null_p = []
-	prob = ODEProblem(model, u0, time_interval)
-	rprob = remake(prob, u = u0)
+
+	prob = ODEProblem(model, initial_conditions, time_interval, parameter_values, saveat = t_vector)
+	sol = ModelingToolkit.solve(prob)
 	data_sample_loss = data_sample
+	ic_temp = initial_conditions
+	p_temp = parameter_values
+	opt_tuple = (initial_conditions, parameter_values)
+	rprob = remake(prob, u0 = ic_temp, p = p_temp, saveat = t_vector)
+	sol = ModelingToolkit.solve(rprob)
+	opt_vec = [initial_conditions; parameter_values]
+
+
 	function loss_function(x, p_discarded)
-		rprob = remake(rprob, u = x)
-		solution_true = ModelingToolkit.solve(rprob, solver, p_discarded, saveat = t_vector, abstol = 1e-13, reltol = 1e-13)
+		(ic_temp, p_temp) = (x[1], x[2])
+		ic_temp = x[1:ic_count]
+		p_tem = x[ic_count+1:end]
+		rprob = remake(rprob, u0 = ic_temp, p = p_temp, saveat = t_vector)
+		#solution_true = ModelingToolkit.solve(rprob, time_interval, p_discarded, saveat = t_vector, solver = solver, abstol = 1e-13, reltol = 1e-13)
+		solution_true = ModelingToolkit.solve(rprob)
 		lossret = 0
-		data_sample_loss = OrderedDict{Any, Vector{T}}(Num(v.rhs) => solution_true[Num(v.rhs)] for v in measured_data)
-		for v in measured_data
+		data_sample_loss = OrderedDict{Any, Vector{}}(Num(v.rhs) => solution_true[Num(v.rhs)] for v in measured_quantities)
+		for v in measured_quantities
 			lossret += sum(abs2, data_sample_loss[v.rhs] - data_sample[v.rhs])
 		end
 		return lossret, solution_true
 	end
 
 
+ 
 
-	adtype = Optimization.AutoZygote()
-	optf = Optimization.OptimizationFunction((x, p) -> loss_function(x, p_discarded), adtype)
-	optprob = Optimization.OptimizationProblem(optf, p)
 
-	result_ode = Optimization.solve(optprob, PolyOpt(), maxiters = 100)
+	adtype = Optimization.AutoForwardDiff()
+	optf = Optimization.OptimizationFunction((x, p) -> loss_function(x, p), adtype)
+	optprob = Optimization.OptimizationProblem(optf, opt_vec)
+
+	result_ode = Optimization.solve(optprob, PolyOpt(), maxiters = 300)
 
 	push!(data_sample, ("t" => t_vector)) #TODO(orebas) maybe don't pop this in the first place
 
