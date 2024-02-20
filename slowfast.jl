@@ -3,32 +3,33 @@ include("SPE.jl")
 using Plots
 
 function main()
-	@parameters a b c d
-	@variables t x1(t) x2(t) x3(t) x4(t) y1(t) y2(t) y3(t) y4(t)
+	@parameters k1 k2 eB
+	@variables t xA(t) xB(t) xC(t) eA(t) eC(t) y1(t) y2(t) y3(t) y4(t) #eA(t) eC(t)
 	D = Differential(t)
-	states = [x1, x2, x3, x4]
-	parameters = [a, b, c, d]
-
-	solver = Vern9()
+	states = [xA, xB, xC, eA, eC]
+	parameters = [k1, k2, eB]
 	@named model = ODESystem([
-			D(x1) ~ a + x2,
-			D(x2) ~ b + x3,
-			D(x3) ~ c + x4,
-			D(x4) ~ d,
+			D(xA) ~ -k1 * xA,
+			D(xB) ~ k1 * xA - k2 * xB,
+			D(xC) ~ k2 * xB,
+			D(eA) ~ 0,
+			D(eC) ~ 0,
 		], t, states, parameters)
-	measured_quantities = [
-		y1 ~ x1,
-		y2 ~ x2,
-		y3 ~ x3,
-		y4 ~ x4,
-	]
 
-	ic = [0.11, 0.20, 0.34, 0.56]
-	p_true = [2.0, 3.0, 4.0, 5.0]
-	time_interval = [-1.0, 1.0]
+	measured_quantities = [y1 ~ xC, y2 ~ eA * xA + eB * xB + eC * xC, y3 ~ eA, y4 ~ eC]
+	ic = [0.166, 0.333, 0.5, 0.666, 0.833]
+	p_true = [0.25, 0.5, 0.75] # True Parameters
+	solver = Vern9()
+	time_interval = [-0.5, 0.5]
 	datasize = 21
-	data_sample = ParameterEstimation.sample_data(model, measured_quantities, time_interval,
-		p_true, ic, datasize; solver = solver)
+	data_sample = ParameterEstimation.sample_data(model,
+		measured_quantities,
+		time_interval,
+		p_true,
+		ic,
+		datasize;
+		solver = solver)
+
 	println(data_sample)
 
 	t_vector = pop!(data_sample, "t") #TODO(orebas) make it use the independent variable name
@@ -72,7 +73,7 @@ function main()
 	#println(MTK_MWE_V5(model))
 
 	#MTK_MWE_Local(model)
-	sres2 = SCIML_PE(model, measured_quantities, data_sample, solver)
+	sres2 = SCIML_PE(model, measured_quantities, data_sample, solver, showplots = true)
 
 
 	println(sres2)

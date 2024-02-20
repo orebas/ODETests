@@ -1,7 +1,7 @@
 using ParameterEstimation
 using ModelingToolkit, DifferentialEquations
-using ForwardDiff
-using Optimization, OptimizationPolyalgorithms, SciMLSensitivity
+using ForwardDiff, Plots
+using Optimization, SciMLSensitivity
 
 using BaryRational
 import HomotopyContinuation as HC
@@ -63,7 +63,7 @@ end
 
 
 
-function SCIML_PE(model::ODESystem, measured_quantities, data_sample, solver)
+function SCIML_PE(model::ODESystem, measured_quantities, data_sample, solver; showplots = false)
 	t = ModelingToolkit.get_iv(model)
 	model_eq = ModelingToolkit.equations(model)
 	model_states = ModelingToolkit.states(model)
@@ -90,30 +90,52 @@ function SCIML_PE(model::ODESystem, measured_quantities, data_sample, solver)
 	opt_vec = [initial_conditions; parameter_values]
 
 
+
+	callback = function (p, l, sol)
+		if (showplots)
+			display(l)
+			plt = plot(sol, label = "Current Prediction")
+			display(plt)
+		end
+		# Tell Optimization.solve to not halt the optimization. If return true, then
+		# optimization stops.
+		return false
+	end
+
 	function loss_function(x, p_discarded)
 		(ic_temp, p_temp) = (x[1], x[2])
 		ic_temp = x[1:ic_count]
-		p_tem = x[ic_count+1:end]
+		p_temp = x[ic_count+1:end]
 		rprob = remake(rprob, u0 = ic_temp, p = p_temp, saveat = t_vector)
+
+
 		#solution_true = ModelingToolkit.solve(rprob, time_interval, p_discarded, saveat = t_vector, solver = solver, abstol = 1e-13, reltol = 1e-13)
-		solution_true = ModelingToolkit.solve(rprob)
+		solution_true = ModelingToolkit.solve(rprob, Vern9(), reltol = 1e-12, abstol = 1e-12)
 		lossret = 0
 		data_sample_loss = OrderedDict{Any, Vector{}}(Num(v.rhs) => solution_true[Num(v.rhs)] for v in measured_quantities)
 		for v in measured_quantities
-			lossret += sum(abs2, data_sample_loss[v.rhs] - data_sample[v.rhs])
+			if (length(data_sample_loss[v.rhs]) == length(data_sample[v.rhs]))
+				lossret += sum(abs2, (data_sample_loss[v.rhs] - data_sample[v.rhs]) / data_sample[v.rhs])
+			else
+				lossret += 1.0e10
+			end
+
 		end
 		return lossret, solution_true
 	end
 
 
- 
-
-
 	adtype = Optimization.AutoForwardDiff()
 	optf = Optimization.OptimizationFunction((x, p) -> loss_function(x, p), adtype)
 	optprob = Optimization.OptimizationProblem(optf, opt_vec)
+	result_ode = Optimization.solve(optprob, LBFGS(linesearch = BackTracking(order = 2)), callback = callback, maxiters = 500)
+	optprob2 = Optimization.OptimizationProblem(optf, result_ode.u)
+	result_ode2 = Optimization.solve(optprob2, Newton(), callback = callback, maxiters = 100)
 
-	result_ode = Optimization.solve(optprob, PolyOpt(), maxiters = 300)
+
+	println(result_ode.original)
+	println(result_ode2.original)
+
 
 	push!(data_sample, ("t" => t_vector)) #TODO(orebas) maybe don't pop this in the first place
 
@@ -449,6 +471,42 @@ function SimpleParameterEstimation(model::ODESystem, measured_quantities, data_s
 	return solution_dict
 end
 
+
+function SCIMLPEWrapper(model::ODESystem, measured_quantities, data_sample, solver, oldres)
+
+
+	newres = Vector{ParameterEstimation.EstimationResult}()
+	push!(newres, oldres)
+
+	sres = SCIML_PE(model, measured_quantities, data_sample, solver, showplots = true)
+	for (key, value) in newres[1].parameters
+		newres[1].parameters[key] = 1e30
+	end
+	for (key, value) in newres[1].states
+		newres[1].states[key] = 1e30
+	end
+	#println(newres)
+	i = 1
+	for (key, value) in newres[1].states
+		newres[1].states[key] = sres[i]
+		i += 1
+	end
+
+
+	for (key, value) in newres[1].parameters
+		newres[1].parameters[key] = sres[i]
+		i += 1
+	end
+	fake_inputs = Vector{Equation}()
+	#println("Data Sample: ", data_sample)
+	ParameterEstimation.solve_ode!(model, newres, fake_inputs, data_sample, solver = solver, abstol = 1e-12, reltol = 1e-12)
+
+	println(sres)
+	println(newres[1])
+	return newres[1]
+
+
+end
 function SPEWrapper(model::ODESystem, measured_quantities, data_sample, solver, oldres)
 
 	newres = Vector{ParameterEstimation.EstimationResult}()
@@ -471,7 +529,6 @@ function SPEWrapper(model::ODESystem, measured_quantities, data_sample, solver, 
 	fake_inputs = Vector{Equation}()
 	#println("Data Sample: ", data_sample)
 	ParameterEstimation.solve_ode!(model, newres, fake_inputs, data_sample, solver = solver, abstol = 1e-12, reltol = 1e-12)
-
 
 	println(sres)
 	println(newres[1])
