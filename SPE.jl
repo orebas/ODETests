@@ -23,14 +23,14 @@ function SCIML_PE(model::ODESystem, measured_quantities, data_sample, solver)
 	t_vector = pop!(data_sample, "t") #TODO(orebas) make it use the independent variable name
 	time_interval = (minimum(t_vector), maximum(t_vector))
 	initial_conditions = [rand(Float64) for s in ModelingToolkit.states(model)]
-	parameter_values = [rand(Float64) for p in ModelingToolkit.parameters(model)]
+	parameter_values = [p => rand(Float64) for p in ModelingToolkit.parameters(model)]
 
 	ic_count = length(initial_conditions)
 	p_count = length(parameter_values)
 	lossret = 0
 	u0 = [parameter_values; initial_conditions]
 	null_p = []
-	prob = ODEProblem(model, u0, time_interval)
+	prob = ODEProblem(model, initial_conditions, time_interval, param_map = parameter_values)
 	rprob = remake(prob, u = u0)
 	data_sample_loss = data_sample
 	function loss_function(x, p_discarded)
