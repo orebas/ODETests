@@ -1,0 +1,1008 @@
+[ Info: Preproccessing `ModelingToolkit.ODESystem` object
+[ Info: Solving the problem
+[ Info: Constructing the maximal system
+[ Info: Truncating
+[ Info: Assessing local identifiability
+[ Info: Found Pivots: []
+[ Info: Locally identifiable parameters: [lm, d, beta, a, k, u, c, q, b, h, x, y, v, w, z]
+[ Info: Not identifiable parameters:     []
+[ Info: Randomizing
+[ Info: Gröbner basis computation
+[ Info: Remainder computation
+[ Info: === Summary ===
+[ Info: Globally identifiable parameters:                 [u, beta, k, lm, c, w, q, d, h, v, z, a, x, y, b]
+[ Info: Locally but not globally identifiable parameters: []
+[ Info: Not identifiable parameters:                      []
+[ Info: ===============
+[ Info: Estimating via the interpolators: ["FHD3", "AAA", "FHD8"]
+Progress:  67%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▍                                                              |  ETA: 0:00:15[KComputing mixed cells... 2    Time: 0:00:00[K
+  mixed_volume:  4[K[A
+[K[AComputing mixed cells... 2    Time: 0:00:00[K
+  mixed_volume:  4[K
+Progress: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| Time: 0:00:31[K
+[ Info: Preproccessing `ModelingToolkit.ODESystem` object
+[ Info: Solving the problem
+[ Info: Constructing the maximal system
+[ Info: Truncating
+[ Info: Assessing local identifiability
+[ Info: Found Pivots: []
+[ Info: Locally identifiable parameters: [a, b, x2, x1]
+[ Info: Not identifiable parameters:     []
+[ Info: Randomizing
+[ Info: Gröbner basis computation
+[ Info: Remainder computation
+[ Info: === Summary ===
+[ Info: Globally identifiable parameters:                 [b, x2, x1, a]
+[ Info: Locally but not globally identifiable parameters: []
+[ Info: Not identifiable parameters:                      []
+[ Info: ===============
+[ Info: Estimating via the interpolators: ["FHD3", "AAA", "FHD8"]
+Progress:  67%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▍                                                              |  ETA: 0:00:02[KProgress: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| Time: 0:00:04[K
+[ Info: Preproccessing `ModelingToolkit.ODESystem` object
+[ Info: Solving the problem
+[ Info: Constructing the maximal system
+[ Info: Truncating
+[ Info: Assessing local identifiability
+[ Info: Found Pivots: []
+[ Info: Locally identifiable parameters: [k1, k2, k3, w, r]
+[ Info: Not identifiable parameters:     []
+[ Info: Randomizing
+[ Info: Gröbner basis computation
+[ Info: Remainder computation
+[ Info: === Summary ===
+[ Info: Globally identifiable parameters:                 [k3, w, r, k1, k2]
+[ Info: Locally but not globally identifiable parameters: []
+[ Info: Not identifiable parameters:                      []
+[ Info: ===============
+[ Info: Estimating via the interpolators: ["FHD3", "AAA", "FHD8"]
+┌ Warning: Interrupted. Larger maxiters is needed. If you are using an integrator for non-stiff ODEs or an automatic switching algorithm (the default), you may want to consider using a method for stiff equations. See the solver pages for more details (e.g. https://docs.sciml.ai/DiffEqDocs/stable/solvers/ode_solve/#Stiff-Problems).
+└ @ SciMLBase ~/.julia/packages/SciMLBase/QSc1r/src/integrator_interface.jl:579
+┌ Warning: Interrupted. Larger maxiters is needed. If you are using an integrator for non-stiff ODEs or an automatic switching algorithm (the default), you may want to consider using a method for stiff equations. See the solver pages for more details (e.g. https://docs.sciml.ai/DiffEqDocs/stable/solvers/ode_solve/#Stiff-Problems).
+└ @ SciMLBase ~/.julia/packages/SciMLBase/QSc1r/src/integrator_interface.jl:579
+Progress:  67%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▍                                                              |  ETA: 0:00:04[K┌ Warning: Interrupted. Larger maxiters is needed. If you are using an integrator for non-stiff ODEs or an automatic switching algorithm (the default), you may want to consider using a method for stiff equations. See the solver pages for more details (e.g. https://docs.sciml.ai/DiffEqDocs/stable/solvers/ode_solve/#Stiff-Problems).
+└ @ SciMLBase ~/.julia/packages/SciMLBase/QSc1r/src/integrator_interface.jl:579
+Progress: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| Time: 0:00:07[K
+[ Info: Preproccessing `ModelingToolkit.ODESystem` object
+[ Info: Solving the problem
+[ Info: Constructing the maximal system
+[ Info: Truncating
+[ Info: Assessing local identifiability
+[ Info: Found Pivots: []
+[ Info: Locally identifiable parameters: [a, b, x2, x1]
+[ Info: Not identifiable parameters:     []
+[ Info: Randomizing
+[ Info: Gröbner basis computation
+[ Info: Remainder computation
+[ Info: === Summary ===
+[ Info: Globally identifiable parameters:                 [b, x2, x1, a]
+[ Info: Locally but not globally identifiable parameters: []
+[ Info: Not identifiable parameters:                      []
+[ Info: ===============
+[ Info: Estimating via the interpolators: ["FHD3", "AAA", "FHD8"]
+Progress:  67%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▍                                                              |  ETA: 0:00:03[KProgress: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| Time: 0:00:05[K
+[ Info: Preproccessing `ModelingToolkit.ODESystem` object
+[ Info: Solving the problem
+[ Info: Constructing the maximal system
+[ Info: Truncating
+[ Info: Assessing local identifiability
+[ Info: Found Pivots: []
+[ Info: Locally identifiable parameters: [a12, a13, a21, a31, a01, x2, x3, x1]
+[ Info: Not identifiable parameters:     []
+[ Info: Randomizing
+[ Info: Gröbner basis computation
+[ Info: Remainder computation
+[ Info: === Summary ===
+[ Info: Globally identifiable parameters:                 [a01, a13, x2, x3, a31, a12, x1, a21]
+[ Info: Locally but not globally identifiable parameters: []
+[ Info: Not identifiable parameters:                      []
+[ Info: ===============
+[ Info: Estimating via the interpolators: ["FHD3", "AAA", "FHD8"]
+Progress:  67%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▍                                                              |  ETA: 0:00:04[KProgress: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| Time: 0:00:07[K
+[ Info: Preproccessing `ModelingToolkit.ODESystem` object
+[ Info: Solving the problem
+[ Info: Constructing the maximal system
+[ Info: Truncating
+[ Info: Assessing local identifiability
+[ Info: Found Pivots: []
+[ Info: Locally identifiable parameters: [k01, k12, k13, k14, k21, k31, k41, x3, x1, x2, x4]
+[ Info: Not identifiable parameters:     []
+[ Info: Randomizing
+[ Info: Gröbner basis computation
+[ Info: Remainder computation
+[ Info: === Summary ===
+[ Info: Globally identifiable parameters:                 [k12, k21, x1, k01, x2]
+[ Info: Locally but not globally identifiable parameters: [x4, k13, x3, k41, k14, k31]
+[ Info: Not identifiable parameters:                      []
+[ Info: ===============
+[ Info: Estimating via the interpolators: ["FHD3", "AAA", "FHD8"]
+┌ Warning: Instability detected. Aborting
+└ @ SciMLBase ~/.julia/packages/SciMLBase/QSc1r/src/integrator_interface.jl:605
+Progress:  67%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▍                                                              |  ETA: 0:00:09[KProgress: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| Time: 0:00:23[K
+[ Info: Preproccessing `ModelingToolkit.ODESystem` object
+[ Info: Solving the problem
+[ Info: Constructing the maximal system
+[ Info: Truncating
+[ Info: Assessing local identifiability
+[ Info: Found Pivots: []
+[ Info: Locally identifiable parameters: [lm, d, beta, a, k, u, c, q, b, h, x, y, v, w, z]
+[ Info: Not identifiable parameters:     []
+[ Info: Randomizing
+[ Info: Gröbner basis computation
+[ Info: Remainder computation
+[ Info: === Summary ===
+[ Info: Globally identifiable parameters:                 [u, beta, k, lm, c, w, q, d, h, v, z, a, x, y, b]
+[ Info: Locally but not globally identifiable parameters: []
+[ Info: Not identifiable parameters:                      []
+[ Info: ===============
+[ Info: Estimating via the interpolators: ["FHD3", "AAA", "FHD8"]
+Progress:  67%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▍                                                              |  ETA: 0:00:01[KProgress: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| Time: 0:00:03[K
+[ Info: Preproccessing `ModelingToolkit.ODESystem` object
+[ Info: Solving the problem
+[ Info: Constructing the maximal system
+[ Info: Truncating
+[ Info: Assessing local identifiability
+[ Info: Found Pivots: []
+[ Info: Locally identifiable parameters: [a, b, nu, E, In, S, N]
+[ Info: Not identifiable parameters:     []
+[ Info: Randomizing
+[ Info: Gröbner basis computation
+[ Info: Remainder computation
+[ Info: === Summary ===
+[ Info: Globally identifiable parameters:                 [In, b, N]
+[ Info: Locally but not globally identifiable parameters: [E, a, nu, S]
+[ Info: Not identifiable parameters:                      []
+[ Info: ===============
+[ Info: Estimating via the interpolators: ["FHD3", "AAA", "FHD8"]
+Progress:  67%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▍                                                              |  ETA: 0:00:05[KProgress: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| Time: 0:00:10[K
+[ Info: Preproccessing `ModelingToolkit.ODESystem` object
+[ Info: Solving the problem
+[ Info: Constructing the maximal system
+[ Info: Truncating
+[ Info: Assessing local identifiability
+[ Info: Found Pivots: []
+[ Info: Locally identifiable parameters: [k1, k2, eB, eA, xC, xB, xA, eC]
+[ Info: Not identifiable parameters:     []
+[ Info: Randomizing
+[ Info: Gröbner basis computation
+[ Info: Remainder computation
+[ Info: === Summary ===
+[ Info: Globally identifiable parameters:                 [eA, xC, eC]
+[ Info: Locally but not globally identifiable parameters: [k1, k2, xB, eB, xA]
+[ Info: Not identifiable parameters:                      []
+[ Info: ===============
+[ Info: Estimating via the interpolators: ["FHD3", "AAA", "FHD8"]
+Progress:  67%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▍                                                              |  ETA: 0:00:03[KProgress: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| Time: 0:00:06[K
+[ Info: Preproccessing `ModelingToolkit.ODESystem` object
+[ Info: Solving the problem
+[ Info: Constructing the maximal system
+[ Info: Truncating
+[ Info: Assessing local identifiability
+[ Info: Found Pivots: []
+[ Info: Locally identifiable parameters: [mu_N, mu_EE, mu_LE, mu_LL, mu_M, mu_P, mu_PE, mu_PL, delta_NE, delta_EL, delta_LM, rho_E, rho_P, N, M, P, S, E]
+[ Info: Not identifiable parameters:     []
+[ Info: Randomizing
+[ Info: Gröbner basis computation
+[ Info: Remainder computation
+[ Info: === Summary ===
+[ Info: Globally identifiable parameters:                 [N, delta_EL, mu_PL, M, mu_M, rho_E, mu_LL, mu_PE, mu_LE, mu_EE, E, mu_N, rho_P, P, S, delta_NE, mu_P, delta_LM]
+[ Info: Locally but not globally identifiable parameters: []
+[ Info: Not identifiable parameters:                      []
+[ Info: ===============
+[ Info: Estimating via the interpolators: ["FHD3", "AAA", "FHD8"]
+Computing mixed cells... 28    Time: 0:00:00[K
+  mixed_volume:  42[K[A
+[K[AComputing mixed cells... 37    Time: 0:00:00[K
+  mixed_volume:  53[K
+┌ Warning: Instability detected. Aborting
+└ @ SciMLBase ~/.julia/packages/SciMLBase/QSc1r/src/integrator_interface.jl:605
+Computing mixed cells... 2    Time: 0:00:00[K
+  mixed_volume:  2[K[A
+[K[AComputing mixed cells... 25    Time: 0:00:00[K
+  mixed_volume:  31[K[A
+[K[AComputing mixed cells... 44    Time: 0:00:01[K
+  mixed_volume:  53[K
+Progress:  67%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▍                                                              |  ETA: 0:00:24[KComputing mixed cells... 25    Time: 0:00:00[K
+  mixed_volume:  35[K[A
+[K[AComputing mixed cells... 39    Time: 0:00:00[K
+  mixed_volume:  53[K
+Progress: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| Time: 0:01:04[K
+Final Results:
+Parameter(s)        :	 lm = 0.091,   d = 0.181, beta = 0.273,   a = 0.364,   k = 0.455,   u = 0.545,   c = 0.636,   q = 0.727,   b = 0.818,   h = 0.909
+Initial Condition(s):	x(t) = 0.167, y(t) = 0.333, v(t) = 0.500, w(t) = 0.667, z(t) = 0.833, where t = -0.500
+Error: 3.4330e-03
+
+Parameter(s)        :	 lm = 0.097,   d = 0.204, beta = 0.206,   a = 0.448,   k = -0.273,   u = 0.240,   c = 7.748,   q = 0.290,   b = 0.847,   h = 0.954
+Initial Condition(s):	x(t) = 0.167, y(t) = 0.094, v(t) = 0.739, w(t) = 0.667, z(t) = 0.833, where t = -0.500
+Error: 3.4355e-03
+
+Parameter(s)        :	 lm = 0.078,   d = -0.233, beta = -0.147,   a = 0.101,   k = -0.067,   u = 0.118,   c = 0.162,   q = 0.444,   b = 0.753,   h = 1.020
+Initial Condition(s):	x(t) = 0.167, y(t) = 4.064, v(t) = -3.231, w(t) = 0.667, z(t) = 0.833, where t = -0.500
+Error: 3.4355e-03
+
+Parameter(s)        :	 lm = 0.129,   d = -0.281, beta = -0.815,   a = 0.249,   k = 0.200,   u = -0.264,   c = 0.393,   q = 0.290,   b = 0.847,   h = 0.954
+Initial Condition(s):	x(t) = 0.167, y(t) = 1.846, v(t) = -1.013, w(t) = 0.667, z(t) = 0.833, where t = -0.500
+Error: 3.4360e-03
+
+Parameter(s)        :	 lm = 0.098,   d = 0.201, beta = 0.194,   a = 1.516,   k = -0.129,   u = 0.265,   c = 35.557,   q = 0.444,   b = 0.753,   h = 1.020
+Initial Condition(s):	x(t) = 0.167, y(t) = 0.019, v(t) = 0.815, w(t) = 0.667, z(t) = 0.833, where t = -0.500
+Error: 3.4368e-03
+
+Parameter(s)        :	 lm = 0.097,   d = 0.204, beta = 0.224,   a = 0.363,   k = -0.296,   u = 0.200,   c = -1.321,   q = -0.824,   b = 0.713,   h = 0.934
+Initial Condition(s):	x(t) = 0.167, y(t) = 0.171, v(t) = 0.662, w(t) = 0.667, z(t) = 0.833, where t = -0.500
+Error: 3.4373e-03
+
+Parameter(s)        :	 lm = 0.301,   d = 0.706, beta = -2.174,   a = 0.413,   k = -0.318,   u = 1.348,   c = 0.172,   q = 0.727,   b = 0.818,   h = 0.909
+Initial Condition(s):	x(t) = 0.167, y(t) = 1.232, v(t) = -0.399, w(t) = 0.667, z(t) = 0.833, where t = -0.500
+Error: 3.4376e-03
+
+Parameter(s)        :	 lm = 0.127,   d = -0.008, beta = -0.892,   a = 0.278,   k = 0.198,   u = -0.323,   c = -0.157,   q = -0.824,   b = 0.713,   h = 0.934
+Initial Condition(s):	x(t) = 0.167, y(t) = 1.437, v(t) = -0.604, w(t) = 0.667, z(t) = 0.833, where t = -0.500
+Error: 3.4385e-03
+
+Final Results:
+Parameter(s)        :	  a = 0.400,   b = 0.800
+Initial Condition(s):	x1(t) = 0.333, x2(t) = 0.667, where t = -0.500
+Error: 4.0604e-03
+
+  5.911557 seconds (3.59 M allocations: 243.004 MiB, 2.55% gc time, 96.79% compilation time: 22% of which was recompilation)
+For model simple: The best max abs rel. err: 9.672818102046676e-14
+ * Status: success
+
+ * Candidate solution
+    Final objective value:     1.250192e-20
+
+ * Found with
+    Algorithm:     L-BFGS
+
+ * Convergence measures
+    |x - x'|               = 4.40e-09 ≰ 0.0e+00
+    |x - x'|/|x'|          = 5.50e-09 ≰ 0.0e+00
+    |f(x) - f(x')|         = 4.51e-17 ≰ 0.0e+00
+    |f(x) - f(x')|/|f(x')| = 3.61e+03 ≰ 0.0e+00
+    |g(x)|                 = 6.49e-10 ≤ 1.0e-08
+
+ * Work counters
+    Seconds run:   0  (vs limit Inf)
+    Iterations:    22
+    f(x) calls:    26
+    ∇f(x) calls:   23
+
+ * Status: success
+
+ * Candidate solution
+    Final objective value:     1.250192e-20
+
+ * Found with
+    Algorithm:     Newton's Method
+
+ * Convergence measures
+    |x - x'|               = 0.00e+00 ≤ 0.0e+00
+    |x - x'|/|x'|          = 0.00e+00 ≤ 0.0e+00
+    |f(x) - f(x')|         = NaN ≰ 0.0e+00
+    |f(x) - f(x')|/|f(x')| = NaN ≰ 0.0e+00
+    |g(x)|                 = 6.49e-10 ≤ 1.0e-08
+
+ * Work counters
+    Seconds run:   0  (vs limit Inf)
+    Iterations:    0
+    f(x) calls:    1
+    ∇f(x) calls:   1
+    ∇²f(x) calls:  1
+
+retcode: Success
+u: [0.33299999997753077, 0.666999999989949, 0.39999999996523367, 0.7999999998034779]
+Final objective value:     1.250192254538796e-20
+
+Parameter(s)        :	  a = 0.400,   b = 0.800
+Initial Condition(s):	x1(t) = 0.333, x2(t) = 0.667, where t = -0.500
+Error: 4.0604e-03
+
+For model simple: The SCIML PE  max abs rel. err: 2.456526648764168e-10
+Final Results:
+Parameter(s)        :	 k1 = 0.250,  k2 = 0.500,  k3 = 0.750
+Initial Condition(s):	r(t) = 0.333, w(t) = 0.667, where t = -0.500
+Error: 5.4874e-04
+
+Parameter(s)        :	 k1 = 0.252,  k2 = 0.482,  k3 = 0.739
+Initial Condition(s):	r(t) = 0.333, w(t) = 0.696, where t = -0.500
+Error: 5.4902e-04
+
+  7.644355 seconds (4.34 M allocations: 275.716 MiB, 2.31% gc time, 77.41% compilation time: 1% of which was recompilation)
+For model Lotka_Volterra: The best max abs rel. err: 8.208941106412576e-8
+ * Status: success
+
+ * Candidate solution
+    Final objective value:     3.429377e-15
+
+ * Found with
+    Algorithm:     L-BFGS
+
+ * Convergence measures
+    |x - x'|               = 4.63e-07 ≰ 0.0e+00
+    |x - x'|/|x'|          = 6.14e-07 ≰ 0.0e+00
+    |f(x) - f(x')|         = 3.13e-18 ≰ 0.0e+00
+    |f(x) - f(x')|/|f(x')| = 9.14e-04 ≰ 0.0e+00
+    |g(x)|                 = 1.09e-09 ≤ 1.0e-08
+
+ * Work counters
+    Seconds run:   0  (vs limit Inf)
+    Iterations:    113
+    f(x) calls:    140
+    ∇f(x) calls:   114
+
+ * Status: success
+
+ * Candidate solution
+    Final objective value:     3.429377e-15
+
+ * Found with
+    Algorithm:     Newton's Method
+
+ * Convergence measures
+    |x - x'|               = 0.00e+00 ≤ 0.0e+00
+    |x - x'|/|x'|          = 0.00e+00 ≤ 0.0e+00
+    |f(x) - f(x')|         = NaN ≰ 0.0e+00
+    |f(x) - f(x')|/|f(x')| = NaN ≰ 0.0e+00
+    |g(x)|                 = 1.09e-09 ≤ 1.0e-08
+
+ * Work counters
+    Seconds run:   0  (vs limit Inf)
+    Iterations:    0
+    f(x) calls:    1
+    ∇f(x) calls:   1
+    ∇²f(x) calls:  1
+
+retcode: Success
+u: [0.332999975449101, 0.6493057780443848, 0.24999095625782178, 0.5136081852294642, 0.7544777502796016]
+Final objective value:     3.429376701754186e-15
+
+Parameter(s)        :	 k1 = 0.250,  k2 = 0.514,  k3 = 0.754
+Initial Condition(s):	r(t) = 0.333, w(t) = 0.649, where t = -0.500
+Error: 5.4874e-04
+
+For model Lotka_Volterra: The SCIML PE  max abs rel. err: 0.02721637045892833
+Final Results:
+Parameter(s)        :	  a = 0.333,   b = 0.667
+Initial Condition(s):	x1(t) = 0.333, x2(t) = 0.667, where t = -0.500
+Error: 3.4165e-03
+
+  5.624765 seconds (3.07 M allocations: 204.783 MiB, 5.95% gc time, 96.24% compilation time)
+For model vanderpol: The best max abs rel. err: 1.6126572883218865e-12
+ * Status: success
+
+ * Candidate solution
+    Final objective value:     5.095913e-19
+
+ * Found with
+    Algorithm:     L-BFGS
+
+ * Convergence measures
+    |x - x'|               = 7.20e-09 ≰ 0.0e+00
+    |x - x'|/|x'|          = 1.08e-08 ≰ 0.0e+00
+    |f(x) - f(x')|         = 1.30e-16 ≰ 0.0e+00
+    |f(x) - f(x')|/|f(x')| = 2.56e+02 ≰ 0.0e+00
+    |g(x)|                 = 5.59e-09 ≤ 1.0e-08
+
+ * Work counters
+    Seconds run:   0  (vs limit Inf)
+    Iterations:    20
+    f(x) calls:    24
+    ∇f(x) calls:   21
+
+ * Status: success
+
+ * Candidate solution
+    Final objective value:     5.095913e-19
+
+ * Found with
+    Algorithm:     Newton's Method
+
+ * Convergence measures
+    |x - x'|               = 0.00e+00 ≤ 0.0e+00
+    |x - x'|/|x'|          = 0.00e+00 ≤ 0.0e+00
+    |f(x) - f(x')|         = NaN ≰ 0.0e+00
+    |f(x) - f(x')|/|f(x')| = NaN ≰ 0.0e+00
+    |g(x)|                 = 5.59e-09 ≤ 1.0e-08
+
+ * Work counters
+    Seconds run:   0  (vs limit Inf)
+    Iterations:    0
+    f(x) calls:    1
+    ∇f(x) calls:   1
+    ∇²f(x) calls:  1
+
+retcode: Success
+u: [0.33299999977124195, 0.6669999998575845, 0.33300000052047257, 0.6670000003768662]
+Final objective value:     5.095912703772979e-19
+
+Parameter(s)        :	  a = 0.333,   b = 0.667
+Initial Condition(s):	x1(t) = 0.333, x2(t) = 0.667, where t = -0.500
+Error: 3.4165e-03
+
+For model vanderpol: The SCIML PE  max abs rel. err: 1.5629806424752955e-9
+Final Results:
+Parameter(s)        :	a12 = 0.167, a13 = 0.333, a21 = 0.500, a31 = 0.667, a01 = 0.833
+Initial Condition(s):	x1(t) = 0.250, x2(t) = 0.500, x3(t) = 0.750, where t = -0.500
+Error: 9.5930e-04
+
+Parameter(s)        :	a12 = 0.167, a13 = 1.452, a21 = 0.500, a31 = 0.507, a01 = 0.232
+Initial Condition(s):	x1(t) = 0.250, x2(t) = 0.500, x3(t) = 0.041, where t = -0.500
+Error: 9.6434e-04
+
+  7.977352 seconds (5.00 M allocations: 328.252 MiB, 16.12% gc time, 94.49% compilation time)
+For model DAISY_mamil3: The best max abs rel. err: 1.3325636816219344e-7
+ * Status: success
+
+ * Candidate solution
+    Final objective value:     1.778555e-13
+
+ * Found with
+    Algorithm:     L-BFGS
+
+ * Convergence measures
+    |x - x'|               = 8.81e-07 ≰ 0.0e+00
+    |x - x'|/|x'|          = 1.00e-06 ≰ 0.0e+00
+    |f(x) - f(x')|         = 2.64e-16 ≰ 0.0e+00
+    |f(x) - f(x')|/|f(x')| = 1.49e-03 ≰ 0.0e+00
+    |g(x)|                 = 6.86e-09 ≤ 1.0e-08
+
+ * Work counters
+    Seconds run:   0  (vs limit Inf)
+    Iterations:    126
+    f(x) calls:    147
+    ∇f(x) calls:   127
+
+ * Status: success
+
+ * Candidate solution
+    Final objective value:     1.778555e-13
+
+ * Found with
+    Algorithm:     Newton's Method
+
+ * Convergence measures
+    |x - x'|               = 0.00e+00 ≤ 0.0e+00
+    |x - x'|/|x'|          = 0.00e+00 ≤ 0.0e+00
+    |f(x) - f(x')|         = NaN ≰ 0.0e+00
+    |f(x) - f(x')|/|f(x')| = NaN ≰ 0.0e+00
+    |g(x)|                 = 6.86e-09 ≤ 1.0e-08
+
+ * Work counters
+    Seconds run:   0  (vs limit Inf)
+    Iterations:    0
+    f(x) calls:    1
+    ∇f(x) calls:   1
+    ∇²f(x) calls:  1
+
+retcode: Success
+u: [0.24999984907963052, 0.4999999963938562, 0.8063713236971823, 0.16700009340134042, 0.3134410313675969, 0.5000002378786532, 0.6320612089452871, 0.8799182180285825]
+Final objective value:     1.7785551465507747e-13
+
+Parameter(s)        :	a12 = 0.167, a13 = 0.313, a21 = 0.500, a31 = 0.632, a01 = 0.880
+Initial Condition(s):	x1(t) = 0.250, x2(t) = 0.500, x3(t) = 0.806, where t = -0.500
+Error: 9.5931e-04
+
+For model DAISY_mamil3: The SCIML PE  max abs rel. err: 0.07516176492957645
+Final Results:
+Parameter(s)        :	k01 = 0.125, k12 = 0.250, k13 = 0.375, k14 = 0.500, k21 = 0.625, k31 = 0.750, k41 = 0.875
+Initial Condition(s):	x1(t) = 0.200, x2(t) = 0.400, x3(t) = 0.600, x4(t) = 0.800, where t = -0.500
+Error: 1.6178e-03
+
+Parameter(s)        :	k01 = 0.125, k12 = 0.250, k13 = 0.500, k14 = 0.375, k21 = 0.625, k31 = 0.875, k41 = 0.750
+Initial Condition(s):	x1(t) = 0.200, x2(t) = 0.400, x3(t) = 0.800, x4(t) = 0.600, where t = -0.500
+Error: 1.6178e-03
+
+Parameter(s)        :	k01 = 0.125, k12 = 0.250, k13 = 0.513, k14 = 0.335, k21 = 0.625, k31 = 1.056, k41 = 0.562
+Initial Condition(s):	x1(t) = 0.200, x2(t) = 0.400, x3(t) = 0.871, x4(t) = 0.529, where t = -0.500
+Error: 1.6178e-03
+
+Parameter(s)        :	k01 = 0.125, k12 = 0.250, k13 = 0.335, k14 = 0.513, k21 = 0.625, k31 = 0.562, k41 = 1.056
+Initial Condition(s):	x1(t) = 0.200, x2(t) = 0.400, x3(t) = 0.529, x4(t) = 0.871, where t = -0.500
+Error: 1.6178e-03
+
+ 26.306410 seconds (10.86 M allocations: 682.963 MiB, 0.49% gc time, 32.61% compilation time)
+For model DAISY_mamil4: The best max abs rel. err: 7.601834191017787e-6
+ * Status: success
+
+ * Candidate solution
+    Final objective value:     5.035925e-11
+
+ * Found with
+    Algorithm:     L-BFGS
+
+ * Convergence measures
+    |x - x'|               = 8.72e-07 ≰ 0.0e+00
+    |x - x'|/|x'|          = 9.60e-07 ≰ 0.0e+00
+    |f(x) - f(x')|         = 2.41e-16 ≰ 0.0e+00
+    |f(x) - f(x')|/|f(x')| = 4.80e-06 ≰ 0.0e+00
+    |g(x)|                 = 9.45e-09 ≤ 1.0e-08
+
+ * Work counters
+    Seconds run:   0  (vs limit Inf)
+    Iterations:    175
+    f(x) calls:    192
+    ∇f(x) calls:   176
+
+ * Status: success
+
+ * Candidate solution
+    Final objective value:     5.035925e-11
+
+ * Found with
+    Algorithm:     Newton's Method
+
+ * Convergence measures
+    |x - x'|               = 0.00e+00 ≤ 0.0e+00
+    |x - x'|/|x'|          = 0.00e+00 ≤ 0.0e+00
+    |f(x) - f(x')|         = NaN ≰ 0.0e+00
+    |f(x) - f(x')|/|f(x')| = NaN ≰ 0.0e+00
+    |g(x)|                 = 9.45e-09 ≤ 1.0e-08
+
+ * Work counters
+    Seconds run:   0  (vs limit Inf)
+    Iterations:    0
+    f(x) calls:    1
+    ∇f(x) calls:   1
+    ∇²f(x) calls:  1
+
+retcode: Success
+u: [0.20000168142490868, 0.40000007354072126, 0.5314928618642926, 0.8685053723198912, 0.12499996406411895, 0.2500072042166665, 0.6877135181980956, 0.2809600500642297, 0.6250118723831009, 0.9076186627809769, 0.640346021321356]
+Final objective value:     5.035925487899747e-11
+
+Parameter(s)        :	k01 = 0.125, k12 = 0.250, k13 = 0.688, k14 = 0.281, k21 = 0.625, k31 = 0.908, k41 = 0.640
+Initial Condition(s):	x1(t) = 0.200, x2(t) = 0.400, x3(t) = 0.531, x4(t) = 0.869, where t = -0.500
+Error: 1.6179e-03
+
+For model DAISY_mamil4: The SCIML PE  max abs rel. err: 0.8339027151949215
+Final Results:
+Parameter(s)        :	 lm = 0.091,   d = 0.181, beta = 0.273,   a = 0.364,   k = 0.455,   u = 0.545,   c = 0.636,   q = 0.727,   b = 0.818,   h = 0.909
+Initial Condition(s):	x(t) = 0.167, y(t) = 0.333, v(t) = 0.500, w(t) = 0.667, z(t) = 0.833, where t = -0.500
+Error: 3.4330e-03
+
+Parameter(s)        :	 lm = 0.097,   d = 0.204, beta = 0.206,   a = 0.448,   k = -0.273,   u = 0.240,   c = 7.748,   q = 0.290,   b = 0.847,   h = 0.954
+Initial Condition(s):	x(t) = 0.167, y(t) = 0.094, v(t) = 0.739, w(t) = 0.667, z(t) = 0.833, where t = -0.500
+Error: 3.4355e-03
+
+Parameter(s)        :	 lm = 0.078,   d = -0.233, beta = -0.147,   a = 0.101,   k = -0.067,   u = 0.118,   c = 0.162,   q = 0.444,   b = 0.753,   h = 1.020
+Initial Condition(s):	x(t) = 0.167, y(t) = 4.064, v(t) = -3.231, w(t) = 0.667, z(t) = 0.833, where t = -0.500
+Error: 3.4355e-03
+
+Parameter(s)        :	 lm = 0.129,   d = -0.281, beta = -0.815,   a = 0.249,   k = 0.200,   u = -0.264,   c = 0.393,   q = 0.290,   b = 0.847,   h = 0.954
+Initial Condition(s):	x(t) = 0.167, y(t) = 1.846, v(t) = -1.013, w(t) = 0.667, z(t) = 0.833, where t = -0.500
+Error: 3.4360e-03
+
+Parameter(s)        :	 lm = 0.098,   d = 0.201, beta = 0.194,   a = 1.516,   k = -0.129,   u = 0.265,   c = 35.557,   q = 0.444,   b = 0.753,   h = 1.020
+Initial Condition(s):	x(t) = 0.167, y(t) = 0.019, v(t) = 0.815, w(t) = 0.667, z(t) = 0.833, where t = -0.500
+Error: 3.4368e-03
+
+Parameter(s)        :	 lm = 0.097,   d = 0.204, beta = 0.224,   a = 0.363,   k = -0.296,   u = 0.200,   c = -1.321,   q = -0.824,   b = 0.713,   h = 0.934
+Initial Condition(s):	x(t) = 0.167, y(t) = 0.171, v(t) = 0.662, w(t) = 0.667, z(t) = 0.833, where t = -0.500
+Error: 3.4373e-03
+
+Parameter(s)        :	 lm = 0.301,   d = 0.706, beta = -2.174,   a = 0.413,   k = -0.318,   u = 1.348,   c = 0.172,   q = 0.727,   b = 0.818,   h = 0.909
+Initial Condition(s):	x(t) = 0.167, y(t) = 1.232, v(t) = -0.399, w(t) = 0.667, z(t) = 0.833, where t = -0.500
+Error: 3.4376e-03
+
+Parameter(s)        :	 lm = 0.127,   d = -0.008, beta = -0.892,   a = 0.278,   k = 0.198,   u = -0.323,   c = -0.157,   q = -0.824,   b = 0.713,   h = 0.934
+Initial Condition(s):	x(t) = 0.167, y(t) = 1.437, v(t) = -0.604, w(t) = 0.667, z(t) = 0.833, where t = -0.500
+Error: 3.4385e-03
+
+  4.468255 seconds (3.02 M allocations: 403.610 MiB, 4.60% gc time)
+For model hiv: The best max abs rel. err: 1.1698122353582247e-6
+ * Status: failure (reached maximum number of iterations)
+
+ * Candidate solution
+    Final objective value:     6.600138e-09
+
+ * Found with
+    Algorithm:     L-BFGS
+
+ * Convergence measures
+    |x - x'|               = 8.78e-07 ≰ 0.0e+00
+    |x - x'|/|x'|          = 9.77e-07 ≰ 0.0e+00
+    |f(x) - f(x')|         = 2.85e-15 ≰ 0.0e+00
+    |f(x) - f(x')|/|f(x')| = 4.31e-07 ≰ 0.0e+00
+    |g(x)|                 = 1.07e-07 ≰ 1.0e-08
+
+ * Work counters
+    Seconds run:   0  (vs limit Inf)
+    Iterations:    500
+    f(x) calls:    532
+    ∇f(x) calls:   501
+
+ * Status: failure (reached maximum number of iterations)
+
+ * Candidate solution
+    Final objective value:     1.867277e-11
+
+ * Found with
+    Algorithm:     Newton's Method
+
+ * Convergence measures
+    |x - x'|               = 7.00e-04 ≰ 0.0e+00
+    |x - x'|/|x'|          = 7.70e-04 ≰ 0.0e+00
+    |f(x) - f(x')|         = 1.88e-13 ≰ 0.0e+00
+    |f(x) - f(x')|/|f(x')| = 1.01e-02 ≰ 0.0e+00
+    |g(x)|                 = 3.24e-07 ≰ 1.0e-08
+
+ * Work counters
+    Seconds run:   2  (vs limit Inf)
+    Iterations:    100
+    f(x) calls:    476
+    ∇f(x) calls:   476
+    ∇²f(x) calls:  101
+
+retcode: Failure
+u: [0.16697836244896086, 0.41445218454155947, 0.41853217087225997, 0.6669976322586125, 0.8329794307114208, 0.10760769586622619, 0.15742073279828472, 0.6156883276506429, 0.45532147190807953, 0.36288863528964527, 0.5348830263002432, 0.5877536038483938, 0.5821148837468917, 0.8356288353878639, 0.8988983800317919]
+Final objective value:     6.60013764717103e-9
+
+Parameter(s)        :	 lm = 0.108,   d = 0.157, beta = 0.616,   a = 0.455,   k = 0.363,   u = 0.535,   c = 0.588,   q = 0.582,   b = 0.836,   h = 0.899
+Initial Condition(s):	x(t) = 0.167, y(t) = 0.414, v(t) = 0.419, w(t) = 0.667, z(t) = 0.833, where t = -0.500
+Error: 3.4354e-03
+
+For model hiv: The SCIML PE  max abs rel. err: 1.255268599452904
+Final Results:
+Parameter(s)        :	  a = 0.750,   b = 0.500,  nu = 0.250
+Initial Condition(s):	S(t) = 0.600, E(t) = 2.400, In(t) = 0.600, N(t) = 0.800, where t = -0.500
+Error: 1.0244e-03
+
+Parameter(s)        :	  a = 0.250,   b = 0.500,  nu = 0.750
+Initial Condition(s):	S(t) = 0.200, E(t) = 0.400, In(t) = 0.600, N(t) = 0.800, where t = -0.500
+Error: 1.0244e-03
+
+Parameter(s)        :	  a = 0.539,   b = 2.940,  nu = 0.233
+Initial Condition(s):	S(t) = -0.029, E(t) = 2.035, In(t) = 0.600, N(t) = 0.800, where t = -0.500
+Error: 1.0245e-03
+
+Parameter(s)        :	  a = 0.233,   b = 2.940,  nu = 0.539
+Initial Condition(s):	S(t) = -0.013, E(t) = 0.537, In(t) = 0.600, N(t) = 0.800, where t = -0.500
+Error: 1.0245e-03
+
+Parameter(s)        :	  a = 16.613,   b = 1.463,  nu = 0.088
+Initial Condition(s):	S(t) = 32.257, E(t) = 114.695, In(t) = 0.597, N(t) = 0.800, where t = -0.500
+Error: 1.1128e-03
+
+Parameter(s)        :	  a = 0.088,   b = 1.463,  nu = 16.613
+Initial Condition(s):	S(t) = 0.171, E(t) = 0.016, In(t) = 0.597, N(t) = 0.800, where t = -0.500
+Error: 1.1128e-03
+
+Parameter(s)        :	  a = 0.673,   b = 166.184,  nu = 0.185
+Initial Condition(s):	S(t) = -0.000, E(t) = 4.304, In(t) = -0.972, N(t) = 0.800, where t = -0.500
+Error: 1.3580e-01
+
+Parameter(s)        :	  a = 0.185,   b = 166.184,  nu = 0.673
+Initial Condition(s):	S(t) = -0.000, E(t) = 1.888, In(t) = -0.972, N(t) = 0.800, where t = -0.500
+Error: 1.3599e-01
+
+ 10.314488 seconds (7.82 M allocations: 472.961 MiB, 14.19% gc time, 86.35% compilation time)
+For model SEIR: The best max abs rel. err: 7.895627700260643e-7
+ * Status: success
+
+ * Candidate solution
+    Final objective value:     6.505654e-11
+
+ * Found with
+    Algorithm:     L-BFGS
+
+ * Convergence measures
+    |x - x'|               = 1.48e-05 ≰ 0.0e+00
+    |x - x'|/|x'|          = 1.72e-05 ≰ 0.0e+00
+    |f(x) - f(x')|         = 5.58e-17 ≰ 0.0e+00
+    |f(x) - f(x')|/|f(x')| = 8.57e-07 ≰ 0.0e+00
+    |g(x)|                 = 5.27e-09 ≤ 1.0e-08
+
+ * Work counters
+    Seconds run:   0  (vs limit Inf)
+    Iterations:    59
+    f(x) calls:    65
+    ∇f(x) calls:   60
+
+ * Status: success
+
+ * Candidate solution
+    Final objective value:     6.505654e-11
+
+ * Found with
+    Algorithm:     Newton's Method
+
+ * Convergence measures
+    |x - x'|               = 0.00e+00 ≤ 0.0e+00
+    |x - x'|/|x'|          = 0.00e+00 ≤ 0.0e+00
+    |f(x) - f(x')|         = NaN ≰ 0.0e+00
+    |f(x) - f(x')|/|f(x')| = NaN ≰ 0.0e+00
+    |g(x)|                 = 5.27e-09 ≤ 1.0e-08
+
+ * Work counters
+    Seconds run:   0  (vs limit Inf)
+    Iterations:    0
+    f(x) calls:    1
+    ∇f(x) calls:   1
+    ∇²f(x) calls:  1
+
+retcode: Success
+u: [0.8340586114045495, 0.8581877894643394, 0.6000039764084754, 0.8000000000775608, 0.4629412513875852, 0.24666073902117092, 0.4983674926587848]
+Final objective value:     6.505653711551959e-11
+
+Parameter(s)        :	  a = 0.463,   b = 0.247,  nu = 0.498
+Initial Condition(s):	S(t) = 0.834, E(t) = 0.858, In(t) = 0.600, N(t) = 0.800, where t = -0.500
+Error: 1.0253e-03
+
+For model SEIR: The SCIML PE  max abs rel. err: 3.170293057022747
+Final Results:
+Parameter(s)        :	 k1 = 0.250,  k2 = 0.500,  eB = 0.750
+Initial Condition(s):	xA(t) = 0.166, xB(t) = 0.333, xC(t) = 0.500, eA(t) = 0.666, eC(t) = 0.833, where t = -0.500
+Error: 2.6110e-04
+
+Parameter(s)        :	 k1 = 0.500,  k2 = 0.250,  eB = 0.708
+Initial Condition(s):	xA(t) = -0.167, xB(t) = 0.666, xC(t) = 0.500, eA(t) = 0.666, eC(t) = 0.833, where t = -0.500
+Error: 2.6110e-04
+
+  8.559319 seconds (6.02 M allocations: 408.478 MiB, 2.59% gc time, 83.39% compilation time)
+For model slowfast: The best max abs rel. err: 2.5349137113346593e-9
+ * Status: failure (reached maximum number of iterations)
+
+ * Candidate solution
+    Final objective value:     9.409448e-05
+
+ * Found with
+    Algorithm:     L-BFGS
+
+ * Convergence measures
+    |x - x'|               = 2.27e-02 ≰ 0.0e+00
+    |x - x'|/|x'|          = 1.53e-03 ≰ 0.0e+00
+    |f(x) - f(x')|         = 1.22e-09 ≰ 0.0e+00
+    |f(x) - f(x')|/|f(x')| = 1.30e-05 ≰ 0.0e+00
+    |g(x)|                 = 5.71e-03 ≰ 1.0e-08
+
+ * Work counters
+    Seconds run:   0  (vs limit Inf)
+    Iterations:    500
+    f(x) calls:    612
+    ∇f(x) calls:   501
+
+ * Status: failure (reached maximum number of iterations)
+
+ * Candidate solution
+    Final objective value:     9.337784e-05
+
+ * Found with
+    Algorithm:     Newton's Method
+
+ * Convergence measures
+    |x - x'|               = 1.53e-01 ≰ 0.0e+00
+    |x - x'|/|x'|          = 6.97e-03 ≰ 0.0e+00
+    |f(x) - f(x')|         = 8.72e-09 ≰ 0.0e+00
+    |f(x) - f(x')|/|f(x')| = 9.34e-05 ≰ 0.0e+00
+    |g(x)|                 = 5.04e-03 ≰ 1.0e-08
+
+ * Work counters
+    Seconds run:   1  (vs limit Inf)
+    Iterations:    100
+    f(x) calls:    795
+    ∇f(x) calls:   795
+    ∇²f(x) calls:  101
+
+retcode: Failure
+u: [6.3286679478220655, 14.799042564979842, 0.5041517790273118, 0.6660096106226104, 0.8329991817138918, 0.0236804137141993, 0.009381318574222815, -0.2606553174359868]
+Final objective value:     9.409448338920967e-5
+
+Parameter(s)        :	 k1 = 0.024,  k2 = 0.009,  eB = -0.261
+Initial Condition(s):	xA(t) = 6.329, xB(t) = 14.799, xC(t) = 0.504, eA(t) = 0.666, eC(t) = 0.833, where t = -0.500
+Error: 4.1354e-04
+
+For model slowfast: The SCIML PE  max abs rel. err: 43.44156926420373
+Final Results:
+Parameter(s)        :	mu_N = 0.071, mu_EE = 0.143, mu_LE = 0.214, mu_LL = 0.286, mu_M = 0.357, mu_P = 0.429, mu_PE = 0.500, mu_PL = 0.571, delta_NE = 0.643, delta_EL = 0.714, delta_LM = 0.786, rho_E = 0.857, rho_P = 0.929
+Initial Condition(s):	N(t) = 0.167, E(t) = 0.333, S(t) = 0.500, M(t) = 0.667, P(t) = 0.833, where t = -0.500
+Error: 1.0260e-03
+
+Parameter(s)        :	mu_N = 0.071, mu_EE = 0.143, mu_LE = 0.182, mu_LL = 0.270, mu_M = 0.376, mu_P = 0.419, mu_PE = 0.358, mu_PL = 0.420, delta_NE = 0.643, delta_EL = 0.714, delta_LM = 0.788, rho_E = 0.857, rho_P = 0.771
+Initial Condition(s):	N(t) = 0.167, E(t) = 0.333, S(t) = 0.504, M(t) = 0.663, P(t) = 0.833, where t = -0.500
+Error: 1.0260e-03
+
+Parameter(s)        :	mu_N = 0.071, mu_EE = 0.143, mu_LE = 0.093, mu_LL = -0.044, mu_M = 0.597, mu_P = 0.400, mu_PE = 0.083, mu_PL = 0.124, delta_NE = 0.643, delta_EL = 0.714, delta_LM = 0.851, rho_E = 0.857, rho_P = 0.465
+Initial Condition(s):	N(t) = 0.167, E(t) = 0.333, S(t) = 0.543, M(t) = 0.624, P(t) = 0.833, where t = -0.500
+Error: 1.0260e-03
+
+Parameter(s)        :	mu_N = 0.071, mu_EE = 0.143, mu_LE = -0.646, mu_LL = -1.083, mu_M = 0.133, mu_P = 0.393, mu_PE = -0.089, mu_PL = -0.234, delta_NE = 0.643, delta_EL = 0.714, delta_LM = 1.716, rho_E = 0.857, rho_P = 0.269
+Initial Condition(s):	N(t) = 0.167, E(t) = 0.333, S(t) = 0.137, M(t) = 1.030, P(t) = 0.833, where t = -0.500
+Error: 1.0260e-03
+
+Parameter(s)        :	mu_N = 0.071, mu_EE = 0.143, mu_LE = -0.010, mu_LL = -0.000, mu_M = -0.679, mu_P = 0.392, mu_PE = 0.182, mu_PL = -0.003, delta_NE = 0.643, delta_EL = 0.714, delta_LM = 0.869, rho_E = 0.857, rho_P = 0.633
+Initial Condition(s):	N(t) = 0.167, E(t) = 0.333, S(t) = -52.676, M(t) = 53.843, P(t) = 0.833, where t = -0.500
+Error: 1.0260e-03
+
+Parameter(s)        :	mu_N = 0.071, mu_EE = 0.143, mu_LE = -0.010, mu_LL = -0.000, mu_M = -0.679, mu_P = 0.392, mu_PE = 0.181, mu_PL = -0.003, delta_NE = 0.643, delta_EL = 0.714, delta_LM = 0.869, rho_E = 0.857, rho_P = 0.633
+Initial Condition(s):	N(t) = 0.167, E(t) = 0.333, S(t) = -52.804, M(t) = 53.971, P(t) = 0.833, where t = -0.500
+Error: 1.0260e-03
+
+Parameter(s)        :	mu_N = 0.071, mu_EE = 0.143, mu_LE = -0.031, mu_LL = 0.190, mu_M = 0.130, mu_P = 0.188, mu_PE = -0.009, mu_PL = 0.049, delta_NE = 0.643, delta_EL = 0.714, delta_LM = -0.128, rho_E = 0.857, rho_P = 0.346
+Initial Condition(s):	N(t) = 0.167, E(t) = 0.333, S(t) = 4.303, M(t) = -3.136, P(t) = 0.833, where t = -0.500
+Error: 1.0260e-03
+
+Parameter(s)        :	mu_N = 0.071, mu_EE = 0.143, mu_LE = 2.645, mu_LL = -1.375, mu_M = 0.122, mu_P = 0.410, mu_PE = -0.003, mu_PL = 0.037, delta_NE = 0.643, delta_EL = 0.714, delta_LM = -0.010, rho_E = 0.857, rho_P = 0.349
+Initial Condition(s):	N(t) = 0.167, E(t) = 0.333, S(t) = -0.319, M(t) = 1.486, P(t) = 0.833, where t = -0.500
+Error: 1.0260e-03
+
+Parameter(s)        :	mu_N = 0.071, mu_EE = 0.143, mu_LE = 2.651, mu_LL = -1.388, mu_M = 0.122, mu_P = 0.410, mu_PE = -0.003, mu_PL = 0.038, delta_NE = 0.643, delta_EL = 0.714, delta_LM = -0.015, rho_E = 0.857, rho_P = 0.348
+Initial Condition(s):	N(t) = 0.167, E(t) = 0.333, S(t) = -0.317, M(t) = 1.484, P(t) = 0.833, where t = -0.500
+Error: 1.0260e-03
+
+Parameter(s)        :	mu_N = 0.071, mu_EE = 0.143, mu_LE = 2.864, mu_LL = -1.993, mu_M = 0.134, mu_P = 0.412, mu_PE = -0.016, mu_PL = 0.060, delta_NE = 0.643, delta_EL = 0.714, delta_LM = -0.221, rho_E = 0.857, rho_P = 0.340
+Initial Condition(s):	N(t) = 0.167, E(t) = 0.333, S(t) = -0.265, M(t) = 1.432, P(t) = 0.833, where t = -0.500
+Error: 1.0260e-03
+
+Parameter(s)        :	mu_N = 0.071, mu_EE = 0.143, mu_LE = 2.867, mu_LL = -2.004, mu_M = 0.134, mu_P = 0.412, mu_PE = -0.016, mu_PL = 0.061, delta_NE = 0.643, delta_EL = 0.714, delta_LM = -0.225, rho_E = 0.857, rho_P = 0.340
+Initial Condition(s):	N(t) = 0.167, E(t) = 0.333, S(t) = -0.264, M(t) = 1.431, P(t) = 0.833, where t = -0.500
+Error: 1.0260e-03
+
+Parameter(s)        :	mu_N = 0.071, mu_EE = 0.141, mu_LE = 0.082, mu_LL = -0.002, mu_M = -0.607, mu_P = -0.958, mu_PE = -9.215, mu_PL = 0.174, delta_NE = 0.643, delta_EL = 0.715, delta_LM = 0.984, rho_E = 0.858, rho_P = -10.662
+Initial Condition(s):	N(t) = 0.167, E(t) = 0.333, S(t) = -27.286, M(t) = 28.453, P(t) = 0.833, where t = -0.500
+Error: 1.0261e-03
+
+Parameter(s)        :	mu_N = 0.071, mu_EE = 0.141, mu_LE = 0.007, mu_LL = -0.011, mu_M = 0.310, mu_P = 139.150, mu_PE = -1.817, mu_PL = 1.444, delta_NE = 0.643, delta_EL = 0.715, delta_LM = -0.312, rho_E = 0.858, rho_P = -0.614
+Initial Condition(s):	N(t) = 0.167, E(t) = 0.333, S(t) = -96.198, M(t) = 97.365, P(t) = 0.833, where t = -0.500
+Error: 1.0261e-03
+
+Parameter(s)        :	mu_N = 0.071, mu_EE = 0.141, mu_LE = -0.043, mu_LL = -0.002, mu_M = -0.644, mu_P = -3.523, mu_PE = 5.859, mu_PL = -0.534, delta_NE = 0.643, delta_EL = 0.715, delta_LM = 0.803, rho_E = 0.858, rho_P = 12.107
+Initial Condition(s):	N(t) = 0.167, E(t) = 0.333, S(t) = -22.036, M(t) = 23.203, P(t) = 0.833, where t = -0.500
+Error: 1.0261e-03
+
+Parameter(s)        :	mu_N = 0.071, mu_EE = 0.141, mu_LE = 2.531, mu_LL = -2.960, mu_M = 0.193, mu_P = 0.613, mu_PE = -0.945, mu_PL = 1.280, delta_NE = 0.643, delta_EL = 0.715, delta_LM = -0.659, rho_E = 0.858, rho_P = -0.222
+Initial Condition(s):	N(t) = 0.167, E(t) = 0.333, S(t) = -0.294, M(t) = 1.461, P(t) = 0.833, where t = -0.500
+Error: 1.0261e-03
+
+Parameter(s)        :	mu_N = 0.071, mu_EE = 0.141, mu_LE = -0.114, mu_LL = -0.555, mu_M = 0.142, mu_P = 0.568, mu_PE = 1.227, mu_PL = 1.706, delta_NE = 0.643, delta_EL = 0.715, delta_LM = 1.436, rho_E = 0.858, rho_P = 1.409
+Initial Condition(s):	N(t) = 0.167, E(t) = 0.333, S(t) = 0.179, M(t) = 0.989, P(t) = 0.833, where t = -0.500
+Error: 1.0261e-03
+
+Parameter(s)        :	mu_N = 0.071, mu_EE = 0.143, mu_LE = -5.214, mu_LL = 13.474, mu_M = -0.205, mu_P = 0.399, mu_PE = 0.007, mu_PL = 0.078, delta_NE = 0.643, delta_EL = 0.714, delta_LM = -0.961, rho_E = 0.857, rho_P = 0.376
+Initial Condition(s):	N(t) = 0.167, E(t) = 0.333, S(t) = 0.238, M(t) = 0.929, P(t) = 0.833, where t = -0.500
+Error: 1.0263e-03
+
+Parameter(s)        :	mu_N = 0.071, mu_EE = 0.143, mu_LE = -5.208, mu_LL = 13.464, mu_M = -0.205, mu_P = 0.399, mu_PE = 0.007, mu_PL = 0.078, delta_NE = 0.643, delta_EL = 0.714, delta_LM = -0.960, rho_E = 0.857, rho_P = 0.376
+Initial Condition(s):	N(t) = 0.167, E(t) = 0.333, S(t) = 0.238, M(t) = 0.929, P(t) = 0.833, where t = -0.500
+Error: 1.0263e-03
+
+Parameter(s)        :	mu_N = 0.071, mu_EE = 0.141, mu_LE = -31.282, mu_LL = -285.885, mu_M = 0.084, mu_P = 0.405, mu_PE = 0.023, mu_PL = -0.467, delta_NE = 0.643, delta_EL = 0.715, delta_LM = 14.517, rho_E = 0.858, rho_P = 0.363
+Initial Condition(s):	N(t) = 0.167, E(t) = 0.333, S(t) = 0.008, M(t) = 1.159, P(t) = 0.833, where t = -0.500
+Error: 1.0269e-03
+
+Parameter(s)        :	mu_N = 0.071, mu_EE = 0.143, mu_LE = -4.537, mu_LL = 1.465, mu_M = 2.030, mu_P = 0.394, mu_PE = -0.000, mu_PL = 0.012, delta_NE = 0.643, delta_EL = 0.714, delta_LM = -1.104, rho_E = 0.857, rho_P = 0.374
+Initial Condition(s):	N(t) = 0.167, E(t) = 0.333, S(t) = 2.148, M(t) = -0.981, P(t) = 0.833, where t = -0.500
+Error: 1.0276e-03
+
+Parameter(s)        :	mu_N = 0.071, mu_EE = 0.141, mu_LE = -26.279, mu_LL = 126.889, mu_M = -0.548, mu_P = 0.385, mu_PE = -0.056, mu_PL = 0.489, delta_NE = 0.643, delta_EL = 0.715, delta_LM = -5.125, rho_E = 0.858, rho_P = 0.378
+Initial Condition(s):	N(t) = 0.167, E(t) = 0.333, S(t) = 0.114, M(t) = 1.053, P(t) = 0.833, where t = -0.500
+Error: 1.0306e-03
+
+Parameter(s)        :	mu_N = 0.071, mu_EE = 0.141, mu_LE = -89.539, mu_LL = 139.183, mu_M = -0.159, mu_P = 0.402, mu_PE = -0.279, mu_PL = 0.500, delta_NE = 0.643, delta_EL = 0.715, delta_LM = -0.843, rho_E = 0.858, rho_P = 0.376
+Initial Condition(s):	N(t) = 0.167, E(t) = 0.333, S(t) = 0.201, M(t) = 0.943, P(t) = 0.833, where t = -0.500
+Error: 1.3232e-03
+
+Parameter(s)        :	mu_N = 0.071, mu_EE = 0.141, mu_LE = -66.017, mu_LL = -275.018, mu_M = -0.414, mu_P = 0.409, mu_PE = 0.050, mu_PL = -0.001, delta_NE = 0.643, delta_EL = 0.715, delta_LM = 10.920, rho_E = 0.858, rho_P = 0.382
+Initial Condition(s):	N(t) = 0.167, E(t) = 0.333, S(t) = -0.010, M(t) = 1.149, P(t) = 0.833, where t = -0.500
+Error: 1.5463e-03
+
+Parameter(s)        :	mu_N = 0.071, mu_EE = 0.141, mu_LE = -54.378, mu_LL = -232.744, mu_M = -0.334, mu_P = 0.409, mu_PE = 0.050, mu_PL = 0.001, delta_NE = 0.643, delta_EL = 0.715, delta_LM = 10.802, rho_E = 0.858, rho_P = 0.382
+Initial Condition(s):	N(t) = 0.160, E(t) = 0.338, S(t) = -1.201, M(t) = 1.361, P(t) = 0.827, where t = -0.500
+Error: 1.3312e-02
+
+Parameter(s)        :	mu_N = 0.071, mu_EE = 0.141, mu_LE = 2.138, mu_LL = -0.001, mu_M = 0.042, mu_P = 0.409, mu_PE = 0.050, mu_PL = 0.000, delta_NE = 0.643, delta_EL = 0.715, delta_LM = 10.443, rho_E = 0.858, rho_P = 0.382
+Initial Condition(s):	N(t) = 0.167, E(t) = 0.333, S(t) = -237.018, M(t) = 235.792, P(t) = 0.833, where t = -0.500
+Error: 3.3553e-02
+
+ 65.476889 seconds (21.07 M allocations: 1.608 GiB, 0.46% gc time, 18.53% compilation time)
+For model Crauste: The best max abs rel. err: 6.904402344720673e-5
+ * Status: failure (reached maximum number of iterations)
+
+ * Candidate solution
+    Final objective value:     1.148838e-07
+
+ * Found with
+    Algorithm:     L-BFGS
+
+ * Convergence measures
+    |x - x'|               = 2.83e-04 ≰ 0.0e+00
+    |x - x'|/|x'|          = 3.29e-04 ≰ 0.0e+00
+    |f(x) - f(x')|         = 9.33e-10 ≰ 0.0e+00
+    |f(x) - f(x')|/|f(x')| = 8.13e-03 ≰ 0.0e+00
+    |g(x)|                 = 1.46e-04 ≰ 1.0e-08
+
+ * Work counters
+    Seconds run:   1  (vs limit Inf)
+    Iterations:    500
+    f(x) calls:    531
+    ∇f(x) calls:   501
+
+ * Status: failure (reached maximum number of iterations)
+
+ * Candidate solution
+    Final objective value:     4.573865e-12
+
+ * Found with
+    Algorithm:     Newton's Method
+
+ * Convergence measures
+    |x - x'|               = 6.95e-04 ≰ 0.0e+00
+    |x - x'|/|x'|          = 8.10e-04 ≰ 0.0e+00
+    |f(x) - f(x')|         = 3.69e-14 ≰ 0.0e+00
+    |f(x) - f(x')|/|f(x')| = 8.06e-03 ≰ 0.0e+00
+    |g(x)|                 = 1.86e-06 ≰ 1.0e-08
+
+ * Work counters
+    Seconds run:   2  (vs limit Inf)
+    Iterations:    100
+    f(x) calls:    859
+    ∇f(x) calls:   859
+    ∇²f(x) calls:  101
+
+retcode: Failure
+u: [0.16705664193833178, 0.3330576991245567, 0.3907668499321149, 0.7762323416849115, 0.832832838153044, 0.05895552614911651, -0.02764917377188473, 0.6652499424392802, 0.12469097213942464, ┌ Warning: Interrupted. Larger maxiters is needed. If you are using an integrator for non-stiff ODEs or an automatic switching algorithm (the default), you may want to consider using a method for stiff equations. See the solver pages for more details (e.g. https://docs.sciml.ai/DiffEqDocs/stable/solvers/ode_solve/#Stiff-Problems).
+└ @ SciMLBase ~/.julia/packages/SciMLBase/QSc1r/src/integrator_interface.jl:579
+[ Info: Preproccessing `ModelingToolkit.ODESystem` object
+[ Info: Solving the problem
+[ Info: Constructing the maximal system
+[ Info: Truncating
+[ Info: Assessing local identifiability
+[ Info: Found Pivots: [x7_0]
+[ Info: Locally identifiable parameters: [k5, k6, k7, k8, k9, k10, x6, x5, x4]
+[ Info: Not identifiable parameters:     [x7]
+[ Info: Randomizing
+[ Info: Gröbner basis computation
+[ Info: Remainder computation
+[ Info: === Summary ===
+[ Info: Globally identifiable parameters:                 [k6, k7, x5, k5, x4]
+[ Info: Locally but not globally identifiable parameters: [k8, x6, k9, k10]
+[ Info: Not identifiable parameters:                      [x7]
+[ Info: ===============
+[ Info: Estimating via the interpolators: ["FHD3", "AAA", "FHD8"]
+Progress:  67%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▍                                                              |  ETA: 0:00:15[KProgress: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| Time: 0:00:35[K
+ERROR: LoadError: There was an error during testing
+in expression starting at /home/orebas/learning/ODETests/varied_estimation.jl:626
+0.24238151049358314, 0.2949942904644623, 0.5087490106587442, 0.27306673774869666, 0.6590275297892246, 0.782123208081914, 0.8498151452968, 0.8605900190617093, 0.5600826055085459]
+Final objective value:     1.1488376723680922e-7
+
+Parameter(s)        :	mu_N = 0.059, mu_EE = -0.028, mu_LE = 0.665, mu_LL = 0.125, mu_M = 0.242, mu_P = 0.295, mu_PE = 0.509, mu_PL = 0.273, delta_NE = 0.659, delta_EL = 0.782, delta_LM = 0.850, rho_E = 0.861, rho_P = 0.560
+Initial Condition(s):	N(t) = 0.167, E(t) = 0.333, S(t) = 0.391, M(t) = 0.776, P(t) = 0.833, where t = -0.500
+Error: 1.0282e-03
+
+For model Crauste: The SCIML PE  max abs rel. err: 2.108644590837758
+Final Results:
+Parameter(s)        :	 k5 = 0.143,  k6 = 0.286,  k7 = 0.429,  k8 = 0.571,  k9 = 0.714, k10 = 0.857
+Initial Condition(s):	x4(t) = 0.200, x5(t) = 0.400, x6(t) = 0.600, x7(t) = 5448298323372.943, where t = -0.500
+Error: 9.8602e-05
+
+Parameter(s)        :	 k5 = 0.143,  k6 = 0.286,  k7 = 0.429,  k8 = 1.427,  k9 = -0.715, k10 = -0.855
+Initial Condition(s):	x4(t) = 0.200, x5(t) = 0.400, x6(t) = -0.257, x7(t) = 5448298323372.941, where t = -0.500
+Error: 9.8602e-05
+
+Parameter(s)        :	 k5 = 0.143,  k6 = 0.286,  k7 = 0.115,  k8 = 0.396,  k9 = -0.223, k10 = -4.867
+Initial Condition(s):	x4(t) = 0.200, x5(t) = 0.400, x6(t) = -0.376, x7(t) = 5448298323372.966, where t = -0.500
+Error: 9.8602e-05
+
+Parameter(s)        :	 k5 = 0.143,  k6 = 0.286,  k7 = 0.115,  k8 = -4.471,  k9 = 0.223, k10 = 4.867
+Initial Condition(s):	x4(t) = 0.200, x5(t) = 0.400, x6(t) = 4.491, x7(t) = 5448298323372.966, where t = -0.500
+Error: 9.8602e-05
+
+Parameter(s)        :	 k5 = 0.143,  k6 = 0.286,  k7 = 0.297,  k8 = 0.704,  k9 = -13.788, k10 = -0.031
+Initial Condition(s):	x4(t) = 0.200, x5(t) = 0.400, x6(t) = -0.015, x7(t) = 5448298323372.952, where t = -0.500
+Error: 9.8622e-05
+
+Parameter(s)        :	 k5 = 0.143,  k6 = 0.286,  k7 = 0.297,  k8 = 0.673,  k9 = 13.788, k10 = 0.031
+Initial Condition(s):	x4(t) = 0.200, x5(t) = 0.400, x6(t) = 0.017, x7(t) = 5448298323372.952, where t = -0.500
+Error: 9.8622e-05
+
+Parameter(s)        :	 k5 = 0.143,  k6 = 0.286,  k7 = 0.003,  k8 = -0.107,  k9 = -0.219, k10 = -8.038
+Initial Condition(s):	x4(t) = 0.200, x5(t) = 0.400, x6(t) = -0.281, x7(t) = 5448298323372.974, where t = -0.500
+Error: 9.8633e-05
+
+Parameter(s)        :	 k5 = 0.143,  k6 = 0.286,  k7 = 0.003,  k8 = -8.145,  k9 = 0.219, k10 = 8.038
+Initial Condition(s):	x4(t) = 0.200, x5(t) = 0.400, x6(t) = 7.757, x7(t) = 5448298323372.976, where t = -0.500
+Error: 9.8633e-05
+
+ 36.604905 seconds (14.56 M allocations: 922.648 MiB, 0.54% gc time, 57.97% compilation time)
+Test Failed at /home/orebas/learning/ODETests/varied_estimation.jl:552
+  Expression: besterror < 0.01
+   Evaluated: 6.810372904215177e12 < 0.01
+
