@@ -583,7 +583,7 @@ function varied_estimation_main()
 		#hiv_local(datasize, time_interval, solver),  #TODO check:  no solutions found?
 		#hiv(datasize, time_interval, solver),
 		#seir(datasize, time_interval, solver),
-		sirsforced(datasize, time_interval, solver),   #TODO check:  no solutions found?
+		sirsforced(datasize, time_interval, Tsit5()),   #TODO check:  no solutions found?
 		#slowfast(datasize, time_interval, solver),
 		########treatment(datasize, time_interval, Rodas5P()),   #TODO check:  no solutions found?
 		#crauste(datasize, time_interval, solver),
