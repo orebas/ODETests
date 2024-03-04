@@ -78,16 +78,10 @@ function SCIML_PE(model::ODESystem, measured_quantities, data_sample, solver; sh
 	ic_count = length(initial_conditions)
 	p_count = length(parameter_values)
 	lossret = 0
-<<<<<<< HEAD
 	u0 = [parameter_values; initial_conditions]
 	null_p = []
 	prob = ODEProblem(model, initial_conditions, time_interval, param_map = parameter_values)
 	rprob = remake(prob, u = u0)
-=======
-
-	prob = ODEProblem(model, initial_conditions, time_interval, parameter_values, saveat = t_vector)
-	sol = ModelingToolkit.solve(prob)
->>>>>>> 6afc0c1e8d0cf157f6da35c94a19f7166aa3eda5
 	data_sample_loss = data_sample
 	ic_temp = initial_conditions
 	p_temp = parameter_values

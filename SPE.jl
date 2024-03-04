@@ -72,30 +72,28 @@ function SCIML_PE(model::ODESystem, measured_quantities, data_sample, solver; sh
 	t_vector = pop!(data_sample, "t") #TODO(orebas) make it use the independent variable name
 	time_interval = (minimum(t_vector), maximum(t_vector))
 	initial_conditions = [rand(Float64) for s in ModelingToolkit.states(model)]
-	parameter_values = [p => rand(Float64) for p in ModelingToolkit.parameters(model)]
+	parameter_values = Dict([p => rand(Float64) for p in ModelingToolkit.parameters(model)])
 
 
 	ic_count = length(initial_conditions)
 	p_count = length(parameter_values)
 	lossret = 0
-<<<<<<< HEAD
 	u0 = [parameter_values; initial_conditions]
 	null_p = []
-	prob = ODEProblem(model, initial_conditions, time_interval, param_map = parameter_values)
-	rprob = remake(prob, u = u0)
-=======
+	#prob = ODEProblem(model, initial_conditions, time_interval, param_map = parameter_values)
+	#rprob = remake(prob, u = u0)
 
 	prob = ODEProblem(model, initial_conditions, time_interval, parameter_values, saveat = t_vector)
 	sol = ModelingToolkit.solve(prob)
->>>>>>> 6afc0c1e8d0cf157f6da35c94a19f7166aa3eda5
 	data_sample_loss = data_sample
 	ic_temp = initial_conditions
 	p_temp = parameter_values
 	opt_tuple = (initial_conditions, parameter_values)
 	rprob = remake(prob, u0 = ic_temp, p = p_temp, saveat = t_vector)
 	sol = ModelingToolkit.solve(rprob)
-	opt_vec = [initial_conditions; parameter_values]
-
+	opt_vec = [initial_conditions; collect(values(parameter_values))]
+	#display("here is the opt_vec")
+	#display(opt_vec)
 
 
 	callback = function (p, l, sol)
@@ -110,9 +108,11 @@ function SCIML_PE(model::ODESystem, measured_quantities, data_sample, solver; sh
 	end
 
 	function loss_function(x, p_discarded)
-		(ic_temp, p_temp) = (x[1], x[2])
+		#println("in loss function")
 		ic_temp = x[1:ic_count]
-		p_temp = x[ic_count+1:end]
+		p_temp  = x[ic_count+1:end]
+		#display(ic_temp)
+		#display(p_temp)
 		rprob = remake(rprob, u0 = ic_temp, p = p_temp, saveat = t_vector)
 
 
@@ -130,7 +130,8 @@ function SCIML_PE(model::ODESystem, measured_quantities, data_sample, solver; sh
 		end
 		return lossret, solution_true
 	end
-
+	#display(opt_vec)
+	#display(loss_function(opt_vec,[]))
 
 	adtype = Optimization.AutoForwardDiff()
 	optf = Optimization.OptimizationFunction((x, p) -> loss_function(x, p), adtype)

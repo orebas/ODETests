@@ -6,7 +6,7 @@ function main()
 	@variables t r(t) w(t) y1(t)
 	D = Differential(t)
 	ic = [0.333, 0.667]
-	datasize = 9
+	datasize = 21
 	solver = Vern9()
 	time_interval = [-0.5, 0.5]
 	sampling_times = range(time_interval[1], time_interval[2], length = datasize)
