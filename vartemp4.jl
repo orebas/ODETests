@@ -458,11 +458,10 @@ function treatment(datasize = 21, time_interval = [-0.5, 0.5], solver = Vern9())
 	parameters = [a, b, d, g, nu]
 
 	@named model = ODESystem([
-			D(S) ~ -b * S * In / N - d * b * S * Tr / N,
 			D(In) ~ b * S * In / N + d * b * S * Tr / N - (a + g) * In,
-			D(Tr) ~ g * In - nu * Tr,
 			D(N) ~ 0,
-		], t, states, parameters)
+			D(S) ~ -b * S * In / N - d * b * S * Tr / N,
+			D(Tr) ~ g * In - nu * Tr,], t, states, parameters)
 	measured_quantities = [
 		y1 ~ Tr,
 		y2 ~ N,
@@ -530,7 +529,7 @@ function analyze_parameter_estimation_problem(PEP::ParameterEstimationProblem; t
 
 	@time res = ParameterEstimation.estimate(PEP.model, PEP.measured_quantities,
 		PEP.data_sample,
-		solver = PEP.solver, interpolators)
+		solver = PEP.solver, interpolators = interpolators)
 	all_params = vcat(PEP.ic, PEP.p_true)
 	#println("TYPERES: ", typeof(res))
 	#println(res)
@@ -583,9 +582,9 @@ function varied_estimation_main()
 		#hiv_local(datasize, time_interval, solver),  #TODO check:  no solutions found?
 		#hiv(datasize, time_interval, solver),
 		#seir(datasize, time_interval, solver),
-		sirsforced(datasize, time_interval, solver),   #TODO check:  no solutions found?
+		#sirsforced(datasize, time_interval, solver),   #TODO check:  no solutions found?
 		#slowfast(datasize, time_interval, solver),
-		#treatment(datasize, time_interval, solver),   #TODO check:  no solutions found?
+		treatment(datasize, time_interval, solver),   #TODO check:  no solutions found?
 		#crauste(datasize, time_interval, solver),
 	]
 		analyze_parameter_estimation_problem(PEP, test_mode = true)
