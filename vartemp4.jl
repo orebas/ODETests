@@ -12,6 +12,43 @@ struct ParameterEstimationProblem
 	ic::Any
 end
 
+
+function simple_global_test(datasize = 21, time_interval = [-0.5, 0.5], solver = Vern9())
+	@parameters a b c d
+	@variables t x1(t) x2(t) x3(t) y1(t) y2(t) y3(t)
+	D = Differential(t)
+	states = [x1, x2, x3]
+	parameters = [a, b, c, d]
+	@named model = ODESystem([
+			D(x1) ~ (a + b) * x1,
+			D(x2) ~ c * c * x2,
+			D(x3) ~ d * x3,
+		], t, states, parameters)
+	measured_quantities = [
+		y1 ~ x1,
+		y2 ~ x2,
+		y3 ~ x3 * x3 + x3,
+	]
+
+
+	ic = [3.3, 4.4, 5.5]
+	p_true = [0.7, 0.4, -0.3, 1.1]
+	data_sample = ParameterEstimation.sample_data(model, measured_quantities, time_interval,
+		p_true, ic,
+		datasize; solver = solver)
+	return ParameterEstimationProblem("SimpleGlobalTest",
+		model,
+		measured_quantities,
+		data_sample,
+		solver,
+		p_true,
+		ic)
+end
+
+
+
+
+
 function biohydrogenation(datasize = 21, time_interval = [-0.5, 0.5], solver = Vern9())
 	@parameters k5 k6 k7 k8 k9 k10
 	@variables t x4(t) x5(t) x6(t) x7(t) y1(t) y2(t)
@@ -461,7 +498,7 @@ function treatment(datasize = 21, time_interval = [-0.5, 0.5], solver = Vern9())
 			D(In) ~ b * S * In / N + d * b * S * Tr / N - (a + g) * In,
 			D(N) ~ 0,
 			D(S) ~ -b * S * In / N - d * b * S * Tr / N,
-			D(Tr) ~ g * In - nu * Tr,], t, states, parameters)
+			D(Tr) ~ g * In - nu * Tr], t, states, parameters)
 	measured_quantities = [
 		y1 ~ Tr,
 		y2 ~ N,
@@ -584,8 +621,9 @@ function varied_estimation_main()
 		#seir(datasize, time_interval, solver),
 		#sirsforced(datasize, time_interval, solver),   #TODO check:  no solutions found?
 		#slowfast(datasize, time_interval, solver),
-		treatment(datasize, time_interval, solver),   #TODO check:  no solutions found?
+		#treatment(datasize, time_interval, solver),   #TODO check:  no solutions found?
 		#crauste(datasize, time_interval, solver),
+		simple_global_test(datasize, time_interval, solver)
 	]
 		analyze_parameter_estimation_problem(PEP, test_mode = true)
 	end
