@@ -136,7 +136,7 @@ function SCIML_PE(model::ODESystem, measured_quantities, data_sample, solver; sh
 	adtype = Optimization.AutoForwardDiff()
 	optf = Optimization.OptimizationFunction((x, p) -> loss_function(x, p), adtype)
 	optprob = Optimization.OptimizationProblem(optf, opt_vec)
-	result_ode = Optimization.solve(optprob, LBFGS(linesearch = BackTracking(order = 2)), callback = callback, maxiters = 500)
+	result_ode = Optimization.solve(optprob, LBFGS(), callback = callback, maxiters = 500) #LBFGS(linesearch = BackTracking(order = 2))
 	optprob2 = Optimization.OptimizationProblem(optf, result_ode.u)
 	result_ode2 = Optimization.solve(optprob2, Newton(), callback = callback, maxiters = 100)
 
@@ -147,7 +147,7 @@ function SCIML_PE(model::ODESystem, measured_quantities, data_sample, solver; sh
 
 	push!(data_sample, ("t" => t_vector)) #TODO(orebas) maybe don't pop this in the first place
 
-	return result_ode
+	return result_ode2
 end
 
 

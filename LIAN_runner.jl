@@ -3,7 +3,7 @@ include("LIAN.jl")
 
 
 function main()
-	(model, measured_quantities, data_sample) = ident_test2()
+	(model, measured_quantities, data_sample) = substr_test()
 	display(local_identifiability_analysis(model, measured_quantities))
 	#res = ParameterEstimation.estimate(model, measured_quantities, data_sample)
 	#display(res)
