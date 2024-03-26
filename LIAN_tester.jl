@@ -743,8 +743,8 @@ function varied_estimation_main()
 	time_interval = [-0.5, 0.5]
 	for PEP in [
 		#simple(datasize, time_interval, solver),  #works
-		lotka_volterra(datasize, time_interval, solver),  #works
-		#vanderpol(datasize, time_interval, solver),  #works
+		#lotka_volterra(datasize, time_interval, solver),  #works
+		vanderpol(datasize, time_interval, solver),  #works
 		#daisy_mamil3(datasize, time_interval, solver),  #off in value
 		#daisy_mamil4(datasize, time_interval, solver),    #off in value
 		#hiv(datasize, time_interval, solver),

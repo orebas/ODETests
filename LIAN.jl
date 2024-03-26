@@ -354,6 +354,10 @@ function hmcs(x)
 end
 
 
+function solveJSwithHC(poly_system)
+end
+
+
 function HCPE(model::ODESystem, measured_quantities, data_sample, solver, time_index_set)
 
 	t = ModelingToolkit.get_iv(model)
@@ -388,9 +392,12 @@ function HCPE(model::ODESystem, measured_quantities, data_sample, solver, time_i
 			end
 		end
 
-		#println("interpolated target")
-		#display(interpolated_target)
-		
+		println("interpolated target")
+		display(interpolated_target)
+		for each in interpolated_target
+			println(typeof(each))
+			println(each)
+		end
 		string_target = string.(interpolated_target)
 		string_string_dict = Dict()
 		var_string_dict = Dict()
