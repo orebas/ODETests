@@ -311,8 +311,8 @@ function lotka_volterra(datasize = 21, time_interval = [-0.5, 0.5], solver = Ver
 	parameters = [k1, k2, k3]
 
 	@named model = ODESystem([
-							D(r) ~ k1 * r - k2 * r * w, 
-							D(w) ~ k2 * r * w - k3 * w], t,
+			D(r) ~ k1 * r - k2 * r * w,
+			D(w) ~ k2 * r * w - k3 * w], t,
 		states, parameters)
 
 	data_sample = ParameterEstimation.sample_data(model, measured_quantities, time_interval,
@@ -463,18 +463,18 @@ function substr_test(datasize = 21, time_interval = [-0.5, 0.5], solver = Vern9(
 	@parameters a b beta
 	@variables t x1(t) x2(t) x3(t) y1(t) y2(t) y3(t)
 	D = Differential(t)
-	states = [x1, x2 , x3]
-	parameters = [a, b , beta]
+	states = [x1, x2, x3]
+	parameters = [a, b, beta]
 
 	@named model = ODESystem([
 			D(x1) ~ -a * x2,
 			D(x2) ~ b * (x1),
-			D(x3) ~ a * b * beta * b * a * x3
-			], t, states, parameters)
+			D(x3) ~ a * b * beta * b * a * x3,
+		], t, states, parameters)
 	measured_quantities = [
 		y1 ~ x1,
 		y2 ~ x2,
-		y3 ~ x3
+		y3 ~ x3,
 	]
 
 	ic = [2.0, 3.0, 4.0]
@@ -484,27 +484,27 @@ function substr_test(datasize = 21, time_interval = [-0.5, 0.5], solver = Vern9(
 		datasize; solver = solver)
 	return ParameterEstimationProblem("substr_test",
 		model,
-			measured_quantities,
-			data_sample,
-			solver,
-			p_true,
-			ic)
+		measured_quantities,
+		data_sample,
+		solver,
+		p_true,
+		ic)
 	return (model, measured_quantities, data_sample)
 end
 
 
 function global_unident_test(datasize = 21, time_interval = [-0.5, 0.5], solver = Vern9())
 	@parameters a b c d
-	@variables t x1(t) x2(t) x3(t) y1(t) y2(t) 
+	@variables t x1(t) x2(t) x3(t) y1(t) y2(t)
 	D = Differential(t)
-	states = [x1, x2 , x3]
-	parameters = [a, b , c, d]
+	states = [x1, x2, x3]
+	parameters = [a, b, c, d]
 
 	@named model = ODESystem([
 			D(x1) ~ -a * x1,
-			D(x2) ~ (b+c) * (x1),
-			D(x3) ~ d * x1
-			], t, states, parameters)
+			D(x2) ~ (b + c) * (x1),
+			D(x3) ~ d * x1,
+		], t, states, parameters)
 	measured_quantities = [
 		y1 ~ x1,
 		y2 ~ x2,
@@ -517,27 +517,27 @@ function global_unident_test(datasize = 21, time_interval = [-0.5, 0.5], solver 
 		datasize; solver = solver)
 	return ParameterEstimationProblem("global_unident_test",
 		model,
-			measured_quantities,
-			data_sample,
-			solver,
-			p_true,
-			ic)
+		measured_quantities,
+		data_sample,
+		solver,
+		p_true,
+		ic)
 	return (model, measured_quantities, data_sample)
 end
 
 
 function sum_test(datasize = 21, time_interval = [-0.5, 0.5], solver = Vern9())
 	@parameters a b c d
-	@variables t x1(t) x2(t) x3(t) y1(t) y2(t) 
+	@variables t x1(t) x2(t) x3(t) y1(t) y2(t)
 	D = Differential(t)
-	states = [x1, x2 , x3]
-	parameters = [a, b , c]
+	states = [x1, x2, x3]
+	parameters = [a, b, c]
 
 	@named model = ODESystem([
 			D(x1) ~ -a * x1,
 			D(x2) ~ b * (x2),
-			D(x3) ~ c*(x1 +x2)
-			], t, states, parameters)
+			D(x3) ~ c * (x1 + x2),
+		], t, states, parameters)
 	measured_quantities = [
 		y1 ~ x3,
 	]
@@ -549,11 +549,11 @@ function sum_test(datasize = 21, time_interval = [-0.5, 0.5], solver = Vern9())
 		datasize; solver = solver)
 	return ParameterEstimationProblem("global_unident_test",
 		model,
-			measured_quantities,
-			data_sample,
-			solver,
-			p_true,
-			ic)
+		measured_quantities,
+		data_sample,
+		solver,
+		p_true,
+		ic)
 	return (model, measured_quantities, data_sample)
 end
 
@@ -742,9 +742,9 @@ function varied_estimation_main()
 	#solver = Rodas4P()
 	time_interval = [-0.5, 0.5]
 	for PEP in [
-		#simple(datasize, time_interval, solver),  #works
+		simple(datasize, time_interval, solver),  #works
 		#lotka_volterra(datasize, time_interval, solver),  #works
-		vanderpol(datasize, time_interval, solver),  #works
+		#vanderpol(datasize, time_interval, solver),  #works
 		#daisy_mamil3(datasize, time_interval, solver),  #off in value
 		#daisy_mamil4(datasize, time_interval, solver),    #off in value
 		#hiv(datasize, time_interval, solver),

@@ -232,8 +232,16 @@ function local_identifiability_analysis(model::ODESystem, measured_quantities)
 
 	n = Int64(ceil((states_count + ps_count) / length(measured_quantities)) + 1)  #check this is sufficient, for the number of derivatives to take
 	n = n - 1# TODO, this is for testing.
-	states_lhs = [[eq.lhs for eq in model_eq], expand_derivatives.(D.([eq.lhs for eq in model_eq]))]
-	states_rhs = [[eq.rhs for eq in model_eq], expand_derivatives.(D.([eq.rhs for eq in model_eq]))]
+	println("we decided n is ")
+	display(n)
+	if (n > 2)
+		states_lhs = [[eq.lhs for eq in model_eq], expand_derivatives.(D.([eq.lhs for eq in model_eq]))]
+		states_rhs = [[eq.rhs for eq in model_eq], expand_derivatives.(D.([eq.rhs for eq in model_eq]))]
+	else
+		states_lhs = [[eq.lhs for eq in model_eq]]
+		states_rhs = [[eq.rhs for eq in model_eq]]
+
+	end
 	subst_dict = Dict()
 
 	for i in 1:(n-3)
@@ -262,6 +270,7 @@ function local_identifiability_analysis(model::ODESystem, measured_quantities)
 		obs_lhs[i][j] = ModelingToolkit.diff2term(expand_derivatives(obs_lhs[i][j]))
 	end
 
+	obs_rhs_unsubstituted = deepcopy(obs_rhs)
 
 
 	for s in 1:n
@@ -292,14 +301,14 @@ function local_identifiability_analysis(model::ODESystem, measured_quantities)
 
 	initial_conditions = Dict([p => rand(Float64) for p in ModelingToolkit.states(model)])
 	parameter_values = Dict([p => rand(Float64) for p in ModelingToolkit.parameters(model)])
-	test_point = merge(initial_conditions, parameter_values)
-	varlist = vcat(model_states, model_ps)
+	test_point = merge(parameter_values, initial_conditions)
+	varlist = vcat(model_ps, model_states)
 	candidate_plugins_for_unidentified = OrderedDict()
 	substitution_table = Dict()
 
 	target = vcat(obs_rhs[1:n]...)
 	all_identified = false
-	println("polynomial system before subst")
+	#println("polynomial system before subst")
 	#display(target)
 	while (!all_identified)
 		candidate_plugins_for_unidentified = OrderedDict()
@@ -345,7 +354,7 @@ function local_identifiability_analysis(model::ODESystem, measured_quantities)
 		end
 	end
 	#display(target)
-	return (varlist, substitution_table, target, n)
+	return (varlist, substitution_table, target, n, states_lhs, states_rhs, obs_lhs, obs_rhs_unsubstituted)
 end
 
 
@@ -354,7 +363,69 @@ function hmcs(x)
 end
 
 
-function solveJSwithHC(poly_system)
+function solveJSwithHC(poly_system, varlist, time_index)  #the input here is meant to be a polynomial, or eventually rational, system of julia symbolics
+
+	string_target = string.(poly_system)
+	string_string_dict = Dict()
+	var_string_dict = Dict()
+	var_dict = Dict()
+	varlist
+	hcvarlist = Vector{HomotopyContinuation.ModelKit.Variable}()
+	for v in varlist
+		#display(v)
+		vhcs = replace(string(v), "(t)" => "_t" * string(time_index)) * "_hc"
+		#vhcslong = "HomotopyContinuation.ModelKit.Variable(Symbol(\"" * vhcs * "\"))"
+		vhcslong = "hmcs(\"" * vhcs * "\")"
+
+		var_string_dict[v] = vhcs
+		vhc = HomotopyContinuation.ModelKit.Variable(Symbol(vhcs))
+		var_dict[v] = vhc
+		#string_string_dict[string(v)] = vhcslong
+		if (contains(string(v), "t"))
+			string_string_dict[string(v)] = vhcslong
+		else
+			string_string_dict[Regex("\\b(?:\\d+)?" * string(v) * "\\b")] = vhcslong
+		end
+		push!(hcvarlist, vhc)
+	end
+	display(string_string_dict)
+	for i in eachindex(string_target)
+		println("replacing")
+		display(string_target[i])
+		string_target[i] = replace(string_target[i], string_string_dict...)
+		display(string_target[i])
+		display(eval(string_target[i]))
+		display(Meta.parse(string_target[i]))
+	end
+	println("line 383")
+	for each in string_target
+		println(each)
+	end
+	parsed = eval.(Meta.parse.(string_target))
+	F = HomotopyContinuation.System(parsed, hcvarlist)
+	#display(parsed)
+	#result = HomotopyContinuation.solve(F, compile=true, threading=true)
+	result = HomotopyContinuation.solve(F)
+
+
+	#println("hcvarlist")
+	#display(hcvarlist)
+	#display("varlist")
+	#display(varlist)
+	#display(F)
+	#display(result)
+	#display(HomotopyContinuation.real_solutions(result))
+	solns = HomotopyContinuation.real_solutions(result)
+	complex_flag = false
+	if isempty(solns)
+		solns = solutions(result, only_nonsingular = false)
+		complexflag = true
+	end
+	if (isempty(solns))
+		display("No solutions failed.")
+		return
+	end
+	return solns
 end
 
 
@@ -368,11 +439,23 @@ function HCPE(model::ODESystem, measured_quantities, data_sample, solver, time_i
 	t_vector = pop!(data_sample, "t")
 	time_interval = (minimum(t_vector), maximum(t_vector))
 
-	(varlist, substitution_table, target, deriv_level) = local_identifiability_analysis(model, measured_quantities)
+	(varlist, substitution_table, target, deriv_level, states_lhs, states_rhs, obs_lhs, obs_rhs_unsubstituted) = local_identifiability_analysis(model, measured_quantities)
+
+	#TODO(orebas) add code to apply substitution table (for transcendence basis subs) to each of obs and states rhs and lhs
 
 	time_index_set = [fld(length(t_vector), 2)]  #TODO add vector handling 
 	#time_index_set = [1]
 
+
+	states_targets = vcat(states_lhs...) .- vcat(states_rhs...)
+	println("line 451")
+	#display(vcat(states_lhs...))
+	#display(vcat(states_lhs...))
+
+	#display(states_lhs)
+	#display(states_rhs)
+	display(states_targets)
+	#display(obs_targets)
 	interpolants = Dict()
 	for j in measured_quantities
 		r = j.rhs
@@ -381,136 +464,117 @@ function HCPE(model::ODESystem, measured_quantities, data_sample, solver, time_i
 	end
 	#display(interpolants)
 	results_vec = []
+	interpolated_target_per_time = []
+	interpolated_states_target = deepcopy(states_targets)
+	local_states_dict = Dict()
+
+	D = Differential(ModelingToolkit.get_iv(model))
 
 	for time_index in time_index_set
-		interpolated_target = target
-		target_index = 1
-		for d in 0:(deriv_level-1)
-			for j in measured_quantities
-				interpolated_target[target_index] = target[target_index] - nth_deriv_at(interpolants[j.rhs], d, t_vector[time_index])
-				target_index += 1
-			end
-		end
-
-		println("interpolated target")
-		display(interpolated_target)
-		for each in interpolated_target
-			println(typeof(each))
-			println(each)
-		end
-		string_target = string.(interpolated_target)
-		string_string_dict = Dict()
-		var_string_dict = Dict()
-		var_dict = Dict()
-		hcvarlist = Vector{HomotopyContinuation.ModelKit.Variable}()
-		for v in varlist
-			#display(v)
-			vhcs = replace(string(v), "(t)" => "_t" * string(time_index)) * "_hc"
-			#vhcslong = "HomotopyContinuation.ModelKit.Variable(Symbol(\"" * vhcs * "\"))"
-			vhcslong = "hmcs(\"" * vhcs * "\")"
-
-			var_string_dict[v] = vhcs
-			vhc = HomotopyContinuation.ModelKit.Variable(Symbol(vhcs))
-			var_dict[v] = vhc
-			#string_string_dict[string(v)] = vhcslong
-			if (contains(string(v), "t"))
-				string_string_dict[string(v)] = vhcslong
+		for y in ModelingToolkit.states(model), j in 0:deriv_level
+			if (j > 1)
+				x = ModelingToolkit.diff2term((D^(Int64(j)))(y))
 			else
-				string_string_dict[Regex("\\b(?:\\d+)?" * string(v) * "\\b")] = vhcslong
+				x = y
 			end
-			push!(hcvarlist, vhc)
+			local_states_dict[x] = Symbol(replace(string(x), "(t)" => ("_t" * string(time_index))))
 		end
-		display(string_string_dict)
-		for i in eachindex(string_target)
-			println("replacing")
-			display(string_target[i])
-			string_target[i] = replace(string_target[i], string_string_dict...)
-			display(string_target[i])
-			display(eval(string_target[i]))
-			display(Meta.parse(string_target[i]))
+		display(local_states_dict)
+		for i in eachindex(interpolated_states_target)
+			interpolated_states_target[i] = substitute(states_targets[i], local_states_dict)
 		end
-		println("line 383")
-		for each in string_target
-			println(each)
+		display(interpolated_states_target)
+		interpolated_obs_target = deepcopy(obs_rhs_unsubstituted)
+
+		for i in eachindex(obs_rhs_unsubstituted), j in eachindex(obs_rhs_unsubstituted[i])
+			interpolated_obs_targets[i][j] = substitute(obs_rhs_unsubstituted[i][j], local_states_dict) - nth_deriv_at(interpolants[measured_quantities[i].rhs], j - 1, t_vector[time_index])
 		end
-		parsed = eval.(Meta.parse.(string_target))
-		F = HomotopyContinuation.System(parsed, hcvarlist)
-		#display(parsed)
-		#result = HomotopyContinuation.solve(F, compile=true, threading=true)
-		result = HomotopyContinuation.solve(F)
-
-		#println("hcvarlist")
-		#display(hcvarlist)
-		#display("varlist")
-		#display(varlist)
-		#display(F)
-		#display(result)
-		#display(HomotopyContinuation.real_solutions(result))
-		solns = HomotopyContinuation.real_solutions(result)
-		complex_flag = false
-		if isempty(solns)
-			solns = solutions(result, only_nonsingular = false)
-			complexflag = true
-		end
-		if (isempty(solns))
-			display("No solutions failed.")
-			return
-		end
-		@named new_model = ODESystem(model_eq, t, model_states, model_ps)
-		initial_conditions = [0.0 for s in model_states]
-		parameter_values = [0.0 for p in model_ps]
-		for soln_index in eachindex(solns)
-			for i in eachindex(model_states)
-				if model_states[i] in keys(substitution_table)   #rewrite this in a more memory safe way
-					initial_conditions[i] = substitution_table[model_states[i]]
-				else
-					initial_conditions[i] = solns[soln_index][findfirst(x -> isequal(x, var_dict[model_states[i]]), hcvarlist)]
-				end
-			end
-			#display("initial conditions")
-			#display(initial_conditions)
-
-			for i in eachindex(parameter_values)
-				if model_ps[i] in keys(substitution_table)
-					parameter_values[i] = substitution_table[model_ps[i]]
-				else
-					parameter_values[i] = solns[soln_index][findfirst(x -> isequal(x, var_dict[model_ps[i]]), hcvarlist)]
-				end
-			end
-			#display("Parameter Values")
-			#display(parameter_values)
 
 
-			initial_conditions = Base.convert(Array{ComplexF64, 1}, initial_conditions)
-			if (isreal(initial_conditions))
-				initial_conditions = Base.convert(Array{Float64, 1}, initial_conditions)
-			end
+		#target_index = 1
+		#for d in 0:(deriv_level-1)
+		#	for j in measured_quantities
+		#		interpolated_target[target_index] = target[target_index] - nth_deriv_at(interpolants[j.rhs], d, t_vector[time_index])
+		#			target_index += 1
+		#		end
+		#		obs_targets = vcat(obs_rhs_unsubstituted[1:end]...)
+		print("line 488")
+		display(obs_targets)
 
 
-			parameter_values = Base.convert(Array{ComplexF64, 1}, parameter_values)
-			if (isreal(parameter_values))
-				parameter_values = Base.convert(Array{Float64, 1}, parameter_values)
-			end
-			tspan = (t_vector[time_index], t_vector[1])  #this is backwards
-			prob = ODEProblem(new_model, initial_conditions, tspan, parameter_values)
+		#push!(interpolated_target_per_time, interpolated_target)
+		#println("interpolated target")
+		#display(interpolated_target)
+		#for each in interpolated_target
+		#	println(typeof(each))
+		#	println(each)
+		#end
+		push!(interpolated_target_per_time, interpolated_states_target)
+		push!(interpolated_target_per_time, interpolated_obs_targets)
 
-			ode_solution = ModelingToolkit.solve(prob, solver, p = parameter_values,
-				abstol = 1e-14, reltol = 1e-14)
-
-			state_param_map = (Dict(x => replace(string(x), "(t)" => "")
-									for x in ModelingToolkit.states(model)))
-			newstates = OrderedDict()
-			for s in model_states
-				newstates[s] = ode_solution[Symbol(state_param_map[s])][end]
-			end
-			#display("initial conditions at earliest time")
-			#display(newstates)
-			#display("parameter values")
-			#display(parameter_values)
-			#display("in array format:")
-			push!(results_vec, [collect(values(newstates)); parameter_values])
-		end
 	end
+
+	println("interpolated target, over all time indices")
+	display(interpolated_target_per_time)
+	solve_result = solveJSwithHC(interpolated_target_per_time, varlist, time_index)  # do we need to pass the variables and the parameters seperately?
+	solns = solve_result
+
+
+	@named new_model = ODESystem(model_eq, t, model_states, model_ps)
+	initial_conditions = [0.0 for s in model_states]
+	parameter_values = [0.0 for p in model_ps]
+	for soln_index in eachindex(solns)
+		for i in eachindex(model_states)
+			if model_states[i] in keys(substitution_table)   #rewrite this in a more memory safe way
+				initial_conditions[i] = substitution_table[model_states[i]]
+			else
+				initial_conditions[i] = solns[soln_index][findfirst(x -> isequal(x, var_dict[model_states[i]]), hcvarlist)]
+			end
+		end
+		#display("initial conditions")
+		#display(initial_conditions)
+
+		for i in eachindex(parameter_values)
+			if model_ps[i] in keys(substitution_table)
+				parameter_values[i] = substitution_table[model_ps[i]]
+			else
+				parameter_values[i] = solns[soln_index][findfirst(x -> isequal(x, var_dict[model_ps[i]]), hcvarlist)]
+			end
+		end
+		#display("Parameter Values")
+		#display(parameter_values)
+
+
+		initial_conditions = Base.convert(Array{ComplexF64, 1}, initial_conditions)
+		if (isreal(initial_conditions))
+			initial_conditions = Base.convert(Array{Float64, 1}, initial_conditions)
+		end
+
+
+		parameter_values = Base.convert(Array{ComplexF64, 1}, parameter_values)
+		if (isreal(parameter_values))
+			parameter_values = Base.convert(Array{Float64, 1}, parameter_values)
+		end
+		tspan = (t_vector[time_index], t_vector[1])  #this is backwards
+		prob = ODEProblem(new_model, initial_conditions, tspan, parameter_values)
+
+		ode_solution = ModelingToolkit.solve(prob, solver, p = parameter_values,
+			abstol = 1e-14, reltol = 1e-14)
+
+		state_param_map = (Dict(x => replace(string(x), "(t)" => "")
+								for x in ModelingToolkit.states(model)))
+		newstates = OrderedDict()
+		for s in model_states
+			newstates[s] = ode_solution[Symbol(state_param_map[s])][end]
+		end
+		#display("initial conditions at earliest time")
+		#display(newstates)
+		#display("parameter values")
+		#display(parameter_values)
+		#display("in array format:")
+		push!(results_vec, [collect(values(newstates)); parameter_values])
+	end
+
 	push!(data_sample, ("t" => t_vector)) #TODO(orebas) maybe don't pop this in the first place
 	#display("results_vec")
 	#display(results_vec)
