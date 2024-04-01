@@ -10,6 +10,14 @@ using TaylorDiff
 include("bary_derivs.jl")
 include("nemo2hc-rewrite.jl")
 
+
+function print_element_types(v)
+	for elem in v
+		println(typeof(elem))
+	end
+end
+
+
 function super_simple_test(datasize = 21, time_interval = [-0.5, 0.5], solver = Vern9())
 
 	@parameters a b c d
@@ -270,6 +278,8 @@ function local_identifiability_analysis(model::ODESystem, measured_quantities)
 		obs_lhs[i][j] = ModelingToolkit.diff2term(expand_derivatives(obs_lhs[i][j]))
 	end
 
+
+
 	obs_rhs_unsubstituted = deepcopy(obs_rhs)
 
 
@@ -302,7 +312,7 @@ function local_identifiability_analysis(model::ODESystem, measured_quantities)
 	initial_conditions = Dict([p => rand(Float64) for p in ModelingToolkit.states(model)])
 	parameter_values = Dict([p => rand(Float64) for p in ModelingToolkit.parameters(model)])
 	test_point = merge(parameter_values, initial_conditions)
-	varlist = vcat(model_ps, model_states)
+	varlist = Vector{Num}(vcat(model_ps, model_states))
 	candidate_plugins_for_unidentified = OrderedDict()
 	substitution_table = Dict()
 
@@ -363,18 +373,29 @@ function hmcs(x)
 end
 
 
-function solveJSwithHC(poly_system, varlist, time_index)  #the input here is meant to be a polynomial, or eventually rational, system of julia symbolics
+function solveJSwithHC(poly_system, varlist)  #the input here is meant to be a polynomial, or eventually rational, system of julia symbolics
+
+
+	println("starting SolveJSWithHC")
+	display(poly_system)
+	print_element_types(poly_system)
+	println("varlist")
+	display(varlist)
+	print_element_types(varlist)
+
+
+
 
 	string_target = string.(poly_system)
 	string_string_dict = Dict()
 	var_string_dict = Dict()
 	var_dict = Dict()
-	varlist
 	hcvarlist = Vector{HomotopyContinuation.ModelKit.Variable}()
 	for v in varlist
 		#display(v)
-		vhcs = replace(string(v), "(t)" => "_t" * string(time_index)) * "_hc"
+		#		vhcs = replace(string(v), "(t)" => "_t" * string(time_index)) * "_hc"
 		#vhcslong = "HomotopyContinuation.ModelKit.Variable(Symbol(\"" * vhcs * "\"))"
+		vhcs = string(v)
 		vhcslong = "hmcs(\"" * vhcs * "\")"
 
 		var_string_dict[v] = vhcs
@@ -402,19 +423,20 @@ function solveJSwithHC(poly_system, varlist, time_index)  #the input here is mea
 		println(each)
 	end
 	parsed = eval.(Meta.parse.(string_target))
-	F = HomotopyContinuation.System(parsed, hcvarlist)
-	#display(parsed)
-	#result = HomotopyContinuation.solve(F, compile=true, threading=true)
-	result = HomotopyContinuation.solve(F)
+	F = HomotopyContinuation.System(parsed)
+	println("system we are solving (line 428)")
+	display(parsed)
+	result = HomotopyContinuation.solve(F, hcvarlist)
 
 
 	#println("hcvarlist")
 	#display(hcvarlist)
 	#display("varlist")
 	#display(varlist)
-	#display(F)
-	#display(result)
-	#display(HomotopyContinuation.real_solutions(result))
+	println("results")
+	display(F)
+	display(result)
+	display(HomotopyContinuation.real_solutions(result))
 	solns = HomotopyContinuation.real_solutions(result)
 	complex_flag = false
 	if isempty(solns)
@@ -422,10 +444,11 @@ function solveJSwithHC(poly_system, varlist, time_index)  #the input here is mea
 		complexflag = true
 	end
 	if (isempty(solns))
-		display("No solutions failed.")
+		display("No solutions, failed.")
 		return
 	end
-	return solns
+	display(solns)
+	return solns, hcvarlist
 end
 
 
@@ -443,11 +466,11 @@ function HCPE(model::ODESystem, measured_quantities, data_sample, solver, time_i
 
 	#TODO(orebas) add code to apply substitution table (for transcendence basis subs) to each of obs and states rhs and lhs
 
-	time_index_set = [fld(length(t_vector), 2)]  #TODO add vector handling 
-	#time_index_set = [1]
+	#time_index_set = [fld(length(t_vector), 2)]  #TODO add vector handling 
+	time_index_set = [1]
 
 
-	states_targets = vcat(states_lhs...) .- vcat(states_rhs...)
+	states_targets = Vector{Num}(vcat(states_lhs...) .- vcat(states_rhs...))
 	println("line 451")
 	#display(vcat(states_lhs...))
 	#display(vcat(states_lhs...))
@@ -467,27 +490,62 @@ function HCPE(model::ODESystem, measured_quantities, data_sample, solver, time_i
 	interpolated_target_per_time = []
 	interpolated_states_target = deepcopy(states_targets)
 	local_states_dict = Dict()
-
+	println("line 494")
+	display(varlist)
 	D = Differential(ModelingToolkit.get_iv(model))
 
 	for time_index in time_index_set
 		for y in ModelingToolkit.states(model), j in 0:deriv_level
-			if (j > 1)
+			if (j >= 1)
 				x = ModelingToolkit.diff2term((D^(Int64(j)))(y))
+				newvarname = (Symbol(replace(string(x), "(t)" => ("_t" * string(time_index)))))
+				newvar = @variables $newvarname
+				local_states_dict[x] = Symbolics.wrap(newvar[1])
+				push!(varlist, (newvar[1]))
+
 			else
 				x = y
+				newvarname = (Symbol(replace(string(x), "(t)" => ("_t" * string(time_index)))))
+				newvar = @variables $newvarname
+				local_states_dict[x] = Symbolics.wrap(newvar[1])
+				replace!(varlist, x => (newvar[1]))
+
 			end
-			local_states_dict[x] = Symbol(replace(string(x), "(t)" => ("_t" * string(time_index))))
+			#println("line 483")
+			#display(newvarname)
+			#display(typeof(newvarname))
+			#display(newvar[1])
+			#display(typeof(newvar[1]))
 		end
 		display(local_states_dict)
 		for i in eachindex(interpolated_states_target)
-			interpolated_states_target[i] = substitute(states_targets[i], local_states_dict)
+			println("Before assignment")
+			display(states_targets[i])
+			display(typeof(states_targets[i]))
+			templ5 = Symbolics.wrap(substitute(states_targets[i], local_states_dict))
+			display(templ5)
+			display(typeof(templ5))
+			display(interpolated_states_target[i])
+			display(typeof(interpolated_states_target[i]))
+			interpolated_states_target[i] = templ5
 		end
 		display(interpolated_states_target)
-		interpolated_obs_target = deepcopy(obs_rhs_unsubstituted)
+		interpolated_obs_targets = (deepcopy(obs_rhs_unsubstituted))
 
 		for i in eachindex(obs_rhs_unsubstituted), j in eachindex(obs_rhs_unsubstituted[i])
-			interpolated_obs_targets[i][j] = substitute(obs_rhs_unsubstituted[i][j], local_states_dict) - nth_deriv_at(interpolants[measured_quantities[i].rhs], j - 1, t_vector[time_index])
+			temphere = substitute(obs_rhs_unsubstituted[i][j], local_states_dict)
+			println("line 508")
+
+			display(typeof(temphere))
+			display(temphere)
+			display(typeof(interpolated_obs_targets[i][j]))
+			display(interpolated_obs_targets[i][j])
+
+
+			interpolated_obs_targets[i][j] = Symbolics.unwrap(temphere)
+
+
+			interpolated_obs_targets[i][j] = interpolated_obs_targets[i][j] - nth_deriv_at(interpolants[measured_quantities[i].rhs], j - 1, t_vector[time_index])
 		end
 
 
@@ -498,8 +556,8 @@ function HCPE(model::ODESystem, measured_quantities, data_sample, solver, time_i
 		#			target_index += 1
 		#		end
 		#		obs_targets = vcat(obs_rhs_unsubstituted[1:end]...)
-		print("line 488")
-		display(obs_targets)
+		println("line 488")
+		display(interpolated_obs_targets)
 
 
 		#push!(interpolated_target_per_time, interpolated_target)
@@ -514,36 +572,44 @@ function HCPE(model::ODESystem, measured_quantities, data_sample, solver, time_i
 
 	end
 
-	println("interpolated target, over all time indices")
-	display(interpolated_target_per_time)
-	solve_result = solveJSwithHC(interpolated_target_per_time, varlist, time_index)  # do we need to pass the variables and the parameters seperately?
+	flattened_poly_system = vcat(interpolated_target_per_time...)
+	flattened_poly_system = vcat(flattened_poly_system...)
+	println("interpolated target, over all time indices, and flattened")
+	display(flattened_poly_system)
+	(solve_result, hcvarlist) = solveJSwithHC(flattened_poly_system, varlist)  # do we need to pass the variables and the parameters seperately?
 	solns = solve_result
 
 
 	@named new_model = ODESystem(model_eq, t, model_states, model_ps)
 	initial_conditions = [0.0 for s in model_states]
 	parameter_values = [0.0 for p in model_ps]
+
 	for soln_index in eachindex(solns)
-		for i in eachindex(model_states)
-			if model_states[i] in keys(substitution_table)   #rewrite this in a more memory safe way
-				initial_conditions[i] = substitution_table[model_states[i]]
-			else
-				initial_conditions[i] = solns[soln_index][findfirst(x -> isequal(x, var_dict[model_states[i]]), hcvarlist)]
-			end
-		end
-		#display("initial conditions")
-		#display(initial_conditions)
+		sol_copy = deepcopy(solns[soln_index])
+		p_length = length(parameter_values)
+		s_length = length(initial_conditions)
+		parameter_values = sol_copy[1:p_length]
+		initial_conditions = sol_copy[p_length+1:p_length+s_length]
+		#=		for i in eachindex(model_states)
+					if model_states[i] in keys(substitution_table)   #rewrite this in a more memory safe way
+						initial_conditions[i] = substitution_table[model_states[i]]
+					else
+						initial_conditions[i] = solns[soln_index][findfirst(x -> isequal(x, var_dict[model_states[i]]), hcvarlist)]
+					end
+				end
+				#display("initial conditions")
+				#display(initial_conditions)
 
-		for i in eachindex(parameter_values)
-			if model_ps[i] in keys(substitution_table)
-				parameter_values[i] = substitution_table[model_ps[i]]
-			else
-				parameter_values[i] = solns[soln_index][findfirst(x -> isequal(x, var_dict[model_ps[i]]), hcvarlist)]
-			end
-		end
-		#display("Parameter Values")
-		#display(parameter_values)
-
+				for i in eachindex(parameter_values)
+					if model_ps[i] in keys(substitution_table)
+						parameter_values[i] = substitution_table[model_ps[i]]
+					else
+						parameter_values[i] = solns[soln_index][findfirst(x -> isequal(x, var_dict[model_ps[i]]), hcvarlist)]
+					end
+				end
+				#display("Parameter Values")
+				#display(parameter_values)
+		=#
 
 		initial_conditions = Base.convert(Array{ComplexF64, 1}, initial_conditions)
 		if (isreal(initial_conditions))
@@ -555,7 +621,8 @@ function HCPE(model::ODESystem, measured_quantities, data_sample, solver, time_i
 		if (isreal(parameter_values))
 			parameter_values = Base.convert(Array{Float64, 1}, parameter_values)
 		end
-		tspan = (t_vector[time_index], t_vector[1])  #this is backwards
+		lowest_time_index = min(time_index_set...)
+		tspan = (t_vector[lowest_time_index], t_vector[1])  #this is backwards
 		prob = ODEProblem(new_model, initial_conditions, tspan, parameter_values)
 
 		ode_solution = ModelingToolkit.solve(prob, solver, p = parameter_values,
