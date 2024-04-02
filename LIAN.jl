@@ -281,7 +281,8 @@ function local_identifiability_analysis(model::ODESystem, measured_quantities)
 
 
 	obs_rhs_unsubstituted = deepcopy(obs_rhs)
-
+	println("line 284")
+	display(obs_rhs_unsubstituted)
 
 	for s in 1:n
 		for i in eachindex(obs_rhs), j in eachindex(obs_rhs[i])
@@ -426,6 +427,7 @@ function solveJSwithHC(poly_system, varlist)  #the input here is meant to be a p
 	F = HomotopyContinuation.System(parsed)
 	println("system we are solving (line 428)")
 	display(parsed)
+	display(hcvarlist)
 	result = HomotopyContinuation.solve(F, hcvarlist)
 
 
@@ -534,7 +536,7 @@ function HCPE(model::ODESystem, measured_quantities, data_sample, solver, time_i
 
 		for i in eachindex(obs_rhs_unsubstituted), j in eachindex(obs_rhs_unsubstituted[i])
 			temphere = substitute(obs_rhs_unsubstituted[i][j], local_states_dict)
-			println("line 508")
+			println("line 508 ", i, "  ", j  )
 
 			display(typeof(temphere))
 			display(temphere)
@@ -545,7 +547,7 @@ function HCPE(model::ODESystem, measured_quantities, data_sample, solver, time_i
 			interpolated_obs_targets[i][j] = Symbolics.unwrap(temphere)
 
 
-			interpolated_obs_targets[i][j] = interpolated_obs_targets[i][j] - nth_deriv_at(interpolants[measured_quantities[i].rhs], j - 1, t_vector[time_index])
+			interpolated_obs_targets[i][j] = interpolated_obs_targets[i][j] - nth_deriv_at(interpolants[measured_quantities[j].rhs], i - 1, t_vector[time_index])
 		end
 
 
