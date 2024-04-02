@@ -281,8 +281,8 @@ function local_identifiability_analysis(model::ODESystem, measured_quantities)
 
 
 	obs_rhs_unsubstituted = deepcopy(obs_rhs)
-	println("line 284")
-	display(obs_rhs_unsubstituted)
+	#println("line 284")
+	#display(obs_rhs_unsubstituted)
 
 	for s in 1:n
 		for i in eachindex(obs_rhs), j in eachindex(obs_rhs[i])
@@ -412,23 +412,23 @@ function solveJSwithHC(poly_system, varlist)  #the input here is meant to be a p
 	end
 	display(string_string_dict)
 	for i in eachindex(string_target)
-		println("replacing")
-		display(string_target[i])
+		#println("replacing")
+		#display(string_target[i])
 		string_target[i] = replace(string_target[i], string_string_dict...)
-		display(string_target[i])
-		display(eval(string_target[i]))
-		display(Meta.parse(string_target[i]))
+		#display(string_target[i])
+		#display(eval(string_target[i]))
+		#display(Meta.parse(string_target[i]))
 	end
-	println("line 383")
-	for each in string_target
-		println(each)
-	end
+	#println("line 383")
+	#for each in string_target
+	#	println(each)
+	#end
 	parsed = eval.(Meta.parse.(string_target))
-	F = HomotopyContinuation.System(parsed)
+	F = HomotopyContinuation.System(parsed, variables = hcvarlist)
 	println("system we are solving (line 428)")
-	display(parsed)
-	display(hcvarlist)
-	result = HomotopyContinuation.solve(F, hcvarlist)
+	#display(parsed)
+	#display(hcvarlist)
+	result = HomotopyContinuation.solve(F)
 
 
 	#println("hcvarlist")
@@ -473,13 +473,13 @@ function HCPE(model::ODESystem, measured_quantities, data_sample, solver, time_i
 
 
 	states_targets = Vector{Num}(vcat(states_lhs...) .- vcat(states_rhs...))
-	println("line 451")
+	#println("line 451")
 	#display(vcat(states_lhs...))
 	#display(vcat(states_lhs...))
 
 	#display(states_lhs)
 	#display(states_rhs)
-	display(states_targets)
+	#display(states_targets)
 	#display(obs_targets)
 	interpolants = Dict()
 	for j in measured_quantities
@@ -492,12 +492,12 @@ function HCPE(model::ODESystem, measured_quantities, data_sample, solver, time_i
 	interpolated_target_per_time = []
 	interpolated_states_target = deepcopy(states_targets)
 	local_states_dict = Dict()
-	println("line 494")
-	display(varlist)
+	#println("line 494")
+	#display(varlist)
 	D = Differential(ModelingToolkit.get_iv(model))
 
 	for time_index in time_index_set
-		for y in ModelingToolkit.states(model), j in 0:deriv_level
+		for y in ModelingToolkit.states(model), j in 0:deriv_level-1
 			if (j >= 1)
 				x = ModelingToolkit.diff2term((D^(Int64(j)))(y))
 				newvarname = (Symbol(replace(string(x), "(t)" => ("_t" * string(time_index)))))
@@ -521,27 +521,27 @@ function HCPE(model::ODESystem, measured_quantities, data_sample, solver, time_i
 		end
 		display(local_states_dict)
 		for i in eachindex(interpolated_states_target)
-			println("Before assignment")
-			display(states_targets[i])
-			display(typeof(states_targets[i]))
+			#println("Before assignment")
+			#display(states_targets[i])
+			#display(typeof(states_targets[i]))
 			templ5 = Symbolics.wrap(substitute(states_targets[i], local_states_dict))
-			display(templ5)
-			display(typeof(templ5))
-			display(interpolated_states_target[i])
-			display(typeof(interpolated_states_target[i]))
+			#display(templ5)
+			#display(typeof(templ5))
+			#display(interpolated_states_target[i])
+			#display(typeof(interpolated_states_target[i]))
 			interpolated_states_target[i] = templ5
 		end
-		display(interpolated_states_target)
+		#display(interpolated_states_target)
 		interpolated_obs_targets = (deepcopy(obs_rhs_unsubstituted))
 
 		for i in eachindex(obs_rhs_unsubstituted), j in eachindex(obs_rhs_unsubstituted[i])
 			temphere = substitute(obs_rhs_unsubstituted[i][j], local_states_dict)
-			println("line 508 ", i, "  ", j  )
+			#println("line 508 ", i, "  ", j  )
 
-			display(typeof(temphere))
-			display(temphere)
-			display(typeof(interpolated_obs_targets[i][j]))
-			display(interpolated_obs_targets[i][j])
+			#display(typeof(temphere))
+			#display(temphere)
+			#display(typeof(interpolated_obs_targets[i][j]))
+			#display(interpolated_obs_targets[i][j])
 
 
 			interpolated_obs_targets[i][j] = Symbolics.unwrap(temphere)
@@ -558,8 +558,8 @@ function HCPE(model::ODESystem, measured_quantities, data_sample, solver, time_i
 		#			target_index += 1
 		#		end
 		#		obs_targets = vcat(obs_rhs_unsubstituted[1:end]...)
-		println("line 488")
-		display(interpolated_obs_targets)
+		#println("line 488")
+		#display(interpolated_obs_targets)
 
 
 		#push!(interpolated_target_per_time, interpolated_target)
@@ -576,8 +576,8 @@ function HCPE(model::ODESystem, measured_quantities, data_sample, solver, time_i
 
 	flattened_poly_system = vcat(interpolated_target_per_time...)
 	flattened_poly_system = vcat(flattened_poly_system...)
-	println("interpolated target, over all time indices, and flattened")
-	display(flattened_poly_system)
+	#println("interpolated target, over all time indices, and flattened")
+	#display(flattened_poly_system)
 	(solve_result, hcvarlist) = solveJSwithHC(flattened_poly_system, varlist)  # do we need to pass the variables and the parameters seperately?
 	solns = solve_result
 

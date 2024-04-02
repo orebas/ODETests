@@ -743,16 +743,16 @@ function varied_estimation_main()
 	time_interval = [-0.5, 0.5]
 	for PEP in [
 		simple(datasize, time_interval, solver),  #works
-		#lotka_volterra(datasize, time_interval, solver),  #works
-		#vanderpol(datasize, time_interval, solver),  #works
-		#daisy_mamil3(datasize, time_interval, solver),  #off in value
-		#daisy_mamil4(datasize, time_interval, solver),    #off in value
-		#hiv(datasize, time_interval, solver),
-		#seir(datasize, time_interval, solver),
-		#slowfast(datasize, time_interval, solver),
-		#substr_test(datasize, time_interval, solver),
-		#global_unident_test(datasize, time_interval, solver),
-		#sum_test(datasize, time_interval, solver),
+		lotka_volterra(datasize, time_interval, solver),  #works
+		vanderpol(datasize, time_interval, solver),  #works
+		daisy_mamil3(datasize, time_interval, solver),  #off in value
+		daisy_mamil4(datasize, time_interval, solver),    #off in value
+		hiv(datasize, time_interval, solver),
+		seir(datasize, time_interval, solver),
+		slowfast(datasize, time_interval, solver),
+		substr_test(datasize, time_interval, solver),
+		global_unident_test(datasize, time_interval, solver),
+		sum_test(datasize, time_interval, solver),
 		#crauste(datasize, time_interval, solver),
 		#biohydrogenation(datasize, time_interval, solver),  #works, but one param unidentifiable
 		#daisy_ex3(datasize, time_interval, solver),
