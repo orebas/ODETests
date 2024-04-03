@@ -457,38 +457,6 @@ end
 
 
 
-function substr_test(datasize = 21, time_interval = [-0.5, 0.5], solver = Vern9())
-	@parameters a b beta
-	@variables t x1(t) x2(t) x3(t) y1(t) y2(t) y3(t)
-	D = Differential(t)
-	states = [x1, x2 , x3]
-	parameters = [a, b , beta]
-
-	@named model = ODESystem([
-			D(x1) ~ -a * x2,
-			D(x2) ~ b * (x1),
-			D(x3) ~ a * b * beta * b * a * x3
-			], t, states, parameters)
-	measured_quantities = [
-		y1 ~ x1,
-		y2 ~ x2,
-	]
-
-	ic = [0.333, 0.667, 0.8]
-	p_true = [0.333, 0.667, 0.1]
-	data_sample = ParameterEstimation.sample_data(model, measured_quantities, time_interval,
-		p_true, ic,
-		datasize; solver = solver)
-	return ParameterEstimationProblem("simple",
-		model,
-			measured_quantities,
-			data_sample,
-			solver,
-			p_true,
-			ic)
-	return (model, measured_quantities, data_sample)
-end
-
 
 function treatment(datasize=21, time_interval=[-0.5, 0.5], solver=Vern9())  #note the solver.  Vern9 apparently can't handle mass matrices
     @parameters a b d g nu

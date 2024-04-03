@@ -753,11 +753,11 @@ function varied_estimation_main()
 		substr_test(datasize, time_interval, solver),
 		global_unident_test(datasize, time_interval, solver),
 		sum_test(datasize, time_interval, solver),
-		#crauste(datasize, time_interval, solver),
-		#biohydrogenation(datasize, time_interval, solver),  #works, but one param unidentifiable
-		#daisy_ex3(datasize, time_interval, solver),
-		#fitzhugh_nagumo(datasize, time_interval, solver),
-		#hiv_local(datasize, time_interval, solver),
+		crauste(datasize, time_interval, solver),
+		biohydrogenation(datasize, time_interval, solver),  #works, but one param unidentifiable
+		daisy_ex3(datasize, time_interval, solver),
+		fitzhugh_nagumo(datasize, time_interval, solver),
+		hiv_local(datasize, time_interval, solver),
 		#sirsforced(datasize, time_interval, solver),
 		#treatment(datasize, time_interval, solver),
 	]
