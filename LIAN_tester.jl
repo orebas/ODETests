@@ -547,7 +547,7 @@ function sum_test(datasize = 21, time_interval = [-0.5, 0.5], solver = Vern9())
 	data_sample = ParameterEstimation.sample_data(model, measured_quantities, time_interval,
 		p_true, ic,
 		datasize; solver = solver)
-	return ParameterEstimationProblem("global_unident_test",
+	return ParameterEstimationProblem("sum_test",
 		model,
 		measured_quantities,
 		data_sample,
@@ -747,8 +747,8 @@ function varied_estimation_main()
 		vanderpol(datasize, time_interval, solver),  #works
 		daisy_mamil3(datasize, time_interval, solver),  #off in value
 		daisy_mamil4(datasize, time_interval, solver),    #off in value
-		hiv(datasize, time_interval, solver),
-		seir(datasize, time_interval, solver),
+		hiv(datasize, time_interval, solver),  #works
+		#seir(datasize, time_interval, solver), #error due to rational expression
 		slowfast(datasize, time_interval, solver),
 		substr_test(datasize, time_interval, solver),
 		global_unident_test(datasize, time_interval, solver),

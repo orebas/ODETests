@@ -420,9 +420,10 @@ function solveJSwithHC(poly_system, varlist)  #the input here is meant to be a p
 	end
 	#display(string_target)
 	parsed = eval.(Meta.parse.(string_target))
+	HomotopyContinuation.set_default_compile(:all)
 	F = HomotopyContinuation.System(parsed, variables = hcvarlist)
 	println("system we are solving (line 428)")
-	result = HomotopyContinuation.solve(F, threading=true, compiled=true)
+	result = HomotopyContinuation.solve(F, show_progress = true) #only_nonsingular = false
 
 
 	println("results")
@@ -483,7 +484,7 @@ function HCPE(model::ODESystem, measured_quantities, data_sample, solver, time_i
 	interpolated_target_per_time = []
 	interpolated_states_target = deepcopy(states_targets)
 	local_states_dict = Dict()
-
+	local_states_dict_all = []
 
 	D = Differential(ModelingToolkit.get_iv(model))
 
@@ -510,7 +511,7 @@ function HCPE(model::ODESystem, measured_quantities, data_sample, solver, time_i
 				end
 			end
 		end
-
+		push!(local_states_dict_all, local_states_dict)
 		display(local_states_dict)
 
 
@@ -544,15 +545,40 @@ function HCPE(model::ODESystem, measured_quantities, data_sample, solver, time_i
 
 
 	@named new_model = ODESystem(model_eq, t, model_states, model_ps)
-	initial_conditions = [0.0 for s in model_states]
-	parameter_values = [0.0 for p in model_ps]
+
+	lowest_time_index = min(time_index_set...)
+		
 
 	for soln_index in eachindex(solns)
-		sol_copy = deepcopy(solns[soln_index])
-		p_length = length(parameter_values)
-		s_length = length(initial_conditions)
-		parameter_values = sol_copy[1:p_length]
-		initial_conditions = sol_copy[p_length+1:p_length+s_length]
+		initial_conditions = [1e10 for s in model_states]
+		parameter_values = [1e10 for p in model_ps]
+		for i in eachindex(model_ps)
+			if model_ps[i] in keys(substitution_table)
+				parameter_values[i] = substitution_table[model_ps[i]]
+			else
+				index = findfirst(isequal(model_ps[i]), varlist)
+				parameter_values[i] = solns[soln_index][index]
+			end
+		end
+
+		for i in eachindex(model_states)
+			if model_states[i] in keys(substitution_table)
+				initial_conditions[i] = substitution_table[model_states[i]]
+			else
+				println("line 565")
+				display(model_states[i])
+				display(varlist)
+				display(substitution_table)
+				index = findfirst(isequal(local_states_dict_all[1][model_states[i]]), varlist)
+				initial_conditions[i] = solns[soln_index][index]
+			end
+		end
+
+		#sol_copy = deepcopy(solns[soln_index])
+		#p_length = length(parameter_values)
+		#s_length = length(initial_conditions)
+		#parameter_values = sol_copy[1:p_length]
+		#initial_conditions = sol_copy[p_length+1:p_length+s_length]
 		#=		for i in eachindex(model_states)
 					if model_states[i] in keys(substitution_table)   #rewrite this in a more memory safe way
 						initial_conditions[i] = substitution_table[model_states[i]]
@@ -584,7 +610,6 @@ function HCPE(model::ODESystem, measured_quantities, data_sample, solver, time_i
 		if (isreal(parameter_values))
 			parameter_values = Base.convert(Array{Float64, 1}, parameter_values)
 		end
-		lowest_time_index = min(time_index_set...)
 		tspan = (t_vector[lowest_time_index], t_vector[1])  #this is backwards
 		prob = ODEProblem(new_model, initial_conditions, tspan, parameter_values)
 
