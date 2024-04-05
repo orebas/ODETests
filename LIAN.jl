@@ -239,7 +239,7 @@ function local_identifiability_analysis(model::ODESystem, measured_quantities)
 	parameter_values = Dict([p => rand(Float64) for p in ModelingToolkit.parameters(model)])
 
 	n = Int64(ceil((states_count + ps_count) / length(measured_quantities)) + 1)  #check this is sufficient, for the number of derivatives to take
-	n = n - 1# TODO, this is for testing.
+	#n = n - 1# TODO, this is for testing.
 	println("we decided to take this many derivatives: ", n)
 	if (n > 2)
 		states_lhs = [[eq.lhs for eq in model_eq], expand_derivatives.(D.([eq.lhs for eq in model_eq]))]
@@ -247,7 +247,6 @@ function local_identifiability_analysis(model::ODESystem, measured_quantities)
 	else
 		states_lhs = [[eq.lhs for eq in model_eq]]
 		states_rhs = [[eq.rhs for eq in model_eq]]
-
 	end
 	subst_dict = Dict()
 
@@ -266,10 +265,8 @@ function local_identifiability_analysis(model::ODESystem, measured_quantities)
 	obs_rhs = [[eq.rhs for eq in measured_quantities], expand_derivatives.(D.([eq.rhs for eq in measured_quantities]))]
 
 	for i in 1:(n-2)
-		l = expand_derivatives.(D.(obs_lhs[end]))
-		r = expand_derivatives.(D.(obs_rhs[end]))
-		push!(obs_lhs, l)
-		push!(obs_rhs, r)
+		push!(obs_lhs, expand_derivatives.(D.(obs_lhs[end])))
+		push!(obs_rhs, expand_derivatives.(D.(obs_rhs[end])))
 	end
 
 	for i in eachindex(obs_rhs), j in eachindex(obs_rhs[i])

@@ -6197,3 +6197,294 @@ __libc_start_main at /lib/x86_64-linux-gnu/libc.so.6 (unknown line)
 unknown function (ip: 0x4010b8)
 unknown function (ip: (nil))
 Allocations: 361118336 (Pool: 360792585; Big: 325751); GC: 86
+ 0.7139999999992025
+ 0.78789562791189
+ 0.8570000000051176
+ 0.7713381973199285
+13-element Vector{Float64}:
+ 0.07100000000190644
+ 0.14300000001165805
+ 0.18165870142945612
+ 0.26955170887179614
+ 0.37547977720964243
+ 0.41877848029985926
+ 0.3578403523843502
+ 0.420321477455536
+ 0.6429999999976007
+ 0.7139999999992025
+ 0.78789562791189
+ 0.8570000000051176
+ 0.7713381973199285
+ODEProblem with uType Vector{Float64} and tType Float64. In-place: true
+timespan: (-0.05, -0.5)
+u0: 5-element Vector{Float64}:
+ 0.1278724964423326
+ 0.35689340833725874
+ 0.44714793689485
+ 0.7147467940536268
+ 0.7907090862524732
+-0.05:-0.0225:-0.5
+Final Results:
+Parameter(s)        :	mu_N = 0.071, mu_EE = 0.143, mu_LE = 0.214, mu_LL = 0.286, mu_M = 0.357, mu_P = 0.429, mu_PE = 0.500, mu_PL = 0.571, delta_NE = 0.643, delta_EL = 0.714, delta_LM = 0.786, rho_E = 0.857, rho_P = 0.929
+Initial Condition(s):	N(t) = 0.167, E(t) = 0.333, S(t) = 0.500, M(t) = 0.667, P(t) = 0.833, where t = -0.500
+Error: 1.0260e-03
+
+Parameter(s)        :	mu_N = 0.071, mu_EE = 0.143, mu_LE = 0.182, mu_LL = 0.270, mu_M = 0.375, mu_P = 0.419, mu_PE = 0.358, mu_PL = 0.420, delta_NE = 0.643, delta_EL = 0.714, delta_LM = 0.788, rho_E = 0.857, rho_P = 0.771
+Initial Condition(s):	N(t) = 0.167, E(t) = 0.333, S(t) = 0.504, M(t) = 0.663, P(t) = 0.833, where t = -0.500
+Error: 1.0260e-03
+
+Parameter(s)        :	mu_N = 0.071, mu_EE = 0.143, mu_LE = 0.093, mu_LL = -0.044, mu_M = 0.597, mu_P = 0.400, mu_PE = 0.083, mu_PL = 0.124, delta_NE = 0.643, delta_EL = 0.714, delta_LM = 0.851, rho_E = 0.857, rho_P = 0.465
+Initial Condition(s):	N(t) = 0.167, E(t) = 0.333, S(t) = 0.543, M(t) = 0.624, P(t) = 0.833, where t = -0.500
+Error: 1.0260e-03
+
+Parameter(s)        :	mu_N = 0.071, mu_EE = 0.143, mu_LE = -0.645, mu_LL = -1.082, mu_M = 0.133, mu_P = 0.393, mu_PE = -0.089, mu_PL = -0.234, delta_NE = 0.643, delta_EL = 0.714, delta_LM = 1.715, rho_E = 0.857, rho_P = 0.269
+Initial Condition(s):	N(t) = 0.167, E(t) = 0.333, S(t) = 0.138, M(t) = 1.029, P(t) = 0.833, where t = -0.500
+Error: 1.0260e-03
+
+Parameter(s)        :	mu_N = 0.071, mu_EE = 0.143, mu_LE = -0.010, mu_LL = -0.000, mu_M = -0.679, mu_P = 0.392, mu_PE = 0.181, mu_PL = -0.003, delta_NE = 0.643, delta_EL = 0.714, delta_LM = 0.869, rho_E = 0.857, rho_P = 0.633
+Initial Condition(s):	N(t) = 0.167, E(t) = 0.333, S(t) = -52.812, M(t) = 53.979, P(t) = 0.833, where t = -0.500
+Error: 1.0260e-03
+
+Parameter(s)        :	mu_N = 0.071, mu_EE = 0.143, mu_LE = -0.031, mu_LL = 0.190, mu_M = 0.129, mu_P = 0.189, mu_PE = -0.009, mu_PL = 0.049, delta_NE = 0.643, delta_EL = 0.714, delta_LM = -0.128, rho_E = 0.857, rho_P = 0.346
+Initial Condition(s):	N(t) = 0.167, E(t) = 0.333, S(t) = 4.296, M(t) = -3.129, P(t) = 0.833, where t = -0.500
+Error: 1.0260e-03
+
+Parameter(s)        :	mu_N = 0.071, mu_EE = 0.143, mu_LE = 2.651, mu_LL = -1.389, mu_M = 0.122, mu_P = 0.410, mu_PE = -0.003, mu_PL = 0.038, delta_NE = 0.643, delta_EL = 0.714, delta_LM = -0.016, rho_E = 0.857, rho_P = 0.348
+Initial Condition(s):	N(t) = 0.167, E(t) = 0.333, S(t) = -0.317, M(t) = 1.484, P(t) = 0.833, where t = -0.500
+Error: 1.0260e-03
+
+Parameter(s)        :	mu_N = 0.071, mu_EE = 0.143, mu_LE = 2.864, mu_LL = -1.992, mu_M = 0.134, mu_P = 0.412, mu_PE = -0.016, mu_PL = 0.060, delta_NE = 0.643, delta_EL = 0.714, delta_LM = -0.221, rho_E = 0.857, rho_P = 0.340
+Initial Condition(s):	N(t) = 0.167, E(t) = 0.333, S(t) = -0.265, M(t) = 1.432, P(t) = 0.833, where t = -0.500
+Error: 1.0260e-03
+
+Parameter(s)        :	mu_N = 0.071, mu_EE = 0.143, mu_LE = -5.208, mu_LL = 13.463, mu_M = -0.205, mu_P = 0.399, mu_PE = 0.007, mu_PL = 0.078, delta_NE = 0.643, delta_EL = 0.714, delta_LM = -0.960, rho_E = 0.857, rho_P = 0.376
+Initial Condition(s):	N(t) = 0.167, E(t) = 0.333, S(t) = 0.238, M(t) = 0.929, P(t) = 0.833, where t = -0.500
+Error: 1.0263e-03
+
+Parameter(s)        :	mu_N = 0.071, mu_EE = 0.143, mu_LE = -4.537, mu_LL = 1.465, mu_M = 2.030, mu_P = 0.394, mu_PE = -0.000, mu_PL = 0.012, delta_NE = 0.643, delta_EL = 0.714, delta_LM = -1.104, rho_E = 0.857, rho_P = 0.374
+Initial Condition(s):	N(t) = 0.167, E(t) = 0.333, S(t) = 2.148, M(t) = -0.981, P(t) = 0.833, where t = -0.500
+Error: 1.0276e-03
+
+ 28.912601 seconds (24.79 M allocations: 1.731 GiB, 1.63% gc time, 64.67% compilation time)
+For model Crauste: The best max abs rel. err: 4.9351410280507046e-5
+we decided to take this many derivatives: 5
+mu_N: locally identifiable
+mu_EE: locally identifiable
+mu_LE: unidentifiable
+mu_LL: unidentifiable
+mu_M: unidentifiable
+mu_P: unidentifiable
+mu_PE: unidentifiable
+mu_PL: unidentifiable
+delta_NE: locally identifiable
+delta_EL: locally identifiable
+delta_LM: unidentifiable
+rho_E: locally identifiable
+rho_P: unidentifiable
+N(t): locally identifiable
+E(t): locally identifiable
+S(t): unidentifiable
+M(t): unidentifiable
+P(t): locally identifiable
+mu_N: locally identifiable
+mu_EE: locally identifiable
+mu_LL: locally identifiable
+mu_M: locally identifiable
+mu_P: locally identifiable
+mu_PE: locally identifiable
+mu_PL: locally identifiable
+delta_NE: locally identifiable
+delta_EL: locally identifiable
+delta_LM: locally identifiable
+rho_E: locally identifiable
+rho_P: locally identifiable
+N(t): locally identifiable
+E(t): locally identifiable
+S(t): locally identifiable
+M(t): locally identifiable
+P(t): locally identifiable
+Dict{Any, Any} with 25 entries:
+  S(t) => S_t10
+  Eˍttt(t) => Eˍttt_t10
+  Mˍttt(t) => Mˍttt_t10
+  P(t) => P_t10
+  Mˍtt(t) => Mˍtt_t10
+  Sˍtttt(t) => Sˍtttt_t10
+  Pˍttt(t) => Pˍttt_t10
+  Sˍtt(t) => Sˍtt_t10
+  Nˍtt(t) => Nˍtt_t10
+  E(t) => E_t10
+  M(t) => M_t10
+  Mˍtttt(t) => Mˍtttt_t10
+  Eˍt(t) => Eˍt_t10
+  Eˍtttt(t) => Eˍtttt_t10
+  Sˍt(t) => Sˍt_t10
+  Eˍtt(t) => Eˍtt_t10
+  N(t) => N_t10
+  Nˍtttt(t) => Nˍtttt_t10
+  Mˍt(t) => Mˍt_t10
+  Pˍt(t) => Pˍt_t10
+  Nˍttt(t) => Nˍttt_t10
+  Pˍtt(t) => Pˍtt_t10
+  Pˍtttt(t) => Pˍtttt_t10
+  Sˍttt(t) => Sˍttt_t10
+  Nˍt(t) => Nˍt_t10
+starting SolveJSWithHC
+40-element Vector{Num}:
+            Nˍt_t10 + N_t10*mu_N + N_t10*P_t10*delta_NE
+                                                Eˍt_t10 + E_t10*delta_EL + (E_t10^2)*mu_EE - E_t10*P_t10*rho_E - N_t10*P_t10*delta_NE
+                                     Sˍt_t10 + 0.7395704282818362E_t10*S_t10 - S_t10*delta_EL + S_t10*delta_LM + (S_t10^2)*mu_LL
+                  Mˍt_t10 + M_t10*mu_M - S_t10*delta_LM
+                         Pˍt_t10 + P_t10*mu_P + E_t10*P_t10*mu_PE - (P_t10^2)*rho_P + P_t10*S_t10*mu_PL
+       Nˍtt_t10 + Nˍt_t10*mu_N + N_t10*Pˍt_t10*delta_NE + Nˍt_t10*P_t10*delta_NE
+                                                Eˍtt_t10 + Eˍt_t10*delta_EL + 2E_t10*Eˍt_t10*mu_EE - E_t10*Pˍt_t10*rho_E - Eˍt_t10*P_t10*rho_E - N_t10*Pˍt_t10*delta_NE - Nˍt_t10*P_t10*delta_NE
+                                    Sˍtt_t10 + 0.7395704282818362E_t10*Sˍt_t10 + 0.7395704282818362Eˍt_t10*S_t10 - Sˍt_t10*delta_EL + Sˍt_t10*delta_LM + 2S_t10*Sˍt_t10*mu_LL
+             Mˍtt_t10 + Mˍt_t10*mu_M - Sˍt_t10*delta_LM
+                      Pˍtt_t10 + Pˍt_t10*mu_P + E_t10*Pˍt_t10*mu_PE + Eˍt_t10*P_t10*mu_PE - 2P_t10*Pˍt_t10*rho_P + P_t10*Sˍt_t10*mu_PL + Pˍt_t10*S_t10*mu_PL
+    Nˍttt_t10 + Nˍtt_t10*mu_N + N_t10*Pˍtt_t10*delta_NE + 2Nˍt_t10*Pˍt_t10*delta_NE + Nˍtt_t10*P_t10*delta_NE
+                                                Eˍttt_t10 + Eˍtt_t10*delta_EL + 2E_t10*Eˍtt_t10*mu_EE - E_t10*Pˍtt_t10*rho_E + 2(Eˍt_t10^2)*mu_EE - 2Eˍt_t10*Pˍt_t10*rho_E - Eˍtt_t10*P_t10*rho_E - N_t10*Pˍtt_t10*delta_NE - 2Nˍt_t10*Pˍt_t10*delta_NE - Nˍtt_t10*P_t10*delta_NE
+                                   Sˍttt_t10 + 0.7395704282818362E_t10*Sˍtt_t10 + 1.4791408565636723Eˍt_t10*Sˍt_t10 + 0.7395704282818362Eˍtt_t10*S_t10 - Sˍtt_t10*delta_EL + Sˍtt_t10*delta_LM + 2S_t10*Sˍtt_t10*mu_LL + 2(Sˍt_t10^2)*mu_LL
+          Mˍttt_t10 + Mˍtt_t10*mu_M - Sˍtt_t10*delta_LM
+                    Pˍttt_t10 + Pˍtt_t10*mu_P + E_t10*Pˍtt_t10*mu_PE + 2Eˍt_t10*Pˍt_t10*mu_PE + Eˍtt_t10*P_t10*mu_PE - 2P_t10*Pˍtt_t10*rho_P + P_t10*Sˍtt_t10*mu_PL - 2(Pˍt_t10^2)*rho_P + 2Pˍt_t10*Sˍt_t10*mu_PL + Pˍtt_t10*S_t10*mu_PL
+ Nˍtttt_t10 + Nˍttt_t10*mu_N + N_t10*Pˍttt_t10*delta_NE + 3Nˍt_t10*Pˍtt_t10*delta_NE + 3Nˍtt_t10*Pˍt_t10*delta_NE + Nˍttt_t10*P_t10*delta_NE
+                                                Eˍtttt_t10 + Eˍttt_t10*delta_EL + 2E_t10*Eˍttt_t10*mu_EE - E_t10*Pˍttt_t10*rho_E + 6Eˍt_t10*Eˍtt_t10*mu_EE - 3Eˍt_t10*Pˍtt_t10*rho_E - 3Eˍtt_t10*Pˍt_t10*rho_E - Eˍttt_t10*P_t10*rho_E - N_t10*Pˍttt_t10*delta_NE - 3Nˍt_t10*Pˍtt_t10*delta_NE - 3Nˍtt_t10*Pˍt_t10*delta_NE - Nˍttt_t10*P_t10*delta_NE
+                                  Sˍtttt_t10 + 0.7395704282818362E_t10*Sˍttt_t10 + 2.2187112848455084Eˍt_t10*Sˍtt_t10 + 2.2187112848455084Eˍtt_t10*Sˍt_t10 + 0.7395704282818362Eˍttt_t10*S_t10 - Sˍttt_t10*delta_EL + Sˍttt_t10*delta_LM + 2S_t10*Sˍttt_t10*mu_LL + 6Sˍt_t10*Sˍtt_t10*mu_LL
+       Mˍtttt_t10 + Mˍttt_t10*mu_M - Sˍttt_t10*delta_LM
+                  Pˍtttt_t10 + Pˍttt_t10*mu_P + E_t10*Pˍttt_t10*mu_PE + 3Eˍt_t10*Pˍtt_t10*mu_PE + 3Eˍtt_t10*Pˍt_t10*mu_PE + Eˍttt_t10*P_t10*mu_PE - 2P_t10*Pˍttt_t10*rho_P + P_t10*Sˍttt_t10*mu_PL - 6Pˍt_t10*Pˍtt_t10*rho_P + 3Pˍt_t10*Sˍtt_t10*mu_PL + 3Pˍtt_t10*Sˍt_t10*mu_PL + Pˍttt_t10*S_t10*mu_PL
+                                              -0.1278724964423326 + N_t10
+                                              -0.35689340833725874 + E_t10
+                                              -1.1618947309484768 + M_t10 + S_t10
+                                              -0.7907090862524732 + P_t10
+                                               0.07409264176585625 + Nˍt_t10
+                                              -0.03382189926493542 + Eˍt_t10
+                                               0.03199370274691153 + Mˍt_t10 + Sˍt_t10
+                                               0.0984678751259315 + Pˍt_t10
+                                              -0.051027425911067105 + Nˍtt_t10
+                                               0.08056609630635973 + Eˍtt_t10
+                                               0.08157303200774706 + Mˍtt_t10 + Sˍtt_t10
+                                               0.01883502345953644 + Pˍtt_t10
+                                               0.03740028883107944 + Nˍttt_t10
+                                              -0.03313416217101162 + Eˍttt_t10
+                                              -0.06369944027937001 + Mˍttt_t10 + Sˍttt_t10
+                                              -0.007679592751999412 + Pˍttt_t10
+                                              -0.02803965631792227 + Nˍtttt_t10
+                                               0.006525933857522972 + Eˍtttt_t10
+                                               0.036438236918783895 + Mˍtttt_t10 + Sˍtttt_t10
+                                              -0.0024452391895201154 + Pˍtttt_t10
+Num
+Num
+Num
+Num
+Num
+Num
+Num
+Num
+Num
+Num
+Num
+Num
+Num
+Num
+Num
+Num
+Num
+Num
+Num
+Num
+Num
+Num
+Num
+Num
+Num
+Num
+Num
+Num
+Num
+Num
+Num
+Num
+Num
+Num
+Num
+Num
+Num
+Num
+Num
+Num
+varlist
+37-element Vector{Num}:
+       mu_N
+        mu_EE
+      mu_LL
+       mu_M
+       mu_P
+       mu_PE
+      mu_PL
+          delta_NE
+          delta_EL
+          delta_LM
+       rho_E
+      rho_P
+      N_t10
+           E_t10
+      S_t10
+      M_t10
+      P_t10
+    Nˍt_t10
+   Nˍtt_t10
+  Nˍttt_t10
+ Nˍtttt_t10
+           Eˍt_t10
+           Eˍtt_t10
+           Eˍttt_t10
+           Eˍtttt_t10
+    Sˍt_t10
+   Sˍtt_t10
+  Sˍttt_t10
+ Sˍtttt_t10
+    Mˍt_t10
+   Mˍtt_t10
+  Mˍttt_t10
+ Mˍtttt_t10
+    Pˍt_t10
+   Pˍtt_t10
+  Pˍttt_t10
+ Pˍtttt_t10
+Num
+Num
+Num
+Num
+Num
+Num
+Num
+Num
+Num
+Num
+Num
+Num
+Num
+Num
+Num
+Num
+Num
+Num
+Num
+Num
+Num
+Num
+Num
+Num
+Num
+Num
+Num
+Num
+Num
+Num
+Num
+Num
+Num
+Num
+Num
+Num
+Num
+system we are solving (line 428)
