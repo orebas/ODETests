@@ -554,8 +554,8 @@ function HCPE(model::ODESystem, measured_quantities, data_sample, solver, time_i
 				parameter_values[i] = substitution_table[model_ps[i]]
 			else
 				index = findfirst(isequal(model_ps[i]), varlist)
-				parameter_values[i] = solns[soln_index][index]
-			end
+				parameter_values[i] = real(solns[soln_index][index]) #TODOdo we ignore the imaginary part?
+			end                                                   #what about other vars
 		end
 
 		for i in eachindex(model_states)
@@ -567,7 +567,7 @@ function HCPE(model::ODESystem, measured_quantities, data_sample, solver, time_i
 				display(varlist)
 				display(substitution_table)
 				index = findfirst(isequal(local_states_dict_all[1][model_states[i]]), varlist)
-				initial_conditions[i] = solns[soln_index][index]
+				initial_conditions[i] = real(solns[soln_index][index]) #see above
 			end
 		end
 

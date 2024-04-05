@@ -16,9 +16,25 @@ struct ParameterEstimationProblem
 	solver::Any
 	p_true::Any
 	ic::Any
+	unident_count::Any
 end
 
-function biohydrogenation(datasize = 21, time_interval = [-0.5, 0.5], solver = Vern9())
+function fillPEP(pe::ParameterEstimationProblem; datasize = 21, time_interval = [-0.5, 0.5], solver = Vern9())
+	return ParameterEstimationProblem(
+		pe.Name,
+		pe.model,
+		pe.measured_quantities,
+		ParameterEstimation.sample_data(pe.model, pe.measured_quantities, time_interval, pe.p_true, pe.ic, datasize, solver = solver),
+		solver,
+		pe.p_true,
+		pe.ic,
+		pe.unident_count)
+
+	return pe
+end
+
+
+function biohydrogenation()
 	@parameters k5 k6 k7 k8 k9 k10
 	@variables t x4(t) x5(t) x6(t) x7(t) y1(t) y2(t)
 	D = Differential(t)
@@ -38,19 +54,11 @@ function biohydrogenation(datasize = 21, time_interval = [-0.5, 0.5], solver = V
 
 	ic = [0.2, 0.4, 0.6, 0.8]
 	p_true = [0.143, 0.286, 0.429, 0.571, 0.714, 0.857]
-	data_sample = ParameterEstimation.sample_data(model, measured_quantities, time_interval,
-		p_true, ic,
-		datasize; solver = solver)
 	return ParameterEstimationProblem("BioHydrogenation",
-		model,
-		measured_quantities,
-		data_sample,
-		solver,
-		p_true,
-		ic)
+		model, measured_quantities, :nothing, :nothing, p_true, ic, 0)
 end
 
-function crauste(datasize = 21, time_interval = [-0.5, 0.5], solver = Vern9())
+function crauste()
 	@parameters mu_N mu_EE mu_LE mu_LL mu_M mu_P mu_PE mu_PL delta_NE delta_EL delta_LM rho_E rho_P
 	@variables t N(t) E(t) S(t) M(t) P(t) y1(t) y2(t) y3(t) y4(t)
 	D = Differential(t)
@@ -99,19 +107,12 @@ function crauste(datasize = 21, time_interval = [-0.5, 0.5], solver = Vern9())
 		0.857,
 		0.929,
 	] # True Parameters
-	data_sample = ParameterEstimation.sample_data(model, measured_quantities, time_interval,
-		p_true, ic, datasize; solver = solver)
 
 	return ParameterEstimationProblem("Crauste",
-		model,
-		measured_quantities,
-		data_sample,
-		solver,
-		p_true,
-		ic)
+		model, measured_quantities, :nothing, :nothing, p_true, ic, 0)
 end
 
-function daisy_ex3(datasize = 21, time_interval = [-0.5, 0.5], solver = Vern9())
+function daisy_ex3()
 	@parameters p1 p3 p4 p6 p7
 	@variables t x1(t) x2(t) x3(t) u0(t) y1(t) y2(t)
 	D = Differential(t)
@@ -132,19 +133,11 @@ function daisy_ex3(datasize = 21, time_interval = [-0.5, 0.5], solver = Vern9())
 	sampling_times = range(time_interval[1], time_interval[2], length = datasize)
 	p_true = [0.167, 0.333, 0.5, 0.667, 0.833] # True Parameters
 
-	data_sample = ParameterEstimation.sample_data(model, measured_quantities, time_interval,
-		p_true, ic, datasize; solver = solver)
-
 	return ParameterEstimationProblem("DAISY_ex3",
-		model,
-		measured_quantities,
-		data_sample,
-		solver,
-		p_true,
-		ic)
+		model, measured_quantities, :nothing, :nothing, p_true, ic, 0)
 end
 
-function daisy_mamil3(datasize = 21, time_interval = [-0.5, 0.5], solver = Vern9())
+function daisy_mamil3()
 	@parameters a12 a13 a21 a31 a01
 	@variables t x1(t) x2(t) x3(t) y1(t) y2(t)
 	D = Differential(t)
@@ -160,16 +153,10 @@ function daisy_mamil3(datasize = 21, time_interval = [-0.5, 0.5], solver = Vern9
 			D(x3) ~ a31 * x1 - a13 * x3],
 		t, states, parameters)
 	measured_quantities = [y1 ~ x1, y2 ~ x2]
-	data_sample = ParameterEstimation.sample_data(model, measured_quantities, time_interval,
-		p_true, ic, datasize; solver = solver)
+
 
 	return ParameterEstimationProblem("DAISY_mamil3",
-		model,
-		measured_quantities,
-		data_sample,
-		solver,
-		p_true,
-		ic)
+		model, measured_quantities, :nothing, :nothing, p_true, ic, 0)
 end
 
 function daisy_mamil4(datasize = 21, time_interval = [-0.5, 0.5], solver = Vern9())
@@ -191,19 +178,13 @@ function daisy_mamil4(datasize = 21, time_interval = [-0.5, 0.5], solver = Vern9
 			D(x4) ~ -k14 * x4 + k41 * x1],
 		t, states, parameters)
 	measured_quantities = [y1 ~ x1, y2 ~ x2, y3 ~ x3 + x4]
-	data_sample = ParameterEstimation.sample_data(model, measured_quantities, time_interval,
-		p_true, ic, datasize; solver = solver)
+
 
 	return ParameterEstimationProblem("DAISY_mamil4",
-		model,
-		measured_quantities,
-		data_sample,
-		solver,
-		p_true,
-		ic)
+		model, measured_quantities, :nothing, :nothing, p_true, ic, 0)
 end
 
-function fitzhugh_nagumo(datasize = 21, time_interval = [-0.5, 0.5], solver = Vern9())
+function fitzhugh_nagumo()
 	@parameters g a b
 	@variables t V(t) R(t) y1(t) y2(t)
 	D = Differential(t)
@@ -220,19 +201,11 @@ function fitzhugh_nagumo(datasize = 21, time_interval = [-0.5, 0.5], solver = Ve
 			D(R) ~ 1 / g * (V - a + b * R),
 		], t, states, parameters)
 
-	data_sample = ParameterEstimation.sample_data(model, measured_quantities, time_interval,
-		p_true, ic, datasize; solver = solver)
-
 	return ParameterEstimationProblem("fitzhugh-nagumo",
-		model,
-		measured_quantities,
-		data_sample,
-		solver,
-		p_true,
-		ic)
+		model, measured_quantities, :nothing, :nothing, p_true, ic, 0)
 end
 
-function hiv_local(datasize = 21, time_interval = [-0.5, 0.5], solver = Vern9())
+function hiv_local()
 	@parameters b c d k1 k2 mu1 mu2 q1 q2 s
 	@variables t x1(t) x2(t) x3(t) x4(t) y1(t) y2(t)
 	D = Differential(t)
@@ -254,19 +227,12 @@ function hiv_local(datasize = 21, time_interval = [-0.5, 0.5], solver = Vern9())
 	p_true = [0.091, 0.182, 0.273, 0.364, 0.455, 0.545, 0.636, 0.727, 0.818, 0.909]
 	time_interval = [-0.5, 0.5]
 	datasize = 20
-	data_sample = ParameterEstimation.sample_data(model, measured_quantities, time_interval,
-		p_true, ic,
-		datasize; solver = solver)
+
 	return ParameterEstimationProblem("hiv_local",
-		model,
-		measured_quantities,
-		data_sample,
-		solver,
-		p_true,
-		ic)
+		model, measured_quantities, :nothing, :nothing, p_true, ic, 0)
 end
 
-function hiv(datasize = 21, time_interval = [-0.5, 0.5], solver = Vern9())
+function hiv()
 	@parameters lm d beta a k u c q b h
 	@variables t x(t) y(t) v(t) w(t) z(t) y1(t) y2(t) y3(t) y4(t)
 	D = Differential(t)
@@ -284,27 +250,17 @@ function hiv(datasize = 21, time_interval = [-0.5, 0.5], solver = Vern9())
 
 	ic = [0.167, 0.333, 0.5, 0.667, 0.833]
 	p_true = [0.091, 0.181, 0.273, 0.364, 0.455, 0.545, 0.636, 0.727, 0.818, 0.909]
-	data_sample = ParameterEstimation.sample_data(model, measured_quantities, time_interval,
-		p_true, ic,
-		datasize; solver = solver)
 
-	res = ParameterEstimation.estimate(model, measured_quantities, data_sample;
-		solver = solver)
+
 	return ParameterEstimationProblem("hiv",
-		model,
-		measured_quantities,
-		data_sample,
-		solver,
-		p_true,
-		ic)
+		model, measured_quantities, :nothing, :nothing, p_true, ic, 0)
 end
 
-function lotka_volterra(datasize = 21, time_interval = [-0.5, 0.5], solver = Vern9())
+function lotka_volterra()
 	@parameters k1 k2 k3
 	@variables t r(t) w(t) y1(t)
 	D = Differential(t)
 	ic = [0.333, 0.667]
-	sampling_times = range(time_interval[1], time_interval[2], length = datasize)
 	p_true = [0.25, 0.5, 0.75] # True Parameters
 	measured_quantities = [y1 ~ r]
 	states = [r, w]
@@ -315,19 +271,11 @@ function lotka_volterra(datasize = 21, time_interval = [-0.5, 0.5], solver = Ver
 			D(w) ~ k2 * r * w - k3 * w], t,
 		states, parameters)
 
-	data_sample = ParameterEstimation.sample_data(model, measured_quantities, time_interval,
-		p_true, ic, datasize; solver = solver)
-
-	return ParameterEstimationProblem("Lotka_Volterra",
-		model,
-		measured_quantities,
-		data_sample,
-		solver,
-		p_true,
-		ic)
+	return ParameterEstimationProblem("Lotka_Volterra", model, measured_quantities, 
+	:nothing, :nothing, p_true, ic, 0)
 end
 
-function seir(datasize = 21, time_interval = [-0.5, 0.5], solver = Vern9())
+function seir()
 	@parameters a b nu
 	@variables t S(t) E(t) In(t) N(t) y1(t) y2(t)
 	D = Differential(t)
@@ -347,19 +295,12 @@ function seir(datasize = 21, time_interval = [-0.5, 0.5], solver = Vern9())
 
 	ic = [0.2, 0.4, 0.6, 0.8]
 	p_true = [0.25, 0.5, 0.75]
-	data_sample = ParameterEstimation.sample_data(model, measured_quantities, time_interval,
-		p_true, ic,
-		datasize; solver = solver)
+
 	return ParameterEstimationProblem("SEIR",
-		model,
-		measured_quantities,
-		data_sample,
-		solver,
-		p_true,
-		ic)
+		model, measured_quantities, :nothing, :nothing, p_true, ic, 0)
 end
 
-function simple(datasize = 21, time_interval = [-0.5, 0.5], solver = Vern9())
+function simple()
 	@parameters a b
 	@variables t x1(t) x2(t) y1(t) y2(t)
 	D = Differential(t)
@@ -372,24 +313,16 @@ function simple(datasize = 21, time_interval = [-0.5, 0.5], solver = Vern9())
 		], t, states, parameters)
 	measured_quantities = [
 		y1 ~ x1,
-		y2 ~ x2,
-	]
+		y2 ~ x2]
 
 	ic = [0.333, 0.667]
 	p_true = [0.4, 0.8]
-	data_sample = ParameterEstimation.sample_data(model, measured_quantities, time_interval,
-		p_true, ic,
-		datasize; solver = solver)
+
 	return ParameterEstimationProblem("simple",
-		model,
-		measured_quantities,
-		data_sample,
-		solver,
-		p_true,
-		ic)
+		model, measured_quantities, :nothing, :nothing, p_true, ic, 0)
 end
 
-function sirsforced(datasize = 21, time_interval = [-0.5, 0.5], solver = Vern9())
+function sirsforced()
 	@parameters b0 b1 g M mu nu
 	@variables t i(t) r(t) s(t) x1(t) x2(t) y1(t) y2(t)
 	D = Differential(t)
@@ -410,19 +343,12 @@ function sirsforced(datasize = 21, time_interval = [-0.5, 0.5], solver = Vern9()
 
 	ic = [0.167, 0.333, 0.5, 0.667, 0.833]
 	p_true = [0.143, 0.286, 0.429, 0.571, 0.714, 0.857]
-	data_sample = ParameterEstimation.sample_data(model, measured_quantities, time_interval,
-		p_true, ic,
-		datasize; solver = solver)
+
 	return ParameterEstimationProblem("sirsforced",
-		model,
-		measured_quantities,
-		data_sample,
-		solver,
-		p_true,
-		ic)
+		model, measured_quantities, :nothing, :nothing, p_true, ic, 0)
 end
 
-function slowfast(datasize = 21, time_interval = [-0.5, 0.5], solver = Vern9())  # TODO(orebas):in the old code it was CVODE_BDF.  should we go back to that?
+function slowfast()  # TODO(orebas):in the old code it was CVODE_BDF.  should we go back to that?
 	#solver = CVODE_BDF()
 	@parameters k1 k2 eB
 	@variables t xA(t) xB(t) xC(t) eA(t) eC(t) y1(t) y2(t) y3(t) y4(t) #eA(t) eC(t)
@@ -441,14 +367,6 @@ function slowfast(datasize = 21, time_interval = [-0.5, 0.5], solver = Vern9()) 
 	ic = [0.166, 0.333, 0.5, 0.666, 0.833]
 	p_true = [0.25, 0.5, 0.75] # True Parameters
 
-	data_sample = ParameterEstimation.sample_data(model,
-		measured_quantities,
-		time_interval,
-		p_true,
-		ic,
-		datasize;
-		solver = solver)
-
 	return ParameterEstimationProblem("slowfast",
 		model,
 		measured_quantities,
@@ -459,7 +377,7 @@ function slowfast(datasize = 21, time_interval = [-0.5, 0.5], solver = Vern9()) 
 end
 
 
-function substr_test(datasize = 21, time_interval = [-0.5, 0.5], solver = Vern9())
+function substr_test()
 	@parameters a b beta
 	@variables t x1(t) x2(t) x3(t) y1(t) y2(t) y3(t)
 	D = Differential(t)
@@ -479,21 +397,13 @@ function substr_test(datasize = 21, time_interval = [-0.5, 0.5], solver = Vern9(
 
 	ic = [2.0, 3.0, 4.0]
 	p_true = [0.1, 0.2, 0.3]
-	data_sample = ParameterEstimation.sample_data(model, measured_quantities, time_interval,
-		p_true, ic,
-		datasize; solver = solver)
+
 	return ParameterEstimationProblem("substr_test",
-		model,
-		measured_quantities,
-		data_sample,
-		solver,
-		p_true,
-		ic)
-	return (model, measured_quantities, data_sample)
+		model, measured_quantities, :nothing, :nothing, p_true, ic, 0)
 end
 
 
-function global_unident_test(datasize = 21, time_interval = [-0.5, 0.5], solver = Vern9())
+function global_unident_test()
 	@parameters a b c d
 	@variables t x1(t) x2(t) x3(t) y1(t) y2(t)
 	D = Differential(t)
@@ -512,21 +422,14 @@ function global_unident_test(datasize = 21, time_interval = [-0.5, 0.5], solver 
 
 	ic = [2.0, 3.0, 4.0]
 	p_true = [0.1, 0.2, 0.3, 0.4]
-	data_sample = ParameterEstimation.sample_data(model, measured_quantities, time_interval,
-		p_true, ic,
-		datasize; solver = solver)
+
 	return ParameterEstimationProblem("global_unident_test",
-		model,
-		measured_quantities,
-		data_sample,
-		solver,
-		p_true,
-		ic)
-	return (model, measured_quantities, data_sample)
+		model, measured_quantities, :nothing, :nothing, p_true, ic, 4)
+
 end
 
 
-function sum_test(datasize = 21, time_interval = [-0.5, 0.5], solver = Vern9())
+function sum_test()
 	@parameters a b c d
 	@variables t x1(t) x2(t) x3(t) y1(t) y2(t)
 	D = Differential(t)
@@ -544,17 +447,10 @@ function sum_test(datasize = 21, time_interval = [-0.5, 0.5], solver = Vern9())
 
 	ic = [2.0, 3.0, 4.0]
 	p_true = [0.1, 0.2, 0.3]
-	data_sample = ParameterEstimation.sample_data(model, measured_quantities, time_interval,
-		p_true, ic,
-		datasize; solver = solver)
+
 	return ParameterEstimationProblem("sum_test",
-		model,
-		measured_quantities,
-		data_sample,
-		solver,
-		p_true,
-		ic)
-	return (model, measured_quantities, data_sample)
+		model, measured_quantities, :nothing, :nothing, p_true, ic, 3)
+
 end
 
 
@@ -579,19 +475,12 @@ function treatment(datasize = 21, time_interval = [-0.5, 0.5], solver = Vern9())
 
 	ic = [0.2, 0.4, 0.6, 0.8]
 	p_true = [0.167, 0.333, 0.5, 0.667, 0.833]
-	data_sample = ParameterEstimation.sample_data(model, measured_quantities, time_interval,
-		p_true, ic,
-		datasize, solver = solver)
+
 	return ParameterEstimationProblem("treatment",
-		model,
-		measured_quantities,
-		data_sample,
-		solver,
-		p_true,
-		ic)
+		model, measured_quantities, :nothing, :nothing, p_true, ic, 0)
 end
 
-function vanderpol(datasize = 21, time_interval = [-0.5, 0.5], solver = Vern9())
+function vanderpol()
 	@parameters a b
 	@variables t x1(t) x2(t) y1(t) y2(t)
 	D = Differential(t)
@@ -609,16 +498,9 @@ function vanderpol(datasize = 21, time_interval = [-0.5, 0.5], solver = Vern9())
 
 	ic = [0.333, 0.667]
 	p_true = [0.333, 0.667]
-	data_sample = ParameterEstimation.sample_data(model, measured_quantities, time_interval,
-		p_true, ic,
-		datasize; solver = solver)
+
 	return ParameterEstimationProblem("vanderpol",
-		model,
-		measured_quantities,
-		data_sample,
-		solver,
-		p_true,
-		ic)
+		model, measured_quantities, :nothing, :nothing, p_true, ic, 0)
 end
 
 function analyze_parameter_estimation_problem(PEP::ParameterEstimationProblem; test_mode = false, showplot = true, run_sciml_pe = false, run_lian_pe = true)
@@ -649,9 +531,11 @@ function analyze_parameter_estimation_problem(PEP::ParameterEstimationProblem; t
 	for each in res
 		estimates = vcat(collect(values(each.states)), collect(values(each.parameters)))
 		errorvec = abs.((estimates .- all_params) ./ (all_params))
-		if (PEP.Name == "BioHydrogenation" || PEP.Name == "sirsforced")
+		if (PEP.unident_count > 0)
 			sort!(errorvec)
-			pop!(errorvec)
+			for i in 1:PEP.unident_count
+				pop!(errorvec)
+			end
 		end
 		besterror = min(besterror, maximum(errorvec))
 	end
@@ -665,10 +549,12 @@ function analyze_parameter_estimation_problem(PEP::ParameterEstimationProblem; t
 			PEP.solver, res[1])
 		SPE_estimates = vcat(collect(values(res2.states)), collect(values(res2.parameters)))
 		errorvec = abs.((SPE_estimates .- all_params) ./ (all_params))
-		if (PEP.Name == "BioHydrogenation" || PEP.Name == "sirsforced")
-			sort!(errorvec)
+		if (PEP.unident_count > 0)
+		sort!(errorvec)
+		for i in 1:PEP.unident_count
 			pop!(errorvec)
 		end
+	end
 
 		SPE_error = maximum(errorvec)
 
@@ -712,9 +598,11 @@ function analyze_parameter_estimation_problem(PEP::ParameterEstimationProblem; t
 			display(estimates)
 			display(all_params)
 			errorvec = abs.((estimates .- all_params) ./ (all_params))
-			if (PEP.Name == "BioHydrogenation" || PEP.Name == "sirsforced")
+			if (PEP.unident_count > 0)
 				sort!(errorvec)
-				pop!(errorvec)
+				for i in 1:PEP.unident_count
+					pop!(errorvec)
+				end
 			end
 			LIAN_besterror = min(LIAN_besterror, maximum(errorvec))
 		end
@@ -742,26 +630,26 @@ function varied_estimation_main()
 	#solver = Rodas4P()
 	time_interval = [-0.5, 0.5]
 	for PEP in [
-		simple(datasize, time_interval, solver),  #works
-		lotka_volterra(datasize, time_interval, solver),  #works
-		vanderpol(datasize, time_interval, solver),  #works
-		daisy_mamil3(datasize, time_interval, solver),  #off in value
-		daisy_mamil4(datasize, time_interval, solver),    #off in value
-		hiv(datasize, time_interval, solver),  #works
-		#seir(datasize, time_interval, solver), #error due to rational expression
-		slowfast(datasize, time_interval, solver),
-		substr_test(datasize, time_interval, solver),
-		global_unident_test(datasize, time_interval, solver),
-		sum_test(datasize, time_interval, solver),
-		crauste(datasize, time_interval, solver),
-		biohydrogenation(datasize, time_interval, solver),  #works, but one param unidentifiable
-		daisy_ex3(datasize, time_interval, solver),
-		fitzhugh_nagumo(datasize, time_interval, solver),
-		hiv_local(datasize, time_interval, solver),
-		#sirsforced(datasize, time_interval, solver),
-		#treatment(datasize, time_interval, solver),
+		#simple(),  #works
+		#lotka_volterra(),  #works
+		#vanderpol(),  #works
+		#daisy_mamil3(),  #off in value
+		#daisy_mamil4(),    #off in value
+		#hiv(),  #works
+		#seir(), #error due to rational expression
+		#slowfast(),
+		#substr_test(),  #works
+		#global_unident_test(),  #works
+		sum_test(),
+		#crauste(),
+		#biohydrogenation(),  #works, but one param unidentifiable
+		#daisy_ex3(),
+		#fitzhugh_nagumo(),
+		#hiv_local(),
+		#sirsforced(),
+		#treatment(),
 	]
-		analyze_parameter_estimation_problem(PEP, test_mode = true, showplot = true)
+		analyze_parameter_estimation_problem(fillPEP(PEP), test_mode = true, showplot = true)
 	end
 end
 
