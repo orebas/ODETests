@@ -137,7 +137,7 @@ function daisy_ex3()
 		model, measured_quantities, :nothing, :nothing, p_true, ic, 0)
 end
 
-function daisy_mamil3()
+function daisy_mamil3(datasize = 21, time_interval = [-0.5, 0.5], solver = Vern9())
 	@parameters a12 a13 a21 a31 a01
 	@variables t x1(t) x2(t) x3(t) y1(t) y2(t)
 	D = Differential(t)
@@ -368,12 +368,7 @@ function slowfast()  # TODO(orebas):in the old code it was CVODE_BDF.  should we
 	p_true = [0.25, 0.5, 0.75] # True Parameters
 
 	return ParameterEstimationProblem("slowfast",
-		model,
-		measured_quantities,
-		data_sample,
-		solver,
-		p_true,
-		ic)
+	model, measured_quantities, :nothing, :nothing, p_true, ic, 0)
 end
 
 
@@ -497,7 +492,7 @@ function vanderpol()
 	]
 
 	ic = [0.333, 0.667]
-	p_true = [0.333, 0.667]
+	p_true = [0.4, 0.8]
 
 	return ParameterEstimationProblem("vanderpol",
 		model, measured_quantities, :nothing, :nothing, p_true, ic, 0)
@@ -630,17 +625,17 @@ function varied_estimation_main()
 	#solver = Rodas4P()
 	time_interval = [-0.5, 0.5]
 	for PEP in [
-		#simple(),  #works
-		#lotka_volterra(),  #works
-		#vanderpol(),  #works
-		#daisy_mamil3(),  #off in value
-		#daisy_mamil4(),    #off in value
-		#hiv(),  #works
+		simple(),  #works
+		lotka_volterra(),  #works
+		vanderpol(),  #works
+		daisy_mamil3(),  #off in value
+		daisy_mamil4(),    #off in value
+		hiv(),  #works
 		#seir(), #error due to rational expression
-		#slowfast(),
+		slowfast(),
 		#substr_test(),  #works
 		#global_unident_test(),  #works
-		sum_test(),
+		#sum_test(),
 		#crauste(),
 		#biohydrogenation(),  #works, but one param unidentifiable
 		#daisy_ex3(),
