@@ -1,6 +1,6 @@
 using Test
 using ModelingToolkit, HomotopyContinuation
-using ParameterEstimation, Oscar
+using ParameterEstimation
 using Plots
 include("SPE.jl")
 include("LIAN.jl")
@@ -22,7 +22,7 @@ end
 function fillPEP(pe::ParameterEstimationProblem; datasize = 21, time_interval = [-0.5, 0.5], solver = Vern9())
 	return ParameterEstimationProblem(
 		pe.Name,
-		pe.model,
+		complete(pe.model),
 		pe.measured_quantities,
 		ParameterEstimation.sample_data(pe.model, pe.measured_quantities, time_interval, pe.p_true, pe.ic, datasize, solver = solver),
 		solver,
@@ -55,7 +55,7 @@ function biohydrogenation()
 	ic = [0.2, 0.4, 0.6, 0.8]
 	p_true = [0.143, 0.286, 0.429, 0.571, 0.714, 0.857]
 	return ParameterEstimationProblem("BioHydrogenation",
-		model, measured_quantities, :nothing, :nothing, p_true, ic, 0)
+		model, measured_quantities, :nothing, :nothing, p_true, ic, 1)
 end
 
 function crauste()
@@ -130,7 +130,6 @@ function daisy_ex3()
 	]
 
 	ic = [0.2, 0.4, 0.6, 0.8]
-	sampling_times = range(time_interval[1], time_interval[2], length = datasize)
 	p_true = [0.167, 0.333, 0.5, 0.667, 0.833] # True Parameters
 
 	return ParameterEstimationProblem("DAISY_ex3",
@@ -192,7 +191,7 @@ function fitzhugh_nagumo()
 	parameters = [g, a, b]
 
 	ic = [0.333, 0.67]
-	sampling_times = range(time_interval[1], time_interval[2], length = datasize)
+	#sampling_times = range(time_interval[1], time_interval[2], length = datasize)
 	p_true = [0.25, 0.5, 0.75] # True Parameters
 	measured_quantities = [y1 ~ V]
 
@@ -271,8 +270,8 @@ function lotka_volterra()
 			D(w) ~ k2 * r * w - k3 * w], t,
 		states, parameters)
 
-	return ParameterEstimationProblem("Lotka_Volterra", model, measured_quantities, 
-	:nothing, :nothing, p_true, ic, 0)
+	return ParameterEstimationProblem("Lotka_Volterra", model, measured_quantities,
+		:nothing, :nothing, p_true, ic, 0)
 end
 
 function seir()
@@ -368,7 +367,7 @@ function slowfast()  # TODO(orebas):in the old code it was CVODE_BDF.  should we
 	p_true = [0.25, 0.5, 0.75] # True Parameters
 
 	return ParameterEstimationProblem("slowfast",
-	model, measured_quantities, :nothing, :nothing, p_true, ic, 0)
+		model, measured_quantities, :nothing, :nothing, p_true, ic, 0)
 end
 
 
@@ -545,11 +544,11 @@ function analyze_parameter_estimation_problem(PEP::ParameterEstimationProblem; t
 		SPE_estimates = vcat(collect(values(res2.states)), collect(values(res2.parameters)))
 		errorvec = abs.((SPE_estimates .- all_params) ./ (all_params))
 		if (PEP.unident_count > 0)
-		sort!(errorvec)
-		for i in 1:PEP.unident_count
-			pop!(errorvec)
+			sort!(errorvec)
+			for i in 1:PEP.unident_count
+				pop!(errorvec)
+			end
 		end
-	end
 
 		SPE_error = maximum(errorvec)
 
@@ -625,24 +624,28 @@ function varied_estimation_main()
 	#solver = Rodas4P()
 	time_interval = [-0.5, 0.5]
 	for PEP in [
-		simple(),  #works
-		lotka_volterra(),  #works
-		vanderpol(),  #works
-		daisy_mamil3(),  #off in value
-		daisy_mamil4(),    #off in value
-		hiv(),  #works
-		#seir(), #error due to rational expression
-		slowfast(),
-		#substr_test(),  #works
-		#global_unident_test(),  #works
-		#sum_test(),
+		#simple(),
+		#lotka_volterra(),
+		#vanderpol(),
+		#daisy_mamil3(),
+		#daisy_mamil4(),
+		#hiv(),
+		#slowfast(),
+		#substr_test(),
+		#global_unident_test(),
+		#sum_test(), 
 		#crauste(),
-		#biohydrogenation(),  #works, but one param unidentifiable
+		#fitzhugh_nagumo(), # rational expression
+		#seir(), #error due to rational expression
+
+
+		biohydrogenation(),  #broken, debug
+		#hiv_local(), #no solutions found in old version?  check?
 		#daisy_ex3(),
-		#fitzhugh_nagumo(),
-		#hiv_local(),
 		#sirsforced(),
-		#treatment(),
+		#treatment(),  #no solutions found in old version
+
+
 	]
 		analyze_parameter_estimation_problem(fillPEP(PEP), test_mode = true, showplot = true)
 	end
