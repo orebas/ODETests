@@ -1,0 +1,16 @@
+ERROR: LoadError: ArgumentError: Package Oscar not found in current path.
+- Run `import Pkg; Pkg.add("Oscar")` to install the Oscar package.
+Stacktrace:
+ [1] macro expansion
+   @ ./loading.jl:1772 [inlined]
+ [2] macro expansion
+   @ ./lock.jl:267 [inlined]
+ [3] __require(into::Module, mod::Symbol)
+   @ Base ./loading.jl:1753
+ [4] #invoke_in_world#3
+   @ ./essentials.jl:926 [inlined]
+ [5] invoke_in_world
+   @ ./essentials.jl:923 [inlined]
+ [6] require(into::Module, mod::Symbol)
+   @ Base ./loading.jl:1746
+in expression starting at /home/orebas/learning/ODETests/LIAN_tester.jl:3

@@ -1,0 +1,1431 @@
+Final Results:
+Parameter(s)        :	  a = 0.400,   b = 0.800
+Initial Condition(s):	x1(t) = 0.333, x2(t) = 0.667, where t = -0.500
+Error: 2.4539e-03
+
+ 83.746133 seconds (63.18 M allocations: 4.051 GiB, 2.36% gc time, 99.88% compilation time: <1% of which was recompilation)
+For model simple: The best max abs rel. err: 1.5626389071599078e-13
+line 548
+1-element Vector{Int64}:
+ 10
+we decided to take this many derivatives: 3
+starting SolveJSWithHC
+6-element Vector{Any}:
+ -0.7640951309178401 + x2(t)
+ -0.1628011114533747 + x2ˍt(t)
+ -0.20350138931669545 + x1(t)
+ 0.3056380523670883 + x1ˍt(t)
+ x2ˍt(t) - b*x1(t)
+ x1ˍt(t) + a*x2(t)
+varlist
+6-element Vector{Any}:
+ x2(t)
+ x2ˍt(t)
+ x1(t)
+ x1ˍt(t)
+ b
+ a
+system we are solving (line 428)
+results
+System of length 6
+ 6 variables: _qz_xy_x2_t, _qz_xy_x2ˍt_t, _qz_xy_x1_t, _qz_xy_x1ˍt_t, _qz_xy_b, _qz_xy_a
+
+ -0.76409513091784 + _qz_xy_x2_t
+ -0.162801111453375 + _qz_xy_x2ˍt_t
+ -0.203501389316695 + _qz_xy_x1_t
+ 0.305638052367088 + _qz_xy_x1ˍt_t
+ _qz_xy_x2ˍt_t - _qz_xy_x1_t*_qz_xy_b
+ _qz_xy_x1ˍt_t + _qz_xy_x2_t*_qz_xy_a
+Result with 1 solution
+======================
+• 1 path tracked
+• 1 non-singular solution (1 real)
+• random_seed: 0x93e006e8
+• start_system: :polyhedral
+
+1-element Vector{Vector{Float64}}:
+ [0.7640951309178401, 0.1628011114533747, 0.20350138931669545, -0.3056380523670883, 0.8000000000000901, 0.3999999999999375]
+1-element Vector{Vector{Float64}}:
+ [0.7640951309178401, 0.1628011114533747, 0.20350138931669545, -0.3056380523670883, 0.8000000000000901, 0.3999999999999375]
+we decided to take this many derivatives: 3
+ParameterEstimation.EstimationResult[Parameter(s)        :	  a = 0.400,   b = 0.800
+Initial Condition(s):	x1(t) = 0.333, x2(t) = 0.667, where t = -0.500
+Error: 2.4539e-03
+]
+"res3"
+1-element Vector{ParameterEstimation.EstimationResult}:
+ Parameter(s)        :	  a = 0.400,   b = 0.800
+Initial Condition(s):	x1(t) = 0.333, x2(t) = 0.667, where t = -0.500
+Error: 2.4539e-03
+
+"How close are we?"
+4-element Vector{Any}:
+ 0.3329999999999793
+ 0.6669999999999938
+ 0.3999999999999375
+ 0.8000000000000901
+4-element Vector{Float64}:
+ 0.333
+ 0.667
+ 0.4
+ 0.8
+For model simple: The LIAN PE  max abs rel. err: 1.5626389071599078e-13
+Final Results:
+Parameter(s)        :	 k1 = 0.250,  k2 = 0.500,  k3 = 0.750
+Initial Condition(s):	r(t) = 0.333, w(t) = 0.667, where t = -0.500
+Error: 5.4874e-04
+
+  9.878659 seconds (7.32 M allocations: 456.233 MiB, 0.97% gc time, 93.68% compilation time)
+For model Lotka_Volterra: The best max abs rel. err: 8.208941222927737e-8
+line 548
+1-element Vector{Int64}:
+ 10
+we decided to take this many derivatives: 6
+starting SolveJSWithHC
+12-element Vector{Any}:
+ -0.3265871504935159 + r(t)
+ 0.0020391725997820406 + rˍt(t)
+ -0.04911182288369416 + rˍtt(t)
+ 0.02964121352007837 + rˍttt(t)
+ -0.037569420013941424 + rˍtttt(t)
+ rˍt(t) - k1*r(t) + k2*r(t)*w(t)
+ rˍtt(t) - k1*rˍt(t) + k2*r(t)*wˍt(t) + k2*w(t)*rˍt(t)
+ rˍttt(t) - k1*rˍtt(t) + k2*wˍtt(t)*r(t) + k2*w(t)*rˍtt(t) + 2k2*rˍt(t)*wˍt(t)
+ rˍtttt(t) - k1*rˍttt(t) + 3k2*wˍtt(t)*rˍt(t) + k2*r(t)*wˍttt(t) + k2*rˍttt(t)*w(t) + 3k2*rˍtt(t)*wˍt(t)
+ wˍt(t) + k3*w(t) - k2*r(t)*w(t)
+ wˍtt(t) + k3*wˍt(t) - k2*r(t)*wˍt(t) - k2*w(t)*rˍt(t)
+ wˍttt(t) + k3*wˍtt(t) - k2*wˍtt(t)*r(t) - k2*w(t)*rˍtt(t) - 2k2*rˍt(t)*wˍt(t)
+varlist
+12-element Vector{Any}:
+ r(t)
+ rˍt(t)
+ rˍtt(t)
+ rˍttt(t)
+ rˍtttt(t)
+ k1
+ k2
+ w(t)
+ wˍt(t)
+ wˍtt(t)
+ wˍttt(t)
+ k3
+system we are solving (line 428)
+Tracking 3 paths...  67%|████████████████████▋          |  ETA: 0:00:02[K
+  # paths tracked:                  2[K
+  # non-singular solutions (real):  1 (1)[K
+  # singular endpoints (real):      0 (0)[K
+  # total solutions (real):         1 (1)[K[A[A[A[A
+
+
+
+[K[A[K[A[K[A[K[ATracking 3 paths... 100%|███████████████████████████████| Time: 0:00:06[K
+  # paths tracked:                  3[K
+  # non-singular solutions (real):  2 (2)[K
+  # singular endpoints (real):      0 (0)[K
+  # total solutions (real):         2 (2)[K
+results
+System of length 12
+ 12 variables: _qz_xy_r_t, _qz_xy_rˍt_t, _qz_xy_rˍtt_t, _qz_xy_rˍttt_t, _qz_xy_rˍtttt_t, _qz_xy_k1, _qz_xy_k2, _qz_xy_w_t, _qz_xy_wˍt_t, _qz_xy_wˍtt_t, _qz_xy_wˍttt_t, _qz_xy_k3
+
+ -0.326587150493516 + _qz_xy_r_t
+ 0.00203917259978204 + _qz_xy_rˍt_t
+ -0.0491118228836942 + _qz_xy_rˍtt_t
+ 0.0296412135200784 + _qz_xy_rˍttt_t
+ -0.0375694200139414 + _qz_xy_rˍtttt_t
+ _qz_xy_rˍt_t - _qz_xy_k1*_qz_xy_r_t + _qz_xy_k2*_qz_xy_w_t*_qz_xy_r_t
+ _qz_xy_rˍtt_t - _qz_xy_k1*_qz_xy_rˍt_t + _qz_xy_k2*_qz_xy_r_t*_qz_xy_wˍt_t + _qz_xy_k2*_qz_xy_w_t*_qz_xy_rˍt_t
+ _qz_xy_rˍttt_t - _qz_xy_k1*_qz_xy_rˍtt_t + _qz_xy_k2*_qz_xy_r_t*_qz_xy_wˍtt_t + 2*_qz_xy_k2*_qz_xy_rˍt_t*_qz_xy_wˍt_t + _qz_xy_k2*_qz_xy_w_t*_qz_xy_rˍtt_t
+ _qz_xy_rˍtttt_t - _qz_xy_k1*_qz_xy_rˍttt_t + 3*_qz_xy_k2*_qz_xy_rˍt_t*_qz_xy_wˍtt_t + _qz_xy_k2*_qz_xy_rˍttt_t*_qz_xy_w_t + 3*_qz_xy_k2*_qz_xy_wˍt_t*_qz_xy_rˍtt_t + _qz_xy_k2*_qz_xy_wˍttt_t*_qz_xy_r_t
+ _qz_xy_wˍt_t + _qz_xy_k3*_qz_xy_w_t - _qz_xy_k2*_qz_xy_w_t*_qz_xy_r_t
+ _qz_xy_wˍtt_t + _qz_xy_k3*_qz_xy_wˍt_t - _qz_xy_k2*_qz_xy_r_t*_qz_xy_wˍt_t - _qz_xy_k2*_qz_xy_w_t*_qz_xy_rˍt_t
+ _qz_xy_wˍttt_t + _qz_xy_k3*_qz_xy_wˍtt_t - _qz_xy_k2*_qz_xy_r_t*_qz_xy_wˍtt_t - 2*_qz_xy_k2*_qz_xy_rˍt_t*_qz_xy_wˍt_t - _qz_xy_k2*_qz_xy_w_t*_qz_xy_rˍtt_t
+Result with 2 solutions
+=======================
+• 3 paths tracked
+• 2 non-singular solutions (2 real)
+• random_seed: 0x70111b51
+• start_system: :polyhedral
+
+2-element Vector{Vector{Float64}}:
+ [0.3265871504935159, -0.0020391725997820406, 0.04911182288369416, -0.02964121352007837, 0.037569420013941424, 0.25000000006985007, 0.4999999590761928, 0.5124878120220557, -0.30067989183897387, 0.17588829877863704, -0.08999705246058849, 0.7499999864746152]
+ [0.3265871504935159, -0.0020391725997820406, 0.04911182288369416, -0.02964121352007837, 0.037569420013941424, -0.019037303997957077, 71091.76380081868, -1.7995641612684705e-7, -2.114730674508736e-6, 1.2370510659673205e-6, -6.329639348004759e-7, 23205.905214135128]
+2-element Vector{Vector{Float64}}:
+ [0.3265871504935159, -0.0020391725997820406, 0.04911182288369416, -0.02964121352007837, 0.037569420013941424, 0.25000000006985007, 0.4999999590761928, 0.5124878120220557, -0.30067989183897387, 0.17588829877863704, -0.08999705246058849, 0.7499999864746152]
+ [0.3265871504935159, -0.0020391725997820406, 0.04911182288369416, -0.02964121352007837, 0.037569420013941424, -0.019037303997957077, 71091.76380081868, -1.7995641612684705e-7, -2.114730674508736e-6, 1.2370510659673205e-6, -6.329639348004759e-7, 23205.905214135128]
+we decided to take this many derivatives: 6
+ParameterEstimation.EstimationResult[Parameter(s)        :	 k1 = 0.250,  k2 = 0.500,  k3 = 0.750
+Initial Condition(s):	r(t) = 0.279, w(t) = 0.694, where t = -0.500
+Error: 2.7779e-02
+, Parameter(s)        :	 k1 = -0.019,  k2 = 71091.764,  k3 = 23205.905
+Initial Condition(s):	r(t) = 1246492476499752960.000, w(t) = -1246492476766003456.000, where t = -0.500
+Error: 1.0000e+10
+]
+"res3"
+2-element Vector{ParameterEstimation.EstimationResult}:
+ Parameter(s)        :	 k1 = 0.250,  k2 = 0.500,  k3 = 0.750
+Initial Condition(s):	r(t) = 0.279, w(t) = 0.694, where t = -0.500
+Error: 2.7779e-02
+
+ Parameter(s)        :	 k1 = -0.019,  k2 = 71091.764,  k3 = 23205.905
+Initial Condition(s):	r(t) = 1246492476499752960.000, w(t) = -1246492476766003456.000, where t = -0.500
+Error: 1.0000e+10
+
+"How close are we?"
+5-element Vector{Any}:
+ 0.2789492388874798
+ 0.6942579519523798
+ 0.25000000006985007
+ 0.4999999590761928
+ 0.7499999864746152
+5-element Vector{Float64}:
+ 0.333
+ 0.667
+ 0.25
+ 0.5
+ 0.75
+"How close are we?"
+5-element Vector{Any}:
+     1.246492476499753e18
+    -1.2464924767660035e18
+    -0.019037303997957077
+ 71091.76380081868
+ 23205.905214135128
+5-element Vector{Float64}:
+ 0.333
+ 0.667
+ 0.25
+ 0.5
+ 0.75
+For model Lotka_Volterra: The LIAN PE  max abs rel. err: 0.16231459793549613
+Final Results:
+Parameter(s)        :	  a = 0.400,   b = 0.800
+Initial Condition(s):	x1(t) = 0.333, x2(t) = 0.667, where t = -0.500
+Error: 4.2561e-03
+
+  6.053452 seconds (3.57 M allocations: 232.599 MiB, 1.52% gc time, 99.40% compilation time)
+For model vanderpol: The best max abs rel. err: 9.214851104388799e-14
+line 548
+1-element Vector{Int64}:
+ 10
+we decided to take this many derivatives: 3
+starting SolveJSWithHC
+6-element Vector{Any}:
+ -0.6983713282582298 + x2(t)
+ 0.01489456913620101 + x2ˍt(t)
+ -0.45693930215627326 + x1(t)
+ -0.27934853130331766 + x1ˍt(t)
+ x2ˍt(t) + x1(t) + b*(-1 + x1(t)^2)*x2(t)
+ x1ˍt(t) - a*x2(t)
+varlist
+6-element Vector{Any}:
+ x2(t)
+ x2ˍt(t)
+ x1(t)
+ x1ˍt(t)
+ b
+ a
+system we are solving (line 428)
+results
+System of length 6
+ 6 variables: _qz_xy_x2_t, _qz_xy_x2ˍt_t, _qz_xy_x1_t, _qz_xy_x1ˍt_t, _qz_xy_b, _qz_xy_a
+
+ -0.69837132825823 + _qz_xy_x2_t
+ 0.014894569136201 + _qz_xy_x2ˍt_t
+ -0.456939302156273 + _qz_xy_x1_t
+ -0.279348531303318 + _qz_xy_x1ˍt_t
+ _qz_xy_x1_t + _qz_xy_x2ˍt_t + (-1 + _qz_xy_x1_t^2)*_qz_xy_x2_t*_qz_xy_b
+ _qz_xy_x1ˍt_t - _qz_xy_x2_t*_qz_xy_a
+Result with 1 solution
+======================
+• 1 path tracked
+• 1 non-singular solution (1 real)
+• random_seed: 0x264cc9ac
+• start_system: :polyhedral
+
+1-element Vector{Vector{Float64}}:
+ [0.6983713282582298, -0.01489456913620101, 0.45693930215627326, 0.27934853130331766, 0.7999999999999698, 0.4000000000000369]
+1-element Vector{Vector{Float64}}:
+ [0.6983713282582298, -0.01489456913620101, 0.45693930215627326, 0.27934853130331766, 0.7999999999999698, 0.4000000000000369]
+we decided to take this many derivatives: 3
+ParameterEstimation.EstimationResult[Parameter(s)        :	  a = 0.400,   b = 0.800
+Initial Condition(s):	x1(t) = 0.333, x2(t) = 0.667, where t = -0.500
+Error: 4.2561e-03
+]
+"res3"
+1-element Vector{ParameterEstimation.EstimationResult}:
+ Parameter(s)        :	  a = 0.400,   b = 0.800
+Initial Condition(s):	x1(t) = 0.333, x2(t) = 0.667, where t = -0.500
+Error: 4.2561e-03
+
+"How close are we?"
+4-element Vector{Any}:
+ 0.33299999999998886
+ 0.6670000000000033
+ 0.4000000000000369
+ 0.7999999999999698
+4-element Vector{Float64}:
+ 0.333
+ 0.667
+ 0.4
+ 0.8
+For model vanderpol: The LIAN PE  max abs rel. err: 9.214851104388799e-14
+Final Results:
+Parameter(s)        :	a12 = 0.167, a13 = 0.333, a21 = 0.500, a31 = 0.667, a01 = 0.833
+Initial Condition(s):	x1(t) = 0.250, x2(t) = 0.500, x3(t) = 0.750, where t = -0.500
+Error: 9.5930e-04
+
+ 14.224554 seconds (10.23 M allocations: 650.452 MiB, 1.66% gc time, 99.07% compilation time)
+For model DAISY_mamil3: The best max abs rel. err: 1.3325636816219344e-7
+line 548
+1-element Vector{Int64}:
+ 10
+we decided to take this many derivatives: 5
+starting SolveJSWithHC
+18-element Vector{Any}:
+ -0.5116191146494427 + x2(t)
+ -0.01382739704084076 + x2ˍt(t)
+ 0.04040368742490211 + x2ˍtt(t)
+ -0.19853557837462643 + x1(t)
+ 0.07618902423996372 + x1ˍt(t)
+ -0.12038206009501828 + x1ˍtt(t)
+ 0.25301033687286145 + x1ˍttt(t)
+ -0.5457686739364824 + x1ˍtttt(t)
+ x2ˍt(t) + a12*x2(t) - a21*x1(t)
+ x2ˍtt(t) + a12*x2ˍt(t) - a21*x1ˍt(t)
+ x1ˍt(t) - (-a01 - a21 - a31)*x1(t) - a12*x2(t) - a13*x3(t)
+ x1ˍtt(t) - (-a01 - a21 - a31)*x1ˍt(t) - a12*x2ˍt(t) - a13*x3ˍt(t)
+ x1ˍttt(t) - (-a01 - a21 - a31)*x1ˍtt(t) - a12*x2ˍtt(t) - a13*x3ˍtt(t)
+ x1ˍtttt(t) - (-a01 - a21 - a31)*x1ˍttt(t) - a12*x2ˍttt(t) - a13*x3ˍttt(t)
+ x3ˍt(t) + a13*x3(t) - a31*x1(t)
+ x3ˍtt(t) + a13*x3ˍt(t) - a31*x1ˍt(t)
+ x2ˍttt(t) + a12*x2ˍtt(t) - a21*x1ˍtt(t)
+ x3ˍttt(t) + a13*x3ˍtt(t) - a31*x1ˍtt(t)
+varlist
+18-element Vector{Any}:
+ x2(t)
+ x2ˍt(t)
+ x2ˍtt(t)
+ x1(t)
+ x1ˍt(t)
+ x1ˍtt(t)
+ x1ˍttt(t)
+ x1ˍtttt(t)
+ a12
+ a21
+ a01
+ a31
+ a13
+ x3(t)
+ x3ˍt(t)
+ x3ˍtt(t)
+ x2ˍttt(t)
+ x3ˍttt(t)
+system we are solving (line 428)
+Tracking 3 paths...  67%|████████████████████▋          |  ETA: 0:00:03[K
+  # paths tracked:                  2[K
+  # non-singular solutions (real):  0 (0)[K
+  # singular endpoints (real):      0 (0)[K
+  # total solutions (real):         0 (0)[K[A[A[A[A
+
+
+
+[K[A[K[A[K[A[K[ATracking 3 paths... 100%|███████████████████████████████| Time: 0:00:05[K
+  # paths tracked:                  3[K
+  # non-singular solutions (real):  1 (1)[K
+  # singular endpoints (real):      0 (0)[K
+  # total solutions (real):         1 (1)[K
+results
+System of length 18
+ 18 variables: _qz_xy_x2_t, _qz_xy_x2ˍt_t, _qz_xy_x2ˍtt_t, _qz_xy_x1_t, _qz_xy_x1ˍt_t, _qz_xy_x1ˍtt_t, _qz_xy_x1ˍttt_t, _qz_xy_x1ˍtttt_t, _qz_xy_a12, _qz_xy_a21, _qz_xy_a01, _qz_xy_a31, _qz_xy_a13, _qz_xy_x3_t, _qz_xy_x3ˍt_t, _qz_xy_x3ˍtt_t, _qz_xy_x2ˍttt_t, _qz_xy_x3ˍttt_t
+
+ -0.511619114649443 + _qz_xy_x2_t
+ -0.0138273970408408 + _qz_xy_x2ˍt_t
+ 0.0404036874249021 + _qz_xy_x2ˍtt_t
+ -0.198535578374626 + _qz_xy_x1_t
+ 0.0761890242399637 + _qz_xy_x1ˍt_t
+ -0.120382060095018 + _qz_xy_x1ˍtt_t
+ 0.253010336872861 + _qz_xy_x1ˍttt_t
+ -0.545768673936482 + _qz_xy_x1ˍtttt_t
+ _qz_xy_x2ˍt_t + _qz_xy_a12*_qz_xy_x2_t - _qz_xy_a21*_qz_xy_x1_t
+ _qz_xy_x2ˍtt_t + _qz_xy_a12*_qz_xy_x2ˍt_t - _qz_xy_a21*_qz_xy_x1ˍt_t
+ _qz_xy_x1ˍt_t - _qz_xy_a12*_qz_xy_x2_t - _qz_xy_a13*_qz_xy_x3_t + (_qz_xy_a01 + _qz_xy_a21 + _qz_xy_a31)*_qz_xy_x1_t
+ _qz_xy_x1ˍtt_t - _qz_xy_a12*_qz_xy_x2ˍt_t - _qz_xy_a13*_qz_xy_x3ˍt_t + _qz_xy_x1ˍt_t*(_qz_xy_a01 + _qz_xy_a21 + _qz_xy_a31)
+ _qz_xy_x1ˍttt_t + _qz_xy_x1ˍtt_t*(_qz_xy_a01 + _qz_xy_a21 + _qz_xy_a31) - _qz_xy_x2ˍtt_t*_qz_xy_a12 - _qz_xy_x3ˍtt_t*_qz_xy_a13
+ _qz_xy_x1ˍtttt_t + _qz_xy_x1ˍttt_t*(_qz_xy_a01 + _qz_xy_a21 + _qz_xy_a31) - _qz_xy_x2ˍttt_t*_qz_xy_a12 - _qz_xy_x3ˍttt_t*_qz_xy_a13
+ _qz_xy_x3ˍt_t + _qz_xy_a13*_qz_xy_x3_t - _qz_xy_a31*_qz_xy_x1_t
+ _qz_xy_x3ˍtt_t + _qz_xy_a13*_qz_xy_x3ˍt_t - _qz_xy_a31*_qz_xy_x1ˍt_t
+ _qz_xy_x2ˍttt_t - _qz_xy_x1ˍtt_t*_qz_xy_a21 + _qz_xy_x2ˍtt_t*_qz_xy_a12
+ _qz_xy_x3ˍttt_t - _qz_xy_x1ˍtt_t*_qz_xy_a31 + _qz_xy_x3ˍtt_t*_qz_xy_a13
+Result with 1 solution
+======================
+• 3 paths tracked
+• 1 non-singular solution (1 real)
+• random_seed: 0xbf528ba4
+• start_system: :polyhedral
+
+1-element Vector{Vector{Float64}}:
+ [0.5116191146494427, 0.01382739704084076, -0.04040368742490211, 0.19853557837462643, -0.07618902423996372, 0.12038206009501828, -0.25301033687286145, 0.5457686739364824, 0.16699999999574522, 0.49999999998895733, 0.8330000835818, 0.6669999393212707, 0.3329999632740979, 0.707032344973849, -0.10301852618090186, -0.016512909110210607, 0.06693844584596655, 0.0857936249059954]
+1-element Vector{Vector{Float64}}:
+ [0.5116191146494427, 0.01382739704084076, -0.04040368742490211, 0.19853557837462643, -0.07618902423996372, 0.12038206009501828, -0.25301033687286145, 0.5457686739364824, 0.16699999999574522, 0.49999999998895733, 0.8330000835818, 0.6669999393212707, 0.3329999632740979, 0.707032344973849, -0.10301852618090186, -0.016512909110210607, 0.06693844584596655, 0.0857936249059954]
+we decided to take this many derivatives: 5
+ParameterEstimation.EstimationResult[Parameter(s)        :	a12 = 0.167, a13 = 0.333, a21 = 0.500, a31 = 0.667, a01 = 0.833
+Initial Condition(s):	x1(t) = 0.086, x2(t) = 0.650, x3(t) = 0.738, where t = -0.500
+Error: 6.1012e-02
+]
+"res3"
+1-element Vector{ParameterEstimation.EstimationResult}:
+ Parameter(s)        :	a12 = 0.167, a13 = 0.333, a21 = 0.500, a31 = 0.667, a01 = 0.833
+Initial Condition(s):	x1(t) = 0.086, x2(t) = 0.650, x3(t) = 0.738, where t = -0.500
+Error: 6.1012e-02
+
+"How close are we?"
+8-element Vector{Any}:
+ 0.08637290200426782
+ 0.6498563775557111
+ 0.7382996856631878
+ 0.16699999999574522
+ 0.3329999632740979
+ 0.49999999998895733
+ 0.6669999393212707
+ 0.8330000835818
+8-element Vector{Float64}:
+ 0.25
+ 0.5
+ 0.75
+ 0.167
+ 0.333
+ 0.5
+ 0.667
+ 0.833
+For model DAISY_mamil3: The LIAN PE  max abs rel. err: 0.6545083919829287
+Final Results:
+Parameter(s)        :	k01 = 0.125, k12 = 0.250, k13 = 0.375, k14 = 0.500, k21 = 0.625, k31 = 0.750, k41 = 0.875
+Initial Condition(s):	x1(t) = 0.200, x2(t) = 0.400, x3(t) = 0.600, x4(t) = 0.800, where t = -0.500
+Error: 1.6178e-03
+
+Parameter(s)        :	k01 = 0.125, k12 = 0.250, k13 = 0.500, k14 = 0.375, k21 = 0.625, k31 = 0.875, k41 = 0.750
+Initial Condition(s):	x1(t) = 0.200, x2(t) = 0.400, x3(t) = 0.800, x4(t) = 0.600, where t = -0.500
+Error: 1.6178e-03
+
+ 29.249590 seconds (15.77 M allocations: 976.002 MiB, 4.59% gc time, 70.86% compilation time)
+For model DAISY_mamil4: The best max abs rel. err: 7.601834191017787e-6
+line 548
+1-element Vector{Int64}:
+ 10
+we decided to take this many derivatives: 5
+starting SolveJSWithHC
+28-element Vector{Any}:
+ -0.4208335175877691 + x2(t)
+ -0.05842950185840107 + x2ˍt(t)
+ -1.303972019996804 + x3(t) + x4(t)
+ 0.15391109168018946 + x3ˍt(t) + x4ˍt(t)
+ -0.17624533994347288 + x4ˍtt(t) + x3ˍtt(t)
+ -0.2618206100088209 + x1(t)
+ -0.06275401357048603 + x1ˍt(t)
+ 0.20870347464876518 + x1ˍtt(t)
+ -0.5830566500098686 + x1ˍttt(t)
+ 1.6069458240097558 + x1ˍtttt(t)
+ -4.420920795363724 + x1ˍttttt(t)
+ x2ˍt(t) + k12*x2(t) - k21*x1(t)
+ x3ˍt(t) + k13*x3(t) - k31*x1(t)
+ x4ˍt(t) + k14*x4(t) - k41*x1(t)
+ x4ˍtt(t) + k14*x4ˍt(t) - k41*x1ˍt(t)
+ x3ˍtt(t) + k13*x3ˍt(t) - k31*x1ˍt(t)
+ x1ˍt(t) + k01*x1(t) - k12*x2(t) - k13*x3(t) - k14*x4(t) + k21*x1(t) + k31*x1(t) + k41*x1(t)
+ x1ˍtt(t) + k01*x1ˍt(t) - k12*x2ˍt(t) - k13*x3ˍt(t) - k14*x4ˍt(t) + k21*x1ˍt(t) + k31*x1ˍt(t) + k41*x1ˍt(t)
+ x1ˍttt(t) + k01*x1ˍtt(t) - k12*x2ˍtt(t) - k13*x3ˍtt(t) - k14*x4ˍtt(t) + k21*x1ˍtt(t) + k31*x1ˍtt(t) + k41*x1ˍtt(t)
+ x1ˍtttt(t) + k01*x1ˍttt(t) - k12*x2ˍttt(t) - k13*x3ˍttt(t) - k14*x4ˍttt(t) + k21*x1ˍttt(t) + k31*x1ˍttt(t) + k41*x1ˍttt(t)
+ x1ˍttttt(t) + k01*x1ˍtttt(t) - k12*x2ˍtttt(t) - k13*x3ˍtttt(t) - k14*x4ˍtttt(t) + k21*x1ˍtttt(t) + k31*x1ˍtttt(t) + k41*x1ˍtttt(t)
+ x2ˍtt(t) + k12*x2ˍt(t) - k21*x1ˍt(t)
+ x2ˍttt(t) + k12*x2ˍtt(t) - k21*x1ˍtt(t)
+ x3ˍttt(t) + k13*x3ˍtt(t) - k31*x1ˍtt(t)
+ x4ˍttt(t) + k14*x4ˍtt(t) - k41*x1ˍtt(t)
+ x2ˍtttt(t) + k12*x2ˍttt(t) - k21*x1ˍttt(t)
+ x3ˍtttt(t) + k13*x3ˍttt(t) - k31*x1ˍttt(t)
+ x4ˍtttt(t) + k14*x4ˍttt(t) - k41*x1ˍttt(t)
+varlist
+28-element Vector{Any}:
+ x2(t)
+ x2ˍt(t)
+ x3(t)
+ x4(t)
+ x3ˍt(t)
+ x4ˍt(t)
+ x4ˍtt(t)
+ x3ˍtt(t)
+ x1(t)
+ x1ˍt(t)
+ x1ˍtt(t)
+ x1ˍttt(t)
+ x1ˍtttt(t)
+ x1ˍttttt(t)
+ k12
+ k21
+ k13
+ k31
+ k14
+ k41
+ k01
+ x2ˍtt(t)
+ x2ˍttt(t)
+ x3ˍttt(t)
+ x4ˍttt(t)
+ x2ˍtttt(t)
+ x3ˍtttt(t)
+ x4ˍtttt(t)
+system we are solving (line 428)
+Tracking 50 paths...   4%|█▎                            |  ETA: 0:03:10[K
+  # paths tracked:                  2[K
+  # non-singular solutions (real):  0 (0)[K
+  # singular endpoints (real):      0 (0)[K
+  # total solutions (real):         0 (0)[K[A[A[A[A
+
+
+
+[K[A[K[A[K[A[K[ATracking 50 paths...  12%|███▋                          |  ETA: 0:01:01[K
+  # paths tracked:                  6[K
+  # non-singular solutions (real):  0 (0)[K
+  # singular endpoints (real):      0 (0)[K
+  # total solutions (real):         0 (0)[K[A[A[A[A
+
+
+
+[K[A[K[A[K[A[K[ATracking 50 paths...  30%|█████████                     |  ETA: 0:00:20[K
+  # paths tracked:                  15[K
+  # non-singular solutions (real):  0 (0)[K
+  # singular endpoints (real):      0 (0)[K
+  # total solutions (real):         0 (0)[K[A[A[A[A
+
+
+
+[K[A[K[A[K[A[K[ATracking 50 paths...  36%|██████████▊                   |  ETA: 0:00:16[K
+  # paths tracked:                  18[K
+  # non-singular solutions (real):  0 (0)[K
+  # singular endpoints (real):      0 (0)[K
+  # total solutions (real):         0 (0)[K[A[A[A[A
+
+
+
+[K[A[K[A[K[A[K[ATracking 50 paths...  52%|███████████████▋              |  ETA: 0:00:09[K
+  # paths tracked:                  26[K
+  # non-singular solutions (real):  1 (1)[K
+  # singular endpoints (real):      0 (0)[K
+  # total solutions (real):         1 (1)[K[A[A[A[A
+
+
+
+[K[A[K[A[K[A[K[ATracking 50 paths...  62%|██████████████████▋           |  ETA: 0:00:06[K
+  # paths tracked:                  31[K
+  # non-singular solutions (real):  1 (1)[K
+  # singular endpoints (real):      0 (0)[K
+  # total solutions (real):         1 (1)[K[A[A[A[A
+
+
+
+[K[A[K[A[K[A[K[ATracking 50 paths...  68%|████████████████████▍         |  ETA: 0:00:05[K
+  # paths tracked:                  34[K
+  # non-singular solutions (real):  1 (1)[K
+  # singular endpoints (real):      0 (0)[K
+  # total solutions (real):         1 (1)[K[A[A[A[A
+
+
+
+[K[A[K[A[K[A[K[ATracking 50 paths...  76%|██████████████████████▊       |  ETA: 0:00:03[K
+  # paths tracked:                  38[K
+  # non-singular solutions (real):  1 (1)[K
+  # singular endpoints (real):      0 (0)[K
+  # total solutions (real):         1 (1)[K[A[A[A[A
+
+
+
+[K[A[K[A[K[A[K[ATracking 50 paths...  82%|████████████████████████▋     |  ETA: 0:00:02[K
+  # paths tracked:                  41[K
+  # non-singular solutions (real):  2 (2)[K
+  # singular endpoints (real):      0 (0)[K
+  # total solutions (real):         2 (2)[K[A[A[A[A
+
+
+
+[K[A[K[A[K[A[K[ATracking 50 paths...  86%|█████████████████████████▊    |  ETA: 0:00:02[K
+  # paths tracked:                  43[K
+  # non-singular solutions (real):  2 (2)[K
+  # singular endpoints (real):      0 (0)[K
+  # total solutions (real):         2 (2)[K[A[A[A[A
+
+
+
+[K[A[K[A[K[A[K[ATracking 50 paths...  98%|█████████████████████████████▍|  ETA: 0:00:00[K
+  # paths tracked:                  49[K
+  # non-singular solutions (real):  2 (2)[K
+  # singular endpoints (real):      0 (0)[K
+  # total solutions (real):         2 (2)[K[A[A[A[A
+
+
+
+[K[A[K[A[K[A[K[ATracking 50 paths... 100%|██████████████████████████████| Time: 0:00:11[K
+  # paths tracked:                  50[K
+  # non-singular solutions (real):  2 (2)[K
+  # singular endpoints (real):      0 (0)[K
+  # total solutions (real):         2 (2)[K
+results
+System of length 28
+ 28 variables: _qz_xy_x2_t, _qz_xy_x2ˍt_t, _qz_xy_x3_t, _qz_xy_x4_t, _qz_xy_x3ˍt_t, _qz_xy_x4ˍt_t, _qz_xy_x4ˍtt_t, _qz_xy_x3ˍtt_t, _qz_xy_x1_t, _qz_xy_x1ˍt_t, _qz_xy_x1ˍtt_t, _qz_xy_x1ˍttt_t, _qz_xy_x1ˍtttt_t, _qz_xy_x1ˍttttt_t, _qz_xy_k12, _qz_xy_k21, _qz_xy_k13, _qz_xy_k31, _qz_xy_k14, _qz_xy_k41, _qz_xy_k01, _qz_xy_x2ˍtt_t, _qz_xy_x2ˍttt_t, _qz_xy_x3ˍttt_t, _qz_xy_x4ˍttt_t, _qz_xy_x2ˍtttt_t, _qz_xy_x3ˍtttt_t, _qz_xy_x4ˍtttt_t
+
+ -0.420833517587769 + _qz_xy_x2_t
+ -0.0584295018584011 + _qz_xy_x2ˍt_t
+ -1.3039720199968 + _qz_xy_x3_t + _qz_xy_x4_t
+ 0.153911091680189 + _qz_xy_x3ˍt_t + _qz_xy_x4ˍt_t
+ -0.176245339943473 + _qz_xy_x3ˍtt_t + _qz_xy_x4ˍtt_t
+ -0.261820610008821 + _qz_xy_x1_t
+ -0.062754013570486 + _qz_xy_x1ˍt_t
+ 0.208703474648765 + _qz_xy_x1ˍtt_t
+ -0.583056650009869 + _qz_xy_x1ˍttt_t
+ 1.60694582400976 + _qz_xy_x1ˍtttt_t
+ -4.42092079536372 + _qz_xy_x1ˍttttt_t
+ _qz_xy_x2ˍt_t + _qz_xy_k12*_qz_xy_x2_t - _qz_xy_k21*_qz_xy_x1_t
+ _qz_xy_x3ˍt_t + _qz_xy_k13*_qz_xy_x3_t - _qz_xy_k31*_qz_xy_x1_t
+ _qz_xy_x4ˍt_t + _qz_xy_k14*_qz_xy_x4_t - _qz_xy_k41*_qz_xy_x1_t
+ _qz_xy_x4ˍtt_t + _qz_xy_k14*_qz_xy_x4ˍt_t - _qz_xy_k41*_qz_xy_x1ˍt_t
+ _qz_xy_x3ˍtt_t + _qz_xy_k13*_qz_xy_x3ˍt_t - _qz_xy_k31*_qz_xy_x1ˍt_t
+ _qz_xy_x1ˍt_t + _qz_xy_k01*_qz_xy_x1_t - _qz_xy_k12*_qz_xy_x2_t - _qz_xy_k13*_qz_xy_x3_t - _qz_xy_k14*_qz_xy_x4_t + _qz_xy_k21*_qz_xy_x1_t + _qz_xy_k31*_qz_xy_x1_t + _qz_xy_k41*_qz_xy_x1_t
+ _qz_xy_x1ˍtt_t + _qz_xy_k01*_qz_xy_x1ˍt_t - _qz_xy_k12*_qz_xy_x2ˍt_t - _qz_xy_k13*_qz_xy_x3ˍt_t - _qz_xy_k14*_qz_xy_x4ˍt_t + _qz_xy_k21*_qz_xy_x1ˍt_t + _qz_xy_k31*_qz_xy_x1ˍt_t + _qz_xy_k41*_qz_xy_x1ˍt_t
+ _qz_xy_x1ˍttt_t + _qz_xy_x1ˍtt_t*_qz_xy_k01 + _qz_xy_x1ˍtt_t*_qz_xy_k21 + _qz_xy_x1ˍtt_t*_qz_xy_k31 + _qz_xy_x1ˍtt_t*_qz_xy_k41 - _qz_xy_x2ˍtt_t*_qz_xy_k12 - _qz_xy_x3ˍtt_t*_qz_xy_k13 - _qz_xy_x4ˍtt_t*_qz_xy_k14
+ _qz_xy_x1ˍtttt_t + _qz_xy_x1ˍttt_t*_qz_xy_k01 + _qz_xy_x1ˍttt_t*_qz_xy_k21 + _qz_xy_x1ˍttt_t*_qz_xy_k31 + _qz_xy_x1ˍttt_t*_qz_xy_k41 - _qz_xy_x2ˍttt_t*_qz_xy_k12 - _qz_xy_x3ˍttt_t*_qz_xy_k13 - _qz_xy_x4ˍttt_t*_qz_xy_k14
+ _qz_xy_x1ˍttttt_t + _qz_xy_k01*_qz_xy_x1ˍtttt_t - _qz_xy_k12*_qz_xy_x2ˍtttt_t - _qz_xy_k13*_qz_xy_x3ˍtttt_t - _qz_xy_k14*_qz_xy_x4ˍtttt_t + _qz_xy_k21*_qz_xy_x1ˍtttt_t + _qz_xy_k31*_qz_xy_x1ˍtttt_t + _qz_xy_k41*_qz_xy_x1ˍtttt_t
+ _qz_xy_x2ˍtt_t + _qz_xy_k12*_qz_xy_x2ˍt_t - _qz_xy_k21*_qz_xy_x1ˍt_t
+ _qz_xy_x2ˍttt_t - _qz_xy_x1ˍtt_t*_qz_xy_k21 + _qz_xy_x2ˍtt_t*_qz_xy_k12
+ _qz_xy_x3ˍttt_t - _qz_xy_x1ˍtt_t*_qz_xy_k31 + _qz_xy_x3ˍtt_t*_qz_xy_k13
+ _qz_xy_x4ˍttt_t - _qz_xy_x1ˍtt_t*_qz_xy_k41 + _qz_xy_x4ˍtt_t*_qz_xy_k14
+ _qz_xy_x2ˍtttt_t - _qz_xy_x1ˍttt_t*_qz_xy_k21 + _qz_xy_x2ˍttt_t*_qz_xy_k12
+ _qz_xy_x3ˍtttt_t - _qz_xy_x1ˍttt_t*_qz_xy_k31 + _qz_xy_x3ˍttt_t*_qz_xy_k13
+ _qz_xy_x4ˍtttt_t - _qz_xy_x1ˍttt_t*_qz_xy_k41 + _qz_xy_x4ˍttt_t*_qz_xy_k14
+Result with 2 solutions
+=======================
+• 50 paths tracked
+• 2 non-singular solutions (2 real)
+• random_seed: 0x0afb7aea
+• start_system: :polyhedral
+
+2-element Vector{Vector{Float64}}:
+ [0.4208335175877691, 0.05842950185840107, 0.5809335256328659, 0.723038494363938, -0.021483684044708327, -0.13242740763548114, 0.12112306967460815, 0.05512227026886474, 0.2618206100088209, 0.06275401357048603, -0.20870347464876518, 0.5830566500098686, -1.6069458240097558, 4.420920795363724, 0.24999999981197746, 0.6249999996971365, 0.3750009677125235, 0.7500057013756433, 0.49999964090622945, 0.8749944471527678, 0.12500000000076292, 0.024613883008933666, -0.13659314233987502, -0.17719970057681644, -0.24317587276192226, 0.3985586916388675, 0.50374587092706, 0.6317591801921499]
+ [0.4208335175877691, 0.05842950185840107, 0.723038494363938, 0.5809335256328659, -0.13242740763548114, -0.021483684044708327, 0.05512227026886474, 0.12112306967460815, 0.2618206100088209, 0.06275401357048603, -0.20870347464876518, 0.5830566500098686, -1.6069458240097558, 4.420920795363724, 0.24999999981197746, 0.6249999996971365, 0.49999964090622945, 0.8749944471527678, 0.3750009677125235, 0.7500057013756433, 0.12500000000076292, 0.024613883008933666, -0.13659314233987502, -0.24317587276192226, -0.17719970057681644, 0.3985586916388675, 0.6317591801921499, 0.50374587092706]
+2-element Vector{Vector{Float64}}:
+ [0.4208335175877691, 0.05842950185840107, 0.5809335256328659, 0.723038494363938, -0.021483684044708327, -0.13242740763548114, 0.12112306967460815, 0.05512227026886474, 0.2618206100088209, 0.06275401357048603, -0.20870347464876518, 0.5830566500098686, -1.6069458240097558, 4.420920795363724, 0.24999999981197746, 0.6249999996971365, 0.3750009677125235, 0.7500057013756433, 0.49999964090622945, 0.8749944471527678, 0.12500000000076292, 0.024613883008933666, -0.13659314233987502, -0.17719970057681644, -0.24317587276192226, 0.3985586916388675, 0.50374587092706, 0.6317591801921499]
+ [0.4208335175877691, 0.05842950185840107, 0.723038494363938, 0.5809335256328659, -0.13242740763548114, -0.021483684044708327, 0.05512227026886474, 0.12112306967460815, 0.2618206100088209, 0.06275401357048603, -0.20870347464876518, 0.5830566500098686, -1.6069458240097558, 4.420920795363724, 0.24999999981197746, 0.6249999996971365, 0.49999964090622945, 0.8749944471527678, 0.3750009677125235, 0.7500057013756433, 0.12500000000076292, 0.024613883008933666, -0.13659314233987502, -0.24317587276192226, -0.17719970057681644, 0.3985586916388675, 0.6317591801921499, 0.50374587092706]
+we decided to take this many derivatives: 5
+ParameterEstimation.EstimationResult[Parameter(s)        :	k01 = 0.125, k12 = 0.250, k13 = 0.375, k14 = 0.500, k21 = 0.625, k31 = 0.750, k41 = 0.875
+Initial Condition(s):	x1(t) = 0.083, x2(t) = 0.423, x3(t) = 0.693, x4(t) = 0.819, where t = -0.500
+Error: 2.4514e-02
+, Parameter(s)        :	k01 = 0.125, k12 = 0.250, k13 = 0.500, k14 = 0.375, k21 = 0.625, k31 = 0.875, k41 = 0.750
+Initial Condition(s):	x1(t) = 0.154, x2(t) = 0.420, x3(t) = 0.856, x4(t) = 0.606, where t = -0.500
+Error: 1.5401e-02
+]
+"res3"
+2-element Vector{ParameterEstimation.EstimationResult}:
+ Parameter(s)        :	k01 = 0.125, k12 = 0.250, k13 = 0.375, k14 = 0.500, k21 = 0.625, k31 = 0.750, k41 = 0.875
+Initial Condition(s):	x1(t) = 0.083, x2(t) = 0.423, x3(t) = 0.693, x4(t) = 0.819, where t = -0.500
+Error: 2.4514e-02
+
+ Parameter(s)        :	k01 = 0.125, k12 = 0.250, k13 = 0.500, k14 = 0.375, k21 = 0.625, k31 = 0.875, k41 = 0.750
+Initial Condition(s):	x1(t) = 0.154, x2(t) = 0.420, x3(t) = 0.856, x4(t) = 0.606, where t = -0.500
+Error: 1.5401e-02
+
+"How close are we?"
+11-element Vector{Any}:
+ 0.08321711780779574
+ 0.4229193086532927
+ 0.6933674362602631
+ 0.8194512054505332
+ 0.12500000000076292
+ 0.24999999981197746
+ 0.3750009677125235
+ 0.49999964090622945
+ 0.6249999996971365
+ 0.7500057013756433
+ 0.8749944471527678
+11-element Vector{Float64}:
+ 0.2
+ 0.4
+ 0.6
+ 0.8
+ 0.125
+ 0.25
+ 0.375
+ 0.5
+ 0.625
+ 0.75
+ 0.875
+"How close are we?"
+11-element Vector{Any}:
+ 0.15435006066959006
+ 0.41957546268144835
+ 0.8563711431290687
+ 0.606009375014795
+ 0.12500000000076292
+ 0.24999999981197746
+ 0.49999964090622945
+ 0.3750009677125235
+ 0.6249999996971365
+ 0.8749944471527678
+ 0.7500057013756433
+11-element Vector{Float64}:
+ 0.2
+ 0.4
+ 0.6
+ 0.8
+ 0.125
+ 0.25
+ 0.375
+ 0.5
+ 0.625
+ 0.75
+ 0.875
+For model DAISY_mamil4: The LIAN PE  max abs rel. err: 0.4272852385484479
+Final Results:
+Parameter(s)        :	 lm = 0.091,   d = 0.181, beta = 0.273,   a = 0.364,   k = 0.455,   u = 0.545,   c = 0.636,   q = 0.727,   b = 0.818,   h = 0.909
+Initial Condition(s):	x(t) = 0.167, y(t) = 0.333, v(t) = 0.500, w(t) = 0.667, z(t) = 0.833, where t = -0.500
+Error: 3.4330e-03
+
+Parameter(s)        :	 lm = 0.097,   d = 0.204, beta = 0.206,   a = 0.448,   k = -0.273,   u = 0.240,   c = 7.748,   q = 0.290,   b = 0.847,   h = 0.954
+Initial Condition(s):	x(t) = 0.167, y(t) = 0.094, v(t) = 0.739, w(t) = 0.667, z(t) = 0.833, where t = -0.500
+Error: 3.4355e-03
+
+Parameter(s)        :	 lm = 0.129,   d = -0.281, beta = -0.815,   a = 0.249,   k = 0.200,   u = -0.264,   c = 0.393,   q = 0.290,   b = 0.847,   h = 0.954
+Initial Condition(s):	x(t) = 0.167, y(t) = 1.846, v(t) = -1.013, w(t) = 0.667, z(t) = 0.833, where t = -0.500
+Error: 3.4360e-03
+
+Parameter(s)        :	 lm = 0.301,   d = 0.706, beta = -2.174,   a = 0.413,   k = -0.318,   u = 1.348,   c = 0.172,   q = 0.727,   b = 0.818,   h = 0.909
+Initial Condition(s):	x(t) = 0.167, y(t) = 1.232, v(t) = -0.399, w(t) = 0.667, z(t) = 0.833, where t = -0.500
+Error: 3.4376e-03
+
+ 19.174602 seconds (14.72 M allocations: 1013.324 MiB, 1.76% gc time, 94.84% compilation time)
+For model hiv: The best max abs rel. err: 1.1698122353582247e-6
+line 548
+1-element Vector{Int64}:
+ 10
+we decided to take this many derivatives: 5
+starting SolveJSWithHC
+28-element Vector{Any}:
+ -0.7398393556910005 + v(t) + y(t)
+ 0.19501841482761725 + vˍt(t) + yˍt(t)
+ -0.05168651645595404 + vˍtt(t) + yˍtt(t)
+ -0.5819733455263171 + z(t)
+ 0.46967168174694607 + zˍt(t)
+ -0.35535414600228943 + zˍtt(t)
+ 0.23351470431594032 + zˍttt(t)
+ -0.18347819985931452 + x(t)
+ -0.03536264600192832 + xˍt(t)
+ 0.005156947861736238 + xˍtt(t)
+ -0.0025877255780194586 + xˍttt(t)
+ -0.43940161101926084 + w(t)
+ 0.4037960188036286 + wˍt(t)
+ -0.3867045622393414 + wˍtt(t)
+ 0.3906224919110613 + wˍttt(t)
+ vˍt(t) - k*y(t) + u*v(t)
+ yˍt(t) + a*y(t) - beta*x(t)*v(t)
+ vˍtt(t) - k*yˍt(t) + u*vˍt(t)
+ yˍtt(t) + a*yˍt(t) - beta*xˍt(t)*v(t) - beta*x(t)*vˍt(t)
+ zˍt(t) + h*z(t) - c*q*y(t)*w(t)
+ zˍtt(t) + h*zˍt(t) - c*q*y(t)*wˍt(t) - c*q*w(t)*yˍt(t)
+ zˍttt(t) + h*zˍtt(t) - c*q*wˍtt(t)*y(t) - c*q*w(t)*yˍtt(t) - 2c*q*wˍt(t)*yˍt(t)
+ -lm + xˍt(t) + d*x(t) + beta*x(t)*v(t)
+ xˍtt(t) + d*xˍt(t) + beta*xˍt(t)*v(t) + beta*x(t)*vˍt(t)
+ xˍttt(t) + d*xˍtt(t) + beta*xˍtt(t)*v(t) + 2beta*xˍt(t)*vˍt(t) + beta*x(t)*vˍtt(t)
+ wˍt(t) + b*w(t) + c*q*y(t)*w(t) - c*x(t)*y(t)*w(t)
+ wˍtt(t) + b*wˍt(t) + c*q*y(t)*wˍt(t) + c*q*w(t)*yˍt(t) - c*xˍt(t)*y(t)*w(t) - c*x(t)*y(t)*wˍt(t) - c*x(t)*w(t)*yˍt(t)
+ wˍttt(t) + b*wˍtt(t) + c*q*wˍtt(t)*y(t) + c*q*w(t)*yˍtt(t) + 2c*q*wˍt(t)*yˍt(t) - c*wˍtt(t)*x(t)*y(t) - c*xˍtt(t)*y(t)*w(t) - 2c*xˍt(t)*y(t)*wˍt(t) - 2c*xˍt(t)*w(t)*yˍt(t) - c*x(t)*w(t)*yˍtt(t) - 2c*x(t)*wˍt(t)*yˍt(t)
+varlist
+28-element Vector{Any}:
+ v(t)
+ y(t)
+ vˍt(t)
+ yˍt(t)
+ vˍtt(t)
+ yˍtt(t)
+ z(t)
+ zˍt(t)
+ zˍtt(t)
+ zˍttt(t)
+ x(t)
+ xˍt(t)
+ xˍtt(t)
+ xˍttt(t)
+ w(t)
+ wˍt(t)
+ wˍtt(t)
+ wˍttt(t)
+ k
+ u
+ a
+ beta
+ h
+ c
+ q
+ lm
+ d
+ b
+system we are solving (line 428)
+Tracking 4 paths...  50%|███████████████▌               |  ETA: 0:00:08[K
+  # paths tracked:                  2[K
+  # non-singular solutions (real):  2 (2)[K
+  # singular endpoints (real):      0 (0)[K
+  # total solutions (real):         2 (2)[K[A[A[A[A
+
+
+
+[K[A[K[A[K[A[K[ATracking 4 paths... 100%|███████████████████████████████| Time: 0:00:08[K
+  # paths tracked:                  4[K
+  # non-singular solutions (real):  4 (4)[K
+  # singular endpoints (real):      0 (0)[K
+  # total solutions (real):         4 (4)[K
+results
+System of length 28
+ 28 variables: _qz_xy_v_t, _qz_xy_y_t, _qz_xy_vˍt_t, _qz_xy_yˍt_t, _qz_xy_vˍtt_t, _qz_xy_yˍtt_t, _qz_xy_z_t, _qz_xy_zˍt_t, _qz_xy_zˍtt_t, _qz_xy_zˍttt_t, _qz_xy_x_t, _qz_xy_xˍt_t, _qz_xy_xˍtt_t, _qz_xy_xˍttt_t, _qz_xy_w_t, _qz_xy_wˍt_t, _qz_xy_wˍtt_t, _qz_xy_wˍttt_t, _qz_xy_k, _qz_xy_u, _qz_xy_a, _qz_xy_beta, _qz_xy_h, _qz_xy_c, _qz_xy_q, _qz_xy_lm, _qz_xy_d, _qz_xy_b
+
+ -0.739839355691 + _qz_xy_v_t + _qz_xy_y_t
+ 0.195018414827617 + _qz_xy_vˍt_t + _qz_xy_yˍt_t
+ -0.051686516455954 + _qz_xy_vˍtt_t + _qz_xy_yˍtt_t
+ -0.581973345526317 + _qz_xy_z_t
+ 0.469671681746946 + _qz_xy_zˍt_t
+ -0.355354146002289 + _qz_xy_zˍtt_t
+ 0.23351470431594 + _qz_xy_zˍttt_t
+ -0.183478199859315 + _qz_xy_x_t
+ -0.0353626460019283 + _qz_xy_xˍt_t
+ 0.00515694786173624 + _qz_xy_xˍtt_t
+ -0.00258772557801946 + _qz_xy_xˍttt_t
+ -0.439401611019261 + _qz_xy_w_t
+ 0.403796018803629 + _qz_xy_wˍt_t
+ -0.386704562239341 + _qz_xy_wˍtt_t
+ 0.390622491911061 + _qz_xy_wˍttt_t
+ _qz_xy_vˍt_t + _qz_xy_v_t*_qz_xy_u - _qz_xy_y_t*_qz_xy_k
+ _qz_xy_yˍt_t + _qz_xy_y_t*_qz_xy_a - _qz_xy_x_t*_qz_xy_v_t*_qz_xy_beta
+ _qz_xy_vˍtt_t + _qz_xy_vˍt_t*_qz_xy_u - _qz_xy_yˍt_t*_qz_xy_k
+ _qz_xy_yˍtt_t + _qz_xy_yˍt_t*_qz_xy_a - _qz_xy_v_t*_qz_xy_xˍt_t*_qz_xy_beta - _qz_xy_x_t*_qz_xy_vˍt_t*_qz_xy_beta
+ _qz_xy_zˍt_t + _qz_xy_z_t*_qz_xy_h - _qz_xy_w_t*_qz_xy_y_t*_qz_xy_c*_qz_xy_q
+ _qz_xy_zˍtt_t + _qz_xy_zˍt_t*_qz_xy_h - _qz_xy_w_t*_qz_xy_yˍt_t*_qz_xy_c*_qz_xy_q - _qz_xy_y_t*_qz_xy_wˍt_t*_qz_xy_c*_qz_xy_q
+ _qz_xy_zˍttt_t + _qz_xy_zˍtt_t*_qz_xy_h - _qz_xy_w_t*_qz_xy_yˍtt_t*_qz_xy_c*_qz_xy_q - _qz_xy_y_t*_qz_xy_wˍtt_t*_qz_xy_c*_qz_xy_q - 2*_qz_xy_yˍt_t*_qz_xy_wˍt_t*_qz_xy_c*_qz_xy_q
+ -_qz_xy_lm + _qz_xy_xˍt_t + _qz_xy_x_t*_qz_xy_d + _qz_xy_x_t*_qz_xy_v_t*_qz_xy_beta
+ _qz_xy_xˍtt_t + _qz_xy_xˍt_t*_qz_xy_d + _qz_xy_v_t*_qz_xy_xˍt_t*_qz_xy_beta + _qz_xy_x_t*_qz_xy_vˍt_t*_qz_xy_beta
+ _qz_xy_xˍttt_t + _qz_xy_xˍtt_t*_qz_xy_d + _qz_xy_v_t*_qz_xy_xˍtt_t*_qz_xy_beta + _qz_xy_x_t*_qz_xy_vˍtt_t*_qz_xy_beta + 2*_qz_xy_xˍt_t*_qz_xy_vˍt_t*_qz_xy_beta
+ _qz_xy_wˍt_t + _qz_xy_w_t*_qz_xy_b - _qz_xy_w_t*_qz_xy_x_t*_qz_xy_y_t*_qz_xy_c + _qz_xy_w_t*_qz_xy_y_t*_qz_xy_c*_qz_xy_q
+ _qz_xy_wˍtt_t + _qz_xy_wˍt_t*_qz_xy_b - _qz_xy_w_t*_qz_xy_x_t*_qz_xy_yˍt_t*_qz_xy_c - _qz_xy_w_t*_qz_xy_y_t*_qz_xy_xˍt_t*_qz_xy_c + _qz_xy_w_t*_qz_xy_yˍt_t*_qz_xy_c*_qz_xy_q - _qz_xy_x_t*_qz_xy_y_t*_qz_xy_wˍt_t*_qz_xy_c + _qz_xy_y_t*_qz_xy_wˍt_t*_qz_xy_c*_qz_xy_q
+ _qz_xy_wˍttt_t + _qz_xy_wˍtt_t*_qz_xy_b - _qz_xy_w_t*_qz_xy_x_t*_qz_xy_yˍtt_t*_qz_xy_c - 2*_qz_xy_w_t*_qz_xy_xˍt_t*_qz_xy_yˍt_t*_qz_xy_c - _qz_xy_w_t*_qz_xy_y_t*_qz_xy_xˍtt_t*_qz_xy_c + _qz_xy_w_t*_qz_xy_yˍtt_t*_qz_xy_c*_qz_xy_q - _qz_xy_x_t*_qz_xy_y_t*_qz_xy_wˍtt_t*_qz_xy_c - 2*_qz_xy_x_t*_qz_xy_yˍt_t*_qz_xy_wˍt_t*_qz_xy_c + _qz_xy_y_t*_qz_xy_wˍtt_t*_qz_xy_c*_qz_xy_q - 2*_qz_xy_y_t*_qz_xy_xˍt_t*_qz_xy_wˍt_t*_qz_xy_c + 2*_qz_xy_yˍt_t*_qz_xy_wˍt_t*_qz_xy_c*_qz_xy_q
+Result with 4 solutions
+=======================
+• 4 paths tracked
+• 4 non-singular solutions (4 real)
+• random_seed: 0x7da9aace
+• start_system: :polyhedral
+
+4-element Vector{Vector{Float64}}:
+ [-0.9710257750072435, 1.7108651306982439, 0.08617733705751632, -0.28119575188513357, -0.03351708689193982, 0.08520360334789386, 0.5819733455263171, -0.46967168174694607, 0.35535414600228943, -0.23351470431594032, 0.18347819985931452, 0.03536264600192832, -0.005156947861736238, 0.0025877255780194586, 0.43940161101926084, -0.4037960188036286, 0.3867045622393414, -0.3906224919110613, 0.19997864412926428, -0.26359666103162466, 0.24927808339696364, -0.8154678266234803, 0.9543403867815009, 0.3931154151063276, 0.2900882864334831, 0.12901902776856145, -0.2813906345221111, 0.84726552330061]
+ [0.44775398363997654, 0.2920853720510239, -0.11112714082915322, -0.08389127399846404, 0.02239378404110288, 0.02929273241485116, 0.5819733455263171, -0.46967168174694607, 0.35535414600228943, -0.23351470431594032, 0.18347819985931452, 0.03536264600192832, -0.005156947861736238, 0.0025877255780194586, 0.43940161101926084, -0.4037960188036286, 0.3867045622393414, -0.3906224919110613, 0.4549994677354329, 0.5449997957849275, 0.36399999030920005, 0.2730000449208456, 0.9089999947956123, 0.635999796027586, 0.7269999517577195, 0.09099999588406919, 0.18099998424901262, 0.8180000074131661]
+ [0.6530367839478342, 0.0868025717431663, -0.18075164768804663, -0.014266767139570619, 0.04736362053641221, 0.004322895919541832, 0.5819733455263171, -0.46967168174694607, 0.35535414600228943, -0.23351470431594032, 0.18347819985931452, 0.03536264600192832, -0.005156947861736238, 0.0025877255780194586, 0.43940161101926084, -0.4037960188036286, 0.3867045622393414, -0.3906224919110613, -0.27317998500744356, 0.2404748496574513, 0.4481143373979565, 0.2055676692477148, 0.9543403867815009, 7.748243428033349, 0.2900882864334831, 0.09749147456846412, 0.20437370114668268, 0.84726552330061]
+ [-0.3408368984831269, 1.0806762541741273, 0.11536791881841812, -0.31038633364603535, -0.056692619816150897, 0.10837913627210494, 0.5819733455263171, -0.46967168174694607, 0.35535414600228943, -0.23351470431594032, 0.18347819985931452, 0.03536264600192832, -0.005156947861736238, 0.0025877255780194586, 0.43940161101926084, -0.4037960188036286, 0.3867045622393414, -0.3906224919110613, -0.318422939667317, 1.3480935618945462, 0.4130112802466659, -2.173865357907239, 0.9089999947956123, 0.17189813908612137, 0.7269999517577195, 0.30086851975821627, 0.7061368829269029, 0.8180000074131661]
+4-element Vector{Vector{Float64}}:
+ [-0.9710257750072435, 1.7108651306982439, 0.08617733705751632, -0.28119575188513357, -0.03351708689193982, 0.08520360334789386, 0.5819733455263171, -0.46967168174694607, 0.35535414600228943, -0.23351470431594032, 0.18347819985931452, 0.03536264600192832, -0.005156947861736238, 0.0025877255780194586, 0.43940161101926084, -0.4037960188036286, 0.3867045622393414, -0.3906224919110613, 0.19997864412926428, -0.26359666103162466, 0.24927808339696364, -0.8154678266234803, 0.9543403867815009, 0.3931154151063276, 0.2900882864334831, 0.12901902776856145, -0.2813906345221111, 0.84726552330061]
+ [0.44775398363997654, 0.2920853720510239, -0.11112714082915322, -0.08389127399846404, 0.02239378404110288, 0.02929273241485116, 0.5819733455263171, -0.46967168174694607, 0.35535414600228943, -0.23351470431594032, 0.18347819985931452, 0.03536264600192832, -0.005156947861736238, 0.0025877255780194586, 0.43940161101926084, -0.4037960188036286, 0.3867045622393414, -0.3906224919110613, 0.4549994677354329, 0.5449997957849275, 0.36399999030920005, 0.2730000449208456, 0.9089999947956123, 0.635999796027586, 0.7269999517577195, 0.09099999588406919, 0.18099998424901262, 0.8180000074131661]
+ [0.6530367839478342, 0.0868025717431663, -0.18075164768804663, -0.014266767139570619, 0.04736362053641221, 0.004322895919541832, 0.5819733455263171, -0.46967168174694607, 0.35535414600228943, -0.23351470431594032, 0.18347819985931452, 0.03536264600192832, -0.005156947861736238, 0.0025877255780194586, 0.43940161101926084, -0.4037960188036286, 0.3867045622393414, -0.3906224919110613, -0.27317998500744356, 0.2404748496574513, 0.4481143373979565, 0.2055676692477148, 0.9543403867815009, 7.748243428033349, 0.2900882864334831, 0.09749147456846412, 0.20437370114668268, 0.84726552330061]
+ [-0.3408368984831269, 1.0806762541741273, 0.11536791881841812, -0.31038633364603535, -0.056692619816150897, 0.10837913627210494, 0.5819733455263171, -0.46967168174694607, 0.35535414600228943, -0.23351470431594032, 0.18347819985931452, 0.03536264600192832, -0.005156947861736238, 0.0025877255780194586, 0.43940161101926084, -0.4037960188036286, 0.3867045622393414, -0.3906224919110613, -0.318422939667317, 1.3480935618945462, 0.4130112802466659, -2.173865357907239, 0.9089999947956123, 0.17189813908612137, 0.7269999517577195, 0.30086851975821627, 0.7061368829269029, 0.8180000074131661]
+we decided to take this many derivatives: 5
+ParameterEstimation.EstimationResult[Parameter(s)        :	 lm = 0.129,   d = -0.281, beta = -0.815,   a = 0.249,   k = 0.200,   u = -0.264,   c = 0.393,   q = 0.290,   b = 0.847,   h = 0.954
+Initial Condition(s):	x(t) = -0.211, y(t) = 1.793, v(t) = -1.254, w(t) = 0.526, z(t) = 0.663, where t = -0.500
+Error: 2.0091e-01
+, Parameter(s)        :	 lm = 0.091,   d = 0.181, beta = 0.273,   a = 0.364,   k = 0.455,   u = 0.545,   c = 0.636,   q = 0.727,   b = 0.818,   h = 0.909
+Initial Condition(s):	x(t) = -0.230, y(t) = 0.306, v(t) = 0.462, w(t) = 0.618, z(t) = 0.767, where t = -0.500
+Error: 1.0508e-01
+, Parameter(s)        :	 lm = 0.097,   d = 0.204, beta = 0.206,   a = 0.448,   k = -0.273,   u = 0.240,   c = 7.748,   q = 0.290,   b = 0.847,   h = 0.954
+Initial Condition(s):	x(t) = -0.257, y(t) = 0.099, v(t) = 0.810, w(t) = 0.502, z(t) = 19.010, where t = -0.500
+Error: 2.4104e+00
+, Parameter(s)        :	 lm = 0.301,   d = 0.706, beta = -2.174,   a = 0.413,   k = -0.318,   u = 1.348,   c = 0.172,   q = 0.727,   b = 0.818,   h = 0.909
+Initial Condition(s):	x(t) = -0.188, y(t) = 1.235, v(t) = -0.228, w(t) = 1.016, z(t) = 0.278, where t = -0.500
+Error: 1.6161e-01
+]
+"res3"
+4-element Vector{ParameterEstimation.EstimationResult}:
+ Parameter(s)        :	 lm = 0.129,   d = -0.281, beta = -0.815,   a = 0.249,   k = 0.200,   u = -0.264,   c = 0.393,   q = 0.290,   b = 0.847,   h = 0.954
+Initial Condition(s):	x(t) = -0.211, y(t) = 1.793, v(t) = -1.254, w(t) = 0.526, z(t) = 0.663, where t = -0.500
+Error: 2.0091e-01
+
+ Parameter(s)        :	 lm = 0.091,   d = 0.181, beta = 0.273,   a = 0.364,   k = 0.455,   u = 0.545,   c = 0.636,   q = 0.727,   b = 0.818,   h = 0.909
+Initial Condition(s):	x(t) = -0.230, y(t) = 0.306, v(t) = 0.462, w(t) = 0.618, z(t) = 0.767, where t = -0.500
+Error: 1.0508e-01
+
+ Parameter(s)        :	 lm = 0.097,   d = 0.204, beta = 0.206,   a = 0.448,   k = -0.273,   u = 0.240,   c = 7.748,   q = 0.290,   b = 0.847,   h = 0.954
+Initial Condition(s):	x(t) = -0.257, y(t) = 0.099, v(t) = 0.810, w(t) = 0.502, z(t) = 19.010, where t = -0.500
+Error: 2.4104e+00
+
+ Parameter(s)        :	 lm = 0.301,   d = 0.706, beta = -2.174,   a = 0.413,   k = -0.318,   u = 1.348,   c = 0.172,   q = 0.727,   b = 0.818,   h = 0.909
+Initial Condition(s):	x(t) = -0.188, y(t) = 1.235, v(t) = -0.228, w(t) = 1.016, z(t) = 0.278, where t = -0.500
+Error: 1.6161e-01
+
+"How close are we?"
+15-element Vector{Any}:
+ -0.21099016479929855
+  1.7930056357428241
+ -1.2543666864710965
+  0.5261763924543357
+  0.663414790781166
+  0.12901902776856145
+ -0.2813906345221111
+ -0.8154678266234803
+  0.24927808339696364
+  0.19997864412926428
+ -0.26359666103162466
+  0.3931154151063276
+  0.2900882864334831
+  0.84726552330061
+  0.9543403867815009
+15-element Vector{Float64}:
+ 0.167
+ 0.333
+ 0.5
+ 0.667
+ 0.833
+ 0.091
+ 0.181
+ 0.273
+ 0.364
+ 0.455
+ 0.545
+ 0.636
+ 0.727
+ 0.818
+ 0.909
+"How close are we?"
+15-element Vector{Any}:
+ -0.22954619346763452
+  0.30647423553702846
+  0.46219738984326053
+  0.6176628901241006
+  0.7669886709500235
+  0.09099999588406919
+  0.18099998424901262
+  0.2730000449208456
+  0.36399999030920005
+  0.4549994677354329
+  0.5449997957849275
+  0.635999796027586
+  0.7269999517577195
+  0.8180000074131661
+  0.9089999947956123
+15-element Vector{Float64}:
+ 0.167
+ 0.333
+ 0.5
+ 0.667
+ 0.833
+ 0.091
+ 0.181
+ 0.273
+ 0.364
+ 0.455
+ 0.545
+ 0.636
+ 0.727
+ 0.818
+ 0.909
+"How close are we?"
+15-element Vector{Any}:
+ -0.25664216621816627
+  0.09897281705291457
+  0.8101591158537588
+  0.5016941190803301
+ 19.0104171368117
+  0.09749147456846412
+  0.20437370114668268
+  0.2055676692477148
+  0.4481143373979565
+ -0.27317998500744356
+  0.2404748496574513
+  7.748243428033349
+  0.2900882864334831
+  0.84726552330061
+  0.9543403867815009
+15-element Vector{Float64}:
+ 0.167
+ 0.333
+ 0.5
+ 0.667
+ 0.833
+ 0.091
+ 0.181
+ 0.273
+ 0.364
+ 0.455
+ 0.545
+ 0.636
+ 0.727
+ 0.818
+ 0.909
+"How close are we?"
+15-element Vector{Any}:
+ -0.18849755006261404
+  1.235135599864643
+ -0.22826946128626585
+  1.016051783056615
+  0.278340614714245
+  0.30086851975821627
+  0.7061368829269029
+ -2.173865357907239
+  0.4130112802466659
+ -0.318422939667317
+  1.3480935618945462
+  0.17189813908612137
+  0.7269999517577195
+  0.8180000074131661
+  0.9089999947956123
+15-element Vector{Float64}:
+ 0.167
+ 0.333
+ 0.5
+ 0.667
+ 0.833
+ 0.091
+ 0.181
+ 0.273
+ 0.364
+ 0.455
+ 0.545
+ 0.636
+ 0.727
+ 0.818
+ 0.909
+For model hiv: The LIAN PE  max abs rel. err: 2.374528104596614
+Final Results:
+Parameter(s)        :	 k1 = 0.250,  k2 = 0.500,  eB = 0.750
+Initial Condition(s):	xA(t) = 0.166, xB(t) = 0.333, xC(t) = 0.500, eA(t) = 0.666, eC(t) = 0.833, where t = -0.500
+Error: 2.6110e-04
+
+Parameter(s)        :	 k1 = 0.500,  k2 = 0.250,  eB = 0.708
+Initial Condition(s):	xA(t) = -0.167, xB(t) = 0.666, xC(t) = 0.500, eA(t) = 0.666, eC(t) = 0.833, where t = -0.500
+Error: 2.6110e-04
+
+ 14.940856 seconds (10.84 M allocations: 709.951 MiB, 1.47% gc time, 98.13% compilation time)
+For model slowfast: The best max abs rel. err: 2.534910534491667e-9
+line 548
+1-element Vector{Int64}:
+ 10
+we decided to take this many derivatives: 3
+starting SolveJSWithHC
+18-element Vector{Any}:
+ -0.833 + eC(t)
+ -0.784014476786775 + eB*xB(t) + xA(t)*eA(t) + xC(t)*eC(t)
+ -0.014805189130243483 + eB*xBˍt(t) + xA(t)*eAˍt(t) + eA(t)*xAˍt(t) + xC(t)*eCˍt(t) + eC(t)*xCˍt(t)
+ 0.0050848264451614856 + eB*xBˍtt(t) + eCˍtt(t)*xC(t) + xA(t)*eAˍtt(t) + eA(t)*xAˍtt(t) + 2eAˍt(t)*xAˍt(t) + xCˍtt(t)*eC(t) + 2xCˍt(t)*eCˍt(t)
+ -0.666 + eA(t)
+ -0.5689734722271538 + xC(t)
+ -0.14084468407642645 + xCˍt(t)
+ 0.05188019708535682 + xCˍtt(t)
+ xBˍt(t) - k1*xA(t) + k2*xB(t)
+ eAˍt(t)
+ xAˍt(t) + k1*xA(t)
+ eCˍt(t)
+ xCˍt(t) - k2*xB(t)
+ xBˍtt(t) - k1*xAˍt(t) + k2*xBˍt(t)
+ eCˍtt(t)
+ eAˍtt(t)
+ xAˍtt(t) + k1*xAˍt(t)
+ xCˍtt(t) - k2*xBˍt(t)
+varlist
+18-element Vector{Any}:
+ eC(t)
+ eB
+ xB(t)
+ xA(t)
+ eA(t)
+ xC(t)
+ xBˍt(t)
+ eAˍt(t)
+ xAˍt(t)
+ eCˍt(t)
+ xCˍt(t)
+ xBˍtt(t)
+ eCˍtt(t)
+ eAˍtt(t)
+ xAˍtt(t)
+ xCˍtt(t)
+ k1
+ k2
+system we are solving (line 428)
+Tracking 3 paths...  67%|████████████████████▋          |  ETA: 0:00:03[K
+  # paths tracked:                  2[K
+  # non-singular solutions (real):  1 (1)[K
+  # singular endpoints (real):      0 (0)[K
+  # total solutions (real):         1 (1)[K[A[A[A[A
+
+
+
+[K[A[K[A[K[A[K[ATracking 3 paths... 100%|███████████████████████████████| Time: 0:00:05[K
+  # paths tracked:                  3[K
+  # non-singular solutions (real):  2 (2)[K
+  # singular endpoints (real):      0 (0)[K
+  # total solutions (real):         2 (2)[K
+[ Info: Preproccessing `ModelingToolkit.ODESystem` object
+[ Info: Solving the problem
+[ Info: Constructing the maximal system
+[ Info: Truncating
+[ Info: Assessing local identifiability
+[ Info: Found Pivots: []
+[ Info: Locally identifiable parameters: [a, b, x2, x1]
+[ Info: Not identifiable parameters:     []
+[ Info: Randomizing
+[ Info: Gröbner basis computation
+[ Info: Remainder computation
+[ Info: === Summary ===
+[ Info: Globally identifiable parameters:                 [b, x2, x1, a]
+[ Info: Locally but not globally identifiable parameters: []
+[ Info: Not identifiable parameters:                      []
+[ Info: ===============
+[ Info: Estimating via the interpolators: ["AAA"]
+[ Info: Preproccessing `ModelingToolkit.ODESystem` object
+[ Info: Solving the problem
+[ Info: Constructing the maximal system
+[ Info: Truncating
+[ Info: Assessing local identifiability
+[ Info: Found Pivots: []
+[ Info: Locally identifiable parameters: [k1, k2, k3, w, r]
+[ Info: Not identifiable parameters:     []
+[ Info: Randomizing
+[ Info: Gröbner basis computation
+[ Info: Remainder computation
+[ Info: === Summary ===
+[ Info: Globally identifiable parameters:                 [k3, w, r, k1, k2]
+[ Info: Locally but not globally identifiable parameters: []
+[ Info: Not identifiable parameters:                      []
+[ Info: ===============
+[ Info: Estimating via the interpolators: ["AAA"]
+┌ Warning: Interrupted. Larger maxiters is needed. If you are using an integrator for non-stiff ODEs or an automatic switching algorithm (the default), you may want to consider using a method for stiff equations. See the solver pages for more details (e.g. https://docs.sciml.ai/DiffEqDocs/stable/solvers/ode_solve/#Stiff-Problems).
+└ @ SciMLBase ~/.julia/packages/SciMLBase/hSv8d/src/integrator_interface.jl:597
+┌ Warning: Instability detected. Aborting
+└ @ SciMLBase ~/.julia/packages/SciMLBase/hSv8d/src/integrator_interface.jl:623
+┌ Warning: Instability detected. Aborting
+└ @ SciMLBase ~/.julia/packages/SciMLBase/hSv8d/src/integrator_interface.jl:623
+[ Info: Preproccessing `ModelingToolkit.ODESystem` object
+[ Info: Solving the problem
+[ Info: Constructing the maximal system
+[ Info: Truncating
+[ Info: Assessing local identifiability
+[ Info: Found Pivots: []
+[ Info: Locally identifiable parameters: [a, b, x2, x1]
+[ Info: Not identifiable parameters:     []
+[ Info: Randomizing
+[ Info: Gröbner basis computation
+[ Info: Remainder computation
+[ Info: === Summary ===
+[ Info: Globally identifiable parameters:                 [b, x2, x1, a]
+[ Info: Locally but not globally identifiable parameters: []
+[ Info: Not identifiable parameters:                      []
+[ Info: ===============
+[ Info: Estimating via the interpolators: ["AAA"]
+[ Info: Preproccessing `ModelingToolkit.ODESystem` object
+[ Info: Solving the problem
+[ Info: Constructing the maximal system
+[ Info: Truncating
+[ Info: Assessing local identifiability
+[ Info: Found Pivots: []
+[ Info: Locally identifiable parameters: [a12, a13, a21, a31, a01, x2, x3, x1]
+[ Info: Not identifiable parameters:     []
+[ Info: Randomizing
+[ Info: Gröbner basis computation
+[ Info: Remainder computation
+[ Info: === Summary ===
+[ Info: Globally identifiable parameters:                 [a01, a13, x2, x3, a31, a12, x1, a21]
+[ Info: Locally but not globally identifiable parameters: []
+[ Info: Not identifiable parameters:                      []
+[ Info: ===============
+[ Info: Estimating via the interpolators: ["AAA"]
+[ Info: Preproccessing `ModelingToolkit.ODESystem` object
+[ Info: Solving the problem
+[ Info: Constructing the maximal system
+[ Info: Truncating
+[ Info: Assessing local identifiability
+[ Info: Found Pivots: []
+[ Info: Locally identifiable parameters: [k01, k12, k13, k14, k21, k31, k41, x3, x1, x2, x4]
+[ Info: Not identifiable parameters:     []
+[ Info: Randomizing
+[ Info: Gröbner basis computation
+[ Info: Remainder computation
+[ Info: === Summary ===
+[ Info: Globally identifiable parameters:                 [k12, k21, x1, k01, x2]
+[ Info: Locally but not globally identifiable parameters: [x4, k13, x3, k41, k14, k31]
+[ Info: Not identifiable parameters:                      []
+[ Info: ===============
+[ Info: Estimating via the interpolators: ["AAA"]
+[ Info: Preproccessing `ModelingToolkit.ODESystem` object
+[ Info: Solving the problem
+[ Info: Constructing the maximal system
+[ Info: Truncating
+[ Info: Assessing local identifiability
+[ Info: Found Pivots: []
+[ Info: Locally identifiable parameters: [lm, d, beta, a, k, u, c, q, b, h, x, y, v, w, z]
+[ Info: Not identifiable parameters:     []
+[ Info: Randomizing
+[ Info: Gröbner basis computation
+[ Info: Remainder computation
+[ Info: === Summary ===
+[ Info: Globally identifiable parameters:                 [u, beta, k, lm, c, w, q, d, h, v, z, a, x, y, b]
+[ Info: Locally but not globally identifiable parameters: []
+[ Info: Not identifiable parameters:                      []
+[ Info: ===============
+[ Info: Estimating via the interpolators: ["AAA"]
+[ Info: Preproccessing `ModelingToolkit.ODESystem` object
+[ Info: Solving the problem
+[ Info: Constructing the maximal system
+[ Info: Truncating
+[ Info: Assessing local identifiability
+[ Info: Found Pivots: []
+[ Info: Locally identifiable parameters: [k1, k2, eB, eA, xC, xB, xA, eC]
+[ Info: Not identifiable parameters:     []
+[ Info: Randomizing
+[ Info: Gröbner basis computation
+[ Info: Remainder computation
+[ Info: === Summary ===
+[ Info: Globally identifiable parameters:                 [eA, xC, eC]
+[ Info: Locally but not globally identifiable parameters: [k1, k2, xB, eB, xA]
+[ Info: Not identifiable parameters:                      []
+[ Info: ===============
+[ Info: Estimating via the interpolators: ["AAA"]
+[ Info: Preproccessing `ModelingToolkit.ODESystem` object
+[ Info: Solving the problem
+[ Info: Constructing the maximal system
+[ Info: Truncating
+[ Info: Assessing local identifiability
+[ Info: Found Pivots: []
+[ Info: Locally identifiable parameters: [a, b, beta, x2, x3, x1]
+[ Info: Not identifiable parameters:     []
+[ Info: Randomizing
+[ Info: Gröbner basis computation
+[ Info: Remainder computation
+[ Info: === Summary ===
+[ Info: Globally identifiable parameters:                 [x2, x3, b, a, beta, x1]
+[ Info: Locally but not globally identifiable parameters: []
+[ Info: Not identifiable parameters:                      []
+[ Info: ===============
+[ Info: Estimating via the interpolators: ["AAA"]
+[ Info: Preproccessing `ModelingToolkit.ODESystem` object
+[ Info: Solving the problem
+[ Info: Constructing the maximal system
+[ Info: Truncating
+[ Info: Assessing local identifiability
+[ Info: Found Pivots: [x3_0, d_0, b_0]
+[ Info: Locally identifiable parameters: [a, x2, x1]
+[ Info: Not identifiable parameters:     [b, c, d, x3]
+[ Info: Randomizing
+[ Info: Gröbner basis computation
+[ Info: Remainder computation
+[ Info: === Summary ===
+[ Info: Globally identifiable parameters:                 [x2, x1, a]
+[ Info: Locally but not globally identifiable parameters: []
+[ Info: Not identifiable parameters:                      [x3, c, b, d]
+[ Info: ===============
+[ Info: Estimating via the interpolators: ["AAA"]
+ERROR: LoadError: ArgumentError: collection must be non-empty
+Stacktrace:
+ [1] first
+   @ ./abstractarray.jl:473 [inlined]
+ [2] local_identifiability_analysis_2(model::ODESystem, measured_quantities::Vector{Equation}, rtol::Float64, atol::Float64)
+   @ Main ~/learning/ODETests/LIAN.jl:148
+ [3] local_identifiability_analysis_2
+   @ ~/learning/ODETests/LIAN.jl:113 [inlined]
+ [4] HCPE(model::ODESystem, measured_quantities::Vector{Equation}, data_sample::OrderedDict{Any, Vector{Float64}}, solver::Vern9{typeof(OrdinaryDiffEq.trivial_limiter!), typeof(OrdinaryDiffEq.trivial_limiter!), Static.False}, time_index_set::Vector{Any})
+   @ Main ~/learning/ODETests/LIAN.jl:552
+ [5] LIANPEWrapper(model::ODESystem, measured_quantities::Vector{Equation}, data_sample::OrderedDict{Any, Vector{Float64}}, solver::Vern9{typeof(OrdinaryDiffEq.trivial_limiter!), typeof(OrdinaryDiffEq.trivial_limiter!), Static.False}, oldres::ParameterEstimation.EstimationResult)
+   @ Main ~/learning/ODETests/LIAN.jl:837
+ [6] analyze_parameter_estimation_problem(PEP::ParameterEstimationProblem; test_mode::Bool, showplot::Bool, run_sciml_pe::Bool, run_lian_pe::Bool)
+   @ Main ~/learning/ODETests/LIAN_tester.jl:582
+ [7] analyze_parameter_estimation_problem
+   @ ~/learning/ODETests/LIAN_tester.jl:501 [inlined]
+ [8] varied_estimation_main()
+   @ Main ~/learning/ODETests/LIAN_tester.jl:647
+ [9] top-level scope
+   @ ~/learning/ODETests/LIAN_tester.jl:651
+in expression starting at /home/orebas/learning/ODETests/LIAN_tester.jl:651
+results
+System of length 18
+ 18 variables: _qz_xy_eC_t, _qz_xy_eB, _qz_xy_xB_t, _qz_xy_xA_t, _qz_xy_eA_t, _qz_xy_xC_t, _qz_xy_xBˍt_t, _qz_xy_eAˍt_t, _qz_xy_xAˍt_t, _qz_xy_eCˍt_t, _qz_xy_xCˍt_t, _qz_xy_xBˍtt_t, _qz_xy_eCˍtt_t, _qz_xy_eAˍtt_t, _qz_xy_xAˍtt_t, _qz_xy_xCˍtt_t, _qz_xy_k1, _qz_xy_k2
+
+ -0.833 + _qz_xy_eC_t
+ -0.784014476786775 + _qz_xy_eA_t*_qz_xy_xA_t + _qz_xy_eB*_qz_xy_xB_t + _qz_xy_eC_t*_qz_xy_xC_t
+ -0.0148051891302435 + _qz_xy_eAˍt_t*_qz_xy_xA_t + _qz_xy_eB*_qz_xy_xBˍt_t + _qz_xy_eCˍt_t*_qz_xy_xC_t + _qz_xy_xAˍt_t*_qz_xy_eA_t + _qz_xy_xCˍt_t*_qz_xy_eC_t
+ 0.00508482644516149 + _qz_xy_eAˍtt_t*_qz_xy_xA_t + _qz_xy_eB*_qz_xy_xBˍtt_t + _qz_xy_eCˍtt_t*_qz_xy_xC_t + 2*_qz_xy_xAˍt_t*_qz_xy_eAˍt_t + _qz_xy_xAˍtt_t*_qz_xy_eA_t + 2*_qz_xy_xCˍt_t*_qz_xy_eCˍt_t + _qz_xy_xCˍtt_t*_qz_xy_eC_t
+ -0.666 + _qz_xy_eA_t
+ -0.568973472227154 + _qz_xy_xC_t
+ -0.140844684076426 + _qz_xy_xCˍt_t
+ 0.0518801970853568 + _qz_xy_xCˍtt_t
+ _qz_xy_xBˍt_t - _qz_xy_k1*_qz_xy_xA_t + _qz_xy_k2*_qz_xy_xB_t
+ _qz_xy_eAˍt_t
+ _qz_xy_xAˍt_t + _qz_xy_k1*_qz_xy_xA_t
+ _qz_xy_eCˍt_t
+ _qz_xy_xCˍt_t - _qz_xy_k2*_qz_xy_xB_t
+ _qz_xy_xBˍtt_t - _qz_xy_k1*_qz_xy_xAˍt_t + _qz_xy_k2*_qz_xy_xBˍt_t
+ _qz_xy_eCˍtt_t
+ _qz_xy_eAˍtt_t
+ _qz_xy_xAˍtt_t + _qz_xy_k1*_qz_xy_xAˍt_t
+ _qz_xy_xCˍtt_t - _qz_xy_k2*_qz_xy_xBˍt_t
+Result with 2 solutions
+=======================
+• 3 paths tracked
+• 2 non-singular solutions (2 real)
+• random_seed: 0xbbfbe5a8
+• start_system: :polyhedral
+
+2-element Vector{Vector{Float64}}:
+ [0.833, 0.7500000001082915, 0.2816893677955139, 0.14833715997660063, 0.666, 0.5689734722271538, -0.10376039403908767, 0.0, -0.03708429003733878, 0.0, 0.14084468407642645, 0.042609124565224976, 0.0, 0.0, 0.009271072520131849, -0.05188019708535682, 0.2500000002911517, 0.5000000006342785]
+ [0.833, 0.70800000004978, 0.5633787356495886, -0.13335220787747415, 0.666, 0.5689734722271538, -0.20752078809974625, 0.0, 0.06667610402331979, 0.0, 0.14084468407642645, 0.08521824913930809, 0.0, 0.0, -0.03333805205395126, -0.05188019708535682, 0.5000000006342807, 0.2500000002911528]
+2-element Vector{Vector{Float64}}:
+ [0.833, 0.7500000001082915, 0.2816893677955139, 0.14833715997660063, 0.666, 0.5689734722271538, -0.10376039403908767, 0.0, -0.03708429003733878, 0.0, 0.14084468407642645, 0.042609124565224976, 0.0, 0.0, 0.009271072520131849, -0.05188019708535682, 0.2500000002911517, 0.5000000006342785]
+ [0.833, 0.70800000004978, 0.5633787356495886, -0.13335220787747415, 0.666, 0.5689734722271538, -0.20752078809974625, 0.0, 0.06667610402331979, 0.0, 0.14084468407642645, 0.08521824913930809, 0.0, 0.0, -0.03333805205395126, -0.05188019708535682, 0.5000000006342807, 0.2500000002911528]
+we decided to take this many derivatives: 3
+ParameterEstimation.EstimationResult[Parameter(s)        :	 k1 = 0.250,  k2 = 0.500,  eB = 0.750
+Initial Condition(s):	xA(t) = 0.186, xB(t) = 0.276, xC(t) = 0.538, eA(t) = 0.666, eC(t) = 0.833, where t = -0.500
+Error: 5.4754e-03
+, Parameter(s)        :	 k1 = 0.500,  k2 = 0.250,  eB = 0.708
+Initial Condition(s):	xA(t) = -0.149, xB(t) = 0.723, xC(t) = 0.425, eA(t) = 0.666, eC(t) = 0.833, where t = -0.500
+Error: 1.5184e-02
+]
+"res3"
+2-element Vector{ParameterEstimation.EstimationResult}:
+ Parameter(s)        :	 k1 = 0.250,  k2 = 0.500,  eB = 0.750
+Initial Condition(s):	xA(t) = 0.186, xB(t) = 0.276, xC(t) = 0.538, eA(t) = 0.666, eC(t) = 0.833, where t = -0.500
+Error: 5.4754e-03
+
+ Parameter(s)        :	 k1 = 0.500,  k2 = 0.250,  eB = 0.708
+Initial Condition(s):	xA(t) = -0.149, xB(t) = 0.723, xC(t) = 0.425, eA(t) = 0.666, eC(t) = 0.833, where t = -0.500
+Error: 1.5184e-02
+
+"How close are we?"
+8-element Vector{Any}:
+ 0.18576599514710593
+ 0.27569876716005
+ 0.5375352376921124
+ 0.666
+ 0.833
+ 0.2500000002911517
+ 0.5000000006342785
+ 0.7500000001082915
+8-element Vector{Float64}:
+ 0.166
+ 0.333
+ 0.5
+ 0.666
+ 0.833
+ 0.25
+ 0.5
+ 0.75
+"How close are we?"
+8-element Vector{Any}:
+ -0.14923075625329926
+  0.7233012316447819
+  0.4249295246077859
+  0.666
+  0.833
+  0.5000000006342807
+  0.2500000002911528
+  0.70800000004978
+8-element Vector{Float64}:
+ 0.166
+ 0.333
+ 0.5
+ 0.666
+ 0.833
+ 0.25
+ 0.5
+ 0.75
+For model slowfast: The LIAN PE  max abs rel. err: 0.17207577429414422
+Final Results:
+Parameter(s)        :	  a = 0.100,   b = 0.200, beta = 0.300
+Initial Condition(s):	x1(t) = 2.000, x2(t) = 3.000, x3(t) = 4.000, where t = -0.500
+Error: 6.1902e-04
+
+  5.434988 seconds (3.38 M allocations: 222.689 MiB, 2.57% gc time, 97.45% compilation time)
+For model substr_test: The best max abs rel. err: 2.896366479987478e-10
+line 548
+1-element Vector{Int64}:
+ 10
+we decided to take this many derivatives: 3
+starting SolveJSWithHC
+9-element Vector{Any}:
+ -3.17380557463711 + x2(t)
+ -0.3722084946479444 + x2ˍt(t)
+ -4.000216005832112 + x3(t)
+ -0.00048002592056096955 + x3ˍt(t)
+ -1.8610424732394517 + x1(t)
+ 0.3173805574637142 + x1ˍt(t)
+ x2ˍt(t) - b*x1(t)
+ x3ˍt(t) - (a^2)*(b^2)*beta*x3(t)
+ x1ˍt(t) + a*x2(t)
+varlist
+9-element Vector{Any}:
+ x2(t)
+ x2ˍt(t)
+ x3(t)
+ x3ˍt(t)
+ x1(t)
+ x1ˍt(t)
+ b
+ a
+ beta
+system we are solving (line 428)
+results
+System of length 9
+ 9 variables: _qz_xy_x2_t, _qz_xy_x2ˍt_t, _qz_xy_x3_t, _qz_xy_x3ˍt_t, _qz_xy_x1_t, _qz_xy_x1ˍt_t, _qz_xy_b, _qz_xy_a, _qz_xy_beta
+
+ -3.17380557463711 + _qz_xy_x2_t
+ -0.372208494647944 + _qz_xy_x2ˍt_t
+ -4.00021600583211 + _qz_xy_x3_t
+ -0.00048002592056097 + _qz_xy_x3ˍt_t
+ -1.86104247323945 + _qz_xy_x1_t
+ 0.317380557463714 + _qz_xy_x1ˍt_t
+ _qz_xy_x2ˍt_t - _qz_xy_x1_t*_qz_xy_b
+ _qz_xy_x3ˍt_t - _qz_xy_x3_t*_qz_xy_beta*_qz_xy_b^2*_qz_xy_a^2
+ _qz_xy_x1ˍt_t + _qz_xy_x2_t*_qz_xy_a
+Result with 1 solution
+======================
+• 1 path tracked
+• 1 non-singular solution (1 real)
+• random_seed: 0x64d52134
+• start_system: :polyhedral
+
+1-element Vector{Vector{Float64}}:
+ [3.17380557463711, 0.3722084946479444, 4.000216005832112, 0.00048002592056096955, 1.8610424732394517, -0.3173805574637142, 0.20000000000002907, 0.100000000000001, 0.299999999913109]
+1-element Vector{Vector{Float64}}:
+ [3.17380557463711, 0.3722084946479444, 4.000216005832112, 0.00048002592056096955, 1.8610424732394517, -0.3173805574637142, 0.20000000000002907, 0.100000000000001, 0.299999999913109]
+we decided to take this many derivatives: 3
+ParameterEstimation.EstimationResult[Parameter(s)        :	  a = 0.100,   b = 0.200, beta = 0.300
+Initial Condition(s):	x1(t) = 2.000, x2(t) = 3.000, x3(t) = 4.000, where t = -0.500
+Error: 6.1902e-04
+]
+"res3"
+1-element Vector{ParameterEstimation.EstimationResult}:
+ Parameter(s)        :	  a = 0.100,   b = 0.200, beta = 0.300
+Initial Condition(s):	x1(t) = 2.000, x2(t) = 3.000, x3(t) = 4.000, where t = -0.500
+Error: 6.1902e-04
+
+"How close are we?"
+6-element Vector{Any}:
+ 2.000000000000001
+ 2.9999999999999787
+ 4.000000000000069
+ 0.100000000000001
+ 0.20000000000002907
+ 0.299999999913109
+6-element Vector{Float64}:
+ 2.0
+ 3.0
+ 4.0
+ 0.1
+ 0.2
+ 0.3
+For model substr_test: The LIAN PE  max abs rel. err: 2.896366479987478e-10
+Final Results:
+Parameter(s)        :	  a = 0.100,   b = 232923.000,   c = -232922.500,   d = 107694.000
+Initial Condition(s):	x1(t) = 2.000, x2(t) = 3.000, x3(t) = 107359.856, where t = -0.500
+Error: 9.2300e-04
+
+  8.488794 seconds (5.73 M allocations: 378.785 MiB, 1.69% gc time, 99.41% compilation time)
+For model global_unident_test: The best max abs rel. err: 7.91033905045424e-14
+line 548
+1-element Vector{Int64}:
+ 10
+we decided to take this many derivatives: 5
