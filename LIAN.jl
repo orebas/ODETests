@@ -467,7 +467,7 @@ function solveJSwithHC(poly_system, varlist)  #the input here is meant to be a p
 	for i in eachindex(mangled_varlist)
 		newvarname = Symbol("_qz_xy_" * replace(string(mangled_varlist[i]), "(t)" => "_t"))
 		newvar = (@variables $newvarname)[1]
-		display(newvar)
+		#display(newvar)
 		mangled_varlist[i] = newvar
 		manglingDict[varlist[i]] = newvar
 	end
