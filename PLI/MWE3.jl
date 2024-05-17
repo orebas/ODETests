@@ -2,6 +2,11 @@ using ModelingToolkit, DifferentialEquations
 using TaylorDiff, ForwardDiff
 using DifferentiationInterface, Enzyme, Zygote, ReverseDiff
 using SciMLSensitivity
+import Base.isnan
+function isnan(x::TaylorScalar{Float64, 2})
+	return false
+end
+
 function ADTest()
 	@parameters a
 	@variables t x1(t) 
@@ -21,10 +26,13 @@ function ADTest()
 
 	function different_time(new_ic, new_params, new_t)
 		#newprob = ODEProblem{true, SciMLBase.FullSpecialize}(model, new_ic, [0.0, new_t*2], new_params)
+		
 		#newprob = remake(problem, u0=new_ic, tspan = [0.0, new_t], p = new_params)
+		
 		newprob = remake(problem, u0 = new_ic, tspan = [0.0, new_t], p=new_params)
 		newprob = remake(newprob, u0 = typeof(new_t).(newprob.u0))
-        new_soln = ModelingToolkit.solve(newprob, Tsit5(), abstol = 1e-12, reltol = 1e-12)
+        
+		new_soln = ModelingToolkit.solve(newprob, Tsit5(), abstol = 1e-12, reltol = 1e-12)
 		return (soln(new_t, idxs = [x1]))
 	end
 
@@ -35,10 +43,10 @@ function ADTest()
 	display(just_t(0.5))
 
 	
-    display(ForwardDiff.derivative(just_t,1.0))
+    #display(ForwardDiff.derivative(just_t,1.0))
 	#display(TaylorDiff.derivative(just_t,1.0,1))  #isnan error
-    display(value_and_gradient(just_t, AutoForwardDiff(), 1.0)) 
-	#display(value_and_gradient(just_t, AutoReverseDiff(), 1.0)) 	
+    #display(value_and_gradient(just_t, AutoForwardDiff(), 1.0)) 
+	display(value_and_gradient(just_t, AutoReverseDiff(), 1.0)) 	
     #display(value_and_gradient(just_t, AutoEnzyme(Enzyme.Reverse), 1.0)) 
 	#display(value_and_gradient(just_t, AutoEnzyme(Enzyme.Forward), 1.0)) 
     #display(value_and_gradient(just_t, AutoZygote(), 1.0)) 
