@@ -123,14 +123,14 @@ function ADIA(model, measured_quantities_in, timescale = 1e-5, reltol = 1e-12, a
 		newprob = remake(problem, u0 = ic, tspan = [0.0, t], p = params)
 		
 		newu0 = typeof(t).(newprob.u0)
-		newu0 = Vector{TaylorScalar{Float64, 2}}(newu0)
-		println("line 85")
-		display(newu0)
-		print_element_types(newu0)
+		#newu0 = Vector{TaylorScalar{Float64, 2}}(newu0)
+		#println("line 85")
+		#display(newu0)
+		#print_element_types(newu0)
 		newprob = remake(newprob, u0 = newu0)
 		soln_first = ModelingToolkit.solve(newprob, solver, abstol = abstol, reltol = reltol)
-		println("line 66")
-		display(soln_first(t, idxs = indices))
+		#println("line 66")
+		#display(soln_first(t, idxs = indices))
 		return soln_first(t, idxs = indices)
 	end
 
@@ -140,7 +140,7 @@ function ADIA(model, measured_quantities_in, timescale = 1e-5, reltol = 1e-12, a
 	println("line 74")
 	display(obs_vector(initial_conditions, parameter_values, newt))
 
-	max_deriv = 3
+	max_deriv = 2
 	function full_derivs(ic, params, t)
 
 		return [nth_deriv_at_TD(t_new -> obs_vector(initial_conditions, parameter_values, t_new), i, timescale / 2.0)
