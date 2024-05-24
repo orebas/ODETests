@@ -1,15 +1,15 @@
 using ModelingToolkit, DifferentialEquations
 using ODEParameterEstimation
 using ForwardDiff
-using TaylorDiff
+#using TaylorDiff
 using RecursiveArrayTools
 import Base.isnan
 import Base.eltype
 import RecursiveArrayTools.recursive_unitless_eltype
-
-function isnan(a::TaylorScalar{Float64, 2})
-	return false
-end
+using ForwardDiff: JacobianConfig, Chunk, jacobian
+#function isnan(a::TaylorScalar{Float64, 2})
+#	return false
+#end
 #using ParameterEstimation
 
 #function eltype(a::TaylorScalar{Float64, 2})
@@ -21,11 +21,11 @@ end
 #	return TaylorScalar{Float64, 2}
 #end
 
-function recursive_unitless_eltype(a::Vector{TaylorScalar{T,N}}) where {T,N}
-	return TaylorScalar{T,N}
-end
+#function recursive_unitless_eltype(a::Vector{TaylorScalar{T,N}}) where {T,N}
+#	return TaylorScalar{T,N}
+#end
 
-#function eltype(Vector{TaylorScalar{Float64, 2}})
+#function eltype(a::Vector{TaylorScalar{Float64, 2}})
 #	return TaylorScalar{Float64, 2}
 #end
 
@@ -79,7 +79,24 @@ end
 
 
 
-function ADIA(model, measured_quantities_in, timescale = 1e-5, reltol = 1e-12, abstol = 1e-12, solver = Vern9())
+function nth_jac_at_FD(f, n::Int, t)  #todo(orebas) make this more efficient.
+	if (n == 0)
+		return f(t)
+	elseif (n == 1)
+		return ForwardDiff.jacobian(f, t)
+	else
+		g(t) = nth_deriv_at_FD(f, n - 1, t)
+		return ForwardDiff.jacobian(g, t)
+	end
+end
+
+
+
+#ForwardDiff.JacobianConfig(second_d,x,ForwardDiff.Chunk{1}
+
+
+
+function ADIA(model, measured_quantities_in, timescale = 1e-5, reltol = 1e-12, abstol = 1e-12, solver = Tsit5())
 	(t, model_eq, model_states, model_ps) = unpack_ODE(model)
 	measured_quantities = deepcopy(measured_quantities_in)
 	numobs = length(measured_quantities)
@@ -119,10 +136,12 @@ function ADIA(model, measured_quantities_in, timescale = 1e-5, reltol = 1e-12, a
 	function obs_vector(ic, params, t)
 		display(ic)
 		display(params)
-
 		newprob = remake(problem, u0 = ic, tspan = [0.0, t], p = params)
-		
 		newu0 = typeof(t).(newprob.u0)
+		#newu0 = Vector{TaylorScalar{Float64, 2}}(newu0)
+		#println("line 85")
+		#display(newu0)
+		#print_element_types(newu0)
 		#newu0 = Vector{TaylorScalar{Float64, 2}}(newu0)
 		#println("line 85")
 		#display(newu0)
@@ -136,15 +155,57 @@ function ADIA(model, measured_quantities_in, timescale = 1e-5, reltol = 1e-12, a
 
 	parameter_values = Dict([p => 2.0 for p in model_ps])
 	initial_conditions = Dict([p => 1.0 for p in model_states])
-	newt = 1
+	newt = timescale*2
 	println("line 74")
 	display(obs_vector(initial_conditions, parameter_values, newt))
 
-	max_deriv = 2
+	max_deriv = 3
+
+
+
+	#jac0(f) = t -> f(t)
+	#jac1(f) = t -> ForwardDiff.jacobian(jac0(f),t, ForwardDiff.JacobianConfig(jac0,t,ForwardDiff.Chunk(1)))
+	#jac2(f) = t -> ForwardDiff.jacobian(jac1(f),t)
+	#jac3(f) = t -> ForwardDiff.jacobian(jac2(f),t)
+	#jac4(f) = t -> ForwardDiff.jacobian(jac3(f),t)
+	#jac5(f) = t -> ForwardDiff.jacobian(jac4(f),t)
+	#jac6(f) = t -> ForwardDiff.jacobian(jac5(f),t)
+
+	#jac_vec = [jac0, jac1,jac2,jac3,jac4,jac5,jac6,jac6]
+
 	function full_derivs(ic, params, t)
 
-		return [nth_deriv_at_TD(t_new -> obs_vector(initial_conditions, parameter_values, t_new), i, timescale / 2.0)
-				for i in 0:max_deriv]
+		#f(t_new) = obs_vector(initial_conditions, parameter_values, t_new[1])
+
+		f(x) = [x[1]^2, x[1]^3]
+
+		jac0(x) = f(x)
+		jac1(x) = ForwardDiff.jacobian(jac0 , x, ForwardDiff.JacobianConfig(jac0,x,ForwardDiff.Chunk(1)))
+		jac2(x) = ForwardDiff.jacobian(jac1, x,ForwardDiff.JacobianConfig(jac1,x,ForwardDiff.Chunk(1)))
+		jac3(x) = ForwardDiff.jacobian(jac2, x,ForwardDiff.JacobianConfig(jac2,x,ForwardDiff.Chunk(1)))
+
+		x = [timescale / 2.0] 
+
+		@time y = [ jac0(x), jac1(x), jac2(x), jac3(x)] 
+		return y
+
+		#return [jac_vec[i+1](f)([timescale/2.0])  for i in 0:max_deriv]
+		
+		#dummy = []
+		#temp = jac0(f)([timescale/2.0])
+		#temp2 = ForwardDiff.jacobian(f,[timescale/2.0])
+		#temp2 = ForwardDiff.jacobian(t -> jac0(f,t),[timescale/2.0])
+		#temp3 = jac1(f,[timescale / 2.0])
+		
+		#temp2 = jac1(f)([timescale/2.0])
+		
+		#push!(dummy, temp)
+		#push!(dummy, temp2)
+		
+		#return dummy
+		
+		#return [nth_deriv_at_FD(t_new -> obs_vector(initial_conditions, parameter_values, t_new), i, timescale / 2.0)
+		#		for i in 0:max_deriv]
 
 	end
 
