@@ -1,4 +1,4 @@
-function local_identifiability_analysis(model::ODESystem, measured_quantities)
+ function local_identifiability_analysis(model::ODESystem, measured_quantities)
 
 	t = ModelingToolkit.get_iv(model)
 	model_eq = ModelingToolkit.equations(model)
